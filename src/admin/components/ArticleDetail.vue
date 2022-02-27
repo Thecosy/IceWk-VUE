@@ -374,25 +374,19 @@ export default {
         if (valid) {
           this.loading = true
           this.postForm.status = 'published'
-          
           createArticle(that.postForm).then(resp => {
-            // console.log(that.postForm)
-            // console.log(resp)
             //做一个简单的返回数据判断
             if (resp.status === 200) {
-              console.log(resp)
-              //发布文章成功之后取回ArticleStatus
-              this.postForm.articleStatus = resp.data.articleStatus
-              this.postForm.id = resp.data.id
-              that.fetchData(this.postForm.id)
               this.$notify({
                 title: '成功',
                 message: '发布文章成功',
                 type: 'success',
                 duration: 2000
               })
-              this.postForm.status = 'published'
-              
+              //返回一个此文章的id给本页
+              this.postForm.id = resp.data
+
+              this.postForm.status = 'published'         
               this.loading = false
             } else {
               console.log("保存失败")
@@ -430,8 +424,6 @@ export default {
       //后端保存草稿处理
       //再调用一次发布
       createArticle(that.postForm).then(resp => {
-        // console.log(that.postForm)
-        // console.log(resp)
         //做一个简单的返回数据判断
         if (resp.status === 200) {
           this.$message({
@@ -440,6 +432,7 @@ export default {
             showClose: true,
             duration: 1000
           })
+          this.postForm.status = 'draft'
           this.loading = false
         } else {
           console.log("保存失败")
