@@ -374,14 +374,7 @@ export default {
         if (valid) {
           this.loading = true
           this.postForm.status = 'published'
-          console.log(this.postForm.id)
-          console.log(this.articleid)
-          that.fetchData(this.postForm.id)
-          that.fetchData(this.articleid)
-
-          setTimeout(() => {
-
-          }, 52000)
+          
           createArticle(that.postForm).then(resp => {
             // console.log(that.postForm)
             // console.log(resp)
@@ -391,6 +384,7 @@ export default {
               //发布文章成功之后取回ArticleStatus
               this.postForm.articleStatus = resp.data.articleStatus
               this.postForm.id = resp.data.id
+              that.fetchData(this.postForm.id)
               this.$notify({
                 title: '成功',
                 message: '发布文章成功',
@@ -398,6 +392,7 @@ export default {
                 duration: 2000
               })
               this.postForm.status = 'published'
+              
               this.loading = false
             } else {
               console.log("保存失败")
