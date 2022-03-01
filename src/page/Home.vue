@@ -227,141 +227,36 @@
             </div>
           </header>
           <div>
-            <section class="layout-index pc-model mt-5">
-              <div class="banner-index mb-6">
-                <div class="container">
-                  <div
+            <section class="layout-index pc-model mt-5 ">
+             
+              <!-- class="banner-index mb-6" -->
+              <div class="outsection">
+              <el-carousel indicator-position="outside" class="index1 banner-index mb-6 Thecarousel" :height="dataHeight" :interval="3000" arrow="always" >
+                <el-carousel-item style=""  v-for="(item,id) in Carousel" :key="id">
+                  <div >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                                           <div
                     data-v-bffc9160=""
                     class="index-banner el-carousel el-carousel--horizontal"
                   >
-                    <div class="el-carousel__container" style="height: 400px">
-                      <button
-                        type="button"
-                        class="el-carousel__arrow el-carousel__arrow--left"
-                      >
-                        <i class="el-icon-arrow-left"></i>
-                      </button>
-                      <button
-                        type="button"
-                        class="el-carousel__arrow el-carousel__arrow--right"
-                      >
+                    <div class="el-carousel__container" style="height: 450px">
                         <i class="el-icon-arrow-right"></i>
-                      </button>
-                      <div
-                        data-v-bffc9160=""
-                        class="el-carousel__item is-animating"
-                        style="transform: translateX(-1170px) scale(1)"
-                      >
-                        <!---->
-                        <div
-                          data-v-bffc9160=""
-                          class="
-                            section
-                            white
-                            h-400
-                            position-relative
-                            radius-5x
-                            d-flex
-                            align-items-center
-                          "
-                        >
-                          <div data-v-bffc9160="" class="bg-shape-holder">
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-1.svg"
-                              class="shape-three"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-55.svg"
-                              class="shape-four"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-56.svg"
-                              class="shape-five"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-57.svg"
-                              class="shape-six"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-58.svg"
-                              class="shape-seven"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-59.svg"
-                              class="shape-eight"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-62.svg"
-                              class="shape-nine"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-61.svg"
-                              class="shape-ten"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-60.svg"
-                              class="shape-eleven"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-10.svg"
-                              class="shape-10"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-11.svg"
-                              class="shape-11"
-                            />
-                          </div>
-                          <div
-                            data-v-bffc9160=""
-                            class="w-600 pl-10 position-relative z-index-9999"
-                          >
-                            <h2 data-v-bffc9160="">无广告，无后门，安全！</h2>
-                            <p data-v-bffc9160="" class="text-muted fs-18">
-                              网站无广告，软件无后门，欢迎监督。隐私方面本站无能为力，推荐大家安装防火墙软件禁止应用联网！
-                            </p>
-                            <a
-                              data-v-bffc9160=""
-                              href="https://macwk.com/soft/firewall/p1"
-                              class="btn btn-theme btn-round px-6"
-                              >安装防火墙</a
-                            >
-                          </div>
-                          <div
-                            data-v-bffc9160=""
-                            class="index-banner-image-one"
-                          >
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/banner-safe-free.png"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                     
                       <div
                         data-v-bffc9160=""
                         class="el-carousel__item is-active is-animating"
                         style="transform: translateX(0px) scale(1)"
                       >
-                        <!---->
+                       
                         <div
                           data-v-bffc9160=""
+                         
                           class="
+                            index
                             section
-                            white
-                            h-400
+                            white1
+                            h-450
                             position-relative
-                            radius-5x
+                            radius-4x
                             d-flex
                             align-items-center
                           "
@@ -439,15 +334,15 @@
                             data-v-bffc9160=""
                             class="w-600 pl-10 position-relative z-index-9999"
                           >
-                            <h2 data-v-bffc9160="">只收录精品Mac应用</h2>
+                            <h2 data-v-bffc9160="">{{ item.title }}</h2>
                             <p data-v-bffc9160="" class="text-muted fs-18">
-                              每款Mac应用都经过Macwk.com严格测试后发布，确保应用可以和正版软件一样稳定运行使用！
+                             {{ item.introduce }}
                             </p>
                             <a
                               data-v-bffc9160=""
                               href="https://macwk.com/soft/all/p1"
                               class="btn btn-theme btn-round px-6"
-                              >马上下载</a
+                              >  {{ item.button }}</a
                             >
                           </div>
                           <div
@@ -456,44 +351,18 @@
                           >
                             <img
                               data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/home-banner-carry.png"
+                              :src=  "item.img"
                             />
                           </div>
                         </div>
                       </div>
                     </div>
-                    <ul
-                      class="
-                        el-carousel__indicators
-                        el-carousel__indicators--horizontal
-                        el-carousel__indicators--outside
-                      "
-                    >
-                      <li
-                        class="
-                          el-carousel__indicator
-                          el-carousel__indicator--horizontal
-                        "
-                      >
-                        <button class="el-carousel__button">
-                          <!---->
-                        </button>
-                      </li>
-                      <li
-                        class="
-                          el-carousel__indicator
-                          el-carousel__indicator--horizontal
-                          is-active
-                        "
-                      >
-                        <button class="el-carousel__button">
-                          <!---->
-                        </button>
-                      </li>
-                    </ul>
                   </div>
-                </div>
+                  </div>
+                </el-carousel-item>
+              </el-carousel>
               </div>
+              <!-- class="container" -->
               <div class="container">
                 <div data-v-0a1f67c4="" class="index-special row mb-6">
                   <div data-v-0a1f67c4="" class="col-3">
@@ -1819,7 +1688,7 @@
                         "
                       >
                         <div v-if="item.status.includes('published')" >
-                        <router-link :target="istarget" :to="'/post/' + item.id">
+                        <router-link :to="'/post/' + item.id">
                         <div class="d-flex align-items-center">
                       <div class="icon-box icon-one">
                              <img
@@ -1902,7 +1771,7 @@
                         "
                       >
                       <div v-if="item.status.includes('published')" >
-                        <router-link :target="istarget" :to="'/post/' + item.id">
+                        <router-link  :to="'/post/' + item.id">
                         <div class="d-flex align-items-center">
                           <div class="icon-box icon-one">
                              <img
@@ -2169,6 +2038,7 @@
 <script>
 import { getNewArticle } from '@/api/webarticle'
 import { formatDate } from '@/utils/date.js'
+import { getCarousel } from '@/api/sitting'
 
 export default ({
   name: 'Home',
@@ -2176,6 +2046,7 @@ export default ({
   },
     data() {
     return {
+      Carousel:{},
       list: null,
       leftArr: null,
       rightArr: null,
@@ -2183,8 +2054,14 @@ export default ({
   },
   created() {
     this.getList()
+    this.getSitting()
   },
-
+  props: {
+      dataHeight: {
+        type: String,
+        default: '450px'
+      }
+    },
   methods: {
     getStyles() {
       //生成随机颜色
@@ -2228,6 +2105,12 @@ export default ({
       let data = new Date(time)
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
+    getSitting() {
+       getCarousel().then(resp => {
+         this.Carousel = resp.data
+         console.log(resp)
+       })
+    },
     getList() {
       this.listLoading = true
       getNewArticle(6).then(resp => {
@@ -2235,11 +2118,10 @@ export default ({
         console.log(this.list)
         this.total = resp.data.total
         this.listLoading = false
-
-	//将array进行处理,他的index索引余2===0的就放到一个新数组中leftArr
-	this.leftArr = this.list.filter((_item, index) => index % 2 === 0);
-	//将array进行处理,他的index索引余2 ！===0的就放到一个新数组中rightArr
-	this.rightArr = this.list.filter((_item, index) => index % 2 !== 0);
+        //将array进行处理,他的index索引余2===0的就放到一个新数组中leftArr
+        this.leftArr = this.list.filter((_item, index) => index % 2 === 0);
+        //将array进行处理,他的index索引余2 ！===0的就放到一个新数组中rightArr
+        this.rightArr = this.list.filter((_item, index) => index % 2 !== 0);
 
       })
     }
@@ -2260,3 +2142,43 @@ width: 145px;
 }
 </style>
 
+
+<style>
+.white1 {
+  background-color:rgb(255, 255, 255);
+  z-index: -1;
+
+  }
+.index1{
+  z-index: 555;
+}
+.index {
+  z-index: -1;
+}
+.outsection {
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.Thecarousel {
+  padding-left:15px;padding-right:15px;
+text-align: center;
+width: 1435px;
+}
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 18px;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
+</style>

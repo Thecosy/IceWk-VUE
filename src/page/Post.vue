@@ -143,7 +143,7 @@
                     <div class=".image-header-side"><div class="imgBox"><img class="image-header" alt="" data-src="https://static.konlonair.com/public/uploads/_/originals/article-jetbrains-crack-mainphoto.jpg" src="https://static.konlonair.com/public/uploads/_/originals/article-jetbrains-crack-mainphoto.jpg" lazy="loaded"></div></div>
                     <div class="content-markdown">
                       <!-- 内容区域 -->
-                      <el-skeleton :rows="6" animated />
+                    
                       <div id="sidelist" v-html="this.content"></div>
                       <side-catalog class="catalog" v-bind="catalogProps">
                         <template #default="{  isActive }">
@@ -697,7 +697,7 @@ export default {
 
         if (resp.data.createTime != null) { this.addTime = resp.data.createTime } else { this.addTime = resp.data.addTime }
         this.intro = resp.data.intro
-        console.log(resp.data.content)
+
       })
     },
   },
