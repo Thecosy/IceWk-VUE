@@ -1,9 +1,18 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-
+    <div class="background">
+      <img :src="imgSrc" width="100%" height="100%" alt="" />
+    </div>
+    <el-form
+      ref="loginForm"
+      :model="loginForm"
+      :rules="loginRules"
+      class="login-form"
+      auto-complete="on"
+      label-position="left"
+    >
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">苏宁源码后台管理</h3>
       </div>
 
       <el-form-item prop="username">
@@ -37,17 +46,24 @@
           @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+          <svg-icon
+            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
+          />
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button
+        :loading="loading"
+        type="primary"
+        style="width: 100%; margin-bottom: 30px"
+        @click.native.prevent="handleLogin"
+        >登陆</el-button
+      >
 
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
+        <span style="margin-right: 20px"></span>
+        <span> </span>
       </div>
-
     </el-form>
   </div>
 </template>
@@ -57,8 +73,23 @@ import { login } from '@/api/login'
 
 export default {
   name: 'Login',
+  mounted() {
+    var that = this;
+    //开始背景图片自适应
+    that.setImgSize();
+    //屏幕尺寸改变的监听方法
+    window.onresize = () => {
+      that.setImgSize();
+    }
+  },
   data() {
     return {
+      imgSrc: require('../../static/image/login.jpg'),
+      bgImg: {
+        backgroundImage: "url(" + require("../../static/image/login.jpg") + ")",
+        height: '100vh',//这里一定要设置高度 否则背景图无法显示
+        backgroundRepeat: "no-repeat"
+      },
       loginForm: {
         username: '',
         password: ''
@@ -74,13 +105,19 @@ export default {
   },
   watch: {
     $route: {
-      handler: function(route) {
+      handler: function (route) {
         this.redirect = route.query && route.query.redirect
       },
       immediate: true
     }
   },
   methods: {
+    setImgSize() {
+      var that = this;
+      let height = document.body.clientHeight + "px"; //获取可见区域的高
+      let width = document.body.clientWidth + "px";//获取可见区域的宽
+      that.$set(that.bgImg, 'backgroundSize', width + "" + height);
+    },
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
@@ -96,22 +133,14 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          // this.$store.dispatch('user/login', this.loginForm).then(() => {
-          //   this.$router.push({ path: this.redirect || '/' })
-          //   this.loading = false
-          // }).catch(() => {
-          //   this.loading = false
-          // })
           login(that.loginForm).then(resp => {
             console.log(resp)
-            console.log(that.loginForm)
-            /* eslint-disable */
-            if (resp.data == 0) {
+            if (resp.data.code == 402 || resp.data.code == 400) {
               that.$message({
                 message: '登陆失败',
                 type: 'warning'
               })
-            } else {
+            } else if (resp.data.code == 200) {
               localStorage.setItem('access-admin', JSON.stringify(resp.data))
               that.$router.push({ path: '/admin' }) // 跳到账号管理
               that.$message({
@@ -119,7 +148,7 @@ export default {
                 type: 'success'
               })
             }
-          }).catch((e) => {})
+          }).catch((e) => { })
           this.loading = false
         } else {
           console.log('error submit!!')
@@ -135,8 +164,8 @@ export default {
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg:#283443;
-$light_gray:#fff;
+$bg: #283443;
+$light_gray: #fff;
 $cursor: #fff;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
@@ -179,16 +208,39 @@ $cursor: #fff;
 </style>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
+$bg: #2d3a4b;
+$dark_gray: #889aa4;
+$light_gray: #eee;
 
 .login-container {
-  min-height: 100%;
   width: 100%;
-  background-color: $bg;
-  overflow: hidden;
+  height: 100%;
+}
+.login-page {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin: 180px auto;
+  width: 350px;
+  padding: 35px 35px 15px;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 0 25px #cac6c6;
+}
+label.el-checkbox.rememberme {
+  margin: 0px 0px 15px;
+  text-align: left;
+}
+.background {
+  width: 100%;
+  height: 100%; /**宽高100%是为了图片铺满屏幕 **/
+  z-index: -1;
+  position: absolute;
+}
+.content {
+  z-index: 1;
+}
 
+.login-container {
   .login-form {
     position: relative;
     width: 520px;

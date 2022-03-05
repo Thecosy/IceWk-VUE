@@ -17,15 +17,18 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       const admin = JSON.parse(window.localStorage.getItem('access-admin'))
+      console.log(admin)
       if (!admin) {
         next({ path: '/login' })
       } else {
-        console.log('检验token合法性')
+        console.log('检验token合法')
+        const admin = JSON.parse(window.localStorage.getItem('access-admin'))
+        console.log(admin)
         // 检验token合法性
-        checkToken(admin.token).then(respose => {
+        checkToken(admin.data).then(respose => {
           console.log(respose)
           if (respose.data !== true) {
-            console.log('检验失败')
+            console.log('检验失')
             next({ path: '/error' })
           }
         })

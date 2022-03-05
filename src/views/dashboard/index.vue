@@ -14,7 +14,6 @@
         :xl="{ span: 12 }"
         style="padding-right: 8px; margin-bottom: 30px"
       >
-        <transaction-table />
       </el-col>
       <el-col
         :xs="{ span: 24 }"
@@ -37,11 +36,6 @@
         <box-card />
       </el-col>
     </el-row>
-
-    <div class="dashboard-text">name:{{ res }}</div>
-    <button @click="submitForm()">test</button>
-    <button @click="getArticle()">getArticle</button>
-    <div v-html="this.content"></div>
   </div>
 </template>
 
