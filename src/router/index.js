@@ -150,9 +150,9 @@ export const constantRoutes = [
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       },
       {
-        path: 'dropzone',
-        component: () => import('@/admin/Dropzone'),
-        name: 'DropzoneDemo',
+        path: 'ArticleClass',
+        component: () => import('@/admin/ArticleClass'),
+        name: 'ArticleClass',
         meta: { title: '分类管理', icon: 'el-icon-upload', requireAuth: true }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       }

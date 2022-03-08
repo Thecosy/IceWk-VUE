@@ -12,7 +12,7 @@ export function createArticle(data) {
     dataType: 'json',
     crossDomain: true,
     processData: false,
-    contentType: false
+    contentType: false,
   })
 }
 
@@ -42,5 +42,17 @@ export function DelectArticleById(id) {
   return request({
     url: 'article/DelectArticleById/' + id,
     method: 'get'
+  })
+}
+
+export function newArticleClass(data) {
+  return request({
+    url: '/article/create',
+    method: 'post',
+    data: data,
+    dataType: 'json',
+    crossDomain: true,
+    processData: false,
+    contentType: false,
   })
 }
