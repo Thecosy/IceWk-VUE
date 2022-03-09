@@ -9,9 +9,13 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
-   const admin = JSON.parse(window.localStorage.getItem('access-admin'))
-   config.headers.Authorization = admin.data;
-   console.log(admin.data)
+    //这里得加个判空条件
+    const admin = JSON.parse(window.localStorage.getItem('access-admin'))
+    if(admin != null) {  config.headers.Authorization = admin.data;
+      console.log(admin.data)
+    }
+  
+
     // do something before request is sent
     return config
   },
