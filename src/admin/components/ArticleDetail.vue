@@ -102,80 +102,67 @@
           </el-col>
         </el-row>
 
-          <el-row>
-         
+        <el-row>
           <el-col :span="24">
             <div class="postInfo-container">
               <el-row>
                 <el-col :span="8">
-            <el-form-item
-           
-              label-width="70px"
-              label="简介:"
-            >
-              <el-input
-                v-model="postForm.intro"
-                :rows="1"
-                type="textarea"
-                class="article-textarea"
-                autosize
-                placeholder="简单介绍一下吧"
-              />
-              <span v-show="contentShortLength" class="word-counter"
-                >{{ contentShortLength }}words</span
-              >
-            </el-form-item>
-         
+                  <el-form-item label-width="70px" label="简介:">
+                    <el-input
+                      v-model="postForm.intro"
+                      :rows="1"
+                      type="textarea"
+                      class="article-textarea"
+                      autosize
+                      placeholder="简单介绍一下吧"
+                    />
+                    <span v-show="contentShortLength" class="word-counter"
+                      >{{ contentShortLength }}words</span
+                    >
+                  </el-form-item>
                 </el-col>
 
                 <el-col :span="10">
-           <el-form-item
-             
-              label="标签:"
-            >
-                <el-drag-select
-                  v-model="value"
-                  style="width: 400px"
-                  multiple
-                  placeholder="请选择"
-                >
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
-                </el-drag-select>
-            </el-form-item>
+                  <el-form-item label="标签:">
+                    <el-drag-select
+                      v-model="value"
+                      style="width: 400px"
+                      multiple
+                      placeholder="请选择"
+                    >
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-drag-select>
+                  </el-form-item>
                 </el-col>
 
                 <el-col :span="6">
- 
-          
-                    <el-form-item
-        
-          label-width="60px"
-          label="分类:"
-          class="postInfo-container-item"
-          prop="author"
-        >
-          <el-select
-            v-model="postForm.author"
-            :remote-method="getRemoteUserList"
-            filterable
-            default-first-option
-            remote
-            placeholder="选择分类"
-          >
-            <el-option
-              v-for="(item, index) in userListOptions"
-              :key="item + index"
-              :label="item"
-              :value="item"
-            />
-          </el-select>
-          
-        </el-form-item>
+                  <el-form-item
+                    label-width="60px"
+                    label="分类:"
+                    class="postInfo-container-item"
+                    prop="class"
+                  >
+                    <el-select
+                      v-model="postForm.sortClass"
+                      :remote-method="getRemoteUserList"
+                      filterable
+                      default-first-option
+                      remote
+                      placeholder="选择分类"
+                    >
+                      <el-option
+                        v-for="(item, index) in ClassListOptions"
+                        :key="item + index"
+                        :label="item"
+                        :value="item"
+                      />
+                    </el-select>
+                  </el-form-item>
                 </el-col>
               </el-row>
             </div>
@@ -208,6 +195,7 @@ import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown
 import { getArticleById } from '@/api/article'
 import { getAllUserName } from '@/api/user'
 import { createArticle } from '@/api/article'
+import { getAllClassName } from '@/api/article'
 
 import Tinymce from '@/components/Tinymce'
 import MDinput from '@/components/MDinput'
@@ -299,6 +287,7 @@ export default {
       postForm: Object.assign({}, defaultForm),
       loading: false,
       userListOptions: [],
+      ClassListOptions: [],
       rules: {
         image_uri: [{ validator: validateRequire }],
         title: [{ validator: validateRequire }],
@@ -328,7 +317,7 @@ export default {
     }
   },
   created() {
-    //获取作者列表
+    //获取作者列表，和分类列表
     this.getRemoteUserList()
 
     //数据回填
@@ -386,7 +375,7 @@ export default {
               //返回一个此文章的id给本页
               this.postForm.id = resp.data
 
-              this.postForm.status = 'published'         
+              this.postForm.status = 'published'
               this.loading = false
             } else {
               console.log("保存失败")
@@ -451,6 +440,10 @@ export default {
       getAllUserName().then(resp => {
         this.userListOptions = resp.data.map(o => { return [o.username].toString() })
 
+      })
+      //获取分类列表
+      getAllClassName().then(resp => {
+        this.ClassListOptions = resp.data.map(o => { return [o.name].toString() })
       })
     }
   }

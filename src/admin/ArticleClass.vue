@@ -24,7 +24,7 @@
               type="textarea"
               :autosize="{ minRows: 2, maxRows: 4 }"
               placeholder="请输入内容"
-              v-model="form.describe"
+              v-model="form.describes"
             >
             </el-input>
           </el-form-item>
@@ -46,6 +46,8 @@
       </el-col>
       <el-col :span="16">
         <el-table
+          v-loading="listLoading"
+          :data="list"
           :default-sort="{ prop: 'date', order: 'ascending' }"
           border
           fit
@@ -59,33 +61,26 @@
                 :to="'/post/' + row.id"
                 class="link-type"
               >
-                <span>{{ row.title }}</span>
+                <span>{{ row.name }}</span>
               </router-link>
             </template>
           </el-table-column>
 
           <el-table-column width="120px" align="center" label="描述">
             <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
+              <span>{{ scope.row.describes }}</span>
             </template>
           </el-table-column>
 
           <el-table-column width="100px" label="别名">
             <template slot-scope="scope">
-              <svg-icon
-                v-for="n in +scope.row.ownerTag"
-                :key="n"
-                icon-class="star"
-                class="meta-item__icon"
-              />
+              <span>{{ scope.row.otherName }}</span>
             </template>
           </el-table-column>
 
-          <el-table-column class-name="status-col" label="总数" width="110">
+          <el-table-column class-name="status-col" label="文章总数" width="110">
             <template slot-scope="{ row }">
-              <el-tag :type="row.status | statusFilter">
-                {{ row.status }}
-              </el-tag>
+              <el-tag :type="row.status | statusFilter"> </el-tag>
             </template>
           </el-table-column>
 
@@ -109,6 +104,13 @@
             </template>
           </el-table-column>
         </el-table>
+        <pagination
+          v-show="total > 0"
+          :total="total"
+          :page.sync="listQuery.page"
+          :limit.sync="listQuery.limit"
+          @pagination="getList"
+        />
       </el-col>
     </el-row>
   </div>
@@ -116,17 +118,28 @@
 
 <script>
 import { newArticleClass } from '@/api/article'
+import { allArticleClass } from '@/api/article'
+import { DeleteArticleClass } from '@/api/article'
+
+import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 
 export default {
   name: 'ArticleList',
-
+  components: { Pagination },
   data() {
     return {
+      list: null,
+      total: 0,
+      listLoading: true,
+      listQuery: {
+        page: 1,
+        limit: 8
+      },
       form: {
         name: '',
         father: '',
         otherName: '',
-        describe: '',
+        describes: '',
         imgclass: '',
         top: ''
 
@@ -134,44 +147,78 @@ export default {
     }
   },
   created() {
-
+    this.getList()
   },
   methods: {
+        delectArtive(id) {
+      this.$confirm('此操作将永久删除文章分类是否确认删除？', '确认信息', {
+        distinguishCancelAndClose: true,
+        confirmButtonClass: "danger",
+        confirmButtonText: '删除',
+        cancelButtonText: '放弃删除'
+      })
+        .then(() => {
+          DeleteArticleClass(id).then(resp => {
+            this.$notify({
+              title: '成功',
+              message: '您已成功删除该分类',
+              type: 'success'
+            });
+            //刷新当前页面
+           this.getList()
+          })
+        })
+        .catch(action => {
+          this.$message({
+            type: 'info',
+            message: action === 'cancel'
+              ? '放弃删除'
+              : '保留当前分类'
+          })
+        });
+    },
+    formatDate(time) {
+      let data = new Date(time)
+      return formatDate(data, 'yyyy-MM-dd hh:mm ')
+    },
+    getList() {
+      this.listLoading = true
+      allArticleClass(this.listQuery).then(resp => {
+        this.list = resp.data.data
+        console.log(this.form)
+        this.total = resp.data.total
+        this.listLoading = false
+      })
+    },
     onSubmit() {
       let that = this
-      console.log(this.postForm)
-      this.$refs.postForm.validate(valid => {
-        if (valid) {
-          this.loading = true
-          newArticleClass(that.form).then(resp => {
-            //做一个简单的返回数据判断
-            if (resp.status === 200) {
-              this.$notify({
-                title: '成功',
-                message: '创建分类成功',
-                type: 'success',
-                duration: 2000
-              })
-              this.loading = false
-            } else {
-              console.log("创建失败")
-            }
+      this.loading = true
+      newArticleClass(that.form).then(resp => {
+        //做一个简单的返回数据判断
+        if (resp.status === 200) {
+          this.getList()
+          this.$notify({
+            title: '成功',
+            message: '创建分类成功',
+            type: 'success',
+            duration: 2000
           })
-            .catch((e) => {
-              console.log('error submit!!')
-              this.loading = false
-              this.$notify.error({
-                title: '失败',
-                message: '请检查网络连接',
-              })
-              return false
-            })
-        } else {
           this.loading = false
-          console.log('error submit!!')
-          return false
+        } else {
+          console.log("创建失败")
         }
       })
+        .catch((e) => {
+          console.log('error submit!!')
+          this.loading = false
+          this.$notify.error({
+            title: '失败',
+            message: '请检查网络连接',
+          })
+          return false
+        })
+
+
     },
   }
 }

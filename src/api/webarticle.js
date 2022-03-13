@@ -20,6 +20,7 @@ export function getNewArticle(num) {
     method: 'get'
   })
 }
+
 export function getAllArticleNumber() {
   return request({
     url: 'WebArticle/getAllArticleNumber/',
@@ -27,4 +28,23 @@ export function getAllArticleNumber() {
   })
 }
 
+export function Findarticles(title) {
+  return request({
+    url: 'WebArticle/findarticles/'+ title,
+    method: 'get'
+  })
+}
 
+export function FindarticlesByNum(title,num) {
+  return request({
+    url: 'WebArticle/findarticlesbynum/'+ title +"/" + num,
+    method: 'get'
+  })
+}
+
+export function FindAllArticle(query) {
+  return request({
+    url: 'WebArticle/FindAllArticle/'+query.content + '/' + query.page + '/' + query.limit,
+    method: 'get'
+  })
+}

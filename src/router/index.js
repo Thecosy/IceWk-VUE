@@ -55,6 +55,21 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/class',
+    component: () => import('@/page/Class'),
+    hidden: true
+  },
+  {
+    path: '/planet',
+    component: () => import('@/page/Planet'),
+    hidden: true
+  },
+  {
+    path: '/post/:content/all',
+    component: () => import('@/page/SearchPost'),
+    hidden: true
+  },
+  {
     path: '/about',
     component: () => import('@/page/About'),
     hidden: true

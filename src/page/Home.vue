@@ -4,363 +4,155 @@
       <!---->
       <div id="__layout">
         <div data-fetch-key="0" class="app light macwk-animation">
-          <header class="app-header" data-v-7cf0e7dc="">
-            <div
-              class="app-header-navbar white shadow-4 border-bottom pc-model"
-              data-v-122eae44=""
-              data-v-7cf0e7dc=""
-            >
-              <div class="app-header-main" data-v-122eae44="">
-                <a
-                  href="https://macwk.com/"
-                  class="app-header-logo active"
-                  data-v-122eae44=""
-                  aria-current="page"
-                >
-                  <svg
-                    id="macwk-svg-logo"
-                    width="32"
-                    height="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-v-6dd0b122=""
-                    data-v-122eae44=""
-                  >
-                    <title data-v-6dd0b122="">MacWK</title>
-                    <defs data-v-6dd0b122="">
-                      <linearGradient
-                        x1="50%"
-                        y1="0%"
-                        x2="50%"
-                        y2="100%"
-                        id="a"
-                        data-v-6dd0b122=""
-                      >
-                        <stop
-                          offset="0%"
-                          class="stop-color-circle"
-                          data-v-6dd0b122=""
-                        ></stop>
-                        <stop
-                          offset="100%"
-                          class="stop-color-circle"
-                          data-v-6dd0b122=""
-                        ></stop>
-                      </linearGradient>
-                      <linearGradient
-                        x1="100%"
-                        y1="86.198%"
-                        x2="-14.813%"
-                        y2="-4.357%"
-                        id="b"
-                        data-v-6dd0b122=""
-                      >
-                        <stop
-                          offset="0%"
-                          class="stop-color-default"
-                          data-v-6dd0b122=""
-                        ></stop>
-                        <stop
-                          offset="40.927%"
-                          class="stop-color-default"
-                          data-v-6dd0b122=""
-                        ></stop>
-                        <stop
-                          offset="100%"
-                          class="stop-color-default"
-                          data-v-6dd0b122=""
-                        ></stop>
-                      </linearGradient>
-                      <linearGradient
-                        x1="86.515%"
-                        y1="24.533%"
-                        x2="0%"
-                        y2="24.533%"
-                        id="c"
-                        data-v-6dd0b122=""
-                      >
-                        <stop
-                          stop-opacity="0"
-                          offset="0%"
-                          class="stop-color-default"
-                          data-v-6dd0b122=""
-                        ></stop>
-                        <stop
-                          offset="100%"
-                          class="stop-color-default-linearGradient"
-                          data-v-6dd0b122=""
-                        ></stop>
-                      </linearGradient>
-                    </defs>
-                    <g fill="none" fill-rule="evenodd" data-v-6dd0b122="">
-                      <path
-                        d="M29.952 16c0-1.933-1.562-3.5-3.488-3.5a3.494 3.494 0 0 0-3.488 3.5c0 1.933 1.561 3.5 3.488 3.5a3.494 3.494 0 0 0 3.488-3.5"
-                        fill="url(#a)"
-                        data-v-6dd0b122=""
-                      ></path>
-                      <path
-                        d="M25.865 25.9a13.932 13.932 0 0 1-6.377 3.66c-1.115.286-2.284.44-3.488.44a13.893 13.893 0 0 1-10.512-4.797A13.968 13.968 0 0 1 2.048 16c0-3.523 1.298-6.742 3.44-9.203A13.893 13.893 0 0 1 16 2c1.204 0 2.373.154 3.488.44a13.932 13.932 0 0 1 6.377 3.66l-4.933 4.95A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7l.002.18C9.122 19.964 12.208 23 16 23c1.926 0 3.67-.784 4.932-2.05l4.933 4.95z"
-                        fill="url(#b)"
-                        data-v-6dd0b122=""
-                      ></path>
-                      <path
-                        d="M20.932 11.05A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7a13.98 13.98 0 0 1 4.087-9.9 13.932 13.932 0 0 1 6.377-3.66l1.444 8.61z"
-                        fill="url(#c)"
-                        data-v-6dd0b122=""
-                      ></path>
-                    </g>
-                  </svg>
-                  <span data-v-122eae44="">MacWk</span></a
-                >
-                <div class="app-header-nav nav" data-v-122eae44="">
-                  <router-link
-                    target="_self"
-                    class="nav-link active"
-                    data-v-122eae44=""
-                    aria-current="page"
-                    to="/"
-                    >首页</router-link
-                  >
-                  <router-link
-                    target="_self"
-                    class="nav-link"
-                    data-v-1f33282a=""
-                    to="list"
-                    >软件</router-link
-                  >
-                  <router-link
-                    target="_self"
-                    class="nav-link"
-                    data-v-122eae44=""
-                    to="post/all"
-                    >文章</router-link
-                  >
-                  <router-link
-                    target="_self"
-                    class="nav-link"
-                    data-v-1f33282a=""
-                    to="post"
-                    >专题</router-link
-                  >
-                  <router-link
-                    target="_self"
-                    class="nav-link"
-                    data-v-1f33282a=""
-                    to="post"
-                    >榜单</router-link
-                  >
-                </div>
-                <div
-                  class="app-header-search grid-list lazy-transition"
-                  data-v-122eae44=""
-                >
-                  <div id="autosuggest" data-v-122eae44="">
-                    <div
-                      role="combobox"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="autosuggest-autosuggest__results"
-                    >
-                      <input
-                        type="text"
-                        autocomplete="off"
-                        aria-autocomplete="list"
-                        aria-activedescendant=""
-                        aria-controls="autosuggest-autosuggest__results"
-                        id="autosuggest__input"
-                        placeholder="输入关键词搜索软件或文章…"
-                        value=""
-                        class=""
-                      />
-                    </div>
-                    <!---->
-                    <button class="btn search-to" data-v-122eae44="">
-                      <i class="icon-search" data-v-122eae44=""></i>
-                    </button>
-                    <div
-                      id="autosuggest-autosuggest__results"
-                      class="autosuggest__results-container"
-                    >
-                      <!---->
-                    </div>
-                  </div>
-                </div>
-                <div class="app-header-user" data-v-122eae44="">
-                  <a
-                    href="https://macwk.com/reward"
-                    class="d-flex align-items-center"
-                    data-v-122eae44=""
-                    ><span
-                      class="avatar avatar-36 reward-svg mr-3"
-                      data-v-122eae44=""
-                    >
-                      <svg
-                        t="1592901810160"
-                        viewBox="0 0 1024 1024"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        p-id="1738"
-                        width="36"
-                        height="36"
-                        class="icon"
-                        data-v-1f33282a=""
-                      >
-                        <path
-                          d="M512 992c-247.424 0-448-92.736-448-297.344C64 490.016 264.576 224 512 224s448 266.016 448 470.656C960 899.264 759.424 992 512 992z m-125.056-310.528c-23.296 0-34.944 7.712-34.944 23.136 0 15.104 11.648 22.656 34.944 22.656h87.424v19.712c0 33.28 11.2 49.952 33.728 49.952 22.144 0 33.216-16.64 33.216-49.952v-19.712h87.648c23.136 0 34.72-7.552 34.72-22.656 0-15.424-11.584-23.136-34.72-23.136h-87.648v-35.456h87.648c23.136 0 34.72-7.68 34.72-23.136 0-15.104-11.584-22.656-34.72-22.656h-63.264l54.08-92.64c4.448-7.232 7.68-13.216 9.728-17.984 2.048-4.768 3.072-10.016 3.072-15.744a24.544 24.544 0 0 0-7.744-18.336 27.648 27.648 0 0 0-20.064-7.52 30.496 30.496 0 0 0-14.912 3.456c-4.16 2.304-7.68 5.216-10.464 8.736-2.784 3.52-5.664 7.776-8.608 12.8-2.944 4.992-5.76 9.792-8.352 14.4l-54.336 93.12-63.936-97.216c-6.88-11.328-12.928-19.52-18.08-24.64-5.184-5.088-11.968-7.616-20.32-7.616a27.136 27.136 0 0 0-20.064 7.744c-5.184 5.184-7.776 12.032-7.776 20.576 0 4.736 0.928 9.088 2.72 13.024 1.792 3.968 5.664 10.528 11.584 19.712l58.016 88.128h-63.296c-23.296 0-34.944 7.552-34.944 22.656 0 15.424 11.648 23.136 34.944 23.136h87.424v35.456h-87.424z"
-                          id="reward-path-1"
-                          p-id="1739"
-                          data-v-1f33282a=""
-                        ></path>
-                        <path
-                          d="M720 256c30.176-28.608 48-92.032 48-117.952C768 72.224 653.376 32 512 32c-45.824 0-88.832 4.224-126.016 12.16C308.384 60.8 256 93.6 256 138.08c0 25.92 17.824 89.344 48 117.952C352 212.064 437.664 192 512 192c74.336 0 160 20.064 208 64z"
-                          id="reward-path-2"
-                          p-id="1740"
-                          data-v-1f33282a=""
-                        ></path>
-                      </svg>
-                    </span>
-                    <span class="l-h-1x d-inline-block" data-v-122eae44=""
-                      ><span class="fs-15" data-v-122eae44="">打赏</span></span
-                    ></a
-                  >
-                </div>
-              </div>
-            </div>
-          </header>
+          <top :message1="acticve" />
           <div>
-            <section class="layout-index pc-model mt-5 ">
-             
+            <section class="layout-index pc-model mt-5">
               <!-- class="banner-index mb-6" -->
               <div class="outsection">
-              <el-carousel indicator-position="outside" class="index1 banner-index mb-6 Thecarousel" :height="dataHeight" :interval="3000" arrow="always" >
-                <el-carousel-item style=""  v-for="(item,id) in Carousel" :key="id">
-                  <div >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                                           <div
-                    data-v-bffc9160=""
-                    class="index-banner el-carousel el-carousel--horizontal"
+                <el-carousel
+                  indicator-position="outside"
+                  class="index1 banner-index mb-6 Thecarousel"
+                  :height="dataHeight"
+                  :interval="3000"
+                  arrow="always"
+                >
+                  <el-carousel-item
+                    style=""
+                    v-for="(item, id) in Carousel"
+                    :key="id"
                   >
-                    <div class="el-carousel__container" style="height: 450px">
-                        <i class="el-icon-arrow-right"></i>
-                     
+                    <div>
                       <div
                         data-v-bffc9160=""
-                        class="el-carousel__item is-active is-animating"
-                        style="transform: translateX(0px) scale(1)"
+                        class="index-banner el-carousel el-carousel--horizontal"
                       >
-                       
                         <div
-                          data-v-bffc9160=""
-                         
-                          class="
-                            index
-                            section
-                            white1
-                            h-450
-                            position-relative
-                            radius-4x
-                            d-flex
-                            align-items-center
-                          "
+                          class="el-carousel__container"
+                          style="height: 450px"
                         >
-                          <div data-v-bffc9160="" class="bg-shape-holder">
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-1.svg"
-                              class="shape-three"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-55.svg"
-                              class="shape-four"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-56.svg"
-                              class="shape-five"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-57.svg"
-                              class="shape-six"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-58.svg"
-                              class="shape-seven"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-59.svg"
-                              class="shape-eight"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-60.svg"
-                              class="shape-nine"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-61.svg"
-                              class="shape-ten"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-62.svg"
-                              class="shape-eleven"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-10.svg"
-                              class="shape-10"
-                            />
-                            <img
-                              data-v-bffc9160=""
-                              src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-11.svg"
-                              class="shape-11"
-                            />
-                            <span
-                              data-v-bffc9160=""
-                              class="big-round-one"
-                            ></span>
-                            <span
-                              data-v-bffc9160=""
-                              class="big-round-two"
-                            ></span>
-                            <span
-                              data-v-bffc9160=""
-                              class="big-round-three"
-                            ></span>
-                          </div>
+                          <i class="el-icon-arrow-right"></i>
+
                           <div
                             data-v-bffc9160=""
-                            class="w-600 pl-10 position-relative z-index-9999"
+                            class="el-carousel__item is-active is-animating"
+                            style="transform: translateX(0px) scale(1)"
                           >
-                            <h2 data-v-bffc9160="">{{ item.title }}</h2>
-                            <p data-v-bffc9160="" class="text-muted fs-18">
-                             {{ item.introduce }}
-                            </p>
-                            <a
+                            <div
                               data-v-bffc9160=""
-                              href="https://macwk.com/soft/all/p1"
-                              class="btn btn-theme btn-round px-6"
-                              >  {{ item.button }}</a
+                              class="
+                                index
+                                section
+                                white1
+                                h-450
+                                position-relative
+                                radius-4x
+                                d-flex
+                                align-items-center
+                              "
                             >
-                          </div>
-                          <div
-                            data-v-bffc9160=""
-                            class="index-banner-image-two"
-                          >
-                            <img
-                              data-v-bffc9160=""
-                              :src=  "item.img"
-                            />
+                              <div data-v-bffc9160="" class="bg-shape-holder">
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-1.svg"
+                                  class="shape-three"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-55.svg"
+                                  class="shape-four"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-56.svg"
+                                  class="shape-five"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-57.svg"
+                                  class="shape-six"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-58.svg"
+                                  class="shape-seven"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-59.svg"
+                                  class="shape-eight"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-60.svg"
+                                  class="shape-nine"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-61.svg"
+                                  class="shape-ten"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-62.svg"
+                                  class="shape-eleven"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-10.svg"
+                                  class="shape-10"
+                                />
+                                <img
+                                  data-v-bffc9160=""
+                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-11.svg"
+                                  class="shape-11"
+                                />
+                                <span
+                                  data-v-bffc9160=""
+                                  class="big-round-one"
+                                ></span>
+                                <span
+                                  data-v-bffc9160=""
+                                  class="big-round-two"
+                                ></span>
+                                <span
+                                  data-v-bffc9160=""
+                                  class="big-round-three"
+                                ></span>
+                              </div>
+                              <div
+                                data-v-bffc9160=""
+                                class="
+                                  w-600
+                                  pl-10
+                                  position-relative
+                                  z-index-9999
+                                "
+                              >
+                                <h2 data-v-bffc9160="">{{ item.title }}</h2>
+                                <p data-v-bffc9160="" class="text-muted fs-18">
+                                  {{ item.introduce }}
+                                </p>
+                                <a
+                                  data-v-bffc9160=""
+                                  href="https://macwk.com/soft/all/p1"
+                                  class="btn btn-theme btn-round px-6"
+                                >
+                                  {{ item.button }}</a
+                                >
+                              </div>
+                              <div
+                                data-v-bffc9160=""
+                                class="index-banner-image-two"
+                              >
+                                <img data-v-bffc9160="" :src="item.img" />
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  </div>
-                </el-carousel-item>
-              </el-carousel>
+                  </el-carousel-item>
+                </el-carousel>
               </div>
               <!-- class="container" -->
               <div class="container">
@@ -1659,24 +1451,22 @@
                     </nav>
                     <div class="more-action">
                       <router-link
-                    target="_self"
-                    class="nav-link"
-                    data-v-122eae44=""
-                    to="post/all"
-                    >
+                        target="_self"
+                        class="nav-link"
+                        data-v-122eae44=""
+                        to="post/all"
+                      >
                         更多文章
                         <i class="icon-arrow-right fw-600 fs-12 v-2"></i
-                      ></router-link
-                  >
+                      ></router-link>
                     </div>
                   </div>
                   <div class="row gap-a">
-
                     <div class="com-md-12 col-lg-6">
                       <a
-                       v-for="(item, id) in this.leftArr" :key="id"
-                     
-                        href="https://macwk.com/article/jetbrains-crack"
+                        v-for="(item, id) in this.leftArr"
+                        :key="id"
+                        
                         class="
                           feature-block-three
                           border
@@ -1687,43 +1477,46 @@
                           list-animation-leftIn
                         "
                       >
-                        <div v-if="item.status.includes('published')" >
-                        <router-link :to="'/post/' + item.id">
-                        <div class="d-flex align-items-center">
-                      <div class="icon-box icon-one">
-                             <img
-                              v-if="item.thumb != null"
-                               class="delayImg"
-                              :src="item.thumb"
-                              lazy="loading"
-                            />
-                            <div
-                              v-else
-                              class="delayImg"
-                              :style="getStyles()"
-                            >
-                              <h3
-                                class="flex text-center text-white opacity-50"
-                              >
-                                NOPIC
-                              </h3>
-                            </div>
-                          </div>
-                          <div class="text">
-                            <h5
-                              style="
-                                display: -webkit-box;
-                                -webkit-box-orient: vertical;
-                                overflow: hidden;
-                                word-break: break-all;
-                                text-overflow: ellipsis;
-                                -webkit-line-clamp: 2;
-                              "
-                            >
-                              {{item.title}}
-                            </h5>
-                            <div class="text-muted fs-16 mr-3">
-
+                        <div v-if="item.status.includes('published')">
+                          <router-link :to="'/post/' + item.id">
+                            <div class="d-flex align-items-center">
+                              <div class="icon-box icon-one">
+                                <img
+                                  v-if="item.thumb != null"
+                                  class="delayImg"
+                                  :src="item.thumb"
+                                  lazy="loading"
+                                />
+                                <div
+                                  v-else
+                                  class="delayImg"
+                                  :style="getStyles()"
+                                >
+                                  <h3
+                                    class="
+                                      flex
+                                      text-center text-white
+                                      opacity-50
+                                    "
+                                  >
+                                    NOPIC
+                                  </h3>
+                                </div>
+                              </div>
+                              <div class="text">
+                                <h5
+                                  style="
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    word-break: break-all;
+                                    text-overflow: ellipsis;
+                                    -webkit-line-clamp: 2;
+                                  "
+                                >
+                                  {{ item.title }}
+                                </h5>
+                                <div class="text-muted fs-16 mr-3">
                                   <span
                                     v-if="item.createTime != null"
                                     v-text="formatDate(item.createTime)"
@@ -1734,31 +1527,29 @@
                                     v-text="formatDate(item.addTime)"
                                   >
                                   </span>
+                                </div>
+                              </div>
+                              <div
+                                class="
+                                  read-more
+                                  d-flex
+                                  justify-content-end
+                                  w-80
+                                  pr-3
+                                "
+                              >
+                                <i class="light-icon-more icon-next-arrow"></i>
+                              </div>
                             </div>
-                          </div>
-                          <div
-                            class="
-                              read-more
-                              d-flex
-                              justify-content-end
-                              w-80
-                              pr-3
-                            "
-                          >
-                            <i class="light-icon-more icon-next-arrow"></i>
-                          </div>
-                        </div>
-                                                </router-link>
+                          </router-link>
                         </div>
                       </a>
                     </div>
-                    
-                       
-                    
+
                     <div class="com-md-12 col-lg-6">
                       <a
-                      v-for="(item, id) in this.rightArr" :key="id"
-                      
+                        v-for="(item, id) in this.rightArr"
+                        :key="id"
                         href="https://macwk.com/article/sipmac"
                         class="
                           feature-block-three
@@ -1770,43 +1561,46 @@
                           list-animation-leftIn
                         "
                       >
-                      <div v-if="item.status.includes('published')" >
-                        <router-link  :to="'/post/' + item.id">
-                        <div class="d-flex align-items-center">
-                          <div class="icon-box icon-one">
-                             <img
-                              v-if="item.thumb != null"
-                               class="delayImg"
-                              :src="item.thumb"
-                              lazy="loading"
-                            />
-                            <div
-                              v-else
-                              class="delayImg"
-                              :style="getStyles()"
-                            >
-                              <h3
-                                class="flex text-center text-white opacity-50"
-                              >
-                                NOPIC
-                              </h3>
-                            </div>
-                          </div>
-                          <div class="text">
-                            <h5
-                              style="
-                                display: -webkit-box;
-                                -webkit-box-orient: vertical;
-                                overflow: hidden;
-                                word-break: break-all;
-                                text-overflow: ellipsis;
-                                -webkit-line-clamp: 2;
-                              "
-                            >
-                             {{item.title}}
-                            </h5>
-                            <div class="text-muted fs-16 mr-3">
-                              
+                        <div v-if="item.status.includes('published')">
+                          <router-link :to="'/post/' + item.id">
+                            <div class="d-flex align-items-center">
+                              <div class="icon-box icon-one">
+                                <img
+                                  v-if="item.thumb != null"
+                                  class="delayImg"
+                                  :src="item.thumb"
+                                  lazy="loading"
+                                />
+                                <div
+                                  v-else
+                                  class="delayImg"
+                                  :style="getStyles()"
+                                >
+                                  <h3
+                                    class="
+                                      flex
+                                      text-center text-white
+                                      opacity-50
+                                    "
+                                  >
+                                    NOPIC
+                                  </h3>
+                                </div>
+                              </div>
+                              <div class="text">
+                                <h5
+                                  style="
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    word-break: break-all;
+                                    text-overflow: ellipsis;
+                                    -webkit-line-clamp: 2;
+                                  "
+                                >
+                                  {{ item.title }}
+                                </h5>
+                                <div class="text-muted fs-16 mr-3">
                                   <span
                                     v-if="item.createTime != null"
                                     v-text="formatDate(item.createTime)"
@@ -1817,26 +1611,24 @@
                                     v-text="formatDate(item.addTime)"
                                   >
                                   </span>
+                                </div>
+                              </div>
+                              <div
+                                class="
+                                  read-more
+                                  d-flex
+                                  justify-content-end
+                                  w-80
+                                  pr-3
+                                "
+                              >
+                                <i class="light-icon-more icon-next-arrow"></i>
+                              </div>
                             </div>
-                          </div>
-                          <div
-                            class="
-                              read-more
-                              d-flex
-                              justify-content-end
-                              w-80
-                              pr-3
-                            "
-                          >
-                            <i class="light-icon-more icon-next-arrow"></i>
-                          </div>
-                        </div>
-                                                </router-link>
+                          </router-link>
                         </div>
                       </a>
                     </div>
-               
-                    
                   </div>
                 </div>
               </div>
@@ -1857,167 +1649,7 @@
               </div>
             </div>
           </div>
-          <div
-            class="macwk-footer white border-top pc-model"
-            data-v-ea53b530=""
-          >
-            <div class="container" data-v-ea53b530="">
-              <a
-                href="https://macwk.com/"
-                class="logo active"
-                data-v-ea53b530=""
-                aria-current="page"
-              >
-                <svg
-                  id="macwk-svg-logo"
-                  width="32"
-                  height="32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  data-v-6dd0b122=""
-                  data-v-ea53b530=""
-                >
-                  <title data-v-6dd0b122="">MacWK</title>
-                  <defs data-v-6dd0b122="">
-                    <lineargradient
-                      x1="50%"
-                      y1="0%"
-                      x2="50%"
-                      y2="100%"
-                      id="a"
-                      data-v-6dd0b122=""
-                    >
-                      <stop
-                        offset="0%"
-                        class="stop-color-circle"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-circle"
-                        data-v-6dd0b122=""
-                      ></stop>
-                    </lineargradient>
-                    <lineargradient
-                      x1="100%"
-                      y1="86.198%"
-                      x2="-14.813%"
-                      y2="-4.357%"
-                      id="b"
-                      data-v-6dd0b122=""
-                    >
-                      <stop
-                        offset="0%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="40.927%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                    </lineargradient>
-                    <lineargradient
-                      x1="86.515%"
-                      y1="24.533%"
-                      x2="0%"
-                      y2="24.533%"
-                      id="c"
-                      data-v-6dd0b122=""
-                    >
-                      <stop
-                        stop-opacity="0"
-                        offset="0%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-default-linearGradient"
-                        data-v-6dd0b122=""
-                      ></stop>
-                    </lineargradient>
-                  </defs>
-                  <g fill="none" fill-rule="evenodd" data-v-6dd0b122="">
-                    <path
-                      d="M29.952 16c0-1.933-1.562-3.5-3.488-3.5a3.494 3.494 0 0 0-3.488 3.5c0 1.933 1.561 3.5 3.488 3.5a3.494 3.494 0 0 0 3.488-3.5"
-                      fill="url(#a)"
-                      data-v-6dd0b122=""
-                    ></path>
-                    <path
-                      d="M25.865 25.9a13.932 13.932 0 0 1-6.377 3.66c-1.115.286-2.284.44-3.488.44a13.893 13.893 0 0 1-10.512-4.797A13.968 13.968 0 0 1 2.048 16c0-3.523 1.298-6.742 3.44-9.203A13.893 13.893 0 0 1 16 2c1.204 0 2.373.154 3.488.44a13.932 13.932 0 0 1 6.377 3.66l-4.933 4.95A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7l.002.18C9.122 19.964 12.208 23 16 23c1.926 0 3.67-.784 4.932-2.05l4.933 4.95z"
-                      fill="url(#b)"
-                      data-v-6dd0b122=""
-                    ></path>
-                    <path
-                      d="M20.932 11.05A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7a13.98 13.98 0 0 1 4.087-9.9 13.932 13.932 0 0 1 6.377-3.66l1.444 8.61z"
-                      fill="url(#c)"
-                      data-v-6dd0b122=""
-                    ></path>
-                  </g>
-                </svg>
-                <span class="ml-4" data-v-ea53b530="">MacWk</span></a
-              >
-              <div class="nav" data-v-ea53b530="">
-                <a
-                  href="https://macwk.com/"
-                  class="nav-link active"
-                  data-v-ea53b530=""
-                  aria-current="page"
-                  >首页</a
-                >
-                <a
-                  href="https://macwk.com/about"
-                  class="nav-link"
-                  data-v-ea53b530=""
-                  >关于
-                </a>
-                <a
-                  href="https://macwk.com/contact"
-                  class="nav-link"
-                  data-v-ea53b530=""
-                  >联系
-                </a>
-                <a
-                  href="https://macwk.com/privacy"
-                  class="nav-link"
-                  data-v-ea53b530=""
-                  >隐私
-                </a>
-                <a
-                  href="https://macwk.com/version"
-                  class="nav-link"
-                  data-v-ea53b530=""
-                  >版本检测
-                </a>
-                <a
-                  href="https://macwk.com/changelogs"
-                  class="nav-link"
-                  data-v-ea53b530=""
-                  >更新日志
-                </a>
-              </div>
-              <div class="copyright" data-v-ea53b530="">
-                <p class="mb-0" data-v-ea53b530="">
-                  <span class="mr-3" data-v-ea53b530=""
-                    ><a
-                      href="https://beian.miit.gov.cn/"
-                      target="_blank"
-                      data-v-ea53b530=""
-                      >鲁ICP备19036164号</a
-                    ></span
-                  >
-                  <span data-v-ea53b530=""
-                    >Macwk.com &copy; 2019. All rights reserved.</span
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
+          <foot />
           <div infos="0">
             <div
               class="
@@ -2040,13 +1672,16 @@ import { getNewArticle } from '@/api/webarticle'
 import { formatDate } from '@/utils/date.js'
 import { getCarousel } from '@/api/sitting'
 
+import top from './components/Top.vue'
+import foot from './components/Foots.vue'
+
 export default ({
   name: 'Home',
-  components: {
-  },
-    data() {
+  components: {top, foot},
+  data() {
     return {
-      Carousel:{},
+      acticve:'nav-link active',
+      Carousel: {},
       list: null,
       leftArr: null,
       rightArr: null,
@@ -2057,11 +1692,11 @@ export default ({
     this.getSitting()
   },
   props: {
-      dataHeight: {
-        type: String,
-        default: '450px'
-      }
-    },
+    dataHeight: {
+      type: String,
+      default: '450px'
+    }
+  },
   methods: {
     getStyles() {
       //生成随机颜色
@@ -2106,10 +1741,10 @@ export default ({
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
     getSitting() {
-       getCarousel().then(resp => {
-         this.Carousel = resp.data
-         console.log(resp)
-       })
+      getCarousel().then(resp => {
+        this.Carousel = resp.data
+        console.log(resp)
+      })
     },
     getList() {
       this.listLoading = true
@@ -2136,49 +1771,47 @@ export default ({
 </style>
 <style scoped>
 .delayImg {
-height:100px;
-width: 145px;
-
+  height: 100px;
+  width: 145px;
 }
 </style>
 
 
 <style>
 .white1 {
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   z-index: -1;
-
-  }
-.index1{
+}
+.index1 {
   z-index: 555;
 }
 .index {
   z-index: -1;
 }
 .outsection {
-display: flex;
-align-items: center;
-justify-content: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Thecarousel {
-  padding-left:15px;padding-right:15px;
-text-align: center;
-width: 1435px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  width: 1435px;
 }
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
 </style>

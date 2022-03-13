@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getAllUserName(data) {
   return request({
-    url: '/getAllUserName',
+    url: '/User/getAllUserName',
     method: 'get',
     data
   })

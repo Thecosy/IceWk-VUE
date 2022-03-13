@@ -10,92 +10,7 @@
               <div class="w-full pc-model">
                 <div>
                   <!-- /** */ -->
-                              <div class="featured-posts mb-6">
-                  <div><a href="jetbrains-crack.html" target="_self" class="post-item post-item--featured"
-                      style="background:linear-gradient(#5aa94580,#59ab4e8f,#58ac569e,#57ad5dad,#57ae65bd,#57af6ccc);background-size:100%;"><img
-                        src="../static/picture/jetbrains.svg"
-                        style="position:absolute;left:30px;top:30px;width:256px;height:256px;">
-                      <div class="post-item__content">
-                        <h3 title="JetBrains全系列软件激活教程激活码以及JetBrains系列软件汉化包">JetBrains全系列软件激活教程激活码以及JetBrains系列软件汉化包</h3>
-                        <div class="post-meta">
-                          <div class="category category--inspiring">
-                            软件教程
-                          </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2021-12-12</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
-                          <p class="CS-count">
-                            1326
-                          </p> <button class="share"><i class="icon-share"></i></button>
-                        </div>
-                      </div>
-                    </a></div>
-                  <div><a href="the-best-mac-uninstaller.html" target="_self" class="post-item post-item--featured"
-                      style="background:linear-gradient(#c956d880,#d94ec68f,#e547b49e,#ed43a1ad,#f2438fbd,#f3467ecc);">
-                      <div class="post-item__content">
-                        <h3 title="mac系统最好的软件卸载工具 - 专治应用残留卸载不干净的问题">macOS 最好的软件卸载工具</h3>
-                        <div class="post-meta">
-                          <div class="category category--inspiring">
-                            软件教程
-                          </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2021-05-12</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
-                          <p class="CS-count">
-                            26
-                          </p> <button class="share"><i class="icon-share"></i></button>
-                        </div>
-                      </div>
-                    </a><a href="arm-macs-issue.html" target="_self" class="post-item post-item--featured"
-                      style="background:linear-gradient(#7470d180,#8368c78f,#8f60bd9e,#9858b1ad,#a051a5bd,#a64999cc);">
-                      <div class="post-item__content">
-                        <h3 title="ARM M1 芯片的 Macs 常见问题的解决方法">M1 Macs 常见问题解决</h3>
-                        <div class="post-meta">
-                          <div class="category category--tools">
-                            新手入门
-                          </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2021-05-11</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
-                          <p class="CS-count">
-                            14
-                          </p> <button class="share"><i class="icon-share"></i></button>
-                        </div>
-                      </div>
-                    </a><a href="apple-id-tutorial.html" target="_self" class="post-item post-item--featured"
-                      style="background:linear-gradient(#8771e780,#c358c38f,#e144959e,#e84265ad,#dc5437bd,#c16a00cc);">
-                      <div class="post-item__content">
-                        <h3 title="Apple ID 共享账号使用方法、登录异常以及常见问题的解决方法">AppleID 共享账号使用教程及常见问题解决</h3>
-                        <div class="post-meta">
-                          <div class="category category--tools">
-                            新手入门
-                          </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2020-01-18</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
-                          <p class="CS-count">
-                            19
-                          </p> <button class="share"><i class="icon-share"></i></button>
-                        </div>
-                      </div>
-                    </a></div>
-                </div>
+                           
                 <!-- /** */ -->
                   <div class="d-flex">
                     <div class="flex">
@@ -151,6 +66,13 @@
                             </span>
                           </div>
                         </div>
+                      </div>
+                      <div class="pb-5">
+                        共为您找到
+                        <span class="text-danger mx-1"> {{this.articleCount}}</span>
+                        条和
+                        <span class="mx-2 el-tag el-tag--danger el-tag--small el-tag--light"><span class="text-danger fw-500 fs-18"> {{this.$route.params.content}}</span><i class="el-tag__close el-icon-close"></i></span>
+                        相关的文章
                       </div>
                       <!---->
                       <div v-for="(item, id) in this.list" :key="id">
@@ -476,7 +398,7 @@
 </template>
 
 <script>
-import { getAllArticle ,getAllArticleNumber} from '@/api/webarticle'
+import { FindAllArticle ,getAllArticleNumber} from '@/api/webarticle'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 import { formatDate } from '@/utils/date.js'
 
@@ -506,14 +428,24 @@ export default {
       total: 0,
       listLoading: true,
       listQuery: {
+        content: "",
         page: 1,
         limit: 8
       }
     }
   },
+  watch: {
+   '$route' (to, from ) { 
+        //监听路由是否变化
+        if(this.$route.params.content){
+          this.getList(this.$route.params.content)
+                // 判断条件1  判断传递值的变化
+                //获取文章数据
+            }
+    }
+ },
   created() {
-    this.getList()
-    this.getNumber()
+    this.getList(this.$route.params.content)
   },
 
   methods: {
@@ -568,19 +500,16 @@ export default {
       let data = new Date(time)
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
-    getList() {
-      this.listLoading = true
-      getAllArticle(this.listQuery).then(resp => {
+    getList(list) {
+        this.listLoading = true
+        this.listQuery.content = list;
+        FindAllArticle(this.listQuery).then(resp => {
         this.list = resp.data.data
         this.total = resp.data.total
+        this.articleCount = resp.data.total
         this.listLoading = false
       })
     },
-    getNumber() {
-          getAllArticleNumber().then(resp => {
-          this.articleCount = resp.data
-      })
-      }
   }
 }
 </script>

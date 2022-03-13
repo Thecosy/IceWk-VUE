@@ -47,7 +47,7 @@ export function DelectArticleById(id) {
 
 export function newArticleClass(data) {
   return request({
-    url: '/article/create',
+    url: '/article/newArticleClass',
     method: 'post',
     data: data,
     dataType: 'json',
@@ -56,3 +56,29 @@ export function newArticleClass(data) {
     contentType: false,
   })
 }
+
+export function allArticleClass(query) {
+  return request({
+    url: 'article/allArticleClass/' + query.page + '/' + query.limit,
+    method: 'post'
+  })
+}
+
+export function DeleteArticleClass(id) {
+  return request({
+    url: 'article/DeleteArticleClass/' + id,
+    method: 'get'
+  })
+}
+
+export function getAllClassName(data) {
+  return request({
+    url: 'article/getAllClassName',
+    method: 'get',
+    data
+  })
+}
+
+
+
+
