@@ -75,7 +75,7 @@
             </div>
           </div>
           <!-- ---------- -->
-          <div class="d-flex mb-3">
+          <div v-for="(item, id) in this.comment" :key="id" class="d-flex mb-3">
             <div class="w-28 mr-3">
               <svg
                 viewBox="0 0 264 280"
@@ -419,13 +419,13 @@
             </div>
             <section class="flex-grow">
               <div class="mb-1">
-                <span class="fs-12 mr-1 fw-600 text-darken">异象人</span>
+                <span class="fs-12 mr-1 fw-600 text-darken">{{item.username}}</span>
                 <span class="opacity-70 fs-12 text-muted pl-1"
-                  ><span>06-23 11:19</span></span
+                  ><span>{{formatDate(item.addTime)}}</span></span
                 >
               </div>
               <!---->
-              <div class="MessageBody mb-1">有人吗？加群没反应哦</div>
+              <div class="MessageBody mb-1">{{item.content}}</div>
             </section>
           </div>
           <!-- ------------- -->
@@ -433,8 +433,9 @@
         <div class="chat-footer">
           <div>
             <textarea
+              v-model="contentarea"
               rows="2"
-              placeholder="不接受任何和 macOS 12 测试版系统相关的问题。问题尽量描述清楚，多数问题都可以在包内的说明文档和文章区找到解决方法！QQ群号：暂停加群申请"
+              placeholder="尽情畅所欲言把"
             />
           </div>
           <div class="d-flex align-items-center pl-3 clearfix">
@@ -601,6 +602,7 @@
             <div class="comment-post flex-grow text-right">
               <span
                 ><button
+                  @click="setmap()"
                   class="btn btn-theme btn-sm px-5 pt-1 fs-14"
                   style="border-top-left-radius: 10px"
                 >
@@ -616,29 +618,68 @@
   </transition>
 </template>
 <script>
+import { getallArticleComment } from '@/api/articleComment'
+import { addArticleComment } from '@/api/articleComment'
+
+import { formatDate } from '@/utils/date.js'
 
 export default ({
   name: 'comment',
-  props: [],
+  props: ['articleId'],
   setup() {
 
   },
   created() {
-
+    getallArticleComment(this.articleId).then(resp => {
+      this.comment = resp.data
+      console.log(this.comment)
+    }) 
   },
   data() {
     return {
+      contentarea:"",
+      form: {
+        content: "",
+        useaname: "",
+        articleId: this.articleId,
+        profile: "",
+        userId: "",
+        
+      },
+      comment:{},
       close: false,
     }
   },
   methods: {
+    formatDate(time) {
+      let data = new Date(time)
+      return formatDate(data, 'yyyy-MM-dd hh:mm ')
+    },
+    setmap(){
+      this.form.content = this.contentarea
+      addArticleComment(this.form).then(resp => {
+      })
+      //刷新
+      setTimeout(() => {
+      getallArticleComment(this.articleId).then(resp => {
+        this.comment = resp.data
+        console.log(this.comment)
+      }) 
+        }, 200)
+      //滚动到底部
+      setTimeout(() => {
+          let container = document.getElementById("chatRecord");
+          container.scrollTop = container.scrollHeight;
+        }, 300)
+      //文本框置空  
+      this.contentarea = ""
+    },
     getMsg(msg) {
-      
       this.close = msg;
-                 //开始默认滚动到底部
-            setTimeout(() => {
-            let container = document.getElementById("chatRecord");
-            container.scrollTop = container.scrollHeight;
+          //开始默认滚动到底部
+          setTimeout(() => {
+          let container = document.getElementById("chatRecord");
+          container.scrollTop = container.scrollHeight;
         }, 100)
     },
     closethecpmment(val) {

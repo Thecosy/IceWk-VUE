@@ -1,9 +1,5 @@
 import request from '@/utils/request'
-// .use(config => {
-//   const admin = JSON.parse(window.localStorage.getItem('access-admin'))
-//    config.headers.Authorization = admin.data;
-//    return config
-//  })
+
 export function createArticle(data) {
   return request({
     url: '/article/create',
@@ -47,7 +43,7 @@ export function DelectArticleById(id) {
 
 export function newArticleClass(data) {
   return request({
-    url: '/article/newArticleClass',
+    url: '/articleClass/newArticleClass',
     method: 'post',
     data: data,
     dataType: 'json',
@@ -59,21 +55,21 @@ export function newArticleClass(data) {
 
 export function allArticleClass(query) {
   return request({
-    url: 'article/allArticleClass/' + query.page + '/' + query.limit,
+    url: 'articleClass/allArticleClass/' + query.page + '/' + query.limit,
     method: 'post'
   })
 }
 
 export function DeleteArticleClass(id) {
   return request({
-    url: 'article/DeleteArticleClass/' + id,
+    url: 'articleClass/DeleteArticleClass/' + id,
     method: 'get'
   })
 }
 
 export function getAllClassName(data) {
   return request({
-    url: 'article/getAllClassName',
+    url: 'articleClass/getAllClassName',
     method: 'get',
     data
   })

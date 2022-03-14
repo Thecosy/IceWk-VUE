@@ -11,6 +11,20 @@ module.exports = {
     "sourceType": "module"
   },
   "rules": {
-
+    
+      test:/\.js$/,
+      use: [
+        {
+          loader: "babel-loader",
+          options: {
+            presets: ['env']
+          }
+        },
+        "eslint-loader"
+      ],
+      exclude: __dirname + 'node_modules',
+      include: __dirname + 'src'
   }
+
+  
 };
