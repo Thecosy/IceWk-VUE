@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
         checkToken(admin.data).then(respose => {
           console.log(respose)
           if (respose.data !== true) {
-            console.log('检验失')
+            console.log('检验失败')
             next({ path: '/error' })
           }
         })

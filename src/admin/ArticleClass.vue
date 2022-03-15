@@ -185,7 +185,6 @@ export default {
       this.listLoading = true
       allArticleClass(this.listQuery).then(resp => {
         this.list = resp.data.data
-        console.log(this.form)
         this.total = resp.data.total
         this.listLoading = false
       })
@@ -195,8 +194,18 @@ export default {
       this.loading = true
       newArticleClass(that.form).then(resp => {
         //做一个简单的返回数据判断
+        console.log(resp)
         if (resp.status === 200) {
-          this.getList()
+          if(resp.data == 143){
+            console.log("创建失败")
+          this.loading = false
+          this.$notify.error({
+            title: '失败',
+            message: '该分类已存在',
+          })
+          }
+          if(resp.data == 1){
+                      this.getList()
           this.$notify({
             title: '成功',
             message: '创建分类成功',
@@ -204,6 +213,7 @@ export default {
             duration: 2000
           })
           this.loading = false
+          }
         } else {
           console.log("创建失败")
         }

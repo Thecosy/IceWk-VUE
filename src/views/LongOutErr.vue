@@ -1606,6 +1606,7 @@
 
 <script>
 import errGif from '@/assets/401_images/401.gif'
+import { checkToken } from '@/api/checkToken'
 
 export default {
 
@@ -1619,16 +1620,23 @@ export default {
   },
   created() {
     const admin = JSON.parse(window.localStorage.getItem('access-admin'))
+    // 检验token合法性
+    checkToken(admin.data).then(respose => {
+      console.log(respose)
+      if (respose.data !== true) {
+        console.log('检验失败')
+        const that = this
+        this.$alert('登陆信息失效！', '提示', {
+          confirmButtonText: '确定'
+        }).then((response) => {
+          localStorage.removeItem('access-admin')
+          that.$router.replace({ path: '/login' })
+        })
+      }
+    })
     if (!admin) {
-
       // 判断有无token来验证是否弹框
-      const that = this
-      this.$alert('登陆信息失效！', '提示', {
-        confirmButtonText: '确定'
-      }).then((response) => {
-        localStorage.removeItem('access-admin')
-        that.$router.replace({ path: '/login' })
-      })
+      console.log('未验证')
     }
   },
   methods: {

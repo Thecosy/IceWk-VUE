@@ -104,25 +104,25 @@
                           <h5 class="fs-24 fw-600 i-con-h-a">
                             全部文章
                             <span class="text-muted fs-13 v-1 ml-1">
-                         {{this.articleCount}}
+                              {{this.articleCount}}
                             </span>
                           </h5>
                         </div>
                         <nav class="menu menu--macwk——list article-menu flex">
                           <ul class="menu__list">
-                            <li class="menu__item menu__item--current">
+                            <li @click="getList()" class="menu__item"  :class="{'menu__item--current':allIndex}">
                               <a class="menu__link"> 全部文章 </a>
+                              
                             </li>
-                            <li class="menu__item">
-                              <a class="menu__link"> 新手入门 </a>
+                            <div @click="getNewarticleclass(item.id)" v-for="(item, id) in this.classlist" :key="id" >
+                            <li class="menu__item "
+                           
+                            :class="{'menu__item--current':item.id==clickIndex}"
+                            >
+                              <a class="menu__link"> {{item.name}} </a>
                             </li>
-                            <li class="menu__item">
-                              <a class="menu__link"> 软件教程 </a>
-                            </li>
-                            <li class="menu__item">
-                              <a class="menu__link"> 新闻资讯 </a>
-                            </li>
-                            <li class="menu__line"></li>
+                            </div>
+                            <!-- <li class="menu__line"></li> -->
                           </ul>
                         </nav>
                         <div>
@@ -479,6 +479,8 @@
 import { getAllArticle ,getAllArticleNumber} from '@/api/webarticle'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 import { formatDate } from '@/utils/date.js'
+import { getArticleClasslist} from '@/api/webarticleclass'
+
 
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
@@ -498,6 +500,8 @@ export default {
   },
   data() {
     return {
+      allIndex: true,
+      classlist: "",
       acticve:'nav-link active',
       articleCount: "",
       istarget:"_self",
@@ -515,8 +519,22 @@ export default {
     this.getList()
     this.getNumber()
   },
+computed:{
+  
+},
 
   methods: {
+    getNewarticleclass(id) {
+      this.clickIndex = id
+      this.allIndex = false
+      //重新请求全部列表
+       this.list = this.template
+      //过滤器，过滤sortclass为id的
+      setTimeout(() => {
+        let lists  =  this.list.filter ( item => item.sortClass == id)
+      this.list = lists
+      }, )
+    },
     istargetJudje(){
       if(!this.istargetjudje){
         this.istarget="_self"
@@ -533,7 +551,6 @@ export default {
       let x = Math.floor(Math.random() * (max - min + 1)) + min;
 
       const backcolor = "randomColor" + x;
-      console.log(backcolor);
 
       if (backcolor == "randomColor1") {
         return "background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);"
@@ -559,8 +576,6 @@ export default {
       if (backcolor == "randomColor8") {
         return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
       }
-
-
       return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
     },
 
@@ -569,11 +584,19 @@ export default {
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
     getList() {
+      this.allIndex = true
+      this.clickIndex = false
       this.listLoading = true
       getAllArticle(this.listQuery).then(resp => {
+        //获取文章
         this.list = resp.data.data
+        this.template = resp.data.data
         this.total = resp.data.total
         this.listLoading = false
+      })
+      getArticleClasslist().then(resp => {
+        //获取分类
+        this.classlist = resp.data
       })
     },
     getNumber() {
@@ -590,6 +613,9 @@ export default {
 @import "../static/mycss/body.css";
 </style>
 <style scoped>
+.menu__link {
+  font-weight:bold;
+}
 /* 去掉中间数据的分割线 */
 .el-table__row > td {
   border: none;

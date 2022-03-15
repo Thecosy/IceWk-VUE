@@ -66,10 +66,12 @@
                           <div class="crayons-article-actions print-hidden">
                             <div style="margin-bottom:20px;display: flex;flex-direction: column;align-items: center;" class="crayons-article-actions__inner">
                               <button
+                               
                                 id="reaction-butt-like"
                                 aria-label="Like"
                                 aria-pressed="false"
                                 class="
+                                  sogood
                                   crayons-reaction crayons-reaction--like
                                   activated
                                 "
@@ -109,6 +111,7 @@
                                 aria-label="React with unicorn"
                                 aria-pressed="false"
                                 class="
+                                make
                                   crayons-reaction crayons-reaction--unicorn
                                 "
                                 data-category="unicorn"
@@ -151,6 +154,7 @@
                                 aria-label="Add to reading list"
                                 aria-pressed="false"
                                 class="
+                                collect
                                   crayons-reaction crayons-reaction--readinglist
                                 "
                                 data-category="readinglist"
@@ -194,6 +198,7 @@
                                   aria-expanded="false"
                                   aria-haspopup="true"
                                   class="
+                                  more
                                     dropbtn
                                     crayons-btn
                                     crayons-btn--ghost-dimmed
@@ -546,6 +551,46 @@ export default {
 @import "../static/mycss/comment.css";
 @import "../static/mycss/post_body.css";
 
+.sogood{
+ border-radius:20px 20px 20px 20px;
+ transition: background-color .5s linear 0s;
+ /* 在原本元素上再加一个transition */
+ transition: all .5s linear 0s;
+}
+.make{
+ border-radius:20px 20px 20px 20px;
+ transition: background-color .5s linear 0s;
+ /* 在原本元素上再加一个transition */
+ transition: all .5s linear 0s;
+}
+.collect{
+ border-radius:20px 20px 20px 20px;
+ transition: background-color .5s linear 0s;
+ /* 在原本元素上再加一个transition */
+ transition: all .5s linear 0s;
+}
+.more{
+ border-radius:20px 20px 20px 20px;
+ transition: background-color .5s linear 0s;
+ /* 在原本元素上再加一个transition */
+ transition: all .5s linear 0s;
+}
+.sogood:hover{
+  background-color:red;
+  border-radius:20px 20px 20px 20px;
+}
+.make:hover{
+  background-color:rgb(0, 110, 255);
+  border-radius:20px 20px 20px 20px;
+}
+.collect:hover{
+  background-color:rgb(255, 153, 0);
+  border-radius:20px 20px 20px 20px;
+}
+.more:hover{
+  background-color:rgb(105, 98, 98);
+  border-radius:20px 20px 20px 20px;
+}
 .chat-container {
   z-index: 10000;
 }

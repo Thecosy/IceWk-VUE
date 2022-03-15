@@ -146,7 +146,7 @@ export default {
       let x = Math.floor(Math.random() * (max - min + 1)) + min;
 
       const backcolor = "randomColor" + x;
-   
+
       if (backcolor == "randomColor1") {
         return "background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);"
       }
