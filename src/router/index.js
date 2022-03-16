@@ -161,14 +161,14 @@ export const constantRoutes = [
         path: 'ArticleComment',
         component: () => import('@/admin/ArticleComment'),
         name: 'ArticleComment',
-        meta: { title: '评论管理', icon: 'el-icon-upload', requireAuth: true }
+        meta: { title: '评论管理', icon: 'message', requireAuth: true }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       },
       {
         path: 'ArticleClass',
         component: () => import('@/admin/ArticleClass'),
         name: 'ArticleClass',
-        meta: { title: '分类管理', icon: 'el-icon-upload', requireAuth: true }
+        meta: { title: '分类管理', icon: 'el-icon-receiving', requireAuth: true }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       }
     ]
@@ -176,7 +176,7 @@ export const constantRoutes = [
   {
     path: '/selfInfo',
     component: Layout,
-    redirect: '/article/AllArticle',
+    redirect: '/Manage/selfInfo',
     name: 'selfInfo',
     meta: {
       title: '用户管理',
@@ -200,6 +200,32 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/StoreManage',
+    component: Layout,
+    redirect: '/Manage/StoreManage',
+    name: 'selfInfo',
+    meta: {
+      title: '商城管理',
+      icon: 'shopping',
+      requireAuth: true
+      // 需要登录才能进入的页面可以增加一个requireAuth属性
+    },
+    children: [
+      {
+        path: 'avatar-upload',
+        component: () => import('@/admin/avatar-upload'),
+        name: '商城总览',
+        meta: { title: '商城总览' }
+      },
+      {
+        path: 'avatar-upload',
+        component: () => import('@/admin/avatar-upload'),
+        name: '会员管理',
+        meta: { title: '会员管理' }
+      }
+    ]
+  },
+  {
     path: '/sitting',
     component: Layout,
     redirect: '/article/AllArticle',
@@ -212,8 +238,8 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: 'avatar-upload',
-        component: () => import('@/admin/avatar-upload'),
+        path: 'Webset',
+        component: () => import('@/admin/WebSet'),
         name: '网站信息',
         meta: { title: '网站信息' }
       },

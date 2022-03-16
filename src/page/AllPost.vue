@@ -114,6 +114,14 @@
                               <a class="menu__link"> 全部文章 </a>
                               
                             </li>
+                             <!-- <el-tabs v-model="activeName">
+                               <el-tab-pane @click="getList()" label="全部文章" name="first"></el-tab-pane>
+                                <el-tab-pane @click="getNewarticleclass(item.id)" v-for="(item, id) in this.classlist" :key="id" :label="item.name" :name="item.name">
+
+                                  <component :is="item.name">123</component>
+                                </el-tab-pane>
+                                
+                              </el-tabs>  -->
                             <div @click="getNewarticleclass(item.id)" v-for="(item, id) in this.classlist" :key="id" >
                             <li class="menu__item "
                            
@@ -604,6 +612,7 @@ export default {
   },
   data() {
     return {
+      activeName: 'first',
       allIndex: true,
       classlist: "",
       acticve:'nav-link active',
@@ -629,6 +638,7 @@ computed:{
 
   methods: {
     getNewarticleclass(id) {
+      console.log("启动")
       this.clickIndex = id
       this.allIndex = false
       //重新请求全部列表
