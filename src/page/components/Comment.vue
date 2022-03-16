@@ -618,8 +618,8 @@
   </transition>
 </template>
 <script>
-import { getallArticleComment } from '@/api/articleComment'
-import { addArticleComment } from '@/api/articleComment'
+import { getallArticleComment } from '@/api/webarticleComment'
+import { addArticleComment } from '@/api/webarticleComment'
 
 import { formatDate } from '@/utils/date.js'
 

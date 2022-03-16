@@ -451,7 +451,7 @@
 
 import Prismjs from 'prismjs'; //引入插件
 import { getArticleById } from '@/api/webarticle'
-import { getArticleCommentnum } from '@/api/articleComment'
+import { getArticleCommentnum } from '@/api/webarticleComment'
 
 import "vue-side-catalog/lib/vue-side-catalog.css";
 import SideCatalog from "vue-side-catalog";
