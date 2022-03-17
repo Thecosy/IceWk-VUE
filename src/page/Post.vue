@@ -46,7 +46,7 @@
                     </div>
                     <div class="content-markdown">
                       <!-- 内容区域 -->
-
+                
                       <div id="sidelist" v-html="this.content"></div>
                       <side-catalog class="catalog" v-bind="catalogProps">
                         <template #default="{ isActive }">
@@ -241,6 +241,15 @@
               <!---->
               <!-- v-on:click="show = !show"
                 v-if="!show" -->
+                <div class="myVEmojiPicker">
+                    <VEmojiPicker
+                      v-show="showDialog"
+                      :style="{ width: '340px', height: '200' }"
+                      labelSearch="Search"
+                      lang="pt-BR"
+                      @select="onSelectEmoji"
+                    />
+                </div>
               <section
                 v-if="mycomment"
                 @click="sendMsg"
@@ -266,6 +275,7 @@
                     pl-3
                   "
                 >
+                
                   <div class="flex">
                     共
                     <span class="fs-36 mx-1">{{ this.commentnum }}</span> 条评论
@@ -294,8 +304,10 @@
               </section>
               <comment
                 :articleId="this.$route.params.id"
+                :theEmoge="this.MyEmoge"
                 ref="child"
                 @closethecpmmentName="updateDate()"
+                @openthecpmmentName="showemoge()"
               />
             </div>
           </div>
@@ -448,6 +460,7 @@
 </template>
 
 <script>
+import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
 import Prismjs from 'prismjs'; //引入插件
 import { getArticleById } from '@/api/webarticle'
@@ -465,7 +478,7 @@ export default {
 
   name: 'Post',
   components: {
-    SideCatalog, top, foot, comment, Sticky
+    SideCatalog, top, foot, comment, Sticky,Prismjs,VEmojiPicker
   },
   created() {
     //数据回填
@@ -486,11 +499,20 @@ export default {
   },
 
   methods: {
+    onSelectEmoji(emoji) {
+      this.MyEmoge = emoji.data;
+    },
+    showemoge() {
+      // console.log("show")
+      this.showDialog = !this.showDialog;
+    },
     sendMsg() {
       this.$refs.child.getMsg('true');
       this.mycomment = false;
     },
     updateDate() {
+      //关闭表情
+      this.showDialog = false
       // console.log(data.show)
       this.mycomment = true;
       // console.log("调用了父组件的方法")
@@ -509,7 +531,6 @@ export default {
           })
         }, 500);
         //Prism.highlightAll()需要写在this.$nextTick()中，
-
         this.title = resp.data.title
         this.author = resp.data.author
 
@@ -521,6 +542,8 @@ export default {
   },
   data() {
     return {
+      MyEmoge:"",
+      showDialog: false,
       commentnum: "",
       mycomment: true,
       show1: "",
@@ -1087,5 +1110,16 @@ p {
   padding-top: 4rem;
   text-align: center;
   max-width: 1000px;
+}
+.category.active[data-v-6d975e7c]{
+  border-bottom:3px solid #52a1ff;
+}
+.myVEmojiPicker{
+   position: fixed;
+    display: flex;
+    flex-direction: column;
+    right: 390px;
+    bottom: 20px;
+    z-index: 10;
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
+                  
   <transition name="slide-fade">
+    
     <!-- v-if="show" 
        v-on:click="show = !show"-->
     <div
@@ -10,6 +12,7 @@
         van-popup van-popup--round van-popup--bottom
       "
     >
+      
       <div class="chat-header position-relative">
         评论列表
         <i @click="closethecpmment()" class="icon-close cursor-pointer" />
@@ -438,9 +441,10 @@
               placeholder="尽情畅所欲言把"
             />
           </div>
+          
           <div class="d-flex align-items-center pl-3 clearfix">
-            <a class="nav-link p-0 cursor-pointer"
-              ><i class="icon-smile fs-18"
+            <a @click="openemig()" class="nav-link p-0 cursor-pointer"
+              ><i  class="icon-smile fs-18"
             /></a>
             <span>
               <div
@@ -451,8 +455,10 @@
                 style="width: undefinedpx; display: none"
               >
                 <!---->
+                
                 <div class="macwk-emoji">
-                  <div class="d-flex nav">
+                
+                  <div class="d-flex nav" >
                     <a class="nav-link flex-grow-1 cursor-pointer active"
                       ><span>
                         <svg
@@ -554,6 +560,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div id="viewBox">
                     <div id="recent" class="pl-2 pb-2 mb-2">
                       <h6>常用</h6>
@@ -622,17 +629,24 @@ import { getallArticleComment } from '@/api/webarticleComment'
 import { addArticleComment } from '@/api/webarticleComment'
 
 import { formatDate } from '@/utils/date.js'
+import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
 export default ({
   name: 'comment',
-  props: ['articleId'],
+  props: ['articleId','theEmoge'],
+   components: {
+    VEmojiPicker
+  },
   setup() {
-
+  },
+   watch: {
+    theEmoge(val) {
+      this.contentarea += val
+    }
   },
   created() {
     getallArticleComment(this.articleId).then(resp => {
       this.comment = resp.data
-      console.log(this.comment)
     }) 
   },
   data() {
@@ -644,7 +658,6 @@ export default ({
         articleId: this.articleId,
         profile: "",
         userId: "",
-        
       },
       comment:{},
       close: false,
@@ -657,6 +670,7 @@ export default ({
     },
     setmap(){
       this.form.content = this.contentarea
+      console.log(this.form)
       addArticleComment(this.form).then(resp => {
       })
       //刷新
@@ -683,11 +697,26 @@ export default ({
         }, 100)
     },
     closethecpmment(val) {
-      console.log("clos")
+      // console.log("clos")
       this.close = false;
       this.$emit('closethecpmmentName');
       //closethecpmment事件触发后，自动触发closethecpmment事件
+    },
+    openemig(val) {
+      // console.log("open")
+      this.$emit('openthecpmmentName');
+      //openemig事件触发后，自动触发openthecpmmentName事件
     }
   }
 })
 </script>
+<style scoped>
+.myVEmojiPicker {
+  z-index: 999;
+  position: absolute;
+  right:50px;
+}
+.container1{
+   z-index: 999;
+}
+</style>
