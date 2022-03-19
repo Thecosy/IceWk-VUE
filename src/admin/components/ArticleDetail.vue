@@ -173,7 +173,7 @@
         </el-form-item>
 
         <el-form-item prop="image_uri" style="margin-bottom: 30px">
-          <Upload v-model="postForm.thumb" />
+          <Upload :fortitle="this.postForm.title" :forcontent="this.postForm.intro" v-model="postForm.thumb" />
         </el-form-item>
       </div>
     </el-form>
@@ -340,7 +340,6 @@ export default {
         this.postForm = response.data
         this.postForm.articleStatus = response.data.articleStatus
         this.setTagsViewTitle()
-
         // set page title
         this.setPageTitle()
       }).catch(err => {
@@ -439,7 +438,6 @@ export default {
       //获取作者列表
       getAllUserName().then(resp => {
         this.userListOptions = resp.data.map(o => { return [o.username].toString() })
-
       })
       //获取分类列表
       getAllClassName().then(resp => {

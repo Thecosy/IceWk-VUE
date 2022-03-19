@@ -573,6 +573,22 @@ export default {
 <style scoped>
 @import "../static/mycss/comment.css";
 @import "../static/mycss/post_body.css";
+ .myVEmojiPicker ::v-deep.category {
+   background:none;
+ }
+ .myVEmojiPicker ::v-deep.border {
+   border:none;
+ }
+.myVEmojiPicker ::v-deep .category.active[data-v-6d975e7c] {
+   border-bottom:3px solid #50a1ff;
+ }
+.myVEmojiPicker ::v-deep  .grid-emojis[data-v-5c988bee] {
+   background:#FFFFFF;
+ }
+.myVEmojiPicker ::v-deep  .emoji-picker[data-v-f1d527bc] {
+   --ep-color-bg:#FFFFFF;
+--ep-color-sbg:none
+ }
 
 .sogood{
  border-radius:20px 20px 20px 20px;

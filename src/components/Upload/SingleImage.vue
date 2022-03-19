@@ -17,7 +17,7 @@
     </el-upload>
     <div class="image-preview">
       <div v-show="imageUrl.length > 1" class="image-preview-wrapper">
-        <img :src="imageUrl + '?imageView2/1/w/200/h/200'" />
+        <img class="image-my" :src="imageUrl + '?imageView2/1/w/450/h/200'" />
         <div class="image-preview-action">
           <i class="el-icon-delete" @click="rmImage" />
         </div>
@@ -27,12 +27,21 @@
 </template>
 
 <script>
-import { updateImage } from '@/api/updateImage'
+import { addwatermarkimageUpload } from '@/api/updateImage'
 
 export default {
 
   name: 'SingleImageUpload',
   props: {
+    fortitle: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    forcontent: {
+      type: String,
+      default: ''
+    },
     value: {
       type: String,
       default: ''
@@ -40,6 +49,8 @@ export default {
   },
   data() {
     return {
+      title:"",
+      content:"",
       upFile: "",
       tempUrl: '',
       dataObj: { token: '', key: '' }
@@ -100,24 +111,30 @@ export default {
       });
     },
     Execute_File(file) {
+      this.$message({
+            message: '上传中,请稍后',
+            showClose: true,
+            duration: 1000
+      })
       var form = new FormData();
-
-
-
       form.append('editormd-image-file', file.file, file.file.name)
-      updateImage(form).then(resp => {
-        console.log(resp);
+      this.title = this.fortitle
+      this.content = this.forcontent
+      addwatermarkimageUpload(form,this.title,this.content).then(resp => {
+        this.$message({
+            message: '上传成功',
+            type: 'success',
+            showClose: true,
+            duration: 1000
+        })
         var imgUrl = resp.data.url;//根据返回值得不同这里要自己定义
-        console.log(imgUrl);
         this.tempUrl = imgUrl
         this.handleImageSuccess()
-      }).catch((e) => { console.log("shibai") })
-      console.log(file)
-
-      // 创建form对象，上传七牛云所需要的参数
+      }).catch((e) => { 
+       this.$message.error('抱歉,上传失败');
+      console.log("shibai") })
       const fileData = new FormData()
       fileData.append('file', file.file)
-      console.log(fileData)
 
     },
     rmImage() {
@@ -137,20 +154,6 @@ export default {
       } else {
         return false
       }
-      // const _self = this
-      // return new Promise((resolve, reject) => {
-      //   getToken().then(response => {
-      //     const key = response.data.qiniu_key
-      //     const token = response.data.qiniu_token
-      //     _self._data.dataObj.token = token
-      //     _self._data.dataObj.key = key
-      //     this.tempUrl = response.data.qiniu_url
-      //     resolve(true)
-      //   }).catch(err => {
-      //     console.log(err)
-      //     reject(false)
-      //   })
-      // })
     }
   }
 }
@@ -167,21 +170,24 @@ export default {
     float: left;
   }
   .image-preview {
-    width: 350px;
+    width: 450px;
     height: 200px;
     position: relative;
     border: 1px dashed #d9d9d9;
     float: left;
     margin-left: 50px;
-    .image-preview-wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      img {
-        width: 100%;
-        height: 100%;
+  .image-preview-wrapper {
+   width:450px;
+      height:200px;
+      display: table-cell;
+      vertical-align: middle;
+    img {
+        max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: auto;
       }
-    }
+}
     .image-preview-action {
       position: absolute;
       width: 100%;
