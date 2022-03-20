@@ -192,6 +192,12 @@ export const constantRoutes = [
         meta: { title: '管理员信息' }
       },
       {
+        path: 'RoleEdit',
+        component: () => import('@/admin/RoleEdit'),
+        name: '角色管理',
+        meta: { title: '角色管理' }
+      },
+      {
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: 'AvatarUploadDemo',

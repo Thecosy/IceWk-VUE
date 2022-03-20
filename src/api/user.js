@@ -1,9 +1,15 @@
 import request from '@/utils/request'
 
-export function getAllUserName(data) {
+export function getAllUserName() {
   return request({
-    url: '/User/getAllUserName',
+    url: '/UserRole/getAllUserName',
     method: 'get',
-    data
+  })
+}
+
+export function getAllUserRole() {
+  return request({
+    url: '/UserRole/getAllUserRole',
+    method: 'get',
   })
 }

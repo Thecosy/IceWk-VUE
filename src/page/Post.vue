@@ -576,9 +576,13 @@ export default {
  .myVEmojiPicker ::v-deep.category {
    background:none;
  }
- .myVEmojiPicker ::v-deep.border {
-   border:none;
+ .myVEmojiPicker ::v-deep .border {
+   border:0px solid hsla(210,8%,51%,.09)!important;
  }
+  .myVEmojiPicker ::v-deep .myVEmojiPicker[data-v-3bfe90b7] .border {
+   border:0px solid hsla(210,8%,51%,.09)!important;
+ }
+ 
 .myVEmojiPicker ::v-deep .category.active[data-v-6d975e7c] {
    border-bottom:3px solid #50a1ff;
  }
