@@ -23,6 +23,7 @@
         </div>
       </div>
     </div>
+    <el-progress v-show="theprogress" :percentage="percentage" :color="customColorMethod"></el-progress>
   </div>
 </template>
 
@@ -49,6 +50,8 @@ export default {
   },
   data() {
     return {
+      theprogress: false,
+      percentage: 20,
       title:"",
       content:"",
       upFile: "",
@@ -62,6 +65,27 @@ export default {
     }
   },
   methods: {
+    customColorMethod(percentage) {
+        if (percentage < 30) {
+          return '#909399';
+        } else if (percentage < 70) {
+          return '#e6a23c';
+        } else {
+          return '#67c23a';
+        }
+      },
+      increase() {
+        this.percentage += 10;
+        if (this.percentage > 100) {
+          this.percentage = 100;
+        }
+      },
+      decrease() {
+        this.percentage -= 10;
+        if (this.percentage < 0) {
+          this.percentage = 0;
+        }
+      },
     upload_change: function (file, fileList) {
       // 判断 > 1M
       if (file.size > 1048576) {
@@ -111,15 +135,20 @@ export default {
       });
     },
     Execute_File(file) {
+      this.theprogress=true
       this.$message({
             message: '上传中,请稍后',
             showClose: true,
             duration: 1000
       })
+      this.percentage=40
       var form = new FormData();
       form.append('editormd-image-file', file.file, file.file.name)
       this.title = this.fortitle
       this.content = this.forcontent
+      setTimeout(() => {
+         this.percentage=90
+      }, 2000)
       addwatermarkimageUpload(form,this.title,this.content).then(resp => {
         this.$message({
             message: '上传成功',
@@ -127,12 +156,15 @@ export default {
             showClose: true,
             duration: 1000
         })
+        this.percentage=100
+        this.theprogress=false
         var imgUrl = resp.data.url;//根据返回值得不同这里要自己定义
         this.tempUrl = imgUrl
         this.handleImageSuccess()
       }).catch((e) => { 
        this.$message.error('抱歉,上传失败');
-      console.log("shibai") })
+       this.theprogress=false
+      console.log("上传失败") })
       const fileData = new FormData()
       fileData.append('file', file.file)
 
