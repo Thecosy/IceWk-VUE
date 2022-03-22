@@ -230,6 +230,12 @@ export const constantRoutes = [
         meta: { title: '会员管理' }
       },
       {
+        path: 'OrderMent',
+        component: () => import('@/admin/OrderMent'),
+        name: '订单管理',
+        meta: { title: '订单管理' }
+      },
+      {
         path: 'PayMent',
         component: () => import('@/admin/PayMent'),
         name: '支付测试',
