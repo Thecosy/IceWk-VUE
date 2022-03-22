@@ -228,6 +228,12 @@ export const constantRoutes = [
         component: () => import('@/admin/avatar-upload'),
         name: '会员管理',
         meta: { title: '会员管理' }
+      },
+      {
+        path: 'PayMent',
+        component: () => import('@/admin/PayMent'),
+        name: '支付测试',
+        meta: { title: '支付测试' }
       }
     ]
   },

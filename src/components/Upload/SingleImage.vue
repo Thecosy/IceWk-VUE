@@ -141,14 +141,17 @@ export default {
             showClose: true,
             duration: 1000
       })
-      this.percentage=40
+      this.percentage=20
       var form = new FormData();
       form.append('editormd-image-file', file.file, file.file.name)
       this.title = this.fortitle
       this.content = this.forcontent
+      window.setInterval(() => {
       setTimeout(() => {
-         this.percentage=90
-      }, 2000)
+      this.percentage+=3
+      this.percentage%90
+      }, 0)
+      }, 200)
       addwatermarkimageUpload(form,this.title,this.content).then(resp => {
         this.$message({
             message: '上传成功',
