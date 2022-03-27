@@ -45,6 +45,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/list/:id(\\d+)',
+    component: () => import('@/page/Resource'),
+    hidden: true
+  },
+  {
     path: '/post/:id(\\d+)',
     component: () => import('@/page/Post'),
     hidden: true
