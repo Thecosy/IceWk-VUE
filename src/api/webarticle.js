@@ -48,3 +48,10 @@ export function FindAllArticle(query) {
     method: 'get'
   })
 }
+
+export function FindProfileByName(name) {
+  return request({
+    url: '/WebArticle/FindProfileByName/'+name,
+    method: 'get'
+  })
+}

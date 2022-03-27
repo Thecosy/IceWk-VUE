@@ -20,7 +20,7 @@
                     </h1>
                     <div class="d-flex mb-6 align-items-center">
                       <img
-                        src="https://inews.gtimg.com/newsapp_bt/0/13392595208/1000"
+                        :src="profile"
                         class="w-50 mw-50 h-50 b-0 circle m-0 mr-4"
                       />
                       <div class="flex">
@@ -38,8 +38,8 @@
                         <img
                           class="image-header"
                           alt=""
-                          data-src="https://static.konlonair.com/public/uploads/_/originals/article-jetbrains-crack-mainphoto.jpg"
-                          src="https://static.konlonair.com/public/uploads/_/originals/article-jetbrains-crack-mainphoto.jpg"
+                          :data-src="thumb"
+                          :src="thumb"
                           lazy="loaded"
                         />
                       </div>
@@ -463,7 +463,7 @@
 import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
 import Prismjs from 'prismjs'; //引入插件
-import { getArticleById } from '@/api/webarticle'
+import { getArticleById , FindProfileByName} from '@/api/webarticle'
 import { getArticleCommentnum } from '@/api/webarticleComment'
 
 import "vue-side-catalog/lib/vue-side-catalog.css";
@@ -522,6 +522,12 @@ export default {
     },
     fetchData(id) {
       getArticleById(id).then(resp => {
+        this.thumb = resp.data.thumb
+        this.title = resp.data.title
+        this.author = resp.data.author
+        FindProfileByName(this.author).then(resp => {
+          this.profile = resp.data
+        })
         //目录加载需要延时
         setTimeout(() => {
           this.content = resp.data.content
@@ -531,8 +537,6 @@ export default {
           })
         }, 500);
         //Prism.highlightAll()需要写在this.$nextTick()中，
-        this.title = resp.data.title
-        this.author = resp.data.author
 
         if (resp.data.createTime != null) { this.addTime = resp.data.createTime } else { this.addTime = resp.data.addTime }
         this.intro = resp.data.intro
@@ -542,6 +546,8 @@ export default {
   },
   data() {
     return {
+      profile:"",
+      thumb:"",
       MyEmoge:"",
       showDialog: false,
       commentnum: "",
