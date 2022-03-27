@@ -25,3 +25,10 @@ export function getArticleCommentnum(id) {
     method: 'get',
   })
 }
+
+export function getNewArticleComment(num) {
+  return request({
+    url: 'WebArticleComment/getNewArticleComment/' + num,
+    method: 'get',
+  })
+}
