@@ -1742,14 +1742,12 @@ export default ({
     getSitting() {
       getCarousel().then(resp => {
         this.Carousel = resp.data
-        console.log(resp)
       })
     },
     getList() {
       this.listLoading = true
       getNewArticle(6).then(resp => {
         this.list = resp.data
-        console.log(this.list)
         this.total = resp.data.total
         this.listLoading = false
         //将array进行处理,他的index索引余2===0的就放到一个新数组中leftArr

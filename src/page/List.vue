@@ -171,7 +171,7 @@
                         <h5 class="i-con-h-a">
                           全部软件
                           <span class="text-muted fs-13 v-1 ml-1">
-                            (1238)
+                            {{this.ResourceNumber}}
                           </span>
                         </h5>
                       </div>
@@ -208,11 +208,17 @@
                             name=""
                             true-value="true"
                             class="el-switch__input"
-                          /><!----><span
-                            class="el-switch__core"
-                            style="width: 40px"
-                          ></span
-                          ><span
+                          /> <!---->
+                            <div   >
+                            <el-switch
+                                v-model="istargetjudje"
+                              @change="istargetJudje()"
+                                active-color="#13ce66"
+                                inactive-color="#ff4949">
+                              </el-switch>
+                              </div>
+
+                          <span
                             class="el-switch__label el-switch__label--right"
                             ><!----><span aria-hidden="true"
                               >新窗口打开</span
@@ -240,28 +246,22 @@
                     >
                       <div class="mw-row">
                        
-                         <div v-for="item in 5" :key="item.message" class="mw-col list-animation-leftIn delay-3">
+                         <div v-for="item in list" :key="item.id" class="mw-col list-animation-leftIn delay-3">
+                            <div v-if="item.status.includes('published')" >
+                            <router-link :target="istarget" :to="'/list/' + item.id">
                           <a
-                            href="sketch.html"
-                            target="_self"
                             class="macwk-app border white cursor-pointer"
-                            ><div class="macwk-app__header--icon">
-                              <div
-                                class="macwk-app__header--icon--content"
-                                style="--img: url(static/image/sketch-bs.png)"
-                              ></div>
-                              <img class="delay-3" />
-                            </div>
+                            >
+                
+                              <img class="listtitleimg delay-3" src="https://a-oss.zmki.cn/wp-content/uploads//2021/12/15912d98d69619349e34dfc98db43ad9.jpg" />
+                            <!-- <img class="listtitleimg delay-3" :src="item.thumb" /> -->
                             <div class="macwk-app__body">
-                              <p class="macwk-app__body--version text-truncate">
-                                <span>83.1</span>
-                              </p>
                               <h5 class="macwk-app__body--title">
                                 <span
                                   class="el-tooltip today-update v-3 item"
                                 ></span>
                                 <!---->
-                                <span>Sketch</span>
+                                <span>{{item.title}}</span>
                                 <span
                                   class="
                                     macwk-app__body--title--version
@@ -275,10 +275,7 @@
                                 <!---->
                                 <!---->
                                 <!---->
-                                <span>最好用的矢量绘图软件</span>
-                                <span class="fs-12 opacity-80 ml-1">
-                                  - <span class="ml-1">70.9 MB</span></span
-                                >
+                                <span>{{item.intro}}</span>
                               </p>
                             </div>
                             <div class="macwk-app__extend">
@@ -307,36 +304,21 @@
                                 <i class="light-icon-more icon-next-arrow"></i>
                               </div></div
                           ></a>
+                           </router-link>
                         </div>
-                    
-                     
-                       
+                        </div>
                       </div>
                     </div>
-                    <div class="app-content-bottom">
-                      <div class="w-full el-pagination mt-5">
-                        <button
-                          type="button"
-                          disabled="disabled"
-                          class="btn-prev"
-                        >
-                          <i class="el-icon el-icon-arrow-left"></i></button
-                        ><button type="button" class="btn-next">
-                          <i class="el-icon el-icon-arrow-right"></i>
-                        </button>
-                        <ul class="el-pager">
-                          <li class="number active">1</li>
-                          <!---->
-                          <li class="number">2</li>
-                          <li class="number">3</li>
-                          <li class="number">4</li>
-                          <li
-                            class="el-icon more btn-quicknext el-icon-more"
-                          ></li>
-                          <li class="number">62</li>
-                        </ul>
-                      </div>
-                    </div>
+                       <!---->
+                      <pagination
+                        class="app-content-bottom"
+                        v-show="total > 0"
+                        :background="false"
+                        :total="total"
+                        :page.sync="listQuery.page"
+                        :limit.sync="listQuery.limit"
+                        @pagination="getList"
+                      />
                   </div>
                   <div class="app-content-info">
                     <div class="siderbar-apps border d-flex flex-column mb-5">
@@ -545,11 +527,23 @@
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
 
+import { getAllResource , getAllResourceNumber } from '@/api/webresource'
+
+import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 export default ({
   name: 'List',
-  components: {top, foot},
+  components: {top, foot,Pagination},
    data() {
     return {
+      istargetjudje:!true,
+      istarget:"_self",
+      ResourceNumber:"",
+      list:"",
+      listQuery: {
+        page: 1,
+        limit: 20
+      },
+      total:0,
       layoutactive:"",
       gridactive:"active",
       listactive:"",
@@ -558,12 +552,37 @@ export default ({
       acticve:'nav-link active',
     }
    },
+  created() {
+    this.getList()
+    this.getNumber()
+  },
   methods: {
+    istargetJudje(){
+      if(!this.istargetjudje){
+        this.istarget="_self"
+      }else{
+        this.istarget="_blank"
+      }
+    },
+    getNumber() {
+      getAllResourceNumber().then(resp => {
+        this.ResourceNumber = resp.data
+       })
+    },
+    getList() {
+      getAllResource(this.listQuery).then(resp => {
+        //获取文章
+        this.list = resp.data.data
+        this.total = resp.data.total
+      })
+    },
     changegrid(){
       this.layoutactive = ""
       this.gridactive = "active"  
       this.listactive = ""
       this.gridOrlist = "grid-grid"
+
+      this.showfootnext = false
     },
     changelist(){
       this.layoutactive = ""
@@ -578,7 +597,6 @@ export default ({
       this.gridactive = ""  
       this.listactive = ""
       
-      this.showfootnext = false
      
     }
 }
@@ -589,4 +607,15 @@ export default ({
 <style scoped>
 @import "../static/mycss/top.css";
 @import "../static/mycss/body.css";
+
+.macwk-app__body{
+  padding: 25px 5px 5px;
+}
+.macwk-animation .delay-3{
+  border-radius: 8px;
+}
+.listtitleimg {
+  width: 200px;
+  height: 130px;
+}
 </style>

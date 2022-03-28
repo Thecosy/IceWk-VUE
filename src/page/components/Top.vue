@@ -2,7 +2,7 @@
   <header class="app-header" data-v-7cf0e7dc="">
 
 <!-- 登陆 -->
-<el-dialog width="30%" top="30px" center title="" :visible.sync="dialogFormVisible">
+<el-dialog class="dialogdeep" width="30%" top="30px" center title="" :visible.sync="dialogFormVisible">
   <div class="box">
   <div class="login-logo"><img height="40" width="40" src="https://zy.prmath.com/wp-content/uploads/2021/09/2021090309505148.svg"></div>
   <div class="login-title"><span><b>快速登录</b></span></div>
@@ -16,13 +16,10 @@
       label-position="left"
     >
       <el-form-item prop="username">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
-        </span>
         <el-input
           ref="username"
           v-model="loginForm.username"
-          placeholder="Username"
+          placeholder="用户名"
           name="username"
           type="text"
           tabindex="1"
@@ -31,15 +28,12 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password" />
-        </span>
         <el-input
           :key="passwordType"
           ref="password"
           v-model="loginForm.password"
           :type="passwordType"
-          placeholder="Password"
+          placeholder="密码"
           name="password"
           tabindex="2"
           auto-complete="on"
@@ -59,8 +53,20 @@
         @click.native.prevent="handleLogin"
         >登陆</el-button
       >
+      <div data-v-11bb2e85="" class="ss-login_statement"><span data-v-11bb2e85="">登陆注册即代表同意</span><a data-v-11bb2e85="" href="https://sspai.com/post/37739" target="_blank">用户协议</a><span data-v-11bb2e85="">及</span><a data-v-11bb2e85="" href="https://sspai.com/page/privacy_policy" target="_blank">隐私条款</a></div>
+      <div data-v-11bb2e85="" class="line"></div>
+      <div data-v-11bb2e85="" class="footer">
+        <p data-v-11bb2e85="" class="text-align-center">其他登录方式</p>
+        <!-- <div data-v-11bb2e85="" class="other-login">
+          <button data-v-11bb2e85="" class="btn-login circle weixin">
+             <i class="iconfont icon-icon_qq"></i> 
+            </button>
+            <button data-v-11bb2e85="" class="btn-login circle weibo">
+              <i data-v-11bb2e85="" class="iconfont iconfont-weibo-simple"></i>
+            </button></div> -->
+        </div>
 
-      <div class="tips">
+        <div class="tips">
         <span style="margin-right: 20px"></span>
         <span> </span>
       </div>
@@ -879,7 +885,115 @@ export default ({
     background-repeat: no-repeat;
     background: none;
 }
+.footer{
+  display:flex;
+  justify-content: center;
+      font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Microsoft YaHei,"\5FAE\8F6F\96C5\9ED1",helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    --sspaiRed: #d71a1b;
+    --yellow: #ffbe16;
+    --B0: #fff;
+    --B10: #fbfbfb;
+    --B20: #f7f7f8;
+    --B30: #efefef;
+    --B40: #e5e5e5;
+    --B60: #8e8787;
+    --B80: #655e5e;
+    --B100: #292525;
+    --text: #4c4e4d;
+    --green: #3fd67e;
+    --red: #fd281a;
+    --pink: #ff2c78;
+    --white: #f4f4f4;
+    --sspai-red: #d71a1b;
+    --blue: #44b9fb;
+    -webkit-text-size-adjust: 100%;
+    font-size: 14px;
+    word-break: break-all;
+    outline: none!important;
+    -webkit-user-select: text!important;
+    -webkit-tap-highlight-color: transparent;
+    color: #8e8787;
+}
+.line{
+      font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Microsoft YaHei,"\5FAE\8F6F\96C5\9ED1",helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    --sspaiRed: #d71a1b;
+    --yellow: #ffbe16;
+    --B0: #fff;
+    --B10: #fbfbfb;
+    --B20: #f7f7f8;
+    --B30: #efefef;
+    --B40: #e5e5e5;
+    --B60: #8e8787;
+    --B80: #655e5e;
+    --B100: #292525;
+    --text: #4c4e4d;
+    --green: #3fd67e;
+    --red: #fd281a;
+    --pink: #ff2c78;
+    --white: #f4f4f4;
+    --sspai-red: #d71a1b;
+    --blue: #44b9fb;
+    -webkit-text-size-adjust: 100%;
+    font-size: 14px;
+    word-break: break-all;
+    color: #292525;
+    outline: none!important;
+    -webkit-user-select: text!important;
+    -webkit-tap-highlight-color: transparent;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    height: 1px;
+    background: #e5e5e5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.ss-login_statement{
+      font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Microsoft YaHei,"\5FAE\8F6F\96C5\9ED1",helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    --sspaiRed: #d71a1b;
+    --yellow: #ffbe16;
+    --B0: #fff;
+    --B10: #fbfbfb;
+    --B20: #f7f7f8;
+    --B30: #efefef;
+    --B40: #e5e5e5;
+    --B60: #8e8787;
+    --B80: #655e5e;
+    --B100: #292525;
+    --text: #4c4e4d;
+    --green: #3fd67e;
+    --red: #fd281a;
+    --pink: #ff2c78;
+    --white: #f4f4f4;
+    --sspai-red: #d71a1b;
+    --blue: #44b9fb;
+    -webkit-text-size-adjust: 100%;
+    word-break: break-all;
+    outline: none!important;
+    -webkit-user-select: text!important;
+    -webkit-tap-highlight-color: transparent;
+    margin: 12px auto;
+    font-size: 12px;
+    padding: 0 20px;
+    color: var(--B80);
+}
+.ss-login_statement a{
+padding:0 0.5em;
+font-weight:600;
+color:var(--red);
+}
 </style>
-<style scoped>
-
+<style lang="scss" scoped>
+.dialogdeep{
+  ::v-deep .el-dialog--center {
+    border-radius: 18px;
+  }
+}
+</style>
+<style >
+.el-dialog--center{
+    border-radius:10px;
+}
 </style>

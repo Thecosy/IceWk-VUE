@@ -152,7 +152,8 @@
                               @change="istargetJudje()"
                                 active-color="#13ce66"
                                 inactive-color="#ff4949">
-                              </el-switch></div><span
+                              </el-switch>
+                              </div><span
                               class="el-switch__label el-switch__label--right"
                             >
                               <!----><span aria-hidden="true">新窗口打开</span>
@@ -717,7 +718,6 @@ computed:{
       getNewArticleComment(9).then(resp =>{
         //获取最新评论
         this.Newarticlecomment = resp.data
-        console.log(this.Newarticlecomment)
       })
     },
     getNumber() {
