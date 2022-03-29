@@ -1481,12 +1481,12 @@
                           <router-link :to="'/post/' + item.id">
                             <div class="d-flex align-items-center">
                               <div class="icon-box icon-one">
-                                <img
-                                  v-if="item.thumb != null"
-                                  class="delayImg"
-                                  :src="item.thumb"
-                                  lazy="loading"
-                                />
+                            <el-image  v-if="item.thumb != null"
+                                  class="delayImg"  :src="item.thumb" lazy>
+                                <div slot="placeholder" class="image-slot">
+                               <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
+                                </div>
+                            </el-image>
                                 <div
                                   v-else
                                   class="delayImg"
@@ -1565,12 +1565,12 @@
                           <router-link :to="'/post/' + item.id">
                             <div class="d-flex align-items-center">
                               <div class="icon-box icon-one">
-                                <img
-                                  v-if="item.thumb != null"
-                                  class="delayImg"
-                                  :src="item.thumb"
-                                  lazy="loading"
-                                />
+                                 <el-image  v-if="item.thumb != null"
+                                  class="delayImg"  :src="item.thumb" lazy>
+                                <div slot="placeholder" class="image-slot">
+                               <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
+                                </div>
+                            </el-image>
                                 <div
                                   v-else
                                   class="delayImg"
@@ -1770,6 +1770,7 @@ export default ({
 .delayImg {
   height: 100px;
   width: 145px;
+  border-radius: 8px;
 }
 </style>
 
@@ -1810,5 +1811,14 @@ export default ({
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+</style>
+<style lang="scss" scoped>
+.delayImg {
+  ::v-deep {
+    .el-image__inner {
+     border-radius: 8px;
+    }
+  }
 }
 </style>

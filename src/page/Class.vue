@@ -21,7 +21,15 @@
                     <a href="/special/gif" class="cursor-pointer"
                       ><div class="single-special-member">
                         <div class="wrapper">
-                          <div class="img-box"><img src="https://static.konlonair.com/public/uploads/_/originals/special-gif-1.gif"/></div>
+                          <div class="img-box">
+                       
+
+                            <el-image src="https://static.konlonair.com/public/uploads/_/originals/special-gif-1.gif" lazy>
+                                <div slot="placeholder" class="image-slot">
+                               <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
+                                </div>
+                            </el-image>
+                            </div>
                           <div class="info-meta">
                             <h6 class="name">
                               Gif动画制作

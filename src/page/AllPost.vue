@@ -175,12 +175,13 @@
                               list-animation-leftIn
                             "
                           >
-                            <img
-                              v-if="item.thumb != null"
-                              class="post-item__preview delay-0"
-                              lazy="loading"
-                              :src="item.thumb"
-                            />
+                        
+                              <el-image  v-if="item.thumb != null"
+                                  class="post-item__preview delay-0" :src="item.thumb" lazy>
+                                <div slot="placeholder" class="image-slot">
+                               <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
+                                </div>
+                            </el-image>
                             <div
                               v-else
                               class="
@@ -759,5 +760,18 @@ computed:{
 /* 圆角 */
 .pagination-container {
   border-radius: 20px;
+}
+.delay-0{
+  border-radius: 8px;
+}
+</style>
+
+<style lang="scss" scoped>
+.delay-0 {
+  ::v-deep {
+    .el-image__inner {
+     border-radius: 8px;
+    }
+  }
 }
 </style>

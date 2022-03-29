@@ -252,8 +252,27 @@
                           <a
                             class="macwk-app border white cursor-pointer"
                             >
-                
-                              <img class="listtitleimg delay-3" src="https://a-oss.zmki.cn/wp-content/uploads//2021/12/15912d98d69619349e34dfc98db43ad9.jpg" />
+                            <el-image v-if="item.thumb != null" class="listtitleimg delay-3"  :src="item.thumb" lazy>
+                                <div slot="placeholder" class="image-slot">
+                               <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
+                                </div>
+                            </el-image>
+                               <div
+                                  v-else
+                                  class="delayImg"
+                                  :style="getStyles()"
+                                >
+                                  <h3
+                                    class="
+                                      flex
+                                      text-center text-white
+                                      opacity-50
+                                    "
+                                  >
+                                    NOPIC
+                                  </h3>
+                                </div>
+                              
                             <!-- <img class="listtitleimg delay-3" :src="item.thumb" /> -->
                             <div class="macwk-app__body">
                               <h5 class="macwk-app__body--title">
@@ -557,6 +576,43 @@ export default ({
     this.getNumber()
   },
   methods: {
+      getStyles() {
+      //生成随机颜色
+      let max = 8;
+      let min = 1;
+
+      let x = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      const backcolor = "randomColor" + x;
+
+      if (backcolor == "randomColor1") {
+        return "background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);"
+      }
+      if (backcolor == "randomColor2") {
+        return "background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);"
+      }
+      if (backcolor == "randomColor3") {
+        return "background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);"
+      }
+      if (backcolor == "randomColor4") {
+        return "background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%);"
+      }
+      if (backcolor == "randomColor5") {
+        return "background-image: linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);"
+      }
+      if (backcolor == "randomColor6") {
+        return "background-image: linear-gradient( 135deg, #E2B0FF 10%, #9F44D3 100%);"
+      }
+      if (backcolor == "randomColor7") {
+        return "background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);"
+      }
+      if (backcolor == "randomColor8") {
+        return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
+      }
+
+
+      return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
+    },
     istargetJudje(){
       if(!this.istargetjudje){
         this.istarget="_self"
@@ -617,5 +673,21 @@ export default ({
 .listtitleimg {
   width: 200px;
   height: 130px;
+}
+
+</style>
+
+<style lang="scss" scoped>
+.delay-3 {
+  ::v-deep {
+    .el-image__inner {
+     border-radius: 8px;
+    }
+  }
+}
+.delayImg {
+  height: 130px;
+  width: 200px;
+  border-radius: 8px;
 }
 </style>
