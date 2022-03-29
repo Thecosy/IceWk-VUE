@@ -191,8 +191,8 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: 'avatar-upload',
-        component: () => import('@/admin/avatar-upload'),
+        path: 'AdminInfo',
+        component: () => import('@/admin/AdminInfo'),
         name: '管理员信息',
         meta: { title: '管理员信息' }
       },

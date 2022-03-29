@@ -280,7 +280,7 @@
                                   class="el-tooltip today-update v-3 item"
                                 ></span>
                                 <!---->
-                                <span>{{item.title}}</span>
+                                <span>{{item.title  | ellipsis}}</span>
                                 <span
                                   class="
                                     macwk-app__body--title--version
@@ -575,6 +575,15 @@ export default ({
     this.getList()
     this.getNumber()
   },
+  filters: {
+    ellipsis(value) {
+      if (!value) return "";
+      if (value.length > 20) {
+        return value.slice(0, 20) + "...";
+      }
+      return value;
+    }
+  },
   methods: {
       getStyles() {
       //生成随机颜色
@@ -665,7 +674,7 @@ export default ({
 @import "../static/mycss/body.css";
 
 .macwk-app__body{
-  padding: 25px 5px 5px;
+  padding: 13px 9px 5px;
 }
 .macwk-animation .delay-3{
   border-radius: 8px;

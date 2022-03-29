@@ -487,7 +487,6 @@ export default {
     getArticleCommentnum(this.$route.params.id).then(resp => {
       this.commentnum = resp.data
     })
-
   },
   mounted() {
     setTimeout(() => {

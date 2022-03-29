@@ -13,3 +13,10 @@ export function getAllResourceNumber() {
     method: 'get'
   })
 }
+
+export function getResourceById(id) {
+  return request({
+    url: 'WebResource/getResourceById/'+id,
+    method: 'get'
+  })
+}

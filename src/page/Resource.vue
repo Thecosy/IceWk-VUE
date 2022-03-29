@@ -54,11 +54,8 @@
                 <div class="col-xs-12 col-lg-6 col-xl-6">
                   <div class="header-app"><img class="app-icon mr-3">
                     <div class="list-body">
-                      <h2 class="mb-4"><span class="el-tooltip v-3">👍 </span>
-                        Beyond Compare 4.4.2
-                        中文破解版
-
-                        (文件对比比较神器)
+                      <h2 class="mb-4">
+                        {{title}}
                         <!---->
                         <!---->
                         <!---->
@@ -270,39 +267,7 @@
             </section>
             <section class="layout-content">
               <div id="step-read" class="layout-content-install pt-7 mb-5">
-                <div class="container">
-                  <div class="content-header">
-                    <div class="h-150 w-r is-align-middle w-r--flex">
-                      <div class="w-c w-c-2"><svg width="80" height="70" viewBox="0 0 125 107"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <g fill="none" fill-rule="evenodd">
-                            <circle cx="48" cy="59" r="48" class="circle-fill"></circle>
-                            <path
-                              d="M58.536 39.713c0-6.884 1.72-14.007 5.163-21.368 3.443-7.36 8.167-13.458 14.173-18.292l11.645 7.91c-3.589 4.98-6.262 10.016-8.02 15.106S78.86 33.598 78.86 39.384v13.623H58.536V39.713z"
-                              class="path-fill"></path>
-                            <path
-                              d="M93.252 39.713c0-6.884 1.722-14.007 5.164-21.368 3.442-7.36 8.166-13.458 14.172-18.292l11.646 7.91c-3.589 4.98-6.262 10.016-8.02 15.106s-2.637 10.529-2.637 16.315v13.623H93.252V39.713z"
-                              class="path-fill-1"></path>
-                          </g>
-                        </svg></div>
-                      <div class="w-c w-c-22">
-                        <h3>
-                          安装必读
-                          <!---->
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="featured-posts featured-soft mb-6">
-                    <div></div>
-                    <div></div>
-                  </div>
-                  <div class="text-center pt-6 pb-5"><a target="_blank" href="https://t.me/Macwkapp "
-                      class="btn btn-outline-theme btn-round py-2 fs-18 px-7"><img class="w-30 v-m-8"> 加入群聊
-                    </a>
-                    <p class="mt-3 text-muted">软件安装、需求等问题请加Telegram群</p>
-                  </div>
-                </div>
+              
               </div>
               <!---->
               <!---->
@@ -454,6 +419,7 @@ import top from './components/Top.vue'
 import foot from './components/Foots.vue'
 import comment from './components/Comment.vue'
 
+import { getResourceById } from '@/api/webresource'
 export default {
 
   name: 'Resource',
@@ -461,12 +427,31 @@ export default {
    
   },
   created() {
+     //数据回填
+    this.fetchData(this.$route.params.id)
+    //获取资源评论数量
+    getArticleCommentnum(this.$route.params.id).then(resp => {
+      this.commentnum = resp.data
+    })
   },
 
   methods: {
+    fetchData(id) {
+      getResourceById(id).then(resp => {
+        console.log(resp)
+        this.thumb = resp.data.thumb
+        this.title = resp.data.title
+        this.author = resp.data.author
+
+        if (resp.data.createTime != null) { this.addTime = resp.data.createTime } else { this.addTime = resp.data.addTime }
+        this.intro = resp.data.intro
+
+      })
+    },
   },
   data() {
     return {
+      title: "",
       acticve: 'nav-link active',
     }
   },
