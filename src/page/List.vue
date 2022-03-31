@@ -252,11 +252,14 @@
                           <a
                             class="macwk-app border white cursor-pointer"
                             >
+                            
                             <el-image v-if="item.thumb != null" class="listtitleimg delay-3"  :src="item.thumb" lazy>
                                 <div slot="placeholder" class="image-slot">
+                                  
                                <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
                                 </div>
                             </el-image>
+                           
                                <div
                                   v-else
                                   class="delayImg"
