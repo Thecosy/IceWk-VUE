@@ -93,18 +93,6 @@ export const constantRoutes = [
       // 需要登录才能进入的页面可以增加一个requireAuth属性
     }]
   },
-  {
-    path: '/swagger',
-    component: Layout,
-    redirect: '/admin/swagger',
-    children: [{
-      path: 'swagger',
-      name: 'swagger',
-      component: () => import('@/views/develop/swagger'),
-      meta: { title: 'swagger', icon: 'dashboard', requireAuth: true }
-      // 需要登录才能进入的页面可以增加一个requireAuth属性
-    }]
-  },
 
   // admin page （my）
   {
@@ -123,7 +111,28 @@ export const constantRoutes = [
         path: 'NewArticle',
         component: () => import('@/admin/NewArticle'),
         name: 'NewArticle',
-        meta: { title: '创建文章', icon: 'edit', requireAuth: true, noCache: false }
+        meta: { title: '创建文章', icon: 'el-icon-edit', requireAuth: true, noCache: false }
+        // 需要登录才能进入的页面可以增加一个requireAuth属性
+      }
+    ]
+  },
+  {
+    path: '/article',
+    component: Layout,
+    redirect: '/article/AllArticle',
+    name: 'article',
+    meta: {
+      title: '文章',
+      icon: 'article',
+      requireAuth: true
+      // 需要登录才能进入的页面可以增加一个requireAuth属性
+    },
+    children: [
+      {
+        path: 'NewArticle',
+        component: () => import('@/admin/NewArticle'),
+        name: 'NewArticle',
+        meta: { title: '创建资源', icon: 'el-icon-edit-outline', requireAuth: true, noCache: false }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       }
     ]
@@ -179,6 +188,56 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/resource',
+    component: Layout,
+    redirect: '/resource/AllResource',
+    name: 'resource',
+    meta: {
+      title: '资源管理',
+      icon: 'el-icon-discover',
+      requireAuth: true
+      // 需要登录才能进入的页面可以增加一个requireAuth属性
+    },
+    children: [
+      {
+        path: 'edit/:id(\\d+)',
+        component: () => import('@/admin/ResourceEdit'),
+        name: 'EditResource',
+        meta: { title: '编辑文章', noCache: true, activeMenu: '/article/list', requireAuth: true },
+        // 需要登录才能进入的页面可以增加一个requireAuth属性
+        hidden: true
+      },
+      {
+        path: 'AllResource',
+        component: () => import('@/admin/ResourceList'),
+        name: 'AllResource',
+        meta: { title: '资源列表', icon: 'documentation', requireAuth: true }
+        // 需要登录才能进入的页面可以增加一个requireAuth属性
+      },
+      {
+        path: 'dropzone',
+        component: () => import('@/admin/Dropzone'),
+        name: 'DropzoneDemo',
+        meta: { title: '图片上传', icon: 'el-icon-upload', requireAuth: true }
+        // 需要登录才能进入的页面可以增加一个requireAuth属性
+      },
+      {
+        path: 'ArticleComment',
+        component: () => import('@/admin/ArticleComment'),
+        name: 'ArticleComment',
+        meta: { title: '评论管理', icon: 'message', requireAuth: true }
+        // 需要登录才能进入的页面可以增加一个requireAuth属性
+      },
+      {
+        path: 'ArticleClass',
+        component: () => import('@/admin/ArticleClass'),
+        name: 'ArticleClass',
+        meta: { title: '分类管理', icon: 'el-icon-receiving', requireAuth: true }
+        // 需要登录才能进入的页面可以增加一个requireAuth属性
+      }
+    ]
+  },
+  {
     path: '/selfInfo',
     component: Layout,
     redirect: '/Manage/selfInfo',
@@ -194,13 +253,13 @@ export const constantRoutes = [
         path: 'AdminInfo',
         component: () => import('@/admin/AdminInfo'),
         name: '管理员信息',
-        meta: { title: '管理员信息' }
+        meta: { title: '管理员信息', icon:'el-icon-s-custom'}
       },
       {
         path: 'RoleEdit',
         component: () => import('@/admin/RoleEdit'),
         name: '角色管理',
-        meta: { title: '角色管理' }
+        meta: { title: '角色管理', icon:'el-icon-s-check' }
       },
       {
         path: 'avatar-upload',
@@ -226,19 +285,19 @@ export const constantRoutes = [
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: '商城总览',
-        meta: { title: '商城总览' }
+        meta: { title: '商城总览',icon:'el-icon-s-check' }
       },
       {
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: '会员管理',
-        meta: { title: '会员管理' }
+        meta: { title: '会员管理',icon:'el-icon-star-off' }
       },
       {
         path: 'OrderMent',
         component: () => import('@/admin/OrderMent'),
         name: '订单管理',
-        meta: { title: '订单管理' }
+        meta: { title: '订单管理',icon:'el-icon-s-shop' }
       },
       {
         path: 'PayMent',
@@ -264,16 +323,29 @@ export const constantRoutes = [
         path: 'Webset',
         component: () => import('@/admin/WebSet'),
         name: '网站信息',
-        meta: { title: '网站信息' }
+        meta: { title: '网站信息',icon:'el-icon-info' }
       },
       {
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: '友情链接',
-        meta: { title: '友情链接' }
+        meta: { title: '友情链接',icon:'el-icon-sugar' }
       }
     ]
   },
+  {
+    path: '/swagger',
+    component: Layout,
+    redirect: '/admin/swagger',
+    children: [{
+      path: 'swagger',
+      name: 'swagger',
+      component: () => import('@/views/develop/swagger'),
+      meta: { title: 'swagger', icon: 'dashboard', requireAuth: true }
+      // 需要登录才能进入的页面可以增加一个requireAuth属性
+    }]
+  },
+
 
   // admin page
 
@@ -282,7 +354,7 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+        path: 'https://github.com/Thecosy/iceCMS',
         meta: { title: 'External Link', icon: 'link', requireAuth: true }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       }

@@ -8,11 +8,8 @@
           <div>
             <div
               class="
-                layout-min-full-height
-                special-standard
-                our-special
-                py-7
-                pc-model
+               
+               
               "
             >
               <div class="container">
@@ -528,4 +525,7 @@ body > .el-container {
 </style>
 
 <style scoped>
+.py-7 {
+  padding-top: 3px;
+}
 </style>
