@@ -203,7 +203,7 @@ export const constantRoutes = [
         path: 'edit/:id(\\d+)',
         component: () => import('@/admin/ResourceEdit'),
         name: 'EditResource',
-        meta: { title: '编辑文章', noCache: true, activeMenu: '/article/list', requireAuth: true },
+        meta: { title: '编辑资源', noCache: true, activeMenu: '/resource/list', requireAuth: true },
         // 需要登录才能进入的页面可以增加一个requireAuth属性
         hidden: true
       },

@@ -702,4 +702,7 @@ export default ({
   width: 200px;
   border-radius: 8px;
 }
+.app-content-main .app-content-bottom{
+  border-radius: 15px;
+}
 </style>

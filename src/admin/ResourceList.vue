@@ -73,7 +73,7 @@
 
       <el-table-column align="center" label="操作" width="200">
         <template slot-scope="scope">
-          <router-link :to="'/article/edit/' + scope.row.id">
+          <router-link :to="'/resource/edit/' + scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">
               修改
             </el-button>
