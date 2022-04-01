@@ -6,15 +6,48 @@
         <div data-fetch-key="0" class="app light macwk-animation">
           <top :message5="acticve" />
           <div>
-            <div
-              class="
-               
-               
-              "
-            >
+            <div class="body">
               <div class="container">
                 <div class="row">
-                  <el-aside width="260px">Aside</el-aside>
+                  <el-aside width="260px">
+                    <div class="sidebar-innter widget-ffixed">
+                      <section
+                        id="b2-widget-circle-info-2"
+                        class="
+                          mobile-hidden
+                          widget
+                          b2-widget-circle-info
+                          mg-b
+                          box
+                          
+                          b2-radius-aside-left
+                        "
+                      >
+                        <div class="b2-widget-title">
+                          <h2 class="widget-title">创建自己的圈子</h2>
+                        </div>
+                        <div class="b2-widget-box">
+                          <div class="about-widget">
+                            <div class="user-w-announcement">
+                              <ul class="planet-aside-ul">
+                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">什么是圈子？</a></li>
+                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">我可以做什么？</a></li>
+                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">圈子规则</a></li>
+                              </ul>
+                            </div>
+                            <div class="circle-widget-button">
+                              <button
+                                class="text-great"
+                                onclick="postPoBox.go('https://www.zmki.cn/create-circle','create_circle')"
+                              >
+                                创建圈子
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </el-aside>
                   <el-main>
                     <el-row :gutter="20">
                       <div class="circle-top">
@@ -102,10 +135,18 @@
                           <li class="planetli">
                             <el-button type="primary" round>全部</el-button>
                           </li>
-                          <li class="planetli"><button class="">我说</button></li>
-                          <li class="planetli"><button class="">提问</button></li>
-                          <li class="planetli"><button class="">投票</button></li>
-                          <li class="planetli"><button class="">你猜</button></li>
+                          <li class="planetli">
+                            <button class="">我说</button>
+                          </li>
+                          <li class="planetli">
+                            <button class="">提问</button>
+                          </li>
+                          <li class="planetli">
+                            <button class="">投票</button>
+                          </li>
+                          <li class="planetli">
+                            <button class="">你猜</button>
+                          </li>
                         </ul>
                         <div class="topic-drop">
                           <button class="planettext">
@@ -189,7 +230,6 @@
                           <div class="topic-content-text">
                             <p>
                               <span> 钻钻，你网站越来越卡了！</span>
-                             
                             </p>
                           </div>
                           <!---->
@@ -202,8 +242,8 @@
                         <div class="topic-footer">
                           <div class="topic-footer-left">
                             <button class="planettext">
-                              <i class="el-icon-caret-top"></i
-                              ><span>赞</span><b>0</b>
+                              <i class="el-icon-caret-top"></i><span>赞</span
+                              ><b>0</b>
                             </button>
                             <button class="planettext">
                               <i class="el-icon-caret-bottom"></i>
@@ -220,23 +260,26 @@
                             >
                             <!---->
                             <div class="topic-meta-more-box">
-                                <el-popover
-    placement="bottom"
-    title="标题"
-    width="200"
-    trigger="hover"
-    content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
-
-                              <button slot="reference" class="topic-date topic-meta-more">
-                                <i class="el-icon-more-outline"></i>
-                              </button>
-  
-  </el-popover>
-                              
+                              <el-popover
+                                placement="bottom"
+                                title="标题"
+                                width="200"
+                                trigger="hover"
+                                content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+                              >
+                                <button
+                                  slot="reference"
+                                  class="topic-date topic-meta-more"
+                                >
+                                  <i class="el-icon-more-outline"></i>
+                                </button>
+                              </el-popover>
                             </div>
                           </div>
                           <div class="topic-footer-right">
-                             <el-button type="success" plain> <span><b>1</b>条讨论</span></el-button>
+                            <el-button type="success" plain>
+                              <span><b>1</b>条讨论</span></el-button
+                            >
                           </div>
                         </div>
                       </div>
@@ -441,12 +484,14 @@ export default ({
   height: 100px;
   width: 145px;
 }
+.body{
+  background-color: #F3F5F7;
+}
 </style>
 
 
 <style scoped>
 .container {
-  
 }
 .white1 {
   background-color: rgb(255, 255, 255);
@@ -484,7 +529,6 @@ export default ({
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
-
 
 body > .el-container {
   margin-bottom: 40px;

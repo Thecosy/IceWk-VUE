@@ -318,7 +318,9 @@
                                   justify-content-end
                                 "
                               >
-                                <i class="icon-clock"></i> <span> 02-10 </span>
+                                <i class="icon-clock"></i> 
+                              
+                                <span> 02-10 </span>
                               </div>
                             </div>
                             <div class="macwk-app__footer">

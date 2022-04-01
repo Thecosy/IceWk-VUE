@@ -129,9 +129,9 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: 'NewArticle',
-        component: () => import('@/admin/NewArticle'),
-        name: 'NewArticle',
+        path: 'NewResource',
+        component: () => import('@/admin/NewResource'),
+        name: 'NewResource',
         meta: { title: '创建资源', icon: 'el-icon-edit-outline', requireAuth: true, noCache: false }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       }
@@ -222,16 +222,16 @@ export const constantRoutes = [
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       },
       {
-        path: 'ArticleComment',
-        component: () => import('@/admin/ArticleComment'),
-        name: 'ArticleComment',
+        path: 'ResourceComment',
+        component: () => import('@/admin/ResourceComment'),
+        name: 'ResourceComment',
         meta: { title: '评论管理', icon: 'message', requireAuth: true }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       },
       {
-        path: 'ArticleClass',
-        component: () => import('@/admin/ArticleClass'),
-        name: 'ArticleClass',
+        path: 'ResourceClass',
+        component: () => import('@/admin/ResourceClass'),
+        name: 'ResourceClass',
         meta: { title: '分类管理', icon: 'el-icon-receiving', requireAuth: true }
         // 需要登录才能进入的页面可以增加一个requireAuth属性
       }
