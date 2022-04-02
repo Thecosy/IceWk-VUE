@@ -289,7 +289,7 @@
                         </svg></div>
                       <div class="w-c w-c-22">
                         <h3>
-                          软件介绍/功能
+                          正文概述
                           <!---->
                         </h3>
                       </div>
@@ -298,13 +298,15 @@
                   <div>
                     <div class="soft-blockquote fw-400">
                       <div>
-                        <p>Beyond Compare 4 是mac上最好的文件同步对比工具，专门用于帮助您比较，合并或同步文件夹和文件。您可以轻松地比较整个驱动器或文件夹，并检查大小和修改日期。而且Beyond
-                          Compare还能够使用专为代码和文本文件制作的语法突出显示和比较规则来显示和编辑文本文件。您还可以比较word、excel以及PDF文档，数据文件，可执行文件，图像和二进制数据。</p>
+                        <p>{{intro}}</p>
                       </div>
                     </div>
                     <!---->
                     <!---->
                   </div>
+                    <!-- 内容区域 -->
+                
+                      <div id="sidelist" v-html="this.content"></div>
                 </div>
               </div>
               <!---->
@@ -442,6 +444,8 @@ export default {
         this.thumb = resp.data.thumb
         this.title = resp.data.title
         this.author = resp.data.author
+        this.content = resp.data.content
+        this.intro = resp.data.intro
 
         if (resp.data.createTime != null) { this.addTime = resp.data.createTime } else { this.addTime = resp.data.addTime }
         this.intro = resp.data.intro
@@ -451,6 +455,8 @@ export default {
   },
   data() {
     return {
+      intro:"",
+      content:"",
       title: "",
       acticve: 'nav-link active',
     }
@@ -462,4 +468,5 @@ export default {
 <style scoped>
 @import "../static/mycss/comment.css";
 @import "../static/mycss/post_body.css";
+
 </style>
