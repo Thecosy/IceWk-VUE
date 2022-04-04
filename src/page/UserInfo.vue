@@ -14,7 +14,7 @@
 
       <div id="author" class="author wrapper">
         <div class="box b2-radius author-header">
-          <div class="mask-wrapper" >
+          <div class="mask-wrapper" v-bind:style="{ backgroundImage: 'url(' + image + ')' }" >
             <div class="user-cover-button" >
               <label class="empty button" for="cover-input"><i
                   class="b2font b2-image-fill "></i><span>上传封面图片</span></label>
@@ -23,7 +23,9 @@
             </div>
           </div>
           <div class="user-panel">
-            <div style="background-image:" class="avatar">
+            <div class="avatar">
+             
+              <el-avatar shape="square" :size="150" :src="user.profile"></el-avatar>
               <label class="editor-avatar" for="avatar-input" ><i
                   class="b2font b2-image-fill "></i><span>修改我的头像</span></label>
               <input id="avatar-input" type="file" class="b2-hidden-always" ref="fileInput"
@@ -31,17 +33,17 @@
             </div>
             <div class="user-panel-info">
               <div class="">
-                <h1><span id="userDisplayName">user5079</span><span class="user-page-lv"><span
+                <h1><span id="userDisplayName" class="usertopName">{{user.name}}</span><span class="user-page-lv"><span
                       class="lv-icon user-lv b2-lv0"><b>Lv0 新手上路</b><i>lv0</i></span></span></h1>
                 <p>这个人很懒，什么都没有留下！</p>
               </div>
               <div class="user-panel-editor-button">
                 <div class="user-follow" >
-                  <button class="" ><i
+                  <button class="mybutton" ><i
                       class="b2font b2-add-line "></i><span>关注Ta</span></button>
-                  <button class="author-has-follow" >取消关注</button>
-                  <button class="empty" @click="dmsg()"><i
-                      class="b2font b2-mail-send-line "></i><span>发私信</span></button>
+                  <button class="mybutton author-has-follow" >取消关注</button>
+                  <button class="mybutton empty" @click="dmsg()"><i
+                      class="mybutton b2font b2-mail-send-line "></i><span>发私信</span></button>
                 </div>
               </div>
             </div>
@@ -131,7 +133,7 @@
               <div id="author-index">
                 <div class="user-info box b2-radius mg-b">
                   <p class="b2-pd">
-                    <span class="user-info-title">昵称：</span><span ></span>
+                    <span class="user-info-title">昵称：</span><span >{{user.name}}</span>
                   </p>
                   <p class="b2-pd user-verify">
                     <span class="user-info-title">认证：</span>
@@ -293,10 +295,8 @@
 </template>
 
 <script>
-import { getNewResource } from '@/api/webresource'
-import { getNewArticle } from '@/api/webarticle'
-import { formatDate } from '@/utils/date.js'
-import { getCarousel } from '@/api/sitting'
+// import { getNewResource } from '@/api/webresource'
+// import { formatDate } from '@/utils/date.js'
 
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
@@ -306,88 +306,26 @@ export default ({
   components: {top, foot},
   data() {
     return {
-      rlist:"",
+      image:"http://api.ahsubway.com/",
       acticve:'nav-link active',
-      Carousel: {},
-      list: null,
-      leftArr: null,
-      rightArr: null,
+      user:"",
     }
   },
   created() {
-    this.getList()
-    this.getSitting()
+     this.getUserInfo()
   },
   props: {
-    dataHeight: {
-      type: String,
-      default: '450px'
-    }
+
   },
   methods: {
-    getStyles() {
-      //生成随机颜色
-      let max = 8;
-      let min = 1;
-
-      let x = Math.floor(Math.random() * (max - min + 1)) + min;
-
-      const backcolor = "randomColor" + x;
-
-      if (backcolor == "randomColor1") {
-        return "background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);"
-      }
-      if (backcolor == "randomColor2") {
-        return "background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%);"
-      }
-      if (backcolor == "randomColor3") {
-        return "background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);"
-      }
-      if (backcolor == "randomColor4") {
-        return "background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%);"
-      }
-      if (backcolor == "randomColor5") {
-        return "background-image: linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);"
-      }
-      if (backcolor == "randomColor6") {
-        return "background-image: linear-gradient( 135deg, #E2B0FF 10%, #9F44D3 100%);"
-      }
-      if (backcolor == "randomColor7") {
-        return "background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);"
-      }
-      if (backcolor == "randomColor8") {
-        return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
-      }
-
-
-      return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
+     getUserInfo(){
+      const user = JSON.parse(window.localStorage.getItem('access-admin'))
+      this.user = user.data
     },
     formatDate(time) {
       let data = new Date(time)
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
-    getSitting() {
-      getCarousel().then(resp => {
-        this.Carousel = resp.data
-      })
-    },
-    getList() {
-      this.listLoading = true
-      getNewResource(6).then(resp => {
-        console.log(resp)
-        this.rlist = resp.data
-      })
-      getNewArticle(6).then(resp => {
-        this.list = resp.data
-        this.total = resp.data.total
-        this.listLoading = false
-        //将array进行处理,他的index索引余2===0的就放到一个新数组中leftArr
-        this.leftArr = this.list.filter((_item, index) => index % 2 === 0);
-        //将array进行处理,他的index索引余2 ！===0的就放到一个新数组中rightArr
-        this.rightArr = this.list.filter((_item, index) => index % 2 !== 0);
-
-      })
-    }
   }
 })
 </script>
@@ -458,8 +396,8 @@ export default ({
       color: #51A1FF;
     }
 
-    .button,
-    button {
+    .mybutton
+     {
       background: #51A1FF;
       border: 1px solid #51A1FF;
       border-radius: 10px;
@@ -1384,5 +1322,8 @@ export default ({
     padding:20px;
     margin-left: 43px;
     margin-right: 43px;
+  }
+  .usertopName{
+    display:flex;
   }
 </style>

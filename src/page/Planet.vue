@@ -136,16 +136,16 @@
                             <el-button type="primary" round>全部</el-button>
                           </li>
                           <li class="planetli">
-                            <button class="">我说</button>
+                            <el-button type="primary" round>我说</el-button>
                           </li>
                           <li class="planetli">
-                            <button class="">提问</button>
+                             <el-button type="primary" round>提问</el-button>
                           </li>
                           <li class="planetli">
-                            <button class="">投票</button>
+                             <el-button type="primary" round>投票</el-button>
                           </li>
                           <li class="planetli">
-                            <button class="">你猜</button>
+                             <el-button type="primary" round>你猜</el-button>
                           </li>
                         </ul>
                         <div class="topic-drop">

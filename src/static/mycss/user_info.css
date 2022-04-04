@@ -3,7 +3,7 @@ Theme Name: B2 PRO
 Theme URI: https://7b2.com/
 Author: Li Ruchun
 Author URI: https://7b2.com/
-Description: wordpress 楂樼骇鍟嗙敤涓婚锛屾ā鍧楀寲绠＄悊锛屽吋瀹瑰井淇＄殑鍚勭鐜
+Description: wordpress 妤傛楠囬崯鍡欐暏娑撳顣介敍灞灸侀崸妤€瀵茬粻锛勬倞閿涘苯鍚嬬€圭懓浜曟穱锛勬畱閸氬嫮顫掗悳顖氼暔
 Version: 3.3.93
 Text Domain: B2
 Tags: B2
@@ -370,7 +370,7 @@ mark, ins {
     flex: 1 0 auto;
 }
 
-.jt::before{  /*杩欓噷鐨勪吉鍏冪礌鐢ㄥ崟鍐掑彿鍜屽弻鍐掑彿閮戒竴鏍�*/
+.jt::before{  /*鏉╂瑩鍣烽惃鍕悏閸忓啰绀岄悽銊ュ礋閸愭帒褰块崪灞藉蓟閸愭帒褰块柈鎴掔閺嶏拷*/
     content: '';
     display: block;
     position: absolute;
@@ -382,12 +382,12 @@ mark, ins {
 	z-index: 2;
 }
 
-/*绗簩涓笁瑙掑舰*/
+/*缁楊兛绨╂稉顏冪瑏鐟欐帒鑸�*/
 .jt::after{
 	content: '';
 	display: block;
 	position: absolute;
-	top: -6.6px; /*鍚戜笅鍋忕Щ閲忔槸鐭╁舰杈规瀹藉害鐨�1.4锛堟牴鍙�2锛夊€嶏紝鍗�8.4锛宼op鍊间负-26-锛�-8.4锛�*/
+	top: -6.6px; /*閸氭垳绗呴崑蹇曅╅柌蹇旀Ц閻晛鑸版潏瑙勵攱鐎硅棄瀹抽惃锟�1.4閿涘牊鐗撮崣锟�2閿涘鈧稄绱濋崡锟�8.4閿涘op閸婇棿璐�-26-閿涳拷-8.4閿涳拷*/
 	left: 35px;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
@@ -425,7 +425,7 @@ mark, ins {
 	top:0;
 	left:0
 }
-/*鎾斁鍣ㄦ牱寮忓吋瀹�*/
+/*閹绢厽鏂侀崳銊︾壉瀵繐鍚嬬€癸拷*/
 .dplayer-icons button{
 	background: inherit;
 	border:inherit
@@ -437,7 +437,7 @@ mark, ins {
     left: auto;
     right: 20px;
 }
-/*瑙嗛闅愯棌鍙抽敭鑿滃崟*/
+/*鐟欏棝顣堕梾鎰閸欐娊鏁懣婊冨礋*/
 .dplayer-menu-show {
 	display: none !important;
 }
@@ -497,7 +497,7 @@ img.avatar{
 	height:100%;
 }
 
-/*琛ㄦ牸鏍峰紡*/
+/*鐞涖劍鐗搁弽宄扮础*/
 table {
 	border-collapse: collapse;
     border-spacing: 0;
@@ -598,7 +598,7 @@ table tbody tr:nth-child(odd) {
         transform: translate3d(85px, 0, 0);
     }
 }
-/*2.5.4 鏂板閫氱敤鏍峰紡*/
+/*2.5.4 閺傛澘顤冮柅姘辨暏閺嶅嘲绱�*/
 .fs12{
 	font-size: 12px;
 }
@@ -687,7 +687,7 @@ input:-webkit-autofill {
 .user-none{
     color:#bcbcbc
 }
-/*顶部开始*/
+/*椤堕儴寮€濮�*/
 .site .site-header-in{
     transform: translate(0);
     transition: transform .3s;
@@ -1251,7 +1251,7 @@ input:-webkit-autofill {
     width: 74px;
     justify-content: flex-end;
 }
-/*商品模块*/
+/*鍟嗗搧妯″潡*/
 .shop-box-list ul{
     display: flex;
     flex-flow: wrap;
@@ -1564,11 +1564,11 @@ input:-webkit-autofill {
 .coupon-widget-content > div + div{
     margin-top:10px
 }
-/*LOGO居左*/
+/*LOGO灞呭乏*/
 .logo-left .mobile-box{
     margin-left:30px
 }
-/*LOGO居中、菜单居中*/
+/*LOGO灞呬腑銆佽彍鍗曞眳涓�*/
 .logo-center .top-style,.logo-left .top-style,.menu-center .top-style,.social-top .top-style-bottom,.logo-top{
     border-top: 1px solid #f5f6f7;
 }
@@ -1586,7 +1586,7 @@ input:-webkit-autofill {
     display: flex;
     justify-content: center;
 }
-/*菜单剧中*/
+/*鑿滃崟鍓т腑*/
 .menu-center .header-logo{
     position: absolute;
     left:0;
@@ -1594,7 +1594,7 @@ input:-webkit-autofill {
 .menu-center .mobile-box{
     margin:0 auto
 }
-/*LOGO居上*/
+/*LOGO灞呬笂*/
 .logo-top .logo-top .wrapper{
     flex-direction: column;
     align-items: inherit;
@@ -1618,7 +1618,7 @@ input:-webkit-autofill {
 .logo-top .site-header{
     height:169px
 }
-/*用户*/
+/*鐢ㄦ埛*/
 .top-user-info{
     display: flex
 }
@@ -1706,7 +1706,7 @@ input:-webkit-autofill {
 .header .top-menu ul li.depth-0 > a .b2-jt-block-down{
     color:#bbb
 } */
-/*菜单 menu-3*/
+/*鑿滃崟 menu-3*/
 .b2-menu-3 .sub-menu-0{
     padding:12px 0;
 }
@@ -1750,7 +1750,7 @@ input:-webkit-autofill {
     visibility: visible;
     transform-origin:top
 }
-/*菜单 menu-1*/
+/*鑿滃崟 menu-1*/
 .b2-menu-1 .sub-menu-0{
     width:100%;
     left:0;
@@ -1791,7 +1791,7 @@ input:-webkit-autofill {
     margin-top: 16px;
     font-weight: bold;
 } 
-/*菜单 menu-4*/
+/*鑿滃崟 menu-4*/
 .b2-menu-4 .sub-menu-0{
     width:100%;
     left:0;
@@ -1839,7 +1839,7 @@ input:-webkit-autofill {
     font-weight: 600;
     padding-bottom:10px;
 }
-/*菜单 menu-2*/
+/*鑿滃崟 menu-2*/
 .top-menu-ul .box{
     transition:initial;
     box-shadow: 0 3px 3px rgba(26,26,26,.1);
@@ -1878,7 +1878,7 @@ input:-webkit-autofill {
     font-size: 13px;
 }
 .b2-menu-2 .sub-menu-0 > li > a::after{
-    content:"全部";
+    content:"鍏ㄩ儴";
 }
 .menu_2-item ul{
     display: flex;
@@ -1911,9 +1911,9 @@ input:-webkit-autofill {
 .top-menu .menu-post-box-img a{
     position: initial
 }
-/*顶部结束*/
+/*椤堕儴缁撴潫*/
 
-/*弹窗*/
+/*寮圭獥*/
 .modal {
 	position: fixed;
 	left: 0;
@@ -1969,7 +1969,7 @@ input:-webkit-autofill {
 .modal.poster-box .modal-content  {
     text-align: left;
 }
-/*登录与注册*/
+/*鐧诲綍涓庢敞鍐�*/
 .repass-tips{
     color:green
 }
@@ -2283,7 +2283,7 @@ input:-webkit-autofill {
     width: 141px;
     height: 38px;
 }
-/*搜索组件*/
+/*鎼滅储缁勪欢*/
 .shop-category .empty-page{
     margin-right:20px
 }
@@ -2359,7 +2359,7 @@ input:-webkit-autofill {
 .header-search-select a:hover{
     background: #F5F6F7
 }
-/*搜索页面*/
+/*鎼滅储椤甸潰*/
 .circle-search .document-row h3{
     font-weight: 400;
 }
@@ -2481,7 +2481,7 @@ input:-webkit-autofill {
 .user-s-follow button{
     padding:5px 10px
 }
-/*验证码组件*/
+/*楠岃瘉鐮佺粍浠�*/
 .recaptcha-load{
     width:186px;
     height:50px;
@@ -2993,7 +2993,7 @@ input:-webkit-autofill {
     border-radius: 100%;
     display: block;
 }
-/*幻灯slider-1*/
+/*骞荤伅slider-1*/
 .slider-1{
     overflow: hidden;
     white-space: nowrap;
@@ -3077,7 +3077,7 @@ button.flickity-button{
 .show-title-none .slider-info::after{
     display: none;
 }
-/*幻灯slider-2*/
+/*骞荤伅slider-2*/
 .slider-2{
     display: flex;
     flex-flow: nowrap;
@@ -3115,7 +3115,7 @@ button.flickity-button{
 .slider-2-right-item  {
     font-size: 14px;
 }
-/*幻灯slider-3*/
+/*骞荤伅slider-3*/
 .slider-3{
     max-width: 100%;
     margin-right:auto;
@@ -3153,7 +3153,7 @@ button.flickity-button{
 .slider-3-carousel{
     height:100%
 }
-/*幻灯slider-4*/
+/*骞荤伅slider-4*/
 .slider-4{
     max-width: 100%;
     margin:0 auto
@@ -3194,7 +3194,7 @@ button.flickity-button{
 .slider-4-box1 .slider-in{
     height:100%
 }
-/*幻灯slider-5*/
+/*骞荤伅slider-5*/
 .slider-5{
     display: flex;
     flex-flow: nowrap;
@@ -3242,7 +3242,7 @@ button.flickity-button{
     width: auto;
 }
 
-/*幻灯slider-6*/
+/*骞荤伅slider-6*/
 .slider-6{
     display: flex;
     max-width: 100%;
@@ -3271,7 +3271,7 @@ button.flickity-button{
     height: 100%!important;
     width: 100%;
 }
-/*首页*/
+/*棣栭〉*/
 .home_row{
     position: relative;
     margin-bottom:24px
@@ -3301,7 +3301,7 @@ button.flickity-button{
 .have-widget.home_row_0.homw-row-full.module-sliders{
     margin-top:0
 }
-/*首页广告位代码*/
+/*棣栭〉骞垮憡浣嶄唬鐮�*/
 .ads-tips{
     position: absolute;
     right: 10px;
@@ -3319,7 +3319,7 @@ button.flickity-button{
     display: flex;
     width:100%
 }
-/*文章列表*/
+/*鏂囩珷鍒楄〃*/
 .b2-content{
     display: flex;
     flex-flow: row;
@@ -3414,7 +3414,7 @@ p.module-desc{
 .shop-box-title .modules-title-box  {
     font-size: 22px;
 }
-/*下载信息*/
+/*涓嬭浇淇℃伅*/
 .post-pay-type{
     position: absolute;
     bottom: 10px;
@@ -3496,7 +3496,7 @@ p.module-desc{
 .post-pay-type > div i{
     color:#ff3355
 }
-/*文章样式1(post-1)*/
+/*鏂囩珷鏍峰紡1(post-1)*/
 .post-1.post-list ul.b2_gap{
     display: flex;
     flex-flow: wrap;
@@ -3771,7 +3771,7 @@ p.module-desc{
     color: #fff;
     padding: 2px 5px;
 }
-/*文章样式2(post-2)*/
+/*鏂囩珷鏍峰紡2(post-2)*/
 .post-2 ul.b2_gap.grid{
     display: flex;
     position: relative;
@@ -3796,7 +3796,7 @@ a.post-list-cat-item{
     -webkit-line-clamp: 1;
     overflow: hidden;
 }
-/*文章样式3(post-3)*/
+/*鏂囩珷鏍峰紡3(post-3)*/
 .post-3-li-dubble .item-in .post-info  {
     font-weight: 500;
     margin-bottom:5px
@@ -4067,7 +4067,7 @@ a.post-list-cat-item{
     border-right:0
 }
 .post-list-meta-user i.b2-vrenzhengguanli{position: inherit;} 
-/*模块归档*/
+/*妯″潡褰掓。*/
 .cat-group-page{
     width:80%;
     margin:0 auto;
@@ -4219,7 +4219,7 @@ a.post-list-cat-item{
     background-color: #f6f6f6;
     padding: 2px 8px;
 }
-/*专题*/
+/*涓撻*/
 .home-collection .home-collection-content{
     margin-bottom:0!important
 }
@@ -4290,7 +4290,7 @@ a.post-list-cat-item{
 .collection-next{
     right:-65px
 }
-/*文章样式(post-4)*/
+/*鏂囩珷鏍峰紡(post-4)*/
 .post-4 ul.b2_gap{
     display: flex;
     flex-flow: wrap;
@@ -4318,7 +4318,7 @@ a.post-list-cat-item{
     /* color:#fff; */
     /* font-weight: 600; */
 }
-/*专题样式*/
+/*涓撻鏍峰紡*/
 .home-collection .flickity-prev-next-button.next{
     right:-34px
 }
@@ -4476,7 +4476,7 @@ a.post-list-cat-item{
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
-/*文章展示动画*/
+/*鏂囩珷灞曠ず鍔ㄧ敾*/
 /* .is-visible{
     -webkit-animation:Items .7s ease-in forwards;
     animation:Items .7s ease-in forwards;
@@ -4489,7 +4489,7 @@ a.post-list-cat-item{
     0%{opacity:0}
     100%{opacity:1}
 } */
-/*空白页面*/
+/*绌虹櫧椤甸潰*/
 .empty-page{
     display: flex;
     align-items: center;
@@ -4518,7 +4518,7 @@ a.post-list-cat-item{
 .empty-page.b2-loading::after{
     background-size: 20px;
 }
-/*公告页面*/
+/*鍏憡椤甸潰*/
 .announcement-show-more{
     display: flex;
     justify-content: space-between;
@@ -4559,7 +4559,7 @@ a.post-list-cat-item{
 .entry-content img.post-thumb{
     height:100%
 }
-/*文章内页*/
+/*鏂囩珷鍐呴〉*/
 .entry-content .post-list-item   a,.entry-content .post-list-item .list-footer a{
     color:inherit
 }
@@ -4974,7 +4974,7 @@ i.b2-vrenzhengguanli{
 .entry-content blockquote {
     margin:0;
     box-sizing: border-box;
-    font-family: 思源宋体 CN SemiBold;
+    font-family: 鎬濇簮瀹嬩綋 CN SemiBold;
     font-size: 16px;
     line-height: 29px;
     color: #797C80;
@@ -5128,7 +5128,7 @@ i.b2-vrenzhengguanli{
     background: #F5F6F7;
     position: relative;
     font-size: 16px;
-    font-family: 思源宋体 CN SemiBold,SimSun,fangsong;
+    font-family: 鎬濇簮瀹嬩綋 CN SemiBold,SimSun,fangsong;
     color: #797C80;
 }
 .single-article{
@@ -5457,7 +5457,7 @@ i.b2-vrenzhengguanli{
     color:#333;
     text-decoration: underline
 }
-/*下载*/
+/*涓嬭浇*/
 .download-box > .b2-single-content{
     display: block;
     padding:0
@@ -5708,7 +5708,7 @@ i.b2-vrenzhengguanli{
     margin-left:10px;
     vertical-align: baseline;
 }
-.post-carts-list-row button{
+.post-carts-list-row {
     color:#ccc
 }
 .download-current>div span b{
@@ -5727,7 +5727,7 @@ i.b2-vrenzhengguanli{
     background: rgb(139 195 74 / 5%);
     border: 2px dashed rgb(0 128 0 / 28%);
 }
-/*下载小工具*/
+/*涓嬭浇灏忓伐鍏�*/
 .w-d-list.gujia .w-d-title{
     height:24px;
     background-color: #f5f6f7;
@@ -5856,7 +5856,7 @@ i.b2-vrenzhengguanli{
     font-weight: bold;
     font-size: 20px;
 }
-/*外链视频播放*/
+/*澶栭摼瑙嗛鎾斁*/
 .smartideo{
     background: none;
 }
@@ -5907,7 +5907,7 @@ i.b2-vrenzhengguanli{
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-/*隐藏短代码*/
+/*闅愯棌鐭唬鐮�*/
 .content-hidden{
     position: relative;
     min-height:85px;
@@ -6080,7 +6080,7 @@ i.b2-vrenzhengguanli{
 	border-radius: 4px;
 	/*margin:50px auto;*/
  }
- /* 设置文本内容容器 */
+ /* 璁剧疆鏂囨湰鍐呭瀹瑰櫒 */
  #TA-con {
 	width: 122px;
 	height: 45px;
@@ -6093,7 +6093,7 @@ i.b2-vrenzhengguanli{
 	cursor: pointer;
 	z-index: 2;
  }
- /* 设置文本居中容器 */
+ /* 璁剧疆鏂囨湰灞呬腑瀹瑰櫒 */
  #text-con {
 	width: 100px;
 	height: 100%;
@@ -6106,7 +6106,7 @@ i.b2-vrenzhengguanli{
     font-size: 26px;
     color:#fff
  }
- /* 文字 */
+ /* 鏂囧瓧 */
  #TA {
 	float: right;
 	line-height: 45px;
@@ -6116,7 +6116,7 @@ i.b2-vrenzhengguanli{
  #TA-con:hover {
 	background-color: #ff6b9a;
  }
- /* 创建图形容器 */
+ /* 鍒涘缓鍥惧舰瀹瑰櫒 */
  #tube-con {
 	width: 157px;
 	height: 55px;
@@ -6124,12 +6124,12 @@ i.b2-vrenzhengguanli{
 	right: -5px;
 	top: 15px;
  }
- /* 对svg图形设置宽高 */
+ /* 瀵箂vg鍥惧舰璁剧疆瀹介珮 */
  .content-ds-button svg {
 	width: 100%;
 	height: 100%;
  }
- /* 创建一个蒙版 宽度为0，当我hover充电框的时候，宽度展开 */
+ /* 鍒涘缓涓€涓挋鐗� 瀹藉害涓�0锛屽綋鎴慼over鍏呯數妗嗙殑鏃跺€欙紝瀹藉害灞曞紑 */
  #mask {
 	width: 0px;
 	height: 100%;
@@ -6139,23 +6139,23 @@ i.b2-vrenzhengguanli{
 	left: 0;
 	transition:all 0.5s;
  }
- /* 对蒙版的sbg单独设置宽高，保证宽度高低有一个固定值而不是百分比 */
+ /* 瀵硅挋鐗堢殑sbg鍗曠嫭璁剧疆瀹介珮锛屼繚璇佸搴﹂珮浣庢湁涓€涓浐瀹氬€艰€屼笉鏄櫨鍒嗘瘮 */
  #mask svg {
 	width: 157px;
 	height: 55px;
  }
- /* 对充电框hover的时候开始动画，将粉色线条铺开 */
+ /* 瀵瑰厖鐢垫hover鐨勬椂鍊欏紑濮嬪姩鐢伙紝灏嗙矇鑹茬嚎鏉￠摵寮€ */
  #TA-con:hover+#tube-con>#mask{
 	width:157px;
  }
- /* 对充电框hover的时候开始动画，添加黄色快速移动的动画 */
+ /* 瀵瑰厖鐢垫hover鐨勬椂鍊欏紑濮嬪姩鐢伙紝娣诲姞榛勮壊蹇€熺Щ鍔ㄧ殑鍔ㄧ敾 */
  #TA-con:hover+#tube-con>#orange-mask{
 	animation: move1 0.5s linear 0.2s infinite;
  }
  #TA-con:hover+#tube-con>#orange-mask svg{
 	animation: movetwo 0.5s linear 0.2s infinite;
  }
- /* 创建黄色移动的蒙版 */
+ /* 鍒涘缓榛勮壊绉诲姩鐨勮挋鐗� */
  #orange-mask{
 	width: 18px;
 	height: 100%;
@@ -6164,7 +6164,7 @@ i.b2-vrenzhengguanli{
 	left:-15px;
 	top:0px;
  }
- /* 创建黄色移动的内容 */
+ /* 鍒涘缓榛勮壊绉诲姩鐨勫唴瀹� */
  #orange-mask svg {
 	position: absolute;;
 	top:0;
@@ -6193,7 +6193,7 @@ i.b2-vrenzhengguanli{
 	right:10px;
 	top:18px;
 	font-size:12px;
-	font-family:"雅黑";
+	font-family:"闆呴粦";
 	color:#aaa;
  }
  #people>b{
@@ -6311,7 +6311,7 @@ code, kbd, tt, var {
 .entry-content .gallery-columns-9 .gallery-caption {
 	display: none;
 }
-/*打赏*/
+/*鎵撹祻*/
 .tooltip-custom.vue-tooltip{
     background: #4D70FF;
     padding: 5px 8px;
@@ -6336,7 +6336,7 @@ code, kbd, tt, var {
     margin:17px 0 5px;
     color:#515A6E
 }
-/*文章底部*/
+/*鏂囩珷搴曢儴*/
 .post-po-box{
     width:0;
     height:0;
@@ -6612,7 +6612,7 @@ code, kbd, tt, var {
     transition: color .5s;
     border-color:#bcbcbc
 }
-/*页面卷角效果*/
+/*椤甸潰鍗疯鏁堟灉*/
 /* .fold{
     position: absolute;
     right: 0;
@@ -6667,11 +6667,11 @@ code, kbd, tt, var {
     border-left: 70px solid #F5F6F7;
     z-index: 1;
 } */
-/*文章类型（normal）*/
+/*鏂囩珷绫诲瀷锛坣ormal锛�*/
 .single-normal{
     margin-right:30px
 }
-/*文章类型 post-type-2*/
+/*鏂囩珷绫诲瀷 post-type-2*/
 .post-style-2 .single-article{
     margin-top:52px
 }
@@ -7126,7 +7126,7 @@ code, kbd, tt, var {
 .post-video-table ul li.picked{
     font-weight: 600;
 }
-/*小工具*/
+/*灏忓伐鍏�*/
 .b2-widget-empty{
     padding:20px
 }
@@ -7372,7 +7372,7 @@ code, kbd, tt, var {
 .widget .gallery-icon{
     border:2px solid #fff
 }
-/*用户面板小工具*/
+/*鐢ㄦ埛闈㈡澘灏忓伐鍏�*/
 .user-w-avatar{
     position: relative;
 }
@@ -7655,13 +7655,7 @@ code, kbd, tt, var {
     padding: 10px 0;
 }
 .user-w-announcement li a{
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 12px;
-    position: relative;
-    padding-left: 17px;
+
 }
 .user-w-announcement li a b{
     font-weight: normal;
@@ -7829,7 +7823,7 @@ code, kbd, tt, var {
     opacity: .5;
     margin-right:2px
 }
-/*默认小工具*/
+/*榛樿灏忓伐鍏�*/
 .searchform{
     display: flex
 }
@@ -7851,7 +7845,7 @@ code, kbd, tt, var {
 .widget_media_gallery > div{
     padding:0 10px 10px
 }
-/*存档页面*/
+/*瀛樻。椤甸潰*/
 .archive .b2-single-content.single-sidebar-show .single-article{
     width:auto;
     max-width: 100%;
@@ -8090,7 +8084,7 @@ code, kbd, tt, var {
     width: 100%;
     left:0
 }
-/*分页*/
+/*鍒嗛〉*/
 .b2-pagenav{
     font-size: 13px;
 }
@@ -8185,7 +8179,7 @@ code, kbd, tt, var {
     margin-right:0;
     margin-left: 10px;
 }
-/*底部*/
+/*搴曢儴*/
 .gdd-quick-link-buy-vip{
     position: absolute;
     right: 0;
@@ -8421,7 +8415,7 @@ code, kbd, tt, var {
     height:20px;
     margin-right:5px
 }
-/*用户权限*/
+/*鐢ㄦ埛鏉冮檺*/
 .lv-icon{
     font-size: 12px;
     font-weight: 400;
@@ -8466,7 +8460,7 @@ code, kbd, tt, var {
     vertical-align: 0px;
     display: none;
 }
-/*海报组件*/
+/*娴锋姤缁勪欢*/
 .poster-box .modal-content{
     width:37rem;
     padding:24px;
@@ -8644,7 +8638,7 @@ code, kbd, tt, var {
     z-index: 2;
     overflow: hidden;
 }
-/*评论*/
+/*璇勮*/
 .comment-type{
     position: absolute;
     bottom:7px;
@@ -9262,7 +9256,7 @@ ul.children .comment-list .comment-footer button.text{
 .comment-footer-tools .comment-vote-hidden{
     display: flex
 }
-/*社交登录*/
+/*绀句氦鐧诲綍*/
 .social-loading.button{
     margin-top:30px
 }
@@ -9299,7 +9293,7 @@ ul.children .comment-list .comment-footer button.text{
 .invitation-error  p{
     text-align: center
 }
-/*个人页面*/
+/*涓汉椤甸潰*/
 .mask-wrapper{
     position: relative;
     display: flex;
@@ -9324,7 +9318,7 @@ ul.children .comment-list .comment-footer button.text{
 .user-panel{
     position: relative;
     width: 100%;
-    margin-top: -73px;
+    margin-top: -47px;
     padding: 0 20px 20px 20px;
     display: flex;
     box-sizing: border-box;
@@ -10154,7 +10148,7 @@ ul.children .comment-list .comment-footer button.text{
     font-size: 12px;
     color:#AAAEB3
 }
-/*页面*/
+/*椤甸潰*/
 .page .page{
     padding:20px;
     margin-bottom: 24px;
@@ -10179,7 +10173,7 @@ ul.children .comment-list .comment-footer button.text{
     margin-bottom:5px
 }
 
-/*公告*/
+/*鍏憡*/
 .single-announcement .post-meta-row .post-meta li:first-child{
     display: none;
 }
@@ -10252,7 +10246,7 @@ ul.children .comment-list .comment-footer button.text{
     word-wrap: break-word;
     word-break: break-all;
 }
-/*专题*/
+/*涓撻*/
 .collection-box{
     display: flex;
     flex-flow: wrap;
@@ -10520,7 +10514,7 @@ ul.children .comment-list .comment-footer button.text{
 .collection-box-3-in a{
     display: block;
 }
-/*私信弹窗*/
+/*绉佷俊寮圭獥*/
 .dmsg-box .modal-content{
     padding:10px
 }
@@ -10550,7 +10544,7 @@ ul.children .comment-list .comment-footer button.text{
 .dmsg-button button{
     margin-left:10px
 }
-/*私信页面*/
+/*绉佷俊椤甸潰*/
 .dmsg-header{
     display: flex;
     justify-content: space-between;
@@ -10765,7 +10759,7 @@ ul.children .comment-list .comment-footer button.text{
     padding:20px;
     border-top: 1px solid #F5F6F7;
 }
-/*打赏*/
+/*鎵撹祻*/
 .ds-box .modal-content{
     width:22rem;
     padding:0
@@ -10860,7 +10854,7 @@ ul.children .comment-list .comment-footer button.text{
     font-size: 15px;
     align-items: center;
 }
-/*支付弹窗样式*/
+/*鏀粯寮圭獥鏍峰紡*/
 .order-paybutton{
     display: flex;
     justify-content: space-between;
@@ -11118,7 +11112,7 @@ ul.children .comment-list .comment-footer button.text{
     font-size: 12px;
     text-align: center;
 }
-/*下载页面*/
+/*涓嬭浇椤甸潰*/
 .download-page-box{
     padding:20px;
     margin: 40px;
@@ -11198,7 +11192,7 @@ ul.children .comment-list .comment-footer button.text{
     margin-right: 0;
     flex-flow: nowrap;
 }
-/*财富页面*/
+/*璐㈠瘜椤甸潰*/
 .custom-page-row{
     padding:16px;
 }
@@ -11468,7 +11462,7 @@ ul.children .comment-list .comment-footer button.text{
     font-size: 12px;
     color:#AAAEB3
 }
-/*积分支付*/
+/*绉垎鏀粯*/
 .credit-pay-title{
     text-align: center;
     margin:20px;
@@ -11485,7 +11479,7 @@ ul.children .comment-list .comment-footer button.text{
 .credit-pay-box .pay-button{
     margin-top:20px
 }
-/*vip页面*/
+/*vip椤甸潰*/
 .vip-top{
     background:url(../image/vip-bg.svg);
     margin-top:-24px;
@@ -12015,7 +12009,7 @@ label.shiming-cankao-left{
 .mp-box .modal-content{
     width:20rem
 }
-/*自定义页面小工具*/
+/*鑷畾涔夐〉闈㈠皬宸ュ叿*/
 .custom-page-widget,.custom-page-widget ul li{
     font-size: 14px;
     flex-flow: column;
@@ -12135,7 +12129,7 @@ label.shiming-cankao-left{
 .task-day-list li span.task-finish-icon-go.nolink{
     color:#e0e0e0
 }
-/*右侧固定条*/
+/*鍙充晶鍥哄畾鏉�*/
 .aside-container .bar-user-info{
     background-color:#fff;
     box-shadow: -8px 0px 35px 0px rgba(181, 181, 181, 0.32);
@@ -12569,7 +12563,7 @@ label.shiming-cankao-left{
     color:#0084ff;
     border-radius: 100%;
 }
-/*签到页面*/
+/*绛惧埌椤甸潰*/
 .mission-page-list ul{
     border: 1px solid #F5F6F7;
 }
@@ -12683,7 +12677,7 @@ label.shiming-cankao-left{
     width:120px;
     margin-right:10px
 }
-/*购物车*/
+/*璐墿杞�*/
 .bar-user-info .aside-cart-empty{
     padding:20px;
     color:#ccc
@@ -12744,7 +12738,7 @@ label.shiming-cankao-left{
 .carts-top .picked{
     color:green
 }
-/*商城地址*/
+/*鍟嗗煄鍦板潃*/
 /* .cart-edit-address{
     width:92px
 } */
@@ -12836,7 +12830,7 @@ label.shiming-cankao-left{
     font-weight: normal;
     color:#999
 }
-/*邮箱*/
+/*閭*/
 .email-box.address-box .modal-content{
     width:22rem
 }
@@ -13010,7 +13004,7 @@ label.shiming-cankao-left{
 .realte-post-meta span:last-child{
     margin-left:5px
 }
-/*圈子小工具*/
+/*鍦堝瓙灏忓伐鍏�*/
 .widget .recommended-widget li.picked a{
     background-color: #F5F6F7;
 }
@@ -13211,7 +13205,7 @@ label.shiming-cankao-left{
 .circle-widget-content{
     padding:10px 10px 0 10px
 }
-/*标签页面*/
+/*鏍囩椤甸潰*/
 .tags-page ul{
     display: flex;
     flex-flow: wrap;
@@ -13271,7 +13265,7 @@ label.shiming-cankao-left{
     text-align: center;
     margin:30px 0
 }
-/*快讯小工具*/
+/*蹇灏忓伐鍏�*/
 .widget-new-header b,.widget-new-header span{
     font-weight: normal;
     color:#AAAEB3;
@@ -13356,7 +13350,7 @@ label.shiming-cankao-left{
 .widget-news-user a{
     margin-right:16px
 }
-/*分销*/
+/*鍒嗛攢*/
 .distributon-row .number{
     font-size: 30px;
 }
@@ -13554,7 +13548,7 @@ label.shiming-cankao-left{
     justify-content: space-between;
     width:100%
 }
-/*强制绑定*/
+/*寮哄埗缁戝畾*/
 .binding-login .modal-content{
     padding:24px
 }
@@ -13727,7 +13721,7 @@ label.shiming-cankao-left{
 .dplayer-mobile-play{
     z-index: 3;
 }
-/*小黑屋*/
+/*灏忛粦灞�*/
 .dark-room-header{
     position: relative;
     height: 282px;
@@ -13812,7 +13806,7 @@ label.shiming-cankao-left{
     display: flex;
     align-items: center;  
 }
-/*信息流*/
+/*淇℃伅娴�*/
 .stream-area .b2-pd{
     border-bottom:1px solid #f5f6f7
 }
@@ -14083,7 +14077,7 @@ label.shiming-cankao-left{
 body .crisp-client .cc-kv6t .cc-1xry .cc-ge4v, body .crisp-client .cc-kv6t .cc-1xry .cc-unoo{
     right:48px!important
 } */
-/*搜索模块*/
+/*鎼滅储妯″潡*/
 .search-module-form ul{
     position: absolute;
     top: 60px;
@@ -14222,7 +14216,7 @@ table td{white-space: normal;}
     font-weight: 400;
     font-size: 14px;
 }
-/*代码高亮*/
+/*浠ｇ爜楂樹寒*/
 /*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
 /*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
 .prettyprint {
