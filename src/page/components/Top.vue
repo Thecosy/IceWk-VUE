@@ -429,11 +429,12 @@
             </div>
           </div>
         </a>
+        <router-link to="/userinfo">
         <div v-show="!userJudje" class="avatartext">
            <el-avatar :src="user.profile"></el-avatar>
            <span class="spans">{{user.name}}</span>
         </div>
-       
+        </router-link>
       </div>
     </div>
   </header>

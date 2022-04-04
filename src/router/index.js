@@ -70,6 +70,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/userinfo',
+    component: () => import('@/page/UserInfo'),
+    hidden: true
+  },
+  {
     path: '/post/:content/all',
     component: () => import('@/page/SearchPost'),
     hidden: true
