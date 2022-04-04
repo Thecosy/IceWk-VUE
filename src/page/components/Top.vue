@@ -410,7 +410,7 @@
           </div>
         </div>
        
-        <a class="actions" style="cursor: pointer;" >
+        <a v-show="userJudje"  class="actions" style="cursor: pointer;" >
           <div @click="showlogin()" class="app-header-user" data-v-122eae44="">
             <div class="login-button">
               <span class="logintext">登录/注册</span>
@@ -429,6 +429,10 @@
             </div>
           </div>
         </a>
+        <div v-show="!userJudje" class="avatartext">
+           <el-avatar :src="user.profile"></el-avatar>
+           <span class="spans">{{user.name}}</span>
+        </div>
        
       </div>
     </div>
@@ -437,6 +441,7 @@
 
 <script>
 import { FindarticlesByNum } from '@/api/webarticle'
+import { login } from '@/api/login'
 
 export default ({
   name: 'Top',
@@ -445,43 +450,56 @@ export default ({
 
   },
   created() {
+    this.getUserInfo()
 
   },
 
   methods: {
+    getUserInfo(){
+      const user = JSON.parse(window.localStorage.getItem('access-admin'))
+      this.user = user.data
+      this.userJudje = (user == null)
+    },
     handleLogin() {
-      console.log( "denglu")
-      // var that = this
-      // this.$refs.loginForm.validate(valid => {
-      //   if (valid) {
-      //     this.loading = true
-      //     login(that.loginForm).then(resp => {
-      //       console.log(resp)
-      //       if (resp.data.code == 402 || resp.data.code == 400) {
-      //         that.$message({
-      //           message: '登陆失败',
-      //           type: 'warning'
-      //         })
-      //       } else if (resp.data.code == 200) {
-      //         localStorage.setItem('access-admin', JSON.stringify(resp.data))
-      //         that.$router.push({ path: '/admin' }) // 跳到账号管理
-      //         that.$message({
-      //           message: '登陆成功',
-      //           type: 'success'
-      //         })
-      //       }
-      //     }).catch((e) => { })
-      //     this.loading = false
-      //   } else {
-      //     console.log('error submit!!')
-      //     return false
-      //   }
-      // })
+      var that = this
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          this.loading = true
+          login(that.loginForm).then(resp => {
+            console.log(resp)
+            if (resp.data.code == 402 || resp.data.code == 400) {
+              that.$message({
+                message: '登陆失败',
+                type: 'warning'
+              })
+            } else if (resp.data.code == 200) {
+              console.log(resp.data)
+              localStorage.setItem('access-admin', JSON.stringify(resp.data))
+              // 关闭登录框
+             that.dialogFormVisible = false
+             // 关闭登陆按钮
+             that.userJudje = false
+             //立即获取用户数据
+             that.getUserInfo()
+             console.log(that.dialogFormVisible)
+              this.$notify({
+                title: '成功',
+                message: '您已成功登陆',
+                type: 'success'
+              });
+            }
+          }).catch((e) => { })
+          this.loading = false
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     },
     showlogin() {
       this.dialogFormVisible = true;
     },
-        showPwd() {
+    showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
       } else {
@@ -560,6 +578,8 @@ export default ({
 
   data() {
     return {
+      user:"",
+      userJudje:true,
       loginForm: {
         username: '',
         password: ''
@@ -1019,6 +1039,16 @@ color:var(--red);
   ::v-deep .el-dialog--center {
     border-radius: 18px;
   }
+}
+.avatartext{
+  display: flex;
+}
+.spans{
+  display: flex;
+  align-content: center;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    font-weight:bold;
 }
 </style>
 <style >
