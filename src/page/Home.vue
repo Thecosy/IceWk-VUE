@@ -53,57 +53,57 @@
                               <div data-v-bffc9160="" class="bg-shape-holder">
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-1.svg"
+                                  src="../static/image/shape-1.svg"
                                   class="shape-three"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-55.svg"
+                                  src="../static/image/shape-55.svg"
                                   class="shape-four"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-56.svg"
+                                  src="../static/image/shape-56.svg"
                                   class="shape-five"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-57.svg"
+                                  src="../static/image/shape-57.svg"
                                   class="shape-six"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-58.svg"
+                                  src="../static/image/shape-58.svg"
                                   class="shape-seven"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-59.svg"
+                                  src="../static/image/shape-59.svg"
                                   class="shape-eight"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-60.svg"
+                                  src="../static/image/shape-60.svg"
                                   class="shape-nine"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-61.svg"
+                                  src="../static/image/shape-61.svg"
                                   class="shape-ten"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-62.svg"
+                                  src="../static/image/shape-62.svg"
                                   class="shape-eleven"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-10.svg"
+                                  src="../static/image/shape-10.svg"
                                   class="shape-10"
                                 />
                                 <img
                                   data-v-bffc9160=""
-                                  src="https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/shape-11.svg"
+                                  src="../static/image/shape-11.svg"
                                   class="shape-11"
                                 />
                                 <span
@@ -342,7 +342,7 @@
                   style="margin-left: -10px; margin-right: -10px"
                 >
                   <div
-                    v-for="item in 10" :key="item.id"
+                    v-for="item in rlist" :key="item.id"
                     class="list-animation-leftIn w-c w-c-4 delay-0"
                     style="
                       padding-left: 10px;
@@ -350,29 +350,29 @@
                       padding-bottom: 20px;
                     "
                   >
+                   <div v-if="item.status.includes('published')" >
+                            <router-link  :to="'/list/' + item.id">
                     <a
-                      href="https://macwk.com/soft/infuse"
+                     
                       target="_self"
                       class="macwk-app border white cursor-pointer mb-0"
                     >
                       <div class="macwk-app__header--icon">
                         <div
                           class="macwk-app__header--icon--content"
-                          style="
-                            --img: url(https\:\/\/macwk2022\.oss-cn-hongkong\.aliyuncs\.com\/public\/uploads\/_\/originals\/infuse\.png);
-                          "
+                          
                         ></div>
-                        <!-- v-if="item.thumb != null"  -->
-                          <el-image class="listtitleimg delay-3"  src="https://icewk-1305088812.cos.ap-nanjing.myqcloud.com/images/32691647660642391.jpeg" lazy>
+                       
+                          <el-image v-if="item.thumb != null" class="listtitleimg delay-3"  :src="item.thumb" lazy>
                                 <div slot="placeholder" class="image-slot">
                                   
                                <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
                                 </div>
                             </el-image>
-<!--                            
+                           
                                <div
                                   v-else
-                                  class="delayImg"
+                                  class="delayImgs"
                                   :style="getStyles()"
                                 >
                                   <h3
@@ -384,7 +384,7 @@
                                   >
                                     NOPIC
                                   </h3>
-                                </div> -->
+                                </div>
                        
                       </div>
                       <div class="macwk-app__body h-150">
@@ -401,7 +401,7 @@
                         >
                           <!---->
                           <!---->
-                          <span>Infuse Pro</span>
+                          <span>{{item.title}}</span>
                         </h5>
                         <p
                           class="macwk-app__body--info"
@@ -417,7 +417,7 @@
                           <!---->
                           <!---->
                           <!---->
-                          <span>超强全能视频播放器</span>
+                          <span>{{item.intro}}</span>
                           <!---->
                         </p>
                       </div>
@@ -428,6 +428,8 @@
                         </div>
                       </div>
                     </a>
+                      </router-link>
+                        </div>
                   </div>
                  
                  
@@ -668,6 +670,7 @@
 </template>
 
 <script>
+import { getNewResource } from '@/api/webresource'
 import { getNewArticle } from '@/api/webarticle'
 import { formatDate } from '@/utils/date.js'
 import { getCarousel } from '@/api/sitting'
@@ -680,6 +683,7 @@ export default ({
   components: {top, foot},
   data() {
     return {
+      rlist:"",
       acticve:'nav-link active',
       Carousel: {},
       list: null,
@@ -746,6 +750,10 @@ export default ({
     },
     getList() {
       this.listLoading = true
+      getNewResource(6).then(resp => {
+        console.log(resp)
+        this.rlist = resp.data
+      })
       getNewArticle(6).then(resp => {
         this.list = resp.data
         this.total = resp.data.total
@@ -832,9 +840,14 @@ export default ({
     }
   }
 }
-// .delayImg {
-//   height: 130px;
-//   width: 200px;
-//   border-radius: 8px;
-// }
+.delayImgs {
+  height: 130px;
+  width: 170px;
+  border-radius: 8px;
+}
+.h-150 {
+    margin-top: -20px;
+    margin-bottom: -55px;
+    height: 150px!important;
+}
 </style>

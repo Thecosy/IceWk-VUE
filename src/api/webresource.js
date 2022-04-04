@@ -20,3 +20,10 @@ export function getResourceById(id) {
     method: 'get'
   })
 }
+
+export function getNewResource(num) {
+  return request({
+    url: 'WebResource/getNewResource/' + num,
+    method: 'get'
+  })
+}

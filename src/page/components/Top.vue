@@ -39,11 +39,11 @@
           auto-complete="on"
           @keyup.enter.native="handleLogin"
         />
-        <span class="show-pwd" @click="showPwd">
+        <!-- <span class="show-pwd" @click="showPwd">
           <svg-icon
             :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
           />
-        </span>
+        </span> -->
       </el-form-item>
 
       <el-button
@@ -449,6 +449,35 @@ export default ({
   },
 
   methods: {
+    handleLogin() {
+      console.log( "denglu")
+      // var that = this
+      // this.$refs.loginForm.validate(valid => {
+      //   if (valid) {
+      //     this.loading = true
+      //     login(that.loginForm).then(resp => {
+      //       console.log(resp)
+      //       if (resp.data.code == 402 || resp.data.code == 400) {
+      //         that.$message({
+      //           message: '登陆失败',
+      //           type: 'warning'
+      //         })
+      //       } else if (resp.data.code == 200) {
+      //         localStorage.setItem('access-admin', JSON.stringify(resp.data))
+      //         that.$router.push({ path: '/admin' }) // 跳到账号管理
+      //         that.$message({
+      //           message: '登陆成功',
+      //           type: 'success'
+      //         })
+      //       }
+      //     }).catch((e) => { })
+      //     this.loading = false
+      //   } else {
+      //     console.log('error submit!!')
+      //     return false
+      //   }
+      // })
+    },
     showlogin() {
       this.dialogFormVisible = true;
     },

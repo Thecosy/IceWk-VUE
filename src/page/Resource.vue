@@ -38,17 +38,18 @@
             </div>
           </section>
           <div class="layout-header pt-5 pb-5 position-relative pc-model">
-            <div><img src="https://static.konlonair.com/assets/svg/shape-1.svg" class="shape-three"><img
-                src="https://static.konlonair.com/assets/svg/shape-55.svg" class="shape-four"><img
-                src="https://static.konlonair.com/assets/svg/shape-56.svg" class="shape-five"><img
-                src="https://static.konlonair.com/assets/svg/shape-57.svg" class="shape-six"><img
-                src="https://static.konlonair.com/assets/svg/shape-58.svg" class="shape-seven"><img
-                src="https://static.konlonair.com/assets/svg/shape-59.svg" class="shape-eight"><img
-                src="https://static.konlonair.com/assets/svg/shape-60.svg" class="shape-nine"><img
-                src="https://static.konlonair.com/assets/svg/shape-61.svg" class="shape-ten"><img
-                src="https://static.konlonair.com/assets/svg/shape-62.svg" class="shape-eleven"><img
-                src="https://static.konlonair.com/assets/svg/shape-10.svg" class="shape-10"><img
-                src="https://static.konlonair.com/assets/svg/shape-11.svg" class="shape-11"></div>
+            <!-- ../static/image/loding.gif -->
+            <div><img src="../static/image/shape-1.svg" class="shape-three"><img
+                src="../static/image/shape-55.svg" class="shape-four"><img
+                src="../static/image/shape-56.svg" class="shape-five"><img
+                src="../static/image/shape-57.svg" class="shape-six"><img
+                src="../static/image/shape-58.svg" class="shape-seven"><img
+                src="../static/image/shape-59.svg" class="shape-eight"><img
+                src="../static/image/shape-60.svg" class="shape-nine"><img
+                src="../static/image/shape-61.svg" class="shape-ten"><img
+                src="../static/image/shape-62.svg" class="shape-eleven"><img
+                src="../static/image/shape-10.svg" class="shape-10"><img
+                src="../static/image/shape-11.svg" class="shape-11"></div>
             <div class="container">
               <div class="row align-items-center">
                 <div class="col-xs-12 col-lg-6 col-xl-6">
