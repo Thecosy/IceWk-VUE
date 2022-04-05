@@ -196,6 +196,7 @@ import { getArticleById } from '@/api/article'
 import { getAllUserName } from '@/api/user'
 import { createArticle } from '@/api/article'
 import { getAllClassName } from '@/api/article'
+import { getClassNameById } from '@/api/article'
 
 import Tinymce from '@/components/Tinymce'
 import MDinput from '@/components/MDinput'
@@ -338,6 +339,11 @@ export default {
     async fetchData(id) {
       getArticleById(id).then(response => {
         this.postForm = response.data
+        //根据classId查询对应的名称
+        getClassNameById(response.data.sortClass).then(response => {
+          this.postForm.sortClass = response.data
+        }
+        )
         this.postForm.articleStatus = response.data.articleStatus
         this.setTagsViewTitle()
         // set page title

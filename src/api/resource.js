@@ -58,3 +58,18 @@ export function DeleteResourceClass(id) {
     method: 'get'
   })
 }
+
+export function getClassNameById(id) {
+  return request({
+    url: 'ResourceClass/getClassNameById/'+ id,
+    method: 'get',
+  })
+}
+
+export function getAllClassName(data) {
+  return request({
+    url: 'ResourceClass/getAllClassName',
+    method: 'get',
+    data
+  })
+}

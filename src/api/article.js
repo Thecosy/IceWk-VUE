@@ -75,6 +75,14 @@ export function getAllClassName(data) {
   })
 }
 
+export function getClassNameById(id) {
+  return request({
+    url: 'articleClass/getClassNameById/'+ id,
+    method: 'get',
+  })
+}
+
+
 
 
 

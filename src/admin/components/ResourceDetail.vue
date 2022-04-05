@@ -195,7 +195,8 @@ import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown
 import { getResourceById } from '@/api/resource'
 import { getAllUserName } from '@/api/user'
 import { createResource } from '@/api/resource'
-import { getAllClassName } from '@/api/article'
+import { getClassNameById } from '@/api/resource'
+import { getAllClassName } from '@/api/resource'
 
 import Tinymce from '@/components/Tinymce'
 import MDinput from '@/components/MDinput'
@@ -339,6 +340,10 @@ export default {
       getResourceById(id).then(response => {
         this.postForm = response.data
         this.postForm.articleStatus = response.data.articleStatus
+        //根据classId查询对应的名称
+        getClassNameById(response.data.sortClass).then(response => {
+          this.postForm.sortClass = response.data
+        })
         this.setTagsViewTitle()
         // set page title
         this.setPageTitle()
