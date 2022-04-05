@@ -329,12 +329,14 @@
                     <a class="nav-link">最多评论</a>
                   </nav>
                   <div class="more-action">
+                    <router-link to="/list">
                     <a
-                      href="https://macwk.com/soft/all/p1"
+                     
                       class="btn btn-more active"
                     >
                       更多软件 <i class="icon-arrow-right fw-600 fs-12 v-2"></i
                     ></a>
+                    </router-link>
                   </div>
                 </div>
                 <div

@@ -452,7 +452,7 @@ export default ({
   },
   created() {
     this.getUserInfo()
-
+    //检测token是否有效
   },
 
   methods: {

@@ -8,7 +8,7 @@ Version: 3.3.93
 Text Domain: B2
 Tags: B2
 */
-a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,figure,font,form,h1, ,h3,h4,h5,h6,html,iframe,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var {
+a,abbr,acronym,address,applet,big,blockquote,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,figure,font,form,h1, ,h3,h4,h5,h6,html,iframe,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var {
 	border: 0;
 	font-family: inherit;
 	font-size: 100%;
@@ -354,7 +354,6 @@ mark, ins {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-    -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
 }
@@ -1214,7 +1213,8 @@ input:-webkit-autofill {
 }
 .top-submit .button,.social-top .top-submit button{
     padding:5px 10px;
-    border: 1px solid #e2e8f0;
+   
+    
     color:inherit;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
     border-radius: 5px;
@@ -4868,7 +4868,7 @@ i.b2-vrenzhengguanli{
 .post-meta,.post-meta-left{
     display: flex;
     align-items: center;
-    font-size: 12px;
+  
     color:#666;
 }
 .post-meta-left .avatar{
@@ -4880,7 +4880,7 @@ i.b2-vrenzhengguanli{
     flex-flow: column;
 }
 .post-meta{
-    justify-content: space-between;
+    
 }
 .post-meta .post-meta-right button{
     margin-left:10px
@@ -9095,7 +9095,7 @@ ul.children .comment-list .comment-footer button.text{
     width: 14.2857%;
     height: 33px;
     background: #F5F6F7;
-    border: 1px solid #fff;
+  
     font-size: 19px;
     line-height: 33px;
     padding:0
@@ -10942,7 +10942,7 @@ ul.children .comment-list .comment-footer button.text{
     align-items: center;
     margin: 5px;
     justify-content: center;
-    border: 1px solid #F5F6F7;
+   
     height: 38px;
     font-size: 12px;
     line-height: 1;
