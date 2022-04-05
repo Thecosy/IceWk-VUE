@@ -7,7 +7,7 @@
       class="form-container"
     >
       <sticky :z-index="10" :class-name="'sub-navbar ' + postForm.status">
-        <CommentDropdown v-model="postForm.comment_disabled" />
+        <CommentDropdown v-model="postForm.commentDisabled" />
         <PlatformDropdown v-model="postForm.platforms" />
         <SourceUrlDropdown v-model="postForm.source_uri" />
         <el-button
@@ -210,7 +210,7 @@ const defaultForm = {
   createTime: undefined, // 前台展示时间
   id: undefined,
   platforms: ['a-platform'],
-  comment_disabled: false,
+  commentDisabled: false,
   ownerTag: 0
 }
 

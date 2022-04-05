@@ -250,6 +250,8 @@
                       @select="onSelectEmoji"
                     />
                 </div>
+                <!-- 后台控制是否显示评论 -->
+              <div  v-show="!judjeComment">
               <section
                 v-if="mycomment"
                 @click="sendMsg"
@@ -302,6 +304,7 @@
                   </svg>
                 </div>
               </section>
+              </div>
               <comment
                 :articleId="this.$route.params.id"
                 :theEmoge="this.MyEmoge"
@@ -524,6 +527,10 @@ export default {
         this.thumb = resp.data.thumb
         this.title = resp.data.title
         this.author = resp.data.author
+        if(resp.data.commentDisabled == "true"){
+          this.judjeComment=true
+        }
+        console.log(resp.data.commentDisabled)
         FindProfileByName(this.author).then(resp => {
           this.profile = resp.data
         })
@@ -545,6 +552,7 @@ export default {
   },
   data() {
     return {
+      judjeComment:false,
       profile:"",
       thumb:"",
       MyEmoge:"",
