@@ -77,7 +77,7 @@
                                       ></span>
                                     </p>
                                     <a
-                                      href="https://www.zmki.cn/circle-people?id=1"
+                                    
                                       target="_blank"
                                       ><span>Alextao</span>
                                       <span>(圈主)</span></a
@@ -103,7 +103,7 @@
                                   </div>
                                   <div>
                                     <a
-                                      href="https://www.zmki.cn/all-circles"
+                                     
                                       target="_blank"
                                       class="link-block"
                                     ></a>
@@ -136,16 +136,16 @@
                             <el-button type="primary" round>全部</el-button>
                           </li>
                           <li class="planetli">
-                            <el-button type="primary" round>我说</el-button>
+                            <el-button round>我说</el-button>
                           </li>
                           <li class="planetli">
-                             <el-button type="primary" round>提问</el-button>
+                             <el-button round>提问</el-button>
                           </li>
                           <li class="planetli">
-                             <el-button type="primary" round>投票</el-button>
+                             <el-button round>投票</el-button>
                           </li>
                           <li class="planetli">
-                             <el-button type="primary" round>你猜</el-button>
+                             <el-button round>你猜</el-button>
                           </li>
                         </ul>
                         <div class="topic-drop">
@@ -168,7 +168,7 @@
                                 <div>
                                   <div class="topic-name-data">
                                     <a
-                                      href="https://www.zmki.cn/circle-people?id=1900"
+                                     
                                       target="_blank"
                                       ><b>橘生淮北</b></a
                                     >
