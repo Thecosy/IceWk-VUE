@@ -27,3 +27,10 @@ export function getNewResource(num) {
     method: 'get'
   })
 }
+
+export function FindresourceByNum(title,num) {
+  return request({
+    url: 'WebResource/findresourcebynum/'+ title +"/" + num,
+    method: 'get'
+  })
+}

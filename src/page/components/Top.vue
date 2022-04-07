@@ -417,7 +417,7 @@
                 <ul role="listbox">
                   <div v-for="(item, id) in this.tempdata" :key="id">
                     <div v-if="item.status.includes('published')">
-                      <router-link :to="'/post/' + item.id">
+                      <router-link :to="howto + item.id">
                         <li
                           role="option"
                           data-suggestion-index="0"
@@ -728,6 +728,7 @@
 
 <script>
 import { FindarticlesByNum } from '@/api/webarticle'
+import { FindresourceByNum } from '@/api/webresource'
 import { login } from '@/api/login'
 
 export default ({
@@ -812,18 +813,26 @@ export default ({
       })
     },
     keyup() {
-      console.log(this.seachcontent)
+       this.searchshow = true
       this.search(this.seachcontent)
+    },
+    Findresource(seachcontents, num){
+          FindresourceByNum(seachcontents, num).then(resp => {
+          this.tempdata = resp.data
+        })
+    },
+    Findarticles(seachcontents, num){
+         FindarticlesByNum(seachcontents, num).then(resp => {
+          this.tempdata = resp.data
+        })
     },
     //临时查询
     search(seachcontents) {
       //限制查询五个数据
       if (!this.judgeNull(this.seachcontent)) {
-        FindarticlesByNum(seachcontents, 5).then(resp => {
-          this.tempdata = resp.data
-          console.log(resp.data)
-          console.log(this.tempcontent)
-        })
+        if(this.fundByresource){ this.Findresource(seachcontents, 5)}
+        else{this.Findarticles(seachcontents, 5)}
+        
       }
     },
     //判空
@@ -835,10 +844,6 @@ export default ({
     },
 
     queryarticle() {
-      //   直接调用$router.push 实现携带参数的跳转
-      this.$router.push({
-        path: `/post/${this.seachcontent}/all`,
-      })
       //提交
       if (this.judgeNull(this.seachcontent)) {
         this.$notify({
@@ -846,21 +851,33 @@ export default ({
           message: '输入的数据不能为空',
           type: 'warning'
         });
+      }else{
+ //   直接调用$router.push 实现携带参数的跳转
+      this.$router.push({
+        path: `/post/${this.seachcontent}/all`,
+      })
       }
-
-
     },
     articleshows() {
       // setTimeout(() => { this.focus() }, 219)
       // this.searchshow = true
       this.codeshow = false
       this.articleshow = true
+      this.tempdata = ""
+      this.fundByresource = false
+      this.Findarticles(this.seachcontent, 5)
+      this.howto = '/post/'
+      
     },
     codeshows() {
       // setTimeout(() => { this.focus() }, 219)
       // this.searchshow = true
       this.codeshow = true
       this.articleshow = false
+       this.tempdata = ""
+       this.fundByresource = true
+       this.Findresource(this.seachcontent, 5)
+       this.howto = '/list/'
     },
     focus() {
       this.searchshow = true
@@ -880,6 +897,8 @@ export default ({
 
   data() {
     return {
+      howto:'/list/',
+      fundByresource:true,
       user: "",
       userJudje: true,
       loginForm: {
@@ -906,11 +925,6 @@ export default ({
       },
       formLabelWidth: '60px',
       tempdata: "",
-      tempcontent: {
-        title: "",
-        icon: "",
-        intro: ""
-      },
       seen: false,
       codeshow: true,
       articleshow: false,
