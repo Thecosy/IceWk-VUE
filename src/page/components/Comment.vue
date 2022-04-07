@@ -1,7 +1,5 @@
 <template>
-                  
   <transition name="slide-fade">
-    
     <!-- v-if="show" 
        v-on:click="show = !show"-->
     <div
@@ -12,7 +10,64 @@
         van-popup van-popup--round van-popup--bottom
       "
     >
-      
+      <div
+      v-show="userJudje"
+        role="dialog"
+        aria-labelledby="输入昵称和邮箱"
+        class="van-dialog shadow-4 position-absolute"
+        style="width: 360px; z-index: 2011"
+      >
+        <div class="van-dialog__header">输入昵称和邮箱</div>
+        <div class="van-dialog__content">
+          <div class="px-6 py-5">
+            <p>
+              <span class="text-success">推荐使用 QQ 邮箱</span
+              >，有紧急的问题可以快速联系到您。
+            </p>
+            <div class="form-group comment-form-group">
+              <input
+             v-model="tempuserform.username"
+                type="text"
+                placeholder="您的昵称"
+                class="form-control rounded"
+              />
+            </div>
+            <div class="form-group comment-form-group">
+              <input
+                v-model="tempuserform.email"
+                type="email"
+                placeholder="您的邮箱"
+                class="form-control rounded"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="van-hairline--top van-dialog__footer">
+          <button
+          @click="cansoles()"
+            class="
+              van-button van-button--default van-button--large
+              van-dialog__cancel
+            "
+          >
+            <div class="van-button__content">
+              <span class="van-button__text">取消</span>
+            </div></button
+          ><button
+           @click="savetempsuser()"
+            class="
+              van-button van-button--default van-button--large
+              van-dialog__confirm
+              van-hairline--left
+            "
+          >
+            <div class="van-button__content">
+              <span class="van-button__text">确认</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
       <div class="chat-header position-relative">
         评论列表
         <i @click="closethecpmment()" class="icon-close cursor-pointer" />
@@ -422,13 +477,15 @@
             </div>
             <section class="flex-grow">
               <div class="mb-1">
-                <span class="fs-12 mr-1 fw-600 text-darken">{{item.username}}</span>
+                <span class="fs-12 mr-1 fw-600 text-darken">{{
+                  item.username
+                }}</span>
                 <span class="opacity-70 fs-12 text-muted pl-1"
-                  ><span>{{formatDate(item.addTime)}}</span></span
+                  ><span>{{ formatDate(item.addTime) }}</span></span
                 >
               </div>
               <!---->
-              <div class="MessageBody mb-1">{{item.content}}</div>
+              <div class="MessageBody mb-1">{{ item.content }}</div>
             </section>
           </div>
           <!-- ------------- -->
@@ -441,10 +498,10 @@
               placeholder="尽情畅所欲言把"
             />
           </div>
-          
+
           <div class="d-flex align-items-center pl-3 clearfix">
             <a @click="openemig()" class="nav-link p-0 cursor-pointer"
-              ><i  class="icon-smile fs-18"
+              ><i class="icon-smile fs-18"
             /></a>
             <span>
               <div
@@ -455,10 +512,9 @@
                 style="width: undefinedpx; display: none"
               >
                 <!---->
-                
+
                 <div class="macwk-emoji">
-                
-                  <div class="d-flex nav" >
+                  <div class="d-flex nav">
                     <a class="nav-link flex-grow-1 cursor-pointer active"
                       ><span>
                         <svg
@@ -627,31 +683,41 @@
 <script>
 import { getallArticleComment } from '@/api/webarticleComment'
 import { addArticleComment } from '@/api/webarticleComment'
+ 
+import { validEmail } from '@/utils/validate.js'
 
 import { formatDate } from '@/utils/date.js'
 import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
 export default ({
   name: 'comment',
-  props: ['articleId','theEmoge'],
-   components: {
+  props: ['articleId', 'theEmoge'],
+  components: {
     VEmojiPicker
   },
   setup() {
   },
-   watch: {
+  watch: {
     theEmoge(val) {
       this.contentarea += val
     }
   },
   created() {
+    //获取评论数据
     getallArticleComment(this.articleId).then(resp => {
       this.comment = resp.data
-    }) 
+    })
+    //判断是否登陆显示临时登录框
+    this.judjelogin()
   },
   data() {
     return {
-      contentarea:"",
+      userJudje: false,
+      contentarea: "",
+      tempuserform: {
+        username:"",
+        email:"",
+      },
       form: {
         content: "",
         useaname: "",
@@ -659,42 +725,87 @@ export default ({
         profile: "",
         userId: "",
       },
-      comment:{},
+      comment: {},
       close: false,
     }
   },
   methods: {
+    savetempsuser(){
+      
+      if(validEmail(this.tempuserform.email)){
+        localStorage.setItem('temp-admin', JSON.stringify(this.tempuserform))
+      
+        //关闭登录框
+         this.cansoles()
+      }else{
+        this.$notify({
+          title: '错误',
+          message: '请输入正确的邮箱',
+          type: 'warning'
+        });
+
+      }
+      
+       
+    },
+    cansoles(){
+      this.userJudje = false
+    },
+    judjelogin(){
+       const user = JSON.parse(window.localStorage.getItem('access-admin'))
+      this.user = user.data
+    },
     formatDate(time) {
       let data = new Date(time)
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
-    setmap(){
+    setmap() {
+      //判断是否登陆
+      //1.是否有登陆账户
+      //2.是否有本地缓存
+       const temp = JSON.parse(window.localStorage.getItem('temp-admin'))
+      if(this.user == null && temp == null){
+        //显示需要登陆页面
+         this.userJudje = true
+         
+      }
+      
+      else{
+        //正常执行提交流程
+      const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.form.content = this.contentarea
-      console.log(this.form)
+      if(user !== null){
+        this.form.username = user.data.name
+        this.form.email = user.data.email
+      }else{
+         this.form.username = temp.username
+        this.form.email = temp.email
+       
+      }
       addArticleComment(this.form).then(resp => {
       })
       //刷新
       setTimeout(() => {
-      getallArticleComment(this.articleId).then(resp => {
-        this.comment = resp.data
-        console.log(this.comment)
-      }) 
-        }, 200)
+        getallArticleComment(this.articleId).then(resp => {
+          this.comment = resp.data
+        })
+      }, 200)
       //滚动到底部
       setTimeout(() => {
-          let container = document.getElementById("chatRecord");
-          container.scrollTop = container.scrollHeight;
-        }, 300)
+        let container = document.getElementById("chatRecord");
+        container.scrollTop = container.scrollHeight;
+      }, 300)
       //文本框置空  
       this.contentarea = ""
+      }
     },
     getMsg(msg) {
       this.close = msg;
-          //开始默认滚动到底部
-          setTimeout(() => {
-          let container = document.getElementById("chatRecord");
-          container.scrollTop = container.scrollHeight;
-        }, 100)
+      //开始默认滚动到底部
+      setTimeout(() => {
+        let container = document.getElementById("chatRecord");
+        container.scrollTop = container.scrollHeight;
+      }, 100)
     },
     closethecpmment(val) {
       // console.log("clos")
@@ -714,9 +825,9 @@ export default ({
 .myVEmojiPicker {
   z-index: 999;
   position: absolute;
-  right:50px;
+  right: 50px;
 }
-.container1{
-   z-index: 999;
+.container1 {
+  z-index: 999;
 }
 </style>
