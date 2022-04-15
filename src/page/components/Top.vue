@@ -755,7 +755,8 @@ export default ({
         this.$notify({
                 title: '成功',
                 message: '您已退出登陆',
-                type: 'success'
+                type: 'success',
+                offset: 50
               });
     },
     getUserInfo() {
@@ -788,7 +789,8 @@ export default ({
               this.$notify({
                 title: '成功',
                 message: '您已成功登陆',
-                type: 'success'
+                type: 'success',
+                offset: 50
               });
             }
           }).catch((e) => { })

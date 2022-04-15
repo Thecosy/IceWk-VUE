@@ -554,7 +554,7 @@
                       <a
                         v-for="(item, id) in this.rightArr"
                         :key="id"
-                        href="https://macwk.com/article/sipmac"
+                       
                         class="
                           feature-block-three
                           border
