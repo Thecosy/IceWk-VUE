@@ -247,13 +247,16 @@
                       <div class="mw-row">
                        
                          <div v-for="item in list" :key="item.id" class="mw-col list-animation-leftIn delay-3">
+                           
                             <div v-if="item.status.includes('published')" >
                             <router-link :target="istarget" :to="'/list/' + item.id">
+                    
                           <a
                             class="macwk-app border white cursor-pointer"
                             >
                             
-                            <el-image v-if="item.thumb != null" class="listtitleimg delay-3"  :src="item.thumb" lazy>
+                              
+                              <el-image v-if="item.thumb != null" class="listtitleimg delay-3"  :src="item.thumb" lazy>
                                 <div slot="placeholder" class="image-slot">
                                   
                                <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
@@ -275,6 +278,7 @@
                                     NOPIC
                                   </h3>
                                 </div>
+                          
                               
                             <!-- <img class="listtitleimg delay-3" :src="item.thumb" /> -->
                             <div class="macwk-app__body">

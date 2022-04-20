@@ -14,7 +14,7 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
+import VueQriously from 'vue-qriously'
 
 
 /**
@@ -36,6 +36,8 @@ Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
+
+Vue.use(VueQriously)
 
 new Vue({
   el: '#app',

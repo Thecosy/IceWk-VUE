@@ -29,8 +29,8 @@ export default {
   },
   data () {
     return {
-      title: '苏宁源码',
-      logo: 'https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/2880px-Suning_China_logo.svg.png'
+      title: '冰激凌CMS',
+      logo: 'https://self-1305088812.cos.ap-nanjing.myqcloud.com/2021/logo.svg'
     }
   }
 }

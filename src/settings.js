@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '苏宁源码',
+  title: '冰激凌CMS',
 
   /**
    * @type {boolean} true | false
