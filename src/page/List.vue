@@ -250,7 +250,7 @@
                            
                             <div v-if="item.status.includes('published')" >
                             <router-link :target="istarget" :to="'/list/' + item.id">
-                    
+                   
                           <a
                             class="macwk-app border white cursor-pointer"
                             >
@@ -280,13 +280,13 @@
                                 </div>
                           
                               
-                            <!-- <img class="listtitleimg delay-3" :src="item.thumb" /> -->
+                          
                             <div class="macwk-app__body">
                               <h5 class="macwk-app__body--title">
                                 <span
                                   class="el-tooltip today-update v-3 item"
                                 ></span>
-                                <!---->
+                              
                                 <span>{{item.title  | ellipsis}}</span>
                                 <span
                                   class="
@@ -298,9 +298,7 @@
                                 >
                               </h5>
                               <p class="macwk-app__body--info">
-                                <!---->
-                                <!---->
-                                <!---->
+                               
                                 <span>{{item.intro}}</span>
                               </p>
                             </div>
@@ -331,7 +329,7 @@
                               <div v-show="showfootnext" class="macwk-app__footer--more">
                                 <i class="light-icon-more icon-next-arrow"></i>
                               </div></div
-                          ></a>
+                          ></a> 
                            </router-link>
                         </div>
                         </div>
@@ -689,8 +687,8 @@ export default ({
   border-radius: 8px;
 }
 .listtitleimg {
-  width: 200px;
-  height: 130px;
+height: 155px;
+    width: 260.5px;
 }
 
 </style>
@@ -704,8 +702,8 @@ export default ({
   }
 }
 .delayImg {
-  height: 130px;
-  width: 200px;
+height: 155px;
+    width: 260.5px;
   border-radius: 8px;
 }
 .app-content-main .app-content-bottom{

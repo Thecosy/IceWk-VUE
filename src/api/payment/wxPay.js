@@ -6,29 +6,29 @@ export default{
   //Native下单
   nativePay(productId) {
     return request({
-      url: '/api/wx-pay/native/' + productId,
+      url: '/Pay-api/wx-pay/test-native/' + productId,
       method: 'post'
     })
   },
 
-  //Native下单(v2)
-  nativePayV2(productId) {
+  //Native下单(临时)
+  nativePayTemp(resourceId) {
     return request({
-      url: '/api/wx-pay-v2/native/' + productId,
+      url: '/Pay-api/wx-pay/temp-native/' + resourceId,
       method: 'post'
     })
   },
 
   cancel(orderNo) {
     return request({
-      url: '/api/wx-pay/cancel/' + orderNo,
+      url: '/Pay-api/wx-pay/cancel/' + orderNo,
       method: 'post'
     })
   },
 
   refunds(orderNo, reason) {
     return request({
-      url: '/api/wx-pay/refunds/' + orderNo + '/' + reason,
+      url: '/Pay-api/wx-pay/refunds/' + orderNo + '/' + reason,
       method: 'post'
     })
   }

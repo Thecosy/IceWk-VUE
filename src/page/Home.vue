@@ -836,15 +836,15 @@ export default ({
   ::v-deep {
     
     .el-image__inner {
-      width: 200px;
-      height: 130px;
+     width: 224px;
+    height: 128px;
      border-radius: 8px;
     }
   }
 }
 .delayImgs {
-  height: 130px;
-  width: 170px;
+  width: 224px;
+    height: 128px;
   border-radius: 8px;
 }
 .h-150 {

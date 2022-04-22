@@ -11,8 +11,7 @@
     >
       <div class="box">
         <div class="login-logo">
-          <!-- <img height="40" width="40" src="https://zy.prmath.com/wp-content/uploads/2021/09/2021090309505148.svg"> -->
-          <img src="../../static/image/logo.svg"/>
+           <img height="40" width="40" src="../../static/image/logo.svg"/>
         </div>
         <div class="login-title">
           <span><b>快速登录</b></span>
@@ -129,7 +128,7 @@
             aria-current="page"
           >
            <img src="../../static/image/logo.svg"/>
-            <span data-v-122eae44="">MacWk</span></a
+            <span data-v-122eae44="">IceCMS</span></a
           >
         </router-link>
         <div class="app-header-nav nav" data-v-122eae44="">

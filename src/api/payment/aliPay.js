@@ -2,24 +2,31 @@
 import request from '@/utils/request'
 
 export default{
-  //ftof下单
+  //ftof下单(测试)
   ftofPay(productId) {
     return request({
-      url: '/api/ali-pay/ftof/' + productId,
+      url: '/Pay-api/ali-pay/test-ftof/' + productId,
       method: 'post'
     })
   },
+    //ftof下单(临时)
+    ftofPayTemp(resourceId) {
+      return request({
+        url: '/Pay-api/ali-pay/temp-ftof/' + resourceId,
+        method: 'post'
+      })
+    },
 
   cancel(orderNo) {
     return request({
-      url: '/api/ali-pay/cancel/' + orderNo,
+      url: '/Pay-api/ali-pay/cancel/' + orderNo,
       method: 'post'
     })
   },
 
   refunds(orderNo, reason) {
     return request({
-      url: '/api/ali-pay/refunds/' + orderNo + '/' + reason,
+      url: '/Pay-api/ali-pay/refunds/' + orderNo + '/' + reason,
       method: 'post'
     })
   }
