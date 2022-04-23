@@ -1392,4 +1392,5 @@ export default ({
 .el-dialog--center {
   border-radius: 10px;
 }
+
 </style>

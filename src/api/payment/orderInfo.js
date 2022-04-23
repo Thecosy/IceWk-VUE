@@ -5,14 +5,21 @@ export default{
   //查询订单列表
   list() {
     return request({
-      url: '/api/order-info/list',
+      url: '/Pay-api/order-info/list',
       method: 'get'
     })
   },
 
   queryOrderStatus(orderNo) {
     return request({
-      url: '/api/order-info/query-order-status/' + orderNo,
+      url: '/Pay-api/order-info/query-order-status/' + orderNo,
+      method: 'get'
+    })
+  },
+
+  queryOrderStatusBytrue(userid,resourceid) {
+    return request({
+      url: '/Pay-api/order-info/query-order-status-Bytrue/' + userid + '/' + resourceid,
       method: 'get'
     })
   }

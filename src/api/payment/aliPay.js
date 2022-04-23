@@ -1,7 +1,7 @@
 // axios 发送ajax请求
 import request from '@/utils/request'
 
-export default{
+export default {
   //ftof下单(测试)
   ftofPay(productId) {
     return request({
@@ -9,13 +9,21 @@ export default{
       method: 'post'
     })
   },
-    //ftof下单(临时)
-    ftofPayTemp(resourceId) {
-      return request({
-        url: '/Pay-api/ali-pay/temp-ftof/' + resourceId,
-        method: 'post'
-      })
-    },
+  //ftof下单(临时)
+  ftofPayTemp(resourceId) {
+    return request({
+      url: '/Pay-api/ali-pay/temp-ftof/' + resourceId,
+      method: 'post'
+    })
+  },
+
+  //ftof下单(登陆)
+  ftofPayLogin(resourceId, userid) {
+    return request({
+      url: '/Pay-api/ali-pay/login-ftof/' + resourceId + '/' + userid,
+      method: 'post'
+    })
+  },
 
   cancel(orderNo) {
     return request({

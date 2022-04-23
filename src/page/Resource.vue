@@ -1,8 +1,51 @@
 <template>
   <div class="Resource">
-    <!-- 选择支付方式 -->
+     <!-- 选择支付方式（登陆） -->
     <el-dialog
-      :visible.sync="PaymentDialogVisible"
+      :visible.sync="PaymentDialogVisibleLogin"
+      :show-close="false"
+      @close="closeDialog"
+      width="320px"
+      center
+    >
+      <h6 class="outh5">请选择支付方式</h6>
+      <div class="swal2-content">
+        <div id="swal2-content" style="display: block">
+          <div class="pay-button-box">
+            <div @click="selectPayTypeLogin('alipay')"  class="pay-item" id="alipay" data-type="1" >
+              <img style="margin-right: 14px;" height="40" width="40" src="../static/image/pay/zhifubaorenzheng.svg"/><span>支付宝</span>
+            </div>
+            <div @click="selectPayTypeLogin('wxpay')" class="pay-item" id="weixinpay" data-type="2">
+              <img style="margin: 12px;"  height="40" width="40" src="../static/image/pay/weixinzhifu.svg"/><span>微信支付</span>
+            </div>
+          </div>
+          <p style="font-size: 13px; padding: 0; margin: 0">
+            
+          </p>
+        </div>
+        <input class="swal2-input" style="display: none" /><input
+          type="file"
+          class="swal2-file"
+          style="display: none"
+        />
+        <div class="swal2-range" style="display: none">
+          <input type="range" /><output></output>
+        </div>
+        <select class="swal2-select" style="display: none"></select>
+        <div class="swal2-radio" style="display: none"></div>
+        <label for="swal2-checkbox" class="swal2-checkbox" style="display: none"
+          ><input type="checkbox" /><span class="swal2-label"></span></label
+        ><textarea class="swal2-textarea" style="display: none"></textarea>
+        <div
+          class="swal2-validation-message"
+          id="swal2-validation-message"
+          style="display: none"
+        ></div>
+      </div>
+    </el-dialog>
+    <!-- 选择支付方式（临时） -->
+    <el-dialog
+      :visible.sync="PaymentDialogVisibleTemp"
       :show-close="false"
       @close="closeDialog"
       width="320px"
@@ -235,14 +278,26 @@
                         </h2>
                         <div class="mb-15">
                           <el-button
+                          v-if="payJudej"
                            :disabled="payBtnDisabled"
                             @click="Download()"
                             type="primary"
                             class="btn btn-theme btn-round w-200 cursor mr-4"
                             ><i
-                              class="el-icon-downloadLoading fs-20 v-m-1 mr-1"
+                              class="el-icon-download"
                             ></i>
                             支付下载</el-button
+                          >
+                          <el-button
+                          v-else
+                           :disabled="payBtnDisabled"
+                            @click="Download()"
+                            type="primary"
+                            class="btn btn-theme btn-round w-200 cursor mr-4"
+                            ><i
+                              class="el-icon-download"
+                            ></i>
+                            立即下载(已支付)</el-button
                           >
                           <button
                             class="
@@ -1005,7 +1060,6 @@ import comment from './components/Comment.vue'
 
 import { getResourceById } from '@/api/webresource'
 
-import productApi from '../api/payment/product'
 import wxPayApi from '../api/payment/wxPay'
 import aliPayApi from '../api/payment/aliPay'
 import orderInfoApi from '../api/payment/orderInfo'
@@ -1019,6 +1073,14 @@ export default {
   created() {
     //数据回填
     this.fetchData(this.$route.params.id)
+    //根据Id查询用户是否购买过此资源
+     const user = JSON.parse(window.localStorage.getItem('access-admin'))
+      this.userJudje = (user == null)
+       if (!this.userJudje) {
+         this.userid = user.data.userid
+          this.queryOrderStatusBytrues(this.$route.params.id,this.userid)
+       }
+   
     //获取资源评论数量
     getArticleCommentnum(this.$route.params.id).then(resp => {
       this.commentnum = resp.data
@@ -1026,6 +1088,16 @@ export default {
   },
 
   methods: {
+    queryOrderStatusBytrues(resourceid,userid){
+     orderInfoApi.queryOrderStatusBytrue(userid,resourceid).then(response => {
+       //检查已登陆用户是否购买过此资源，根据userid和resourceid判断
+       if(response.data.code == 0){
+         this.payJudej = false}
+       if(response.data.code == 101){
+         this.payJudej = true}
+     
+      })
+    },
     // 查询订单状态
     queryOrderStatus() {
       orderInfoApi.queryOrderStatus(this.orderNo).then(response => {
@@ -1056,13 +1128,60 @@ export default {
       clearInterval(this.timer)
     },
 
-    //选择支付方式
+    //选择支付方式(登陆)
+    selectPayTypeLogin(type) {
+      console.log('支付方式：' + type)
+      this.payOrder.payType = type
+        //关闭支付方式选择
+        this.PaymentDialogVisibleTemp = false
+         this.PaymentDialogVisibleLogin = false
+      //打开对应支付页面
+
+      //支付宝支付
+      if(this.payOrder.payType === 'alipay'){ 
+        this.aliDialogVisible = true 
+          //调用统一下单接口
+          aliPayApi.ftofPayLogin(this.$route.params.id,this.userid).then(response => {
+          this.codeUrl = response.data.data.codeUrl
+          this.orderNo = response.data.data.orderNo
+
+          //启动定时器
+          this.timer = setInterval(() => {
+            //查询订单是否支付成功
+            this.queryOrderStatus()
+          }, 3000)
+
+        })
+        }
+      //微信支付
+      if(this.payOrder.payType === 'wxpay'){ 
+        //打开支付二维码
+        this.wxDialogVisible = true
+          //调用统一下单接口
+         wxPayApi.nativePayLogin(this.$route.params.id,this.userid).then(response => {
+           console.log(response.data.data.codeUrl)
+          this.codeUrl = response.data.data.codeUrl
+          this.orderNo = response.data.data.orderNo
+
+          //启动定时器
+          this.timer = setInterval(() => {
+            //查询订单是否支付成功
+            this.queryOrderStatus()
+          }, 3000)
+
+        })
+      
+      }
+    },
+    //选择支付方式(临时)
     selectPayType(type) {
       console.log('支付方式：' + type)
       this.payOrder.payType = type
         //关闭支付方式选择
-        this.PaymentDialogVisible = false
+        this.PaymentDialogVisibleTemp = false
+         this.PaymentDialogVisibleLogin = false
       //打开对应支付页面
+      console.log("123123")
 
       //支付宝支付
       if(this.payOrder.payType === 'alipay'){ 
@@ -1104,20 +1223,25 @@ export default {
     Download() {
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.userJudje = (user == null)
+       if (!this.userJudje) {this.userid = user.data.userid}
       if (this.userJudje) {
         //游客购买
         console.log("游客购买")
-        // console.log("确认支付")
         //禁用按钮，防止重复提交
         this.payBtnDisabled = true
 
         //打开支付方式选择
-        this.PaymentDialogVisible = true
+        this.PaymentDialogVisibleTemp = true
 
       }
       else {
         //登陆用户购买
         console.log("登陆用户购买")
+         //禁用按钮，防止重复提交
+        this.payBtnDisabled = true
+
+        //打开支付方式选择
+        this.PaymentDialogVisibleLogin = true
       }
     },
     fetchData(id) {
@@ -1138,13 +1262,16 @@ export default {
   },
   data() {
     return {
+      payJudej:true,
+      payBtnDisabled:false,
       orderNo:"",
       codeUrl:"",
       payOrder: { //订单信息
         productId: '', //商品id
         payType: 'wxpay' //支付方式
       },
-      PaymentDialogVisible: false, //支付方式弹窗
+       PaymentDialogVisibleLogin: false, //支付方式弹窗
+      PaymentDialogVisibleTemp: false, //支付方式弹窗
       wxDialogVisible: false, //微信支付二维码弹窗
       aliDialogVisible: false, //支付宝支付二维码弹窗
       intro: "",

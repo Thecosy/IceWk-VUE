@@ -1,7 +1,7 @@
 // axios 发送ajax请求
 import request from '@/utils/request'
 
-export default{
+export default {
 
   //Native下单
   nativePay(productId) {
@@ -15,6 +15,13 @@ export default{
   nativePayTemp(resourceId) {
     return request({
       url: '/Pay-api/wx-pay/temp-native/' + resourceId,
+      method: 'post'
+    })
+  },
+  //Native下单(登陆)
+  nativePayLogin(resourceId, userid) {
+    return request({
+      url: '/Pay-api/wx-pay/login-native/' + resourceId + '/' + userid,
       method: 'post'
     })
   },
