@@ -1,11 +1,7 @@
 <template>
   <div class="bg-fa of">
     <section id="index" class="container">
-      <header class="comm-title">
-        <h2 class="fl tac">
-          <span class="c-333">订单列表</span>
-        </h2>
-      </header>
+
       <el-table :data="list" border style="width: 100%">
         <el-table-column type="index" width="50"></el-table-column>
         <el-table-column prop="orderNo" label="订单编号" width="230" ></el-table-column>
@@ -69,7 +65,7 @@
 </template>
 
 <script>
-import orderInfoApi from "../api/payment/orderInfo"
+import orderInfoApi from "../../api/payment/orderInfo"
 // import wxPayApi from "../api/wxPay"
 
 export default {
@@ -91,8 +87,13 @@ export default {
 
     //显示订单列表
     showOrderList(){
-      orderInfoApi.list().then((response) => {
-        console.log("123")
+       const user = JSON.parse(window.localStorage.getItem('access-admin'))
+      this.userJudje = (user == null)
+       if (!this.userJudje) {
+         this.userid = user.data.userid
+          
+       }
+      orderInfoApi.PaylistById( this.userid).then((response) => {
         console.log(response)
         this.list = response.data.data.list;
       });
@@ -145,7 +146,7 @@ export default {
 .container {
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    
 }
 #logo {
     float: left;

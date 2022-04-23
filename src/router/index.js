@@ -72,7 +72,17 @@ export const constantRoutes = [
   {
     path: '/userinfo',
     component: () => import('@/page/UserInfo'),
-    hidden: true
+    hidden: true,
+    children:[
+      {
+        path:'/userinfo/index',
+        component: () => import('@/page/UserComponents/Info'),
+      },
+      {
+        path:'/userinfo/payInfo',
+        component: () => import('@/page/UserComponents/payInfo'),
+      } 
+    ]
   },
   {
     path: '/post/:content/all',

@@ -1,223 +1,143 @@
 <template>
   <div class="home">
-    <div id="__nuxt">
-      <!---->
-      <div id="__layout">
-        <div data-fetch-key="0" class="app light macwk-animation">
-          <top :message1="acticve" />
-          <div>
-            <section class="layout-index pc-model mt-5">
-              <!-- class="banner-index mb-6" -->
-              
+      <div>123</div>
+        <!-- <div class="author-page-left">
+            <div class="author-page">
+              <div id="author-index">
+                <div class="user-info box b2-radius mg-b">
+                  <p class="b2-pd">
+                    <span class="user-info-title">昵称：</span><span >{{user.name}}</span>
+                  </p>
+                  <p class="b2-pd user-verify">
+                    <span class="user-info-title">认证：</span>
+                    <span ><b ></b><span
+                        ></span></span>
+                    <span  class="b2-hover">
+                      未认证 <a href="https://www.zmki.cn/verify" target="_blank" >前往认证</a>
+                    </span>
+                  </p>
+                  <p class="b2-pd">
+                    <span class="user-info-title">描述：</span>
+                    <span >本站第<b ></b>号会员</span>
+                    入驻本站<b>0</b>天
+                  </p>
+                  <p class="b2-pd">
+                    <span class="user-info-title">性别：</span>
+                    <span ><i class="b2font b2-men-line "></i>男</span>
+                    <span ><i class="b2font b2-women-line "></i>女</span>
+                  </p>
+                  <p class="b2-pd">
+                    <span class="user-info-title">网址：</span>
+                    <span ></span>
+                    <span  class="b2-hover">
+                      没有网址 <a href="https://www.zmki.cn/users/dCACBojqs/settings" >前往设置</a>
+                    </span>
+                  </p>
+                  <p class="b2-pd">
+                    <span class="user-info-title">简介：</span>
+                    <span></span>
+                    <span class="b2-hover" >
+                      没有描述 <a href="https://www.zmki.cn/users/dCACBojqs/settings" >前往设置</a>
+                    </span>
+                  </p>
+                </div>
+                <div class="user-sidebar-gold box b2-radius mg-b">
+                  <h2>财富</h2>
+                  <div class="user-money-and-credit">
+                    <div class="user-sidebar-money">
+                      <div ></div>
+                    </div>
+                    <div class="user-sidebar-credit">
+                      <div ></div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="user-sidebar-count box b2-radius">
+                  <li>
+                    <i class="b2font b2-article-line "></i>
+                    <div>
+                      <div class="user-item-name">发布的文章</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">在本站的投稿</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-flashlight-line "></i>
+                    <div>
+                      <div class="user-item-name">发布的快讯</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">在本站发布的快讯</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-chat-smile-2-line "></i>
+                    <div>
+                      <div class="user-item-name">提交的评论</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">在本站提交的评论</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-heart-add-line "></i>
+                    <div>
+                      <div class="user-item-name">关注</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">关注的人数</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-heart-pulse-line "></i>
+                    <div>
+                      <div class="user-item-name">粉丝</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">粉丝人数</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-star-line "></i>
+                    <div>
+                      <div class="user-item-name">收藏的文章</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">收藏的文章数量</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-flashlight-line "></i>
+                    <div>
+                      <div class="user-item-name">收藏的快讯</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">收藏的快讯数量</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <i class="b2font b2-shopping-bag-line "></i>
+                    <div>
+                      <div class="user-item-name">收藏的商品</div>
+                      <p class="user-item-count">0</p>
+                      <div class="user-item-desc">收藏的商品数量</div>
+                      <a href=""></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
           
-    <div id="content" class="site-content">
-
-      <div id="author" class="author wrapper">
-        <div class="box b2-radius author-header">
-          <div class="mask-wrapper" v-bind:style="{ backgroundImage: 'url(' + image + ')' }" >
-            <div class="user-cover-button" >
-              <label class="empty button" for="cover-input"><i
-                  class="b2font b2-image-fill "></i><span>上传封面图片</span></label>
-              <input id="cover-input" type="file" class="b2-hidden-always" ref="fileInput"
-                accept="image/jpg,image/jpeg,image/png,image/gif" >
-            </div>
-          </div>
-          <div class="user-panel">
-            <div class="avatar">
-             
-              <el-avatar shape="square" :size="150" :src="user.profile"></el-avatar>
-              <label class="editor-avatar" for="avatar-input" ><i
-                  class="b2font b2-image-fill "></i><span>修改我的头像</span></label>
-              <input id="avatar-input" type="file" class="b2-hidden-always" ref="fileInput"
-                accept="image/jpg,image/jpeg,image/png,image/gif">
-            </div>
-            <div class="user-panel-info">
-              <div class="">
-                <h1><span id="userDisplayName" class="usertopName">{{user.name}}</span><span class="user-page-lv"><span
-                      class="lv-icon user-lv b2-lv0"><b>Lv0 新手上路</b><i>lv0</i></span></span></h1>
-                <p>这个人很懒，什么都没有留下！</p>
-              </div>
-              <div class="user-panel-editor-button">
-                <div class="user-follow" >
-                  <button class="mybutton" ><i
-                      class="b2font b2-add-line "></i><span>关注Ta</span></button>
-                  <button class="mybutton author-has-follow" >取消关注</button>
-                  <button class="mybutton empty" @click="dmsg()"><i
-                      class="mybutton b2font b2-mail-send-line "></i><span>发私信</span></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="author-table mg-t">
-          <div class="author-page-right">
-            <div class="author-page-right-in box b2-radius">
-                 <router-link to="/userinfo/index">
-              <div class="user-sidebar">
-                
-                <div class="user-sidebar-info active">
-                
-                  <a  class="link-block"></a>
-                  <p><i class="b2font b2-user-heart-line b2-light b2-color "></i>概览</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                 
-                </div>
-                
-              </div>
-              </router-link>
-              <div class="user-sidebar">
-                <div class="user-sidebar-info ">
-                  <a href="https://www.zmki.cn/users/dCACBojqs/post" class="link-block"></a>
-                  <p><i class="b2font b2-quill-pen-line b2-light b2-color "></i>发布的</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-              </div>
-
-              <div >
-                 <router-link to="/userinfo/payInfo">
-                <div class="user-sidebar-info ">
-                  <a  class="link-block"></a>
-                  <p><i class="b2font b2-file-list-2-line b2-light b2-color "></i>订单</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-                 </router-link>
-              </div>
-
-              <div  >
-                <div class="user-sidebar-info ">
-                  <a href="https://www.zmki.cn/users/dCACBojqs/myinv" class="link-block"></a>
-                  <p><i class="b2font b2-hand-heart-line b2-light b2-color "></i>邀请码</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-              </div>
-              <div class="user-sidebar">
-                <div class="user-sidebar-info ">
-                  <a href="https://www.zmki.cn/users/dCACBojqs/following" class="link-block"></a>
-                  <p><i class="b2font b2-heart-add-line b2-light b2-color "></i>关注</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-              </div>
-              <div class="user-sidebar">
-                <div class="user-sidebar-info ">
-                  <a href="https://www.zmki.cn/users/dCACBojqs/followers" class="link-block"></a>
-                  <p><i class="b2font b2-hearts-line b2-light b2-color "></i>粉丝</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-              </div>
-              <div class="user-sidebar">
-                <div class="user-sidebar-info ">
-                  <a href="https://www.zmki.cn/users/dCACBojqs/collections" class="link-block"></a>
-                  <p><i class="b2font b2-star-line b2-light b2-color "></i>收藏</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-              </div>
-              <div class="user-sidebar h0 " >
-                <div class="user-sidebar-info ">
-                  <a href="https://www.zmki.cn/users/dCACBojqs/settings" class="link-block"></a>
-                  <p><i class="b2font b2-settings-3-line b2-light b2-color "></i>设置</p>
-                  <div class="author-sidebar-down">
-                    <i class="b2font b2-arrow-right-s-line "></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--路由占位符-->
-    <router-view class="author-page-left"></router-view>
-        
-        </div>
-      </div>
-    </div>
-            </section>
-            <div class="mobile-model">
-              <div
-                class="
-                  d-flex
-                  layout-min-full-height
-                  justify-content-center
-                  align-items-center
-                "
-              >
-                <div class="text-center" style="width: 80%; margin: 0px auto">
-                  <h1 class="mb-4">哇，窗口太小啦</h1>
-                  <p class="mb-6">请调整浏览器窗口大小或者请使用手机查看！</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <foot />
-          <div infos="0">
-            <div
-              class="
-                adBanner
-                pub_300x250 pub_300x250m pub_728x90
-                text-ad
-                textAd
-                text_ad text_ads text-ads text-ad-links
-              "
-            ></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
-<script>
-// import { getNewResource } from '@/api/webresource'
-// import { formatDate } from '@/utils/date.js'
-
-import top from './components/Top.vue'
-import foot from './components/Foots.vue'
-
-export default ({
-  name: 'Home',
-  components: {top, foot},
-  data() {
-    return {
-      image:"http://api.ahsubway.com/",
-      acticve:'nav-link active',
-      user:"",
-    }
-  },
-  created() {
-     this.getUserInfo()
-  },
-  props: {
-
-  },
-  methods: {
-     getUserInfo(){
-      const user = JSON.parse(window.localStorage.getItem('access-admin'))
-      this.user = user.data
-    },
-    formatDate(time) {
-      let data = new Date(time)
-      return formatDate(data, 'yyyy-MM-dd hh:mm ')
-    },
-  }
-})
-</script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../static/mycss/top.css";
-@import "../static/mycss/body.css";
-@import "../static/mycss/user_info.css";
+@import "../../static/mycss/top.css";
+@import "../../static/mycss/body.css";
+@import "../../static/mycss/user_info.css";
 
 
     @font-face {
