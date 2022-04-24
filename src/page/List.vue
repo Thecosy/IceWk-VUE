@@ -13,99 +13,37 @@
                   <div class="macwk-sidebar mb-4 vsm_expanded">
                     <div class="vsm--scroll-wrapper">
                       <div class="vsm--list">
-                        <div class="vsm--item">
+                        <div class="vsm--item" @click="getList()" >
                           <span
                             role="link"
                             href="[object Object]"
                             class="
                               vsm--link
                               vsm--link_level-1
-                              vsm--link_active
-                              vsm--link_exact-active
+                             
+                             
                             "
-                            ><span class="vsm--title">全部软件</span>
+                            :class="{' vsm--link_active':allIndex}"
+                            ><span class="vsm--title">全部资源</span>
                             <!----></span
                           >
                           <!---->
                         </div>
-                        <div class="vsm--item">
+                        <div @click="getNewarticleclass(item.id)" class="vsm--item" v-for="(item, id) in this.classlist" :key="id">
                           <span
                             role="link"
                             href="[object Object]"
-                            class="vsm--link vsm--link_level-1"
-                            ><span class="vsm--title">系统工具</span>
-                            <div class="vsm--arrow vsm--arrow_slot">
+                            class="vsm--link vsm--link_level-1 "
+                             :class="{'vsm--link_active':item.id==clickIndex}"
+                            ><span class="vsm--title">{{item.name}}</span>
+                            <div class="vsm--arrow vsm--arrow_slot ">
                               <span
                                 ><i class="icon-chevron-right"></i
                               ></span></div
                           ></span>
                           <!---->
                         </div>
-                        <div class="vsm--item">
-                          <span
-                            role="link"
-                            href="[object Object]"
-                            class="vsm--link vsm--link_level-1"
-                            ><span class="vsm--title">应用软件</span>
-                            <div class="vsm--arrow vsm--arrow_slot">
-                              <span
-                                ><i class="icon-chevron-right"></i
-                              ></span></div
-                          ></span>
-                          <!---->
-                        </div>
-                        <div class="vsm--item">
-                          <span
-                            role="link"
-                            href="[object Object]"
-                            class="vsm--link vsm--link_level-1"
-                            ><span class="vsm--title">图形设计</span>
-                            <div class="vsm--arrow vsm--arrow_slot">
-                              <span
-                                ><i class="icon-chevron-right"></i
-                              ></span></div
-                          ></span>
-                          <!---->
-                        </div>
-                        <div class="vsm--item">
-                          <span
-                            role="link"
-                            href="[object Object]"
-                            class="vsm--link vsm--link_level-1"
-                            ><span class="vsm--title">网络工具</span>
-                            <div class="vsm--arrow vsm--arrow_slot">
-                              <span
-                                ><i class="icon-chevron-right"></i
-                              ></span></div
-                          ></span>
-                          <!---->
-                        </div>
-                        <div class="vsm--item">
-                          <span
-                            role="link"
-                            href="[object Object]"
-                            class="vsm--link vsm--link_level-1"
-                            ><span class="vsm--title">媒体工具</span>
-                            <div class="vsm--arrow vsm--arrow_slot">
-                              <span
-                                ><i class="icon-chevron-right"></i
-                              ></span></div
-                          ></span>
-                          <!---->
-                        </div>
-                        <div class="vsm--item">
-                          <span
-                            role="link"
-                            href="[object Object]"
-                            class="vsm--link vsm--link_level-1"
-                            ><span class="vsm--title">编程开发</span>
-                            <div class="vsm--arrow vsm--arrow_slot">
-                              <span
-                                ><i class="icon-chevron-right"></i
-                              ></span></div
-                          ></span>
-                          <!---->
-                        </div>
+                       
                       </div>
                     </div>
                   </div>
@@ -169,7 +107,7 @@
                     <div class="app-content-header">
                       <div class="main-title">
                         <h5 class="i-con-h-a">
-                          全部软件
+                          全部资源
                           <span class="text-muted fs-13 v-1 ml-1">
                             {{this.ResourceNumber}}
                           </span>
@@ -553,6 +491,8 @@
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
 
+import { getResourceClasslist} from '@/api/webresourceclass'
+
 import { getAllResource , getAllResourceNumber } from '@/api/webresource'
 
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
@@ -561,6 +501,8 @@ export default ({
   components: {top, foot,Pagination},
    data() {
     return {
+      allIndex: true,
+      classlist:"",
       istargetjudje:!true,
       istarget:"_self",
       ResourceNumber:"",
@@ -592,6 +534,18 @@ export default ({
     }
   },
   methods: {
+     getNewarticleclass(id) {
+      console.log("启动")
+      this.clickIndex = id
+      this.allIndex = false
+      //重新请求全部列表
+       this.list = this.template
+      //过滤器，过滤sortclass为id的
+      setTimeout(() => {
+        let lists  =  this.list.filter ( item => item.sortClass == id)
+      this.list = lists
+      }, )
+    },
       getStyles() {
       //生成随机颜色
       let max = 8;
@@ -642,10 +596,20 @@ export default ({
        })
     },
     getList() {
+       this.allIndex = true
+       this.clickIndex = false
       getAllResource(this.listQuery).then(resp => {
         //获取文章
         this.list = resp.data.data
+         this.template = resp.data.data
         this.total = resp.data.total
+
+      })
+      getResourceClasslist().then(resp => {
+        //获取分类
+    
+        this.classlist = resp.data
+        
       })
     },
     changegrid(){
