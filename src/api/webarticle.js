@@ -55,3 +55,10 @@ export function FindProfileByName(name) {
     method: 'get'
   })
 }
+
+export function viewarticle(id) {
+  return request({
+    url: '/WebArticle/articles/'+ id +'/view',
+    method: 'get',
+  })
+}

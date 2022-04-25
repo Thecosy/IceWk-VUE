@@ -25,7 +25,7 @@
                       />
                       <div class="flex">
                         <h4 class="mb-0 mt-0">{{ this.author }}</h4>
-                        <p class="mb-0 py-0 fs-14">{{ this.addTime }}</p>
+                        <p class="mb-0 py-0 fs-14">{{ this.addTime }} 阅读 {{ this.hits }}</p>
                       </div>
                     </div>
                     <blockquote class="blockquote">
@@ -466,7 +466,7 @@
 import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
 import Prismjs from 'prismjs'; //引入插件
-import { getArticleById , FindProfileByName} from '@/api/webarticle'
+import { getArticleById , FindProfileByName, viewarticle} from '@/api/webarticle'
 import { getArticleCommentnum } from '@/api/webarticleComment'
 
 import "vue-side-catalog/lib/vue-side-catalog.css";
@@ -489,6 +489,9 @@ export default {
     //获取文章评论数量
     getArticleCommentnum(this.$route.params.id).then(resp => {
       this.commentnum = resp.data
+    })
+    //文章浏览量+1，临时
+    viewarticle(this.$route.params.id).then(resp => {
     })
   },
   mounted() {
@@ -546,6 +549,7 @@ export default {
 
         if (resp.data.createTime != null) { this.addTime = resp.data.createTime } else { this.addTime = resp.data.addTime }
         this.intro = resp.data.intro
+        this.hits = resp.data.hits
 
       })
     },
@@ -571,6 +575,7 @@ export default {
       },
       intro: "",
       addTime: "",
+      hits:"",
       author: "",
       content: "",
       title: "",

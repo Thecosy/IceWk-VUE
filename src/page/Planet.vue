@@ -155,7 +155,7 @@
                           <!---->
                         </div>
                       </div>
-                      <div class="circle-contenr-out">
+                      <div  v-for="item in 20" :key="item.id" class="circle-contenr-out">
                         <div class="circle-contenr">
                           <div class="topic-header">
                             <div class="topic-header-left">
@@ -239,7 +239,7 @@
                           <!---->
                           <!---->
                         </div>
-                        <div class="topic-footer">
+                        <div  class="topic-footer">
                           <div class="topic-footer-left">
                             <button class="planettext">
                               <i class="el-icon-caret-top"></i><span>赞</span
@@ -284,11 +284,7 @@
                         </div>
                       </div>
 
-                      <div v-for="item in 20" :key="item.id" class="Content">
-                        <el-col :span="24"
-                          ><div class="grid-content bg-purple"></div
-                        ></el-col>
-                      </div>
+                      
                     </el-row>
                   </el-main>
                   <el-aside width="260px">Aside</el-aside>

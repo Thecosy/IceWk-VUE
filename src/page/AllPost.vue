@@ -222,7 +222,7 @@
                                     v-else
                                     v-text="formatDate(item.addTime)"
                                   >
-                                  </span>
+                                  </span> <span> • </span><span> 阅读 {{ item.hits }}</span> 
                                 </div>
                               </div>
                             </div>
@@ -231,7 +231,7 @@
                                 <button class="comment">
                                   <i class="icon-bubble"></i>
                                 </button>
-                                <p class="CS-count">233</p>
+                                <p class="CS-count">{{item.commentNum}}</p>
                                 <button class="share">
                                   <i class="icon-share"></i>
                                 </button>
@@ -707,6 +707,7 @@ computed:{
       this.listLoading = true
       getAllArticle(this.listQuery).then(resp => {
         //获取文章
+        console.log(resp)
         this.list = resp.data.data
         this.template = resp.data.data
         this.total = resp.data.total
