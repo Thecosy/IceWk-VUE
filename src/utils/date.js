@@ -38,3 +38,11 @@ export function Todate(num) { //Fri Oct 31 18:00:00 UTC+0800 2008
   date = date + month[str[1]] + "-" + str[2] + " " + str[4]
   return date
 }
+
+export function GetWeekdate(intime) { //Fri Oct 31 18:00:00 UTC+0800 2008
+  
+  var dateString = intime;
+  var dateObject = new Date(dateString);
+  dateObject.getDay()//返回值是 0（周日） 到 6（周六） 之间的一个整数。
+  return dateObject.getDay()
+}

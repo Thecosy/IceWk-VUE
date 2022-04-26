@@ -6,3 +6,9 @@ export function getResourceClasslist() {
     method: 'get'
   })
 }
+export function getResourceClassNameByid(classid) {
+  return request({
+    url: 'WebResourceClass/getResourceClassNameByid/' + classid,
+    method: 'get'
+  })
+}

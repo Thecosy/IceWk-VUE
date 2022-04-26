@@ -692,7 +692,7 @@
                     <div class="w-c w-c-4">
                       <div class="border-right my-4">
                         <p class="text-muted text-uppercase fs-10 ls-2 mb-0">
-                          兼容性
+                          价格
                         </p>
                         <p
                           class="
@@ -703,9 +703,9 @@
                             opacity-70
                           "
                         >
-                          &gt;= 10.14
+                          0积分
                         </p>
-                        <p class="fs-10 ls-2 mb-0 opacity-70">macOS</p>
+                        <p class="fs-10 ls-2 mb-0 opacity-70">money</p>
                       </div>
                     </div>
                     <div class="w-c w-c-4">
@@ -724,7 +724,7 @@
                           "
                         >
                           <a href="/soft/enhancement/p1">
-                            系统增强
+                            {{className}}
                             <i class="icon-arrow-r text-muted"></i
                           ></a>
                         </p>
@@ -736,7 +736,8 @@
                         <p class="text-uppercase fs-10 ls-2 mb-0 opacity-40">
                           更新日期
                         </p>
-                        <p
+                       
+                          <p
                           class="
                             mb-0
                             fs-20
@@ -744,11 +745,24 @@
                             line-height-3
                             opacity-70
                           "
-                        >
-                          2022-03-22
-                        </p>
+                                    v-if="this.createTime != null"
+                                    v-text="formatDate(this.createTime)"
+                                  >
+                                  </p>
+                                  <p
+                          class="
+                            mb-0
+                            fs-20
+                            font-weight-bolder
+                            line-height-3
+                            opacity-70
+                          "
+                                    v-else
+                                    v-text="formatDate(this.addTime)"
+                                  >
+                                  </p>
                         <p class="text-uppercase fs-10 ls-2 mb-0 opacity-70">
-                          星期二
+                          {{Theweeks}}
                         </p>
                       </div>
                     </div>
@@ -1059,6 +1073,9 @@ import foot from './components/Foots.vue'
 import comment from './components/Comment.vue'
 
 import { getResourceById } from '@/api/webresource'
+import { getResourceClassNameByid } from '@/api/webresourceclass'
+
+import { formatDate , GetWeekdate } from '@/utils/date.js'
 
 import wxPayApi from '../api/payment/wxPay'
 import aliPayApi from '../api/payment/aliPay'
@@ -1088,6 +1105,11 @@ export default {
   },
 
   methods: {
+
+    formatDate(time) {
+      let data = new Date(time)
+      return formatDate(data, 'yyyy-MM-dd hh:mm ')
+    },
     queryOrderStatusBytrues(resourceid,userid){
      orderInfoApi.queryOrderStatusBytrue(userid,resourceid).then(response => {
        //检查已登陆用户是否购买过此资源，根据userid和resourceid判断
@@ -1253,15 +1275,56 @@ export default {
         this.author = resp.data.author
         this.content = resp.data.content
         this.intro = resp.data.intro
+        var sortClasss = resp.data.sortClass
+        //根据classid获取分类名称
+        getResourceClassNameByid(sortClasss).then(resp => {
+             this.className = resp.data;
+        })
 
-        if (resp.data.createTime != null) { this.addTime = resp.data.createTime } else { this.addTime = resp.data.addTime }
+        if (resp.data.createTime != null) { 
+          this.createTime = resp.data.createTime 
+         
+      let data = new Date(resp.data.createTime)
+      var intime =  formatDate(data, 'yyyy-MM-dd')
+      var tiems = GetWeekdate(intime)
+      this.Theweeks = this.weeks[tiems]
+      console.log(resp.data.createTime )
+      console.log(data)
+      
+      
+            
+          } else { 
+            this.addTime = resp.data.addTime 
+            
+             let data = new Date(resp.data.addTime )
+      var intime =  formatDate(data, 'yyyy-MM-dd')
+      var tiems = GetWeekdate(intime)
+      this.Theweeks = this.weeks[tiems]
+       console.log(intime)
+             console.log(resp.data.addTime )
+      console.log(this.addTime)
+            }
         this.intro = resp.data.intro
 
       })
+     
     },
   },
   data() {
     return {
+      className:"",
+      sortClass:"",
+      Theweeks:"",
+      weeks: {
+        "0":'星期日',
+        "1":'星期一',
+        "2":'星期二',
+        "3":'星期三',
+        "4":'星期四',
+        "5":'星期五',
+        "6":'星期六',
+      },
+
       payJudej:true,
       payBtnDisabled:false,
       orderNo:"",
