@@ -134,7 +134,7 @@
                                 </p>
                                 <a
                                   data-v-bffc9160=""
-                                  href="https://macwk.com/soft/all/p1"
+                                  
                                   class="btn btn-theme btn-round px-6"
                                 >
                                   {{ item.button }}</a
@@ -160,7 +160,7 @@
                   <div data-v-0a1f67c4="" class="col-3">
                     <a
                       data-v-0a1f67c4=""
-                      href="https://macwk.com/special/novice"
+                     
                       class=""
                     >
                       <div
@@ -202,7 +202,7 @@
                   <div data-v-0a1f67c4="" class="col-3">
                     <a
                       data-v-0a1f67c4=""
-                      href="https://macwk.com/special/photo"
+                     
                       class=""
                     >
                       <div
@@ -239,7 +239,7 @@
                   <div data-v-0a1f67c4="" class="col-3">
                     <a
                       data-v-0a1f67c4=""
-                      href="https://macwk.com/special/pm"
+                   
                       class=""
                     >
                       <div
@@ -276,7 +276,7 @@
                   <div data-v-0a1f67c4="" class="col-3">
                     <a
                       data-v-0a1f67c4=""
-                      href="https://macwk.com/special"
+                      
                       class=""
                     >
                       <div

@@ -120,6 +120,19 @@
                               <p class="circle-desc tip-radius">
                                 公共区域，请文明发言!
                               </p>
+                              <div v-if="shownologin" class="nologin">
+                                <div class="nologintext">
+                               <p class="circle-desc tip-radius">
+                                未登陆，请登录后发言
+                              </p>
+                              </div>
+                              </div>
+                              <div v-else>
+                                 <Tinymce ref="editor" v-model="postForm.content"  :height="200" />
+                                 <div class="PutContent">
+                                  <el-button @click="sitmap()" class="PutContentBut" type="success" round>发表</el-button>
+                                  </div>
+                              </div>
                             </div>
                             <div id="show-form" class="po-form-box">
                               <div
@@ -155,7 +168,7 @@
                           <!---->
                         </div>
                       </div>
-                      <div  v-for="item in 20" :key="item.id" class="circle-contenr-out">
+                      <div  v-for="item in squaredata" :key="item.id" class="circle-contenr-out">
                         <div class="circle-contenr">
                           <div class="topic-header">
                             <div class="topic-header-left">
@@ -227,10 +240,8 @@
                            
                           </h2> -->
                           <!---->
-                          <div class="topic-content-text">
-                            <p>
-                              <span> 钻钻，你网站越来越卡了！</span>
-                            </p>
+                          <div v-html="item.content" class="topic-content-text">
+                            
                           </div>
                           <!---->
                           <!---->
@@ -287,7 +298,46 @@
                       
                     </el-row>
                   </el-main>
-                  <el-aside width="260px">Aside</el-aside>
+                  <el-aside width="260px"> 
+                    <div class="sidebar-innter widget-ffixed">
+                      <section
+                        id="b2-widget-circle-info-2"
+                        class="
+                          mobile-hidden-right
+                          widget
+                          b2-widget-circle-info
+                          mg-b
+                          box
+                          
+                          b2-radius-aside-left
+                        "
+                      >
+                        <div class="b2-widget-title">
+                          <h2 class="widget-title">创建自己的圈子</h2>
+                        </div>
+                        <div class="b2-widget-box">
+                          <div class="about-widget">
+                            <div class="user-w-announcement">
+                              <ul class="planet-aside-ul">
+                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">什么是圈子？</a></li>
+                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">我可以做什么？</a></li>
+                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">圈子规则</a></li>
+                              </ul>
+                            </div>
+                            <div class="circle-widget-button">
+                              <button
+                                class="text-great"
+                                onclick="postPoBox.go('https://www.zmki.cn/create-circle','create_circle')"
+                              >
+                                创建圈子
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    
+                    </el-aside>
                 </div>
               </div>
               <div class="clearfix pt-8"></div>
@@ -450,18 +500,63 @@
 </template>
 
 <script>
-import { getNewArticle } from '@/api/webarticle'
+import { createSquare, getAllSquare } from '@/api/websquare'
 import { formatDate } from '@/utils/date.js'
 import { getCarousel } from '@/api/sitting'
+
+import Tinymce from '@/components/Tinymce'
 
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
 
 export default ({
   name: 'Home',
-  components: { top, foot },
+  components: { top, foot, Tinymce },
+  created() {
+    //数据回填
+    this.fetchData()
+    //检测token是否有效
+    this.getUserInfo()
+  },
+  methods: {
+    fetchData(){
+      getAllSquare(this.postForm).then(response => {
+          this.squaredata = response.data
+      })
+    },
+    sitmap(){
+      createSquare(this.postForm).then(response => {
+         this.fetchData()
+      })
+    },
+     getUserInfo(){ 
+       const user = JSON.parse(window.localStorage.getItem('access-admin'))
+      this.userJudje = (user == null)
+      if(this.userJudje){
+        console.log("未登陆")
+        //显示需要登陆
+        this.shownologin = true
+      }else{
+        console.log("已登陆")
+          this.user = user.data
+          this.postForm.author = this.user.userid
+           //显示需要登陆
+        this.shownologin = false
+    
+      }
+      }
+  },
+   
+
   data() {
     return {
+      squaredata:"",
+      postForm: {
+          content: "",
+          author: "",
+       
+      },
+      shownologin:false,
       acticve: 'nav-link active',
     }
   },
@@ -567,5 +662,28 @@ body > .el-container {
 <style scoped>
 .py-7 {
   padding-top: 3px;
+}
+.tip-radius {
+    margin-left: 30px;
+    position: relative;
+    margin-top: 8px;
+}
+.nologin{
+  display: flex;
+      flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+.nologintext{
+  display: flex;
+}
+.PutContent{
+  display: flex;
+flex-direction: row-reverse;
+}
+.PutContentBut{
+  margin-top: 10px;
+   display: flex;
+
 }
 </style>

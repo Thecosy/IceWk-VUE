@@ -122,7 +122,7 @@
           to="/"
         >
           <a
-            href="https://macwk.com/"
+           
             class="app-header-logo active"
             data-v-122eae44=""
             aria-current="page"
