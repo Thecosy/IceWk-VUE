@@ -168,13 +168,44 @@
             </div>
           </el-col>
         </el-row>
+        <h4>设置价格</h4>
+        <el-input style="width: 220px" v-model="price" placeholder="请输入价格"></el-input>元
+        <h4>是否付费</h4>
+        <el-switch
+          v-model="isfree"
+          active-text="付费"
+          inactive-text="免费"
+        >
+        </el-switch>
         <el-form-item prop="content" style="margin-bottom: 30px">
           <Tinymce ref="editor" v-model="postForm.content" :height="400" />
         </el-form-item>
 
         <el-form-item prop="image_uri" style="margin-bottom: 30px">
-          <Upload :fortitle="this.postForm.title" :forcontent="this.postForm.intro" v-model="postForm.thumb" />
+          <Upload
+            :fortitle="this.postForm.title"
+            :forcontent="this.postForm.intro"
+            v-model="postForm.thumb"
+          />
         </el-form-item>
+        <h4>上传轮播图</h4>
+       <div class="upload-container">
+         <el-upload
+          class="upload-demo"
+          
+          action=""
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :file-list="fileList"
+          :before-upload="BeforeUpload"
+          :http-request="Upload"
+          list-type="picture-card">
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
+ </div>
+
+        
       </div>
     </el-form>
   </div>
@@ -197,6 +228,7 @@ import { getAllUserName } from '@/api/user'
 import { createResource } from '@/api/resource'
 import { getClassNameById } from '@/api/resource'
 import { getAllClassName } from '@/api/resource'
+import { updateImage } from '@/api/updateImage'
 
 import Tinymce from '@/components/Tinymce'
 import MDinput from '@/components/MDinput'
@@ -267,6 +299,11 @@ export default {
       }
     }
     return {
+      price:"",
+      fileList: [],
+      imageList: [],
+      newFile:new FormData(), //   1. 定义一个newFile变量（FormData 对象） 
+      isfree:true,
       value: ['Apple', 'Banana', 'Orange'],
       options: [{
         value: 'Apple',
@@ -335,7 +372,51 @@ export default {
     this.tempRoute = Object.assign({}, this.$route)
   },
   methods: {
-
+   handleRemove(file, fileList) {
+        console.log(file, fileList);
+        //  this.imageList.remove(file)
+        //  console.log(this.imageList)
+      },
+      handlePreview(file) {
+        console.log(file);
+      },
+      BeforeUpload(file){
+       if(file){
+          this.newFile.append('file',file); //  2. 上传之前，拿到file对象，并将它添加到刚刚定义的FormData对象中。 
+           console.log(this.newFile.get('file'))
+            console.log(this.newFile.get('file'),"123")
+       }else{
+         return false;
+       }     
+      },
+      Upload(){
+        const newData= this.newFile.get('file'); //  3. 拿到刚刚的数据，并将其传给后台
+         console.log(newData,"564")
+          var form = new FormData();
+      form.append('editormd-image-file', newData, newData.name)
+         updateImage(form).then(resp => {
+           console.log(resp)
+        this.$message({
+            message: '上传成功',
+            type: 'success',
+            showClose: true,
+            duration: 1000
+        })
+        var imgUrl = resp.data.url;//根据返回值得不同这里要自己定义
+        this.tempUrl = imgUrl
+        //  this.fileList.append('url',this.tempUrl);
+        var aa = {
+        "url" : this.tempUrl,
+        "name" : this.tempUrl,
+        }
+        this.imageList.push(aa)
+         console.log(this.imageList)
+      }).catch((e) => { 
+       this.$message.error('抱歉,上传失败');
+       this.theprogress=false
+      console.log("上传失败") })
+      
+      },
     async fetchData(id) {
       getResourceById(id).then(response => {
         this.postForm = response.data
@@ -367,6 +448,11 @@ export default {
         if (valid) {
           this.loading = true
           this.postForm.status = 'published'
+        
+          var image = JSON.stringify(this.imageList);
+          that.postForm.carousel=image
+          that.postForm.isFree = this.isfree
+          that.postForm.price = this.price*100
           createResource(that.postForm).then(resp => {
             //做一个简单的返回数据判断
             if (resp.status === 200) {

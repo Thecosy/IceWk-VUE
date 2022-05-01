@@ -1,6 +1,6 @@
 <template>
   <div class="Resource">
-     <!-- 选择支付方式（登陆） -->
+    <!-- 选择支付方式（登陆） -->
     <el-dialog
       :visible.sync="PaymentDialogVisibleLogin"
       :show-close="false"
@@ -12,16 +12,34 @@
       <div class="swal2-content">
         <div id="swal2-content" style="display: block">
           <div class="pay-button-box">
-            <div @click="selectPayTypeLogin('alipay')"  class="pay-item" id="alipay" data-type="1" >
-              <img style="margin-right: 14px;" height="40" width="40" src="../static/image/pay/zhifubaorenzheng.svg"/><span>支付宝</span>
+            <div
+              @click="selectPayTypeLogin('alipay')"
+              class="pay-item"
+              id="alipay"
+              data-type="1"
+            >
+              <img
+                style="margin-right: 14px"
+                height="40"
+                width="40"
+                src="../static/image/pay/zhifubaorenzheng.svg"
+              /><span>支付宝</span>
             </div>
-            <div @click="selectPayTypeLogin('wxpay')" class="pay-item" id="weixinpay" data-type="2">
-              <img style="margin: 12px;"  height="40" width="40" src="../static/image/pay/weixinzhifu.svg"/><span>微信支付</span>
+            <div
+              @click="selectPayTypeLogin('wxpay')"
+              class="pay-item"
+              id="weixinpay"
+              data-type="2"
+            >
+              <img
+                style="margin: 12px"
+                height="40"
+                width="40"
+                src="../static/image/pay/weixinzhifu.svg"
+              /><span>微信支付</span>
             </div>
           </div>
-          <p style="font-size: 13px; padding: 0; margin: 0">
-            
-          </p>
+          <p style="font-size: 13px; padding: 0; margin: 0"></p>
         </div>
         <input class="swal2-input" style="display: none" /><input
           type="file"
@@ -55,11 +73,31 @@
       <div class="swal2-content">
         <div id="swal2-content" style="display: block">
           <div class="pay-button-box">
-            <div @click="selectPayType('alipay')"  class="pay-item" id="alipay" data-type="1" >
-              <img style="margin-right: 14px;" height="40" width="40" src="../static/image/pay/zhifubaorenzheng.svg"/><span>支付宝</span>
+            <div
+              @click="selectPayType('alipay')"
+              class="pay-item"
+              id="alipay"
+              data-type="1"
+            >
+              <img
+                style="margin-right: 14px"
+                height="40"
+                width="40"
+                src="../static/image/pay/zhifubaorenzheng.svg"
+              /><span>支付宝</span>
             </div>
-            <div @click="selectPayType('wxpay')" class="pay-item" id="weixinpay" data-type="2">
-              <img style="margin: 12px;"  height="40" width="40" src="../static/image/pay/weixinzhifu.svg"/><span>微信支付</span>
+            <div
+              @click="selectPayType('wxpay')"
+              class="pay-item"
+              id="weixinpay"
+              data-type="2"
+            >
+              <img
+                style="margin: 12px"
+                height="40"
+                width="40"
+                src="../static/image/pay/weixinzhifu.svg"
+              /><span>微信支付</span>
             </div>
           </div>
           <p style="font-size: 13px; padding: 0; margin: 0">
@@ -99,7 +137,7 @@
           <img src="../static/image/pay/weixinbig.png" class="alipaybig_icon" />
         </h5>
         <h5 class="outh5">
-          <div class="bottom alipay">使用扫码支付 {{price/100}}元</div>
+          <div class="bottom alipay">使用扫码支付 {{ price / 100 }}元</div>
         </h5>
         <h5 class="outh5">
           <qriously :value="codeUrl" :size="190" />
@@ -113,7 +151,7 @@
       </el-dialog>
     </div>
     <!-- 支付宝支付二维码 -->
-    <div >
+    <div>
       <el-dialog
         :visible.sync="aliDialogVisible"
         :show-close="false"
@@ -125,7 +163,7 @@
           <img src="../static/image/pay/alipaybig.png" class="alipaybig_icon" />
         </h5>
         <h5 class="outh5">
-          <div class="bottom alipay">使用扫码支付  {{price/100}}元</div>
+          <div class="bottom alipay">使用扫码支付 {{ price / 100 }}元</div>
         </h5>
         <h5 class="outh5">
           <qriously :value="codeUrl" :size="190" />
@@ -278,25 +316,21 @@
                         </h2>
                         <div class="mb-15">
                           <el-button
-                          v-if="payJudej"
-                           :disabled="payBtnDisabled"
+                            v-if="payJudej"
+                            :disabled="payBtnDisabled"
                             @click="Download()"
                             type="primary"
                             class="btn btn-theme btn-round w-200 cursor mr-4"
-                            ><i
-                              class="el-icon-download"
-                            ></i>
+                            ><i class="el-icon-download"></i>
                             支付下载</el-button
                           >
                           <el-button
-                          v-else
-                           :disabled="payBtnDisabled"
+                            v-else
+                            :disabled="payBtnDisabled"
                             @click="Download()"
                             type="primary"
                             class="btn btn-theme btn-round w-200 cursor mr-4"
-                            ><i
-                              class="el-icon-download"
-                            ></i>
+                            ><i class="el-icon-download"></i>
                             立即下载(已支付)</el-button
                           >
                           <button
@@ -313,198 +347,7 @@
                           </button>
                         </div>
                         <div class="mt-4 mb-6"></div>
-                        <div class="platform-checkbox d-flex">
-                          <div class="d-flex align-items-center pr-4">
-                            <span class="active text-success cursor-help"
-                              ><i class="icon-check-circle fs-14 v-0"></i>
-                              <span>支持 BigSur</span></span
-                            >
-                            <span>
-                              <div
-                                role="tooltip"
-                                id="el-popover-8927"
-                                aria-hidden="true"
-                                class="el-popover el-popper"
-                                style="width: 400px; display: none"
-                              >
-                                <!---->
-                                <div class="px-3">
-                                  <h5>说明：</h5>
-                                  <p>
-                                    macOS 11 Big Sur
-                                    是苹果公司研发的桌面端操作系统，于北京时间
-                                    2020年6月23日在 2020
-                                    苹果全球开发者大会上发布，该操作系统适用于一部分
-                                    Mac 电脑。
-                                  </p>
-                                  <p>
-                                    macOS 11 Big Sur
-                                    的界面采用了新的设计，Safari
-                                    浏览器、地图和消息也得到更新，并专门在隐私保护方面优化升级。
-                                  </p>
-                                </div>
-                              </div>
-                              <span
-                                class="el-popover__reference-wrapper"
-                              ></span>
-                            </span>
-                          </div>
-                          <div class="d-flex align-items-center pr-4">
-                            <span class="active text-success cursor-help"
-                              ><i class="icon-check-circle fs-14 v-0"></i>
-                              <span>支持 Monterey</span></span
-                            >
-                            <!---->
-                            <!---->
-                            <span>
-                              <div
-                                role="tooltip"
-                                id="el-popover-3035"
-                                aria-hidden="true"
-                                class="el-popover el-popper"
-                                style="width: 400px; display: none"
-                              >
-                                <!---->
-                                <div class="px-3">
-                                  <h5>说明：</h5>
-                                  <p>
-                                    macOS 12 Monterey
-                                    是苹果公司研发的桌面端操作系统，于北京时间
-                                    2021年6月8日在 2021
-                                    苹果全球开发者大会上发布。
-                                  </p>
-                                  <p>
-                                    该大版本更新带来了许多新功能，如：快捷指令、Mac
-                                    /iPad 通用控制、低功耗模式延长电池寿命等。
-                                  </p>
-                                  <p>
-                                    该系统还处于 Beta 测试阶段，<span
-                                      class="fw-600"
-                                      >如果您用的是 macOS
-                                      12，您可以点击下方按钮对应用的兼容性进行投票（为确保准确性，非12系统不要投票，请自觉！）</span
-                                    >
-                                  </p>
-                                  <div class="d-flex mb-4">
-                                    <button
-                                      class="
-                                        btn btn-round btn-xs
-                                        flex-grow-1
-                                        mr-4
-                                        btn-success
-                                      "
-                                    >
-                                      已兼容 (47)
-                                    </button>
-                                    <button
-                                      class="
-                                        btn btn-round btn-xs
-                                        flex-grow-1
-                                        btn-outline-danger
-                                      "
-                                    >
-                                      未兼容
-                                      <!---->
-                                    </button>
-                                  </div>
-                                  <p>
-                                    <span class="fw-600"
-                                      >此投票由网友投票可能会不准确！</span
-                                    >在该应用更新时会重置，以便可以准确的标注。
-                                  </p>
-                                </div>
-                              </div>
-                              <span
-                                class="el-popover__reference-wrapper"
-                              ></span>
-                            </span>
-                          </div>
-                          <div class="d-flex align-items-center">
-                            <span class="cursor-help"
-                              ><span class="text-warning"
-                                ><i class="icon-info_outline fs-14 v-0"></i>
-                                M1 需安装 Rosetta
-                              </span></span
-                            >
-                            <!---->
-                            <!---->
-                            <!---->
-                            <span>
-                              <div
-                                role="tooltip"
-                                id="el-popover-8281"
-                                aria-hidden="true"
-                                class="el-popover el-popper"
-                                style="width: 400px; display: none"
-                              >
-                                <!---->
-                                <div class="px-3">
-                                  <h5>说明：</h5>
-                                  <p>
-                                    M1 指的是苹果公司于 2020 年发布的基于 ARM
-                                    架构自研的 M1 芯片（类似 Intel/AMD CPU）。
-                                  </p>
-                                  <h5 class="fs-16 fw-600 mb-4">
-                                    ARM M1 应用目前分四种情况：
-                                  </h5>
-                                  <p class="mb-2">
-                                    <span class="fw-600 text-muted"
-                                      ><i
-                                        class="
-                                          icon-do_not_disturb_alt
-                                          fs-16
-                                          v-m-1
-                                          mr-1
-                                        "
-                                      ></i
-                                      >未兼容 M1</span
-                                    >：这种安装后无法使用！
-                                  </p>
-                                  <p class="mb-2">
-                                    <span class="fw-600 text-success"
-                                      ><i
-                                        class="icon-check-circle fs-14 v-0 mr-1"
-                                      ></i
-                                      >原生 M1 运行</span
-                                    >：这种安装后即可正常运行。
-                                  </p>
-                                  <p class="mb-2">
-                                    <span class="fw-600 text-warning"
-                                      ><i
-                                        class="icon-info_outline fs-14 v-0 mr-1"
-                                      ></i
-                                      >需安装 Rosetta</span
-                                    >：这种需要安装 Rosetta 才可正常运行。
-                                  </p>
-                                  <p class="mb-3">
-                                    <span class="fw-600 text-danger"
-                                      ><i
-                                        class="icon-info_outline fs-14 v-0 mr-1"
-                                      ></i
-                                      >需 Rosetta 转译</span
-                                    >：这种需要安装 Rosetta 并且找到此应用右键
-                                    -&gt; 显示简介，勾选使用 Rosetta
-                                    打开才可正常运行。
-                                  </p>
-                                  <p class="text-muted">
-                                    此应用当前架构为：intel
-                                  </p>
-                                  <a
-                                    href="/article/apple-silicon-m1-application-crash-repair"
-                                    target="_blank"
-                                    class="
-                                      btn btn-sm btn-outline-theme btn-round
-                                    "
-                                    style="text-transform: none"
-                                    >M1 Rosetta 安装及转译图文教程</a
-                                  >
-                                </div>
-                              </div>
-                              <span
-                                class="el-popover__reference-wrapper"
-                              ></span>
-                            </span>
-                          </div>
-                        </div>
+
                         <div class="mt-6 fs-13">
                           <!---->
                         </div>
@@ -518,98 +361,11 @@
                       "
                     >
                       <div class="device-frame">
-                        <div class="el-carousel el-carousel--horizontal">
-                          <div
-                            class="el-carousel__container"
-                            style="height: 360px"
-                          >
-                            <button
-                              type="button"
-                              class="
-                                el-carousel__arrow el-carousel__arrow--left
-                              "
-                            >
-                              <i class="el-icon-arrow-left"></i></button
-                            ><button
-                              type="button"
-                              class="
-                                el-carousel__arrow el-carousel__arrow--right
-                              "
-                            >
-                              <i class="el-icon-arrow-right"></i>
-                            </button>
-                            <div
-                              class="el-carousel__item"
-                              style="
-                                transform: translateX(0px) scale(1);
-                                ms-transform: translateX(0px) scale(1);
-                                webkit-transform: translateX(0px) scale(1);
-                                display: none;
-                              "
-                            >
-                              <!----><img
-                                src="https://static.konlonair.com/public/uploads/_/originals/beyond-compare-screen-01.jpg?x-oss-process=image/auto-orient,1/interlace,1/resize,p_60/quality,q_90"
-                                class="
-                                  device-content
-                                  macwk-animation
-                                  spaceInLeft
-                                  cursor
-                                "
-                              />
-                              <!---->
-                              <!---->
-                            </div>
-                            <div
-                              class="el-carousel__item"
-                              style="
-                                transform: translateX(0px) scale(1);
-                                ms-transform: translateX(0px) scale(1);
-                                webkit-transform: translateX(0px) scale(1);
-                                display: none;
-                              "
-                            >
-                              <!----><img
-                                src="https://static.konlonair.com/public/uploads/_/originals/beyond-compare-screen-02.jpg?x-oss-process=image/auto-orient,1/interlace,1/resize,p_60/quality,q_90"
-                                class="
-                                  device-content
-                                  macwk-animation
-                                  spaceInLeft
-                                  cursor
-                                "
-                              />
-                              <!---->
-                              <!---->
-                            </div>
-                            <div
-                              class="el-carousel__item"
-                              style="
-                                transform: translateX(0px) scale(1);
-                                ms-transform: translateX(0px) scale(1);
-                                webkit-transform: translateX(0px) scale(1);
-                                display: none;
-                              "
-                            >
-                              <!----><img
-                                src="https://static.konlonair.com/public/uploads/_/originals/beyond-compare-screen-03.jpg?x-oss-process=image/auto-orient,1/interlace,1/resize,p_60/quality,q_90"
-                                class="
-                                  device-content
-                                  macwk-animation
-                                  spaceInLeft
-                                  cursor
-                                "
-                              />
-                              <!---->
-                              <!---->
-                            </div>
-                          </div>
-                          <ul
-                            class="
-                              el-carousel__indicators
-                              el-carousel__indicators--horizontal
-                              el-carousel__indicators--outside
-                            "
-                          ></ul>
-                        </div>
+                        <el-carousel height="350px">
+                          <el-carousel-item v-for="item in 4" :key="item">
+                            <h3 class="small">{{ item }}</h3>
+                          </el-carousel-item>
+                        </el-carousel>
                       </div>
                       <div class="device-stripe"></div>
                       <div class="device-header"></div>
@@ -724,7 +480,7 @@
                           "
                         >
                           <a href="/soft/enhancement/p1">
-                            {{className}}
+                            {{ className }}
                             <i class="icon-arrow-r text-muted"></i
                           ></a>
                         </p>
@@ -736,8 +492,8 @@
                         <p class="text-uppercase fs-10 ls-2 mb-0 opacity-40">
                           更新日期
                         </p>
-                       
-                          <p
+
+                        <p
                           class="
                             mb-0
                             fs-20
@@ -745,11 +501,10 @@
                             line-height-3
                             opacity-70
                           "
-                                    v-if="this.createTime != null"
-                                    v-text="formatDate(this.createTime)"
-                                  >
-                                  </p>
-                                  <p
+                          v-if="this.createTime != null"
+                          v-text="formatDate(this.createTime)"
+                        ></p>
+                        <p
                           class="
                             mb-0
                             fs-20
@@ -757,12 +512,11 @@
                             line-height-3
                             opacity-70
                           "
-                                    v-else
-                                    v-text="formatDate(this.addTime)"
-                                  >
-                                  </p>
+                          v-else
+                          v-text="formatDate(this.addTime)"
+                        ></p>
                         <p class="text-uppercase fs-10 ls-2 mb-0 opacity-70">
-                          {{Theweeks}}
+                          {{ Theweeks }}
                         </p>
                       </div>
                     </div>
@@ -1075,7 +829,7 @@ import comment from './components/Comment.vue'
 import { getResourceById } from '@/api/webresource'
 import { getResourceClassNameByid } from '@/api/webresourceclass'
 
-import { formatDate , GetWeekdate } from '@/utils/date.js'
+import { formatDate, GetWeekdate } from '@/utils/date.js'
 
 import wxPayApi from '../api/payment/wxPay'
 import aliPayApi from '../api/payment/aliPay'
@@ -1091,13 +845,13 @@ export default {
     //数据回填
     this.fetchData(this.$route.params.id)
     //根据Id查询用户是否购买过此资源
-     const user = JSON.parse(window.localStorage.getItem('access-admin'))
-      this.userJudje = (user == null)
-       if (!this.userJudje) {
-         this.userid = user.data.userid
-          this.queryOrderStatusBytrues(this.$route.params.id,this.userid)
-       }
-   
+    const user = JSON.parse(window.localStorage.getItem('access-admin'))
+    this.userJudje = (user == null)
+    if (!this.userJudje) {
+      this.userid = user.data.userid
+      this.queryOrderStatusBytrues(this.$route.params.id, this.userid)
+    }
+
     //获取资源评论数量
     getArticleCommentnum(this.$route.params.id).then(resp => {
       this.commentnum = resp.data
@@ -1110,14 +864,16 @@ export default {
       let data = new Date(time)
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
-    queryOrderStatusBytrues(resourceid,userid){
-     orderInfoApi.queryOrderStatusBytrue(userid,resourceid).then(response => {
-       //检查已登陆用户是否购买过此资源，根据userid和resourceid判断
-       if(response.data.code == 0){
-         this.payJudej = false}
-       if(response.data.code == 101){
-         this.payJudej = true}
-     
+    queryOrderStatusBytrues(resourceid, userid) {
+      orderInfoApi.queryOrderStatusBytrue(userid, resourceid).then(response => {
+        //检查已登陆用户是否购买过此资源，根据userid和resourceid判断
+        if (response.data.code == 0) {
+          this.payJudej = false
+        }
+        if (response.data.code == 101) {
+          this.payJudej = true
+        }
+
       })
     },
     // 查询订单状态
@@ -1133,17 +889,17 @@ export default {
           this.wxDialogVisible = false
           this.aliDialogVisible = false
           this.$notify({
-                title: '支付成功',
-                message: '您已成功购买',
-                type: 'success',
-                offset: 50
-              });
+            title: '支付成功',
+            message: '您已成功购买',
+            type: 'success',
+            offset: 50
+          });
         }
       })
     },
 
     //关闭微信支付二维码对话框时让“确认支付”按钮可用
-    closeDialog(){
+    closeDialog() {
       console.log('close.................')
       this.payBtnDisabled = false
       console.log('清除定时器')
@@ -1154,16 +910,16 @@ export default {
     selectPayTypeLogin(type) {
       console.log('支付方式：' + type)
       this.payOrder.payType = type
-        //关闭支付方式选择
-        this.PaymentDialogVisibleTemp = false
-         this.PaymentDialogVisibleLogin = false
+      //关闭支付方式选择
+      this.PaymentDialogVisibleTemp = false
+      this.PaymentDialogVisibleLogin = false
       //打开对应支付页面
 
       //支付宝支付
-      if(this.payOrder.payType === 'alipay'){ 
-        this.aliDialogVisible = true 
-          //调用统一下单接口
-          aliPayApi.ftofPayLogin(this.$route.params.id,this.userid).then(response => {
+      if (this.payOrder.payType === 'alipay') {
+        this.aliDialogVisible = true
+        //调用统一下单接口
+        aliPayApi.ftofPayLogin(this.$route.params.id, this.userid).then(response => {
           this.codeUrl = response.data.data.codeUrl
           this.orderNo = response.data.data.orderNo
 
@@ -1174,14 +930,14 @@ export default {
           }, 3000)
 
         })
-        }
+      }
       //微信支付
-      if(this.payOrder.payType === 'wxpay'){ 
+      if (this.payOrder.payType === 'wxpay') {
         //打开支付二维码
         this.wxDialogVisible = true
-          //调用统一下单接口
-         wxPayApi.nativePayLogin(this.$route.params.id,this.userid).then(response => {
-           console.log(response.data.data.codeUrl)
+        //调用统一下单接口
+        wxPayApi.nativePayLogin(this.$route.params.id, this.userid).then(response => {
+          console.log(response.data.data.codeUrl)
           this.codeUrl = response.data.data.codeUrl
           this.orderNo = response.data.data.orderNo
 
@@ -1192,24 +948,24 @@ export default {
           }, 3000)
 
         })
-      
+
       }
     },
     //选择支付方式(临时)
     selectPayType(type) {
       console.log('支付方式：' + type)
       this.payOrder.payType = type
-        //关闭支付方式选择
-        this.PaymentDialogVisibleTemp = false
-         this.PaymentDialogVisibleLogin = false
+      //关闭支付方式选择
+      this.PaymentDialogVisibleTemp = false
+      this.PaymentDialogVisibleLogin = false
       //打开对应支付页面
       console.log("123123")
 
       //支付宝支付
-      if(this.payOrder.payType === 'alipay'){ 
-        this.aliDialogVisible = true 
-          //调用统一下单接口
-          aliPayApi.ftofPayTemp(this.$route.params.id).then(response => {
+      if (this.payOrder.payType === 'alipay') {
+        this.aliDialogVisible = true
+        //调用统一下单接口
+        aliPayApi.ftofPayTemp(this.$route.params.id).then(response => {
           this.codeUrl = response.data.data.codeUrl
           this.orderNo = response.data.data.orderNo
 
@@ -1220,15 +976,15 @@ export default {
           }, 3000)
 
         })
-        }
+      }
       //微信支付
-      if(this.payOrder.payType === 'wxpay'){ 
+      if (this.payOrder.payType === 'wxpay') {
         //打开支付二维码
         this.wxDialogVisible = true
 
-          //调用统一下单接口
-         wxPayApi.nativePayTemp(this.$route.params.id).then(response => {
-           console.log(response.data.data.codeUrl)
+        //调用统一下单接口
+        wxPayApi.nativePayTemp(this.$route.params.id).then(response => {
+          console.log(response.data.data.codeUrl)
           this.codeUrl = response.data.data.codeUrl
           this.orderNo = response.data.data.orderNo
 
@@ -1239,13 +995,13 @@ export default {
           }, 3000)
 
         })
-      
+
       }
     },
     Download() {
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.userJudje = (user == null)
-       if (!this.userJudje) {this.userid = user.data.userid}
+      if (!this.userJudje) { this.userid = user.data.userid }
       if (this.userJudje) {
         //游客购买
         console.log("游客购买")
@@ -1259,7 +1015,7 @@ export default {
       else {
         //登陆用户购买
         console.log("登陆用户购买")
-         //禁用按钮，防止重复提交
+        //禁用按钮，防止重复提交
         this.payBtnDisabled = true
 
         //打开支付方式选择
@@ -1278,68 +1034,68 @@ export default {
         var sortClasss = resp.data.sortClass
         //根据classid获取分类名称
         getResourceClassNameByid(sortClasss).then(resp => {
-             this.className = resp.data;
+          this.className = resp.data;
         })
 
-        if (resp.data.createTime != null) { 
-          this.createTime = resp.data.createTime 
-         
-      let data = new Date(resp.data.createTime)
-      var intime =  formatDate(data, 'yyyy-MM-dd')
-      var tiems = GetWeekdate(intime)
-      this.Theweeks = this.weeks[tiems]
-      console.log(resp.data.createTime )
-      console.log(data)
-      
-      
-            
-          } else { 
-            this.addTime = resp.data.addTime 
-            
-             let data = new Date(resp.data.addTime )
-      var intime =  formatDate(data, 'yyyy-MM-dd')
-      var tiems = GetWeekdate(intime)
-      this.Theweeks = this.weeks[tiems]
-       console.log(intime)
-             console.log(resp.data.addTime )
-      console.log(this.addTime)
-            }
+        if (resp.data.createTime != null) {
+          this.createTime = resp.data.createTime
+
+          let data = new Date(resp.data.createTime)
+          var intime = formatDate(data, 'yyyy-MM-dd')
+          var tiems = GetWeekdate(intime)
+          this.Theweeks = this.weeks[tiems]
+          console.log(resp.data.createTime)
+          console.log(data)
+
+
+
+        } else {
+          this.addTime = resp.data.addTime
+
+          let data = new Date(resp.data.addTime)
+          var intime = formatDate(data, 'yyyy-MM-dd')
+          var tiems = GetWeekdate(intime)
+          this.Theweeks = this.weeks[tiems]
+          console.log(intime)
+          console.log(resp.data.addTime)
+          console.log(this.addTime)
+        }
         this.intro = resp.data.intro
 
       })
-     
+
     },
   },
   data() {
     return {
-      className:"",
-      sortClass:"",
-      Theweeks:"",
+      className: "",
+      sortClass: "",
+      Theweeks: "",
       weeks: {
-        "0":'星期日',
-        "1":'星期一',
-        "2":'星期二',
-        "3":'星期三',
-        "4":'星期四',
-        "5":'星期五',
-        "6":'星期六',
+        "0": '星期日',
+        "1": '星期一',
+        "2": '星期二',
+        "3": '星期三',
+        "4": '星期四',
+        "5": '星期五',
+        "6": '星期六',
       },
 
-      payJudej:true,
-      payBtnDisabled:false,
-      orderNo:"",
-      codeUrl:"",
+      payJudej: true,
+      payBtnDisabled: false,
+      orderNo: "",
+      codeUrl: "",
       payOrder: { //订单信息
         productId: '', //商品id
         payType: 'wxpay' //支付方式
       },
-       PaymentDialogVisibleLogin: false, //支付方式弹窗
+      PaymentDialogVisibleLogin: false, //支付方式弹窗
       PaymentDialogVisibleTemp: false, //支付方式弹窗
       wxDialogVisible: false, //微信支付二维码弹窗
       aliDialogVisible: false, //支付宝支付二维码弹窗
       intro: "",
       content: "",
-      price:"",
+      price: "",
       title: "",
       acticve: 'nav-link active',
     }
@@ -1414,31 +1170,60 @@ export default {
 }
 </style>
 <style scoped>
-.pay-button-box{
+.pay-button-box {
   padding: 12px 30px;
-z-index: 1;
-text-align: center;
-}
-.swal2-content{
   z-index: 1;
-justify-content: center;
-margin: 0;
-padding: 0;
-color: #545454;
-font-size: 1.125em;
-font-weight: 300;
-line-height: normal;
-text-align: center;
-word-wrap: break-word;
+  text-align: center;
 }
-.pay-item{
+.swal2-content {
+  z-index: 1;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  color: #545454;
+  font-size: 1.125em;
+  font-weight: 300;
+  line-height: normal;
+  text-align: center;
+  word-wrap: break-word;
+}
+.pay-item {
   width: 100%;
-height: 60px;
-border: 0;
-cursor: pointer;
-font-size: 1.25rem;
-display: inline-block;
-line-height: 60px;
-text-align: center;
+  height: 60px;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: inline-block;
+  line-height: 60px;
+  text-align: center;
 }
+.device-macbook-pro .device-frame:before {
+  bottom: 10px;
+  color: #c8cacb;
+  content: "IceCMS.com";
+  font-size: 12px;
+  height: 16px;
+  left: 50%;
+  line-height: 16px;
+  margin-left: -100px;
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  z-index: 1;
+}
+.el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 150px;
+    margin: 0;
+  }
+
+  .el-carousel__item:nth-child(2n) {
+     background-color: #99a9bf;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+     background-color: #d3dce6;
+  }
 </style>
