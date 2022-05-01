@@ -362,8 +362,8 @@
                     >
                       <div class="device-frame">
                         <el-carousel height="350px">
-                          <el-carousel-item v-for="item in 4" :key="item">
-                            <h3 class="small">{{ item }}</h3>
+                          <el-carousel-item v-for="item in carousel" :key="item">
+                            <img style="height:349px;width:576px" :src="item.url" ><img>
                           </el-carousel-item>
                         </el-carousel>
                       </div>
@@ -459,7 +459,7 @@
                             opacity-70
                           "
                         >
-                          0积分
+                          {{price}}积分
                         </p>
                         <p class="fs-10 ls-2 mb-0 opacity-70">money</p>
                       </div>
@@ -1031,6 +1031,10 @@ export default {
         this.author = resp.data.author
         this.content = resp.data.content
         this.intro = resp.data.intro
+
+        var str = JSON.parse(resp.data.carousel)
+        this.carousel = str
+        console.log(this.carousel)
         var sortClasss = resp.data.sortClass
         //根据classid获取分类名称
         getResourceClassNameByid(sortClasss).then(resp => {
@@ -1068,6 +1072,7 @@ export default {
   },
   data() {
     return {
+      carousel:[],
       className: "",
       sortClass: "",
       Theweeks: "",

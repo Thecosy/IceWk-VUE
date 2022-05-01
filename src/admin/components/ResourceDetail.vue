@@ -390,7 +390,8 @@ export default {
        }     
       },
       Upload(){
-        const newData= this.newFile.get('file'); //  3. 拿到刚刚的数据，并将其传给后台
+        const newData = this.newFile.get('file'); //  3. 拿到刚刚的数据，并将其传给后台
+        console.log(this.newFile)
          console.log(newData,"564")
           var form = new FormData();
       form.append('editormd-image-file', newData, newData.name)
@@ -402,6 +403,8 @@ export default {
             showClose: true,
             duration: 1000
         })
+        //上传一张后重置数据
+        this.newFile = new FormData()
         var imgUrl = resp.data.url;//根据返回值得不同这里要自己定义
         this.tempUrl = imgUrl
         //  this.fileList.append('url',this.tempUrl);
@@ -410,7 +413,7 @@ export default {
         "name" : this.tempUrl,
         }
         this.imageList.push(aa)
-         console.log(this.imageList)
+        this.fileList.push(aa)
       }).catch((e) => { 
        this.$message.error('抱歉,上传失败');
        this.theprogress=false
