@@ -174,7 +174,7 @@
                             <div class="topic-header-left">
                               <div class="topic-avatar">
                                 <el-avatar
-                                  src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                                  :src="item.authorImg"
                                 ></el-avatar>
                               </div>
                               <div class="topic-name">
@@ -183,7 +183,7 @@
                                     <a
                                      
                                       target="_blank"
-                                      ><b>橘生淮北</b></a
+                                      ><b>{{item.author}}</b></a
                                     >
                                     <!---->
                                     <!---->
@@ -521,6 +521,7 @@ export default ({
   methods: {
     fetchData(){
       getAllSquare(this.postForm).then(response => {
+        console.log(response)
           this.squaredata = response.data
       })
     },
