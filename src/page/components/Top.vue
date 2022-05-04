@@ -219,7 +219,7 @@
                       :class="{ 'active search-active': codeshow }"
                       class="flex flex-grow-1 text-center py-3 fs-16"
                       ><span data-v-6d6103b4="" class="fw-400">资源</span>
-                      <span data-v-6d6103b4="" class="fs-12">(1174)</span></a
+                      <span data-v-6d6103b4="" class="fs-12">({{ResourceNumber}})</span></a
                     >
                     <a
                       @click="articleshows()"
@@ -227,7 +227,7 @@
                       :class="{ 'active search-active': articleshow }"
                       class="flex flex-grow-1 text-center py-3 fs-16"
                       ><span data-v-6d6103b4="" class="">文章</span>
-                      <span data-v-6d6103b4="" class="fs-12">(59)</span></a
+                      <span data-v-6d6103b4="" class="fs-12">({{articleCount}})</span></a
                     >
                   </div>
                 </div>
@@ -342,7 +342,7 @@
                     "
                   >
                     查看更多
-                    <span data-v-6d6103b4="" class="fw-400">(1174条)</span>
+                    <span data-v-6d6103b4="" class="fw-400"></span>
                     <!---->
                   </button>
                 </div>
@@ -523,7 +523,7 @@
             </ul>
            -->
           <div slot="reference">
-            <router-link to="/userinfo">
+            <router-link to="/userinfo/index">
               <div v-show="!userJudje" class="avatartext">
                 <el-avatar :src="user.profile"></el-avatar>
                 <span class="spans">{{ user.name }}</span>
@@ -547,6 +547,8 @@
 import { FindarticlesByNum } from '@/api/webarticle'
 import { FindresourceByNum } from '@/api/webresource'
 import { login } from '@/api/login'
+import { getAllResource, getAllResourceNumber } from '@/api/webresource'
+import { getAllArticle ,getAllArticleNumber} from '@/api/webarticle'
 
 export default ({
   name: 'Top',
@@ -557,9 +559,18 @@ export default ({
   created() {
     this.getUserInfo()
     //检测token是否有效
+    this.fullnum()
   },
 
   methods: {
+    fullnum(){
+      getAllResourceNumber().then(resp => {
+        this.ResourceNumber = resp.data
+      })
+      getAllArticleNumber().then(resp => {
+          this.articleCount = resp.data
+      })
+    },
     async loginout(){
       //退出登陆
       //清除本地数据
@@ -716,6 +727,8 @@ export default ({
 
   data() {
     return {
+      articleCount:"",
+      ResourceNumber:"",
       howto:'/list/',
       fundByresource:true,
       user: "",

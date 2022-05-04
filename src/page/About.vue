@@ -16,7 +16,7 @@
               <img src="../static/picture/alfred-powerpack.png" alt="" class="people">
               <img src="../static/picture/movist.png" alt="" class="people">
               <div class="container">
-                <h1 class="fw-600 text-center">MacWk - 为工作而生。</h1>
+                <h1 class="fw-600 text-center">IceCMS - 为工作而生。</h1>
                 <p class="sub-title text-center fs-20">只提供精品Mac应用，站长款款测试，免费、安全、无广告、不限速。</p>
                 <div class="inner-container">
                   <div class="main-content">

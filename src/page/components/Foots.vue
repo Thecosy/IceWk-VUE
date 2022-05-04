@@ -102,16 +102,14 @@
         <span class="ml-4" data-v-ea53b530="">MacWk</span></a
       >
       <div class="nav" data-v-ea53b530="">
-        <a
-          href="https://macwk.com/"
-          class="nav-link active"
-          data-v-ea53b530=""
-          aria-current="page"
-          >首页</a
-        >
-        <a href="https://macwk.com/about" class="nav-link" data-v-ea53b530=""
-          >关于
-        </a>
+        <router-link to="/">
+          <a class="nav-link active" data-v-ea53b530="" aria-current="page"
+            >首页</a
+          >
+        </router-link>
+        <router-link to="/about">
+          <a class="nav-link" data-v-ea53b530="">关于 </a>
+        </router-link>
         <a href="https://macwk.com/contact" class="nav-link" data-v-ea53b530=""
           >联系
         </a>

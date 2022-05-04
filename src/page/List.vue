@@ -6,44 +6,48 @@
         <div data-fetch-key="0" class="app light macwk-animation">
           <top :message2="acticve" />
           <div class="app-main mobile-layout">
-            <div class="w-full bg auto d-flex layout-min-full-height" :class="gridOrlist">
+            <div
+              class="w-full bg auto d-flex layout-min-full-height"
+              :class="gridOrlist"
+            >
               <div class="app-sidebar pc-model">
                 <div class="pr-3 pl-2">
                   <p class="fs-12 opacity-40 mb-0 pt-1">分类</p>
                   <div class="macwk-sidebar mb-4 vsm_expanded">
                     <div class="vsm--scroll-wrapper">
                       <div class="vsm--list">
-                        <div class="vsm--item" @click="getList()" >
+                        <div class="vsm--item" @click="getList()">
                           <span
                             role="link"
                             href="[object Object]"
-                            class="
-                              vsm--link
-                              vsm--link_level-1
-                             
-                             
-                            "
-                            :class="{' vsm--link_active':allIndex}"
+                            class="vsm--link vsm--link_level-1"
+                            :class="{ ' vsm--link_active': allIndex }"
                             ><span class="vsm--title">全部资源</span>
                             <!----></span
                           >
                           <!---->
                         </div>
-                        <div @click="getNewarticleclass(item.id)" class="vsm--item" v-for="(item, id) in this.classlist" :key="id">
+                        <div
+                          @click="getNewarticleclass(item.id)"
+                          class="vsm--item"
+                          v-for="(item, id) in this.classlist"
+                          :key="id"
+                        >
                           <span
                             role="link"
                             href="[object Object]"
-                            class="vsm--link vsm--link_level-1 "
-                             :class="{'vsm--link_active':item.id==clickIndex}"
-                            ><span class="vsm--title">{{item.name}}</span>
-                            <div class="vsm--arrow vsm--arrow_slot ">
+                            class="vsm--link vsm--link_level-1"
+                            :class="{
+                              'vsm--link_active': item.id == clickIndex,
+                            }"
+                            ><span class="vsm--title">{{ item.name }}</span>
+                            <div class="vsm--arrow vsm--arrow_slot">
                               <span
                                 ><i class="icon-chevron-right"></i
                               ></span></div
                           ></span>
                           <!---->
                         </div>
-                       
                       </div>
                     </div>
                   </div>
@@ -109,7 +113,7 @@
                         <h5 class="i-con-h-a">
                           全部资源
                           <span class="text-muted fs-13 v-1 ml-1">
-                            {{this.ResourceNumber}}
+                            {{ this.ResourceNumber }}
                           </span>
                         </h5>
                       </div>
@@ -117,19 +121,49 @@
                         class="menu menu--macwk——list macwk-soft-list-menu flex"
                       >
                         <ul class="menu__list">
-                          <li class="menu__item menu__item--current">
+                          <li
+                            class="menu__item"
+                            @click="changeNews()"
+                            :class="{
+                              'menu__item--current': news === sortOrder,
+                            }"
+                          >
                             <a class="menu__link"> 最新 </a>
                           </li>
-                          <li class="menu__item">
+                          <li
+                            class="menu__item"
+                            @click="changeDownload()"
+                            :class="{
+                              'menu__item--current': download === sortOrder,
+                            }"
+                          >
                             <a class="menu__link"> 下载 </a>
                           </li>
-                          <li class="menu__item">
+                          <li
+                            class="menu__item"
+                            @click="changeDiscuss()"
+                            :class="{
+                              'menu__item--current': discuss === sortOrder,
+                            }"
+                          >
                             <a class="menu__link"> 评论 </a>
                           </li>
-                          <li class="menu__item">
+                          <li
+                            class="menu__item"
+                            @click="changeLove()"
+                            :class="{
+                              'menu__item--current': love === sortOrder,
+                            }"
+                          >
                             <a class="menu__link"> 喜欢 </a>
                           </li>
-                          <li class="menu__item">
+                          <li
+                            class="menu__item"
+                            @click="changeRecommend()"
+                            :class="{
+                              'menu__item--current': recommend === sortOrder,
+                            }"
+                          >
                             <a class="menu__link"> 推荐 </a>
                           </li>
                           <li class="menu__line"></li>
@@ -146,18 +180,19 @@
                             name=""
                             true-value="true"
                             class="el-switch__input"
-                          /> <!---->
-                            <div   >
+                          />
+                          <!---->
+                          <div>
                             <el-switch
-                                v-model="istargetjudje"
+                              v-model="istargetjudje"
                               @change="istargetJudje()"
-                                active-color="#13ce66"
-                                inactive-color="#ff4949">
-                              </el-switch>
-                              </div>
+                              active-color="#13ce66"
+                              inactive-color="#ff4949"
+                            >
+                            </el-switch>
+                          </div>
 
-                          <span
-                            class="el-switch__label el-switch__label--right"
+                          <span class="el-switch__label el-switch__label--right"
                             ><!----><span aria-hidden="true"
                               >新窗口打开</span
                             ></span
@@ -166,11 +201,20 @@
                       </div>
                       <div class="d-flex justify-content-end">
                         <div class="grid-change">
-                          <a @click="changelayout()" class="i-con-h-a position-relative cursor" :class="layoutactive"
+                          <a
+                            @click="changelayout()"
+                            class="i-con-h-a position-relative cursor"
+                            :class="layoutactive"
                             ><i class="i-con i-con-layout"><i></i></i></a
-                          ><a @click="changelist()" class="i-con-h-a position-relative cursor" :class="listactive"
+                          ><a
+                            @click="changelist()"
+                            class="i-con-h-a position-relative cursor"
+                            :class="listactive"
                             ><i class="i-con i-con-list"><i></i></i></a
-                          ><a @click="changegrid()" class="i-con-h-a position-relative cursor" :class="gridactive"
+                          ><a
+                            @click="changegrid()"
+                            class="i-con-h-a position-relative cursor"
+                            :class="gridactive"
                             ><i class="i-con i-con-grid"><i></i></i
                           ></a>
                         </div>
@@ -183,25 +227,36 @@
                       class="app-content-body listAppContainer"
                     >
                       <div class="mw-row">
-                       
-                         <div v-for="item in list" :key="item.id" class="mw-col list-animation-leftIn delay-3">
-                           
-                            <div v-if="item.status.includes('published')" >
-                            <router-link :target="istarget" :to="'/list/' + item.id">
-                   
-                          <a
-                            class="macwk-app border white cursor-pointer"
+                        <div
+                          v-for="item in list"
+                          :key="item.id"
+                          class="mw-col list-animation-leftIn delay-3"
+                        >
+                          <div v-if="item.status.includes('published')">
+                            <router-link
+                              :target="istarget"
+                              :to="'/list/' + item.id"
                             >
-                            
-                              
-                              <el-image v-if="item.thumb != null" class="listtitleimg delay-3"  :src="item.thumb" lazy>
-                                <div slot="placeholder" class="image-slot">
-                                  
-                               <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
-                                </div>
-                            </el-image>
-                           
-                               <div
+                              <a class="macwk-app border white cursor-pointer">
+                                <el-image
+                                  v-if="item.thumb != null"
+                                  class="listtitleimg delay-3"
+                                  :src="item.thumb"
+                                  lazy
+                                >
+                                  <div slot="placeholder" class="image-slot">
+                                    <img
+                                      style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                      "
+                                      src="../static/image/loding.gif"
+                                    />
+                                  </div>
+                                </el-image>
+
+                                <div
                                   v-else
                                   class="delayImg"
                                   :style="getStyles()"
@@ -216,73 +271,75 @@
                                     NOPIC
                                   </h3>
                                 </div>
-                          
-                              
-                          
-                            <div class="macwk-app__body">
-                              <h5 class="macwk-app__body--title">
-                                <span
-                                  class="el-tooltip today-update v-3 item"
-                                ></span>
-                              
-                                <span>{{item.title  | ellipsis}}</span>
-                                <span
-                                  class="
-                                    macwk-app__body--title--version
-                                    text-muted
-                                    fs-14
-                                  "
-                                  ><span class="mx-1">-</span>83.1</span
-                                >
-                              </h5>
-                              <p class="macwk-app__body--info">
-                               
-                                <span>{{item.intro}}</span>
-                              </p>
-                            </div>
-                            <div class="macwk-app__extend">
-                              <div class="macwk-app__extend--download">
-                                <i class="icon-download2"></i>
-                                <span>366.4k</span>
-                              </div>
-                              <div class="macwk-app__extend--comment">
-                                <i class="icon-bubble"></i> <span>800</span>
-                              </div>
-                              <div class="macwk-app__extend--os">
-                                <i class="icon-disc fw-600"></i>
-                                <span>&gt;= 10.12</span>
-                              </div>
-                              <div
-                                class="
-                                  macwk-app__extend--update
-                                  justify-content-end
-                                "
-                              >
-                                <i class="icon-clock"></i> 
-                              
-                                <span> 02-10 </span>
-                              </div>
-                            </div>
-                            <div class="macwk-app__footer">
-                              <div v-show="showfootnext" class="macwk-app__footer--more">
-                                <i class="light-icon-more icon-next-arrow"></i>
-                              </div></div
-                          ></a> 
-                           </router-link>
-                        </div>
+
+                                <div class="macwk-app__body">
+                                  <h5 class="macwk-app__body--title">
+                                    <span
+                                      class="el-tooltip today-update v-3 item"
+                                    ></span>
+
+                                    <span>{{ item.title | ellipsis }}</span>
+                                    <span
+                                      class="
+                                        macwk-app__body--title--version
+                                        text-muted
+                                        fs-14
+                                      "
+                                      ><span class="mx-1">-</span>83.1</span
+                                    >
+                                  </h5>
+                                  <p class="macwk-app__body--info">
+                                    <span>{{ item.intro }}</span>
+                                  </p>
+                                </div>
+                                <div class="macwk-app__extend">
+                                  <div class="macwk-app__extend--download">
+                                    <i class="icon-download2"></i>
+                                    <span>366.4k</span>
+                                  </div>
+                                  <div class="macwk-app__extend--comment">
+                                    <i class="icon-bubble"></i> <span>800</span>
+                                  </div>
+                                  <div class="macwk-app__extend--os">
+                                    <i class="icon-disc fw-600"></i>
+                                    <span>&gt;= 10.12</span>
+                                  </div>
+                                  <div
+                                    class="
+                                      macwk-app__extend--update
+                                      justify-content-end
+                                    "
+                                  >
+                                    <i class="icon-clock"></i>
+
+                                    <span> 02-10 </span>
+                                  </div>
+                                </div>
+                                <div class="macwk-app__footer">
+                                  <div
+                                    v-show="showfootnext"
+                                    class="macwk-app__footer--more"
+                                  >
+                                    <i
+                                      class="light-icon-more icon-next-arrow"
+                                    ></i>
+                                  </div></div
+                              ></a>
+                            </router-link>
+                          </div>
                         </div>
                       </div>
                     </div>
-                       <!---->
-                      <pagination
-                        class="app-content-bottom"
-                        v-show="total > 0"
-                        :background="false"
-                        :total="total"
-                        :page.sync="listQuery.page"
-                        :limit.sync="listQuery.limit"
-                        @pagination="getList"
-                      />
+                    <!---->
+                    <pagination
+                      class="app-content-bottom"
+                      v-show="total > 0"
+                      :background="false"
+                      :total="total"
+                      :page.sync="listQuery.page"
+                      :limit.sync="listQuery.limit"
+                      @pagination="getList"
+                    />
                   </div>
                   <div class="app-content-info">
                     <div class="siderbar-apps border d-flex flex-column mb-5">
@@ -491,35 +548,41 @@
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
 
-import { getResourceClasslist} from '@/api/webresourceclass'
+import { getResourceClasslist } from '@/api/webresourceclass'
 
-import { getAllResource , getAllResourceNumber } from '@/api/webresource'
+import { getAllResource, getAllResourceNumber } from '@/api/webresource'
 
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 export default ({
   name: 'List',
-  components: {top, foot,Pagination},
-   data() {
+  components: { top, foot, Pagination },
+  data() {
     return {
+      news: "new",
+      download: "download",
+      discuss: "discuss",
+      love: "love",
+      recommend: "recommend",
+      sortOrder: "new",
       allIndex: true,
-      classlist:"",
-      istargetjudje:!true,
-      istarget:"_self",
-      ResourceNumber:"",
-      list:"",
+      classlist: "",
+      istargetjudje: !true,
+      istarget: "_self",
+      ResourceNumber: "",
+      list: "",
       listQuery: {
         page: 1,
         limit: 20
       },
-      total:0,
-      layoutactive:"",
-      gridactive:"active",
-      listactive:"",
-      showfootnext:false,
-      gridOrlist:"grid-grid",
-      acticve:'nav-link active',
+      total: 0,
+      layoutactive: "",
+      gridactive: "active",
+      listactive: "",
+      showfootnext: false,
+      gridOrlist: "grid-grid",
+      acticve: 'nav-link active',
     }
-   },
+  },
   created() {
     this.getList()
     this.getNumber()
@@ -534,19 +597,34 @@ export default ({
     }
   },
   methods: {
-     getNewarticleclass(id) {
+    changeNews() {
+      this.sortOrder = "news"
+    },
+    changeDownload() {
+      this.sortOrder = "download"
+    },
+    changeDiscuss() {
+      this.sortOrder = "discuss"
+    },
+    changeLove() {
+      this.sortOrder = "love"
+    },
+    changeRecommend() {
+      this.sortOrder = "recommend"
+    },
+    getNewarticleclass(id) {
       console.log("启动")
       this.clickIndex = id
       this.allIndex = false
       //重新请求全部列表
-       this.list = this.template
+      this.list = this.template
       //过滤器，过滤sortclass为id的
       setTimeout(() => {
-        let lists  =  this.list.filter ( item => item.sortClass == id)
-      this.list = lists
-      }, )
+        let lists = this.list.filter(item => item.sortClass == id)
+        this.list = lists
+      })
     },
-      getStyles() {
+    getStyles() {
       //生成随机颜色
       let max = 8;
       let min = 1;
@@ -583,59 +661,59 @@ export default ({
 
       return "background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);"
     },
-    istargetJudje(){
-      if(!this.istargetjudje){
-        this.istarget="_self"
-      }else{
-        this.istarget="_blank"
+    istargetJudje() {
+      if (!this.istargetjudje) {
+        this.istarget = "_self"
+      } else {
+        this.istarget = "_blank"
       }
     },
     getNumber() {
       getAllResourceNumber().then(resp => {
         this.ResourceNumber = resp.data
-       })
+      })
     },
     getList() {
-       this.allIndex = true
-       this.clickIndex = false
+      this.allIndex = true
+      this.clickIndex = false
       getAllResource(this.listQuery).then(resp => {
         //获取文章
         this.list = resp.data.data
-         this.template = resp.data.data
+        this.template = resp.data.data
         this.total = resp.data.total
 
       })
       getResourceClasslist().then(resp => {
         //获取分类
-    
+
         this.classlist = resp.data
-        
+
       })
     },
-    changegrid(){
+    changegrid() {
       this.layoutactive = ""
-      this.gridactive = "active"  
+      this.gridactive = "active"
       this.listactive = ""
       this.gridOrlist = "grid-grid"
 
       this.showfootnext = false
     },
-    changelist(){
+    changelist() {
       this.layoutactive = ""
-      this.gridactive = ""  
+      this.gridactive = ""
       this.listactive = "active"
       this.gridOrlist = "grid-list"
 
       this.showfootnext = true
     },
-    changelayout(){
+    changelayout() {
       this.layoutactive = "active"
-      this.gridactive = ""  
+      this.gridactive = ""
       this.listactive = ""
-      
-     
+
+
     }
-}
+  }
 })
 </script>
 
@@ -644,33 +722,32 @@ export default ({
 @import "../static/mycss/top.css";
 @import "../static/mycss/body.css";
 
-.macwk-app__body{
+.macwk-app__body {
   padding: 13px 9px 5px;
 }
-.macwk-animation .delay-3{
+.macwk-animation .delay-3 {
   border-radius: 8px;
 }
 .listtitleimg {
-height: 155px;
-    width: 260.5px;
+  height: 155px;
+  width: 260.5px;
 }
-
 </style>
 
 <style lang="scss" scoped>
 .delay-3 {
   ::v-deep {
     .el-image__inner {
-     border-radius: 8px;
+      border-radius: 8px;
     }
   }
 }
 .delayImg {
-height: 155px;
-    width: 260.5px;
+  height: 155px;
+  width: 260.5px;
   border-radius: 8px;
 }
-.app-content-main .app-content-bottom{
+.app-content-main .app-content-bottom {
   border-radius: 15px;
 }
 </style>

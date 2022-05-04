@@ -723,7 +723,7 @@ computed:{
       })
     },
     getNumber() {
-          getAllArticleNumber().then(resp => {
+      getAllArticleNumber().then(resp => {
           this.articleCount = resp.data
       })
       }

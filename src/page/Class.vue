@@ -17,14 +17,14 @@
             >
               <div class="container">
                 <div class="row">
-                  <div class="col-3 delay-0 list-animation-leftIn">
-                    <a href="/special/gif" class="cursor-pointer"
+                  <div v-for="item in classlist" :key="item.id" class="col-3 delay-0 list-animation-leftIn">
+                    <a  class="cursor-pointer"
                       ><div class="single-special-member">
                         <div class="wrapper">
                           <div class="img-box">
                        
 
-                            <el-image src="https://static.konlonair.com/public/uploads/_/originals/special-gif-1.gif" lazy>
+                            <el-image :src="item.imgclass" lazy>
                                 <div slot="placeholder" class="image-slot">
                                <img  style="width:100%; height:100%; object-fit:cover;"  src="../static/image/loding.gif" />
                                 </div>
@@ -32,154 +32,8 @@
                             </div>
                           <div class="info-meta">
                             <h6 class="name">
-                              Gif动画制作
+                              {{item.name}}
                               <span class="ml-2 text-muted fs-16"> (4款) </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-1 list-animation-leftIn">
-                    <a href="/special/adobe" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img src="https://static.konlonair.com/public/uploads/_/originals/adobe-cc-2019-special-2.jpg" /></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              Adobe 2021
-                              <span class="ml-2 text-muted fs-16">
-                                (26款)
-                              </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-2 list-animation-leftIn">
-                    <a href="/special/photo" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img src="https://static.konlonair.com/public/uploads/_/originals/special-pm2-1.jpg" /></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              图像处理
-                              <span class="ml-2 text-muted fs-16">
-                                (12款)
-                              </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-3 list-animation-leftIn">
-                    <a href="/special/pm" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img src="https://static.konlonair.com/public/uploads/_/originals/special-manage-6.jpg"></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              产品经理
-                              <span class="ml-2 text-muted fs-16"> (8款) </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-4 list-animation-leftIn">
-                    <a href="/special/mindmap" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img /></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              思维导图
-                              <span class="ml-2 text-muted fs-16"> (8款) </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-5 list-animation-leftIn">
-                    <a href="/special/manage" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img /></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              项目管理
-                              <span class="ml-2 text-muted fs-16"> (8款) </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-6 list-animation-leftIn">
-                    <a href="/special/prototype" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img /></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              原型设计
-                              <span class="ml-2 text-muted fs-16"> (8款) </span>
-                            </h6>
-                          </div>
-                        </div>
-                        <div class="hover-content">
-                          <p>
-                            <span><i class="icon-weibo"></i></span>
-                            <span><i class="icon-qq"></i></span>
-                          </p>
-                        </div></div
-                    ></a>
-                  </div>
-                  <div class="col-3 delay-7 list-animation-leftIn">
-                    <a href="/special/novice" class="cursor-pointer"
-                      ><div class="single-special-member">
-                        <div class="wrapper">
-                          <div class="img-box"><img /></div>
-                          <div class="info-meta">
-                            <h6 class="name">
-                              新人必备
-                              <span class="ml-2 text-muted fs-16">
-                                (36款)
-                              </span>
                             </h6>
                           </div>
                         </div>
@@ -357,15 +211,31 @@
 import { getNewArticle } from '@/api/webarticle'
 import { formatDate } from '@/utils/date.js'
 import { getCarousel } from '@/api/sitting'
+import { getResourceClasslist } from '@/api/webresourceclass'
 
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
 
 export default ({
   name: 'Home',
-components: {top, foot},
+  components: {top, foot},
+  created() {
+    this.getList()
+    
+  },
+   methods: {
+      getList() {
+      
+      getResourceClasslist().then(resp => {
+        //获取分类
+        this.classlist = resp.data
+
+      })
+    },
+   },
   data() {
     return {
+      classlist:"",
       acticve:'nav-link active',
     }
   },
