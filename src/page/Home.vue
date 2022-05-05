@@ -296,6 +296,7 @@
                             vs-con-loading__container
                           "
                         >
+                        <router-link to="/class">
                           <div class="macwk-card__body">
                             <h6 data-v-0a1f67c4="" class="mb-0 text-white">
                               <i
@@ -305,6 +306,7 @@
                               <span data-v-0a1f67c4="">更多专题</span>
                             </h6>
                           </div>
+                          </router-link>
                           <!---->
                         </div>
                       </div>

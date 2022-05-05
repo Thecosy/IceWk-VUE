@@ -14,6 +14,7 @@
         :xl="{ span: 12 }"
         style="padding-right: 8px; margin-bottom: 30px"
       >
+        <transaction-table />
       </el-col>
       <el-col
         :xs="{ span: 24 }"
@@ -25,6 +26,7 @@
       >
         <todo-list />
       </el-col>
+
       <el-col
         :xs="{ span: 24 }"
         :sm="{ span: 12 }"
@@ -40,6 +42,7 @@
 </template>
 
 <script>
+import TransactionTable from './components/TransactionTable'
 import BoxCard from './components/BoxCard'
 import TodoList from './components/TodoList'
 import PanelGroup from './components/PanelGroup'
@@ -72,6 +75,7 @@ export default {
     GithubCorner,
     PanelGroup,
     TodoList,
+    TransactionTable,
     BoxCard,
   },
   data() {

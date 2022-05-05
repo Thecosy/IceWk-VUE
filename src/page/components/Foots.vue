@@ -113,9 +113,9 @@
         <a href="https://macwk.com/contact" class="nav-link" data-v-ea53b530=""
           >联系
         </a>
-        <a href="https://macwk.com/privacy" class="nav-link" data-v-ea53b530=""
-          >隐私
-        </a>
+        <router-link to="/Privacy">
+          <a class="nav-link" data-v-ea53b530="">隐私 </a>
+        </router-link>
         <a href="https://macwk.com/version" class="nav-link" data-v-ea53b530=""
           >版本检测
         </a>

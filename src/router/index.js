@@ -94,7 +94,16 @@ export const constantRoutes = [
     component: () => import('@/page/About'),
     hidden: true
   },
-
+  {
+    path: '/privacy',
+    component: () => import('@/page/Privacy'),
+    hidden: true
+  },
+  {
+    path: '/protocol',
+    component: () => import('@/page/Protocol'),
+    hidden: true
+  },
   // admin page home
   {
     path: '/admin',

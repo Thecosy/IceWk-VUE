@@ -19,7 +19,6 @@
                           b2-widget-circle-info
                           mg-b
                           box
-                          
                           b2-radius-aside-left
                         "
                       >
@@ -30,9 +29,30 @@
                           <div class="about-widget">
                             <div class="user-w-announcement">
                               <ul class="planet-aside-ul">
-                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">什么是圈子？</a></li>
-                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">我可以做什么？</a></li>
-                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">圈子规则</a></li>
+                                <li
+                                  class="
+                                    planet-aside-li
+                                    el-icon-ice-cream-round
+                                  "
+                                >
+                                  <a href="#">什么是圈子？</a>
+                                </li>
+                                <li
+                                  class="
+                                    planet-aside-li
+                                    el-icon-ice-cream-round
+                                  "
+                                >
+                                  <a href="#">我可以做什么？</a>
+                                </li>
+                                <li
+                                  class="
+                                    planet-aside-li
+                                    el-icon-ice-cream-round
+                                  "
+                                >
+                                  <a href="#">圈子规则</a>
+                                </li>
                               </ul>
                             </div>
                             <div class="circle-widget-button">
@@ -76,9 +96,7 @@
                                         ></i
                                       ></span>
                                     </p>
-                                    <a
-                                    
-                                      target="_blank"
+                                    <a target="_blank"
                                       ><span>Alextao</span>
                                       <span>(圈主)</span></a
                                     >
@@ -102,11 +120,7 @@
                                     <i class="b2font b2-chat-smile-3-line"></i>
                                   </div>
                                   <div>
-                                    <a
-                                     
-                                      target="_blank"
-                                      class="link-block"
-                                    ></a>
+                                    <a target="_blank" class="link-block"></a>
                                     <b>46</b>
                                     <span class="b2-color">所有圈子</span>
                                     <i class="b2font b2-donut-chart-fill"></i>
@@ -121,17 +135,32 @@
                                 公共区域，请文明发言!
                               </p>
                               <div v-if="shownologin" class="nologin">
-                                <div class="nologintext">
-                               <p class="circle-desc tip-radius">
-                                未登陆，请登录后发言
-                              </p>
-                              </div>
+                                
+                              <div class="nologintext">
+                                   <h5 >您还未登录</h5>
+                                </div>
+                              <div class="nologintext">
+                                 
+                                  <p class="circle-desc">
+                                    登录后可阅读更多话题
+                                  </p>
+                                </div>
                               </div>
                               <div v-else>
-                                 <Tinymce ref="editor" v-model="postForm.content"  :height="200" />
-                                 <div class="PutContent">
-                                  <el-button @click="sitmap()" class="PutContentBut" type="success" round>发表</el-button>
-                                  </div>
+                                <Tinymce
+                                  ref="editor"
+                                  v-model="postForm.content"
+                                  :height="200"
+                                />
+                                <div class="PutContent">
+                                  <el-button
+                                    @click="sitmap()"
+                                    class="PutContentBut"
+                                    type="success"
+                                    round
+                                    >发表</el-button
+                                  >
+                                </div>
                               </div>
                             </div>
                             <div id="show-form" class="po-form-box">
@@ -152,13 +181,13 @@
                             <el-button round>我说</el-button>
                           </li>
                           <li class="planetli">
-                             <el-button round>提问</el-button>
+                            <el-button round>提问</el-button>
                           </li>
                           <li class="planetli">
-                             <el-button round>投票</el-button>
+                            <el-button round>投票</el-button>
                           </li>
                           <li class="planetli">
-                             <el-button round>你猜</el-button>
+                            <el-button round>你猜</el-button>
                           </li>
                         </ul>
                         <div class="topic-drop">
@@ -168,22 +197,22 @@
                           <!---->
                         </div>
                       </div>
-                      <div  v-for="item in squaredata" :key="item.id" class="circle-contenr-out">
+                      <div
+                        v-for="item in squaredata"
+                        :key="item.id"
+                        class="circle-contenr-out"
+                      >
                         <div class="circle-contenr">
                           <div class="topic-header">
                             <div class="topic-header-left">
                               <div class="topic-avatar">
-                                <el-avatar
-                                  :src="item.authorImg"
-                                ></el-avatar>
+                                <el-avatar :src="item.authorImg"></el-avatar>
                               </div>
                               <div class="topic-name">
                                 <div>
                                   <div class="topic-name-data">
-                                    <a
-                                     
-                                      target="_blank"
-                                      ><b>{{item.author}}</b></a
+                                    <a target="_blank"
+                                      ><b>{{ item.author }}</b></a
                                     >
                                     <!---->
                                     <!---->
@@ -240,9 +269,10 @@
                            
                           </h2> -->
                           <!---->
-                          <div v-html="item.content" class="topic-content-text">
-                            
-                          </div>
+                          <div
+                            v-html="item.content"
+                            class="topic-content-text"
+                          ></div>
                           <!---->
                           <!---->
                           <!---->
@@ -250,7 +280,7 @@
                           <!---->
                           <!---->
                         </div>
-                        <div  class="topic-footer">
+                        <div class="topic-footer">
                           <div class="topic-footer-left">
                             <button class="planettext">
                               <i class="el-icon-caret-top"></i><span>赞</span
@@ -294,50 +324,128 @@
                           </div>
                         </div>
                       </div>
-
-                      
                     </el-row>
                   </el-main>
-                  <el-aside width="260px"> 
-                    <div class="sidebar-innter widget-ffixed">
-                      <section
-                        id="b2-widget-circle-info-2"
-                        class="
-                          mobile-hidden-right
-                          widget
-                          b2-widget-circle-info
-                          mg-b
-                          box
-                          
-                          b2-radius-aside-left
-                        "
-                      >
-                        <div class="b2-widget-title">
-                          <h2 class="widget-title">创建自己的圈子</h2>
-                        </div>
-                        <div class="b2-widget-box">
-                          <div class="about-widget">
-                            <div class="user-w-announcement">
-                              <ul class="planet-aside-ul">
-                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">什么是圈子？</a></li>
-                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">我可以做什么？</a></li>
-                                <li class="planet-aside-li el-icon-ice-cream-round"><a href="#">圈子规则</a></li>
-                              </ul>
+                  <el-aside width="260px">
+                    <section
+                      id="b2-widget-user-6"
+                      class="
+                        mobile-hidden
+                        widget
+                        b2-widget-user
+                        mg-b
+                        box
+                        b2-radius
+                        b2-radius-aside-right
+                      "
+                    >
+                      <div class="b2-widget-box">
+                        <div id="user-widget" class="user-widget">
+                          <div class="user-widget-content">
+                            <div
+                              class="widget-gujia-user"
+                              style="display: none"
+                            >
+                              <div class="user-widget-info">
+                                <div class="user-w-avatar"></div>
+                                <div class="user-w-name"></div>
+                              </div>
+                              <div class="user-w-tj">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                              </div>
+                              <div class="user-w-rw"></div>
+                              <div class="user-w-announcement">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                              </div>
                             </div>
-                            <div class="circle-widget-button">
-                              <button
-                                class="text-great"
-                                onclick="postPoBox.go('https://www.zmki.cn/create-circle','create_circle')"
+                            <div style="">
+                              <!---->
+                              <div>
+                                <div class="user-w-logon">
+                                  <p class="user-w-logon-title b2-color">
+                                    嗨！朋友
+                                  </p>
+                                  <p class="user-w-logon-titlep ">所有的伟大，都源于一个勇敢的开始</p>
+                                </div>
+                                <div>
+                                  <div class="oauth-login-button">
+                                    <a
+                                      href="javascript:void(0)"
+                                      class="login-weixin"
+                                      >微信登录</a
+                                    ><a
+                                      href="https://api.weibo.com/oauth2/authorize?client_id=2224666867&amp;response_type=code&amp;redirect_uri=https%3A%2F%2F7b2.com%2Fopen%3Ftype%3Dweibo"
+                                      class="login-weibo"
+                                      >微博登录</a
+                                    ><a
+                                      href="https://graph.qq.com/oauth2.0/authorize?client_id=101057247&amp;state=6b96c86f14fab2f3ce7af8fc5d72c943&amp;response_type=code&amp;redirect_uri=https%3A%2F%2F7b2.com%2Fopen%3Ftype%3Dqq"
+                                      class="login-qq"
+                                      >QQ登录</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="user-w-announcement">
+                                <div>
+                                  <ul>
+                                    <li class="user-w-announcementli">
+                                      <a
+                                      class="adtext"
+                                        href="https://7b2.com/announcement/55512.html"
+                                        target="_blank"
+                                        ><b>公告：</b
+                                        ><span
+                                          >WordPress轻社交购物主题：B2Pro_3.4.1
+                                          +
+                                          APP插件_1.1.0+uniapp源码_1.1.0（微信小程序）更新通知</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li>
+                                      <a
+                                        class="adtext"
+                                        href="https://7b2.com/announcement/54519.html"
+                                        target="_blank"
+                                        ><b>公告：</b
+                                        ><span
+                                          >B2Pro_3.3.56 +
+                                          APP插件_1.0.9+uniapp源码_1.0.9更新公告</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li>
+                                      <a
+                                        class="adtext"
+                                        href="https://7b2.com/announcement/54127.html"
+                                        target="_blank"
+                                        ><b>公告：</b
+                                        ><span
+                                          >B2PRO_3.3.3发布了，请小伙伴们去更新体验</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="widget-mission-footer">
+                              <a
+                              class="allad"
+                                href="https://7b2.com/announcement"
+                                target="_blank"
+                                >全部公告</a
                               >
-                                创建圈子
-                              </button>
                             </div>
                           </div>
                         </div>
-                      </section>
-                    </div>
-                    
-                    </el-aside>
+                      </div>
+                    </section>
+                  </el-aside>
                 </div>
               </div>
               <div class="clearfix pt-8"></div>
@@ -519,45 +627,45 @@ export default ({
     this.getUserInfo()
   },
   methods: {
-    fetchData(){
+    fetchData() {
       getAllSquare(this.postForm).then(response => {
         console.log(response)
-          this.squaredata = response.data
+        this.squaredata = response.data
       })
     },
-    sitmap(){
+    sitmap() {
       createSquare(this.postForm).then(response => {
-         this.fetchData()
+        this.fetchData()
       })
     },
-     getUserInfo(){ 
-       const user = JSON.parse(window.localStorage.getItem('access-admin'))
+    getUserInfo() {
+      const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.userJudje = (user == null)
-      if(this.userJudje){
+      if (this.userJudje) {
         console.log("未登陆")
         //显示需要登陆
         this.shownologin = true
-      }else{
+      } else {
         console.log("已登陆")
-          this.user = user.data
-          this.postForm.author = this.user.userid
-           //显示需要登陆
+        this.user = user.data
+        this.postForm.author = this.user.userid
+        //显示需要登陆
         this.shownologin = false
-    
+
       }
-      }
+    }
   },
-   
+
 
   data() {
     return {
-      squaredata:"",
+      squaredata: "",
       postForm: {
-          content: "",
-          author: "",
-       
+        content: "",
+        author: "",
+
       },
-      shownologin:false,
+      shownologin: false,
       acticve: 'nav-link active',
     }
   },
@@ -570,14 +678,16 @@ export default ({
 @import "../static/mycss/top.css";
 @import "../static/mycss/body.css";
 @import "../static/mycss/planet.css";
+@import "../static/mycss/user_info.css";
+
 </style>
 <style scoped>
 .delayImg {
   height: 100px;
   width: 145px;
 }
-.body{
-  background-color: #F3F5F7;
+.body {
+  background-color: #f3f5f7;
 }
 </style>
 
@@ -665,26 +775,30 @@ body > .el-container {
   padding-top: 3px;
 }
 .tip-radius {
-    margin-left: 30px;
-    position: relative;
-    margin-top: 8px;
+  margin-left: 30px;
+  position: relative;
+  margin-top: 8px;
 }
-.nologin{
-  display: flex;
-      flex-wrap: nowrap;
+.nologin {
+    display: flex;
+    flex-wrap: wrap;
     align-content: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-.nologintext{
+.nologintext {
   display: flex;
 }
-.PutContent{
+.PutContent {
   display: flex;
-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
-.PutContentBut{
+.PutContentBut {
   margin-top: 10px;
-   display: flex;
-
+  display: flex;
+}
+.circle-desc{
+  display: flex;
 }
 </style>

@@ -10,87 +10,128 @@
               <div class="w-full pc-model">
                 <div>
                   <!-- /** */ -->
-                              <div class="featured-posts mb-6">
-                  <div><a href="jetbrains-crack.html" target="_self" class="post-item post-item--featured"
+                <div class="featured-posts mb-6">
+                
+                  <div><a :href="MatterArticleFirst.id" target="_self" class="post-item post-item--featured"
                       style="background:linear-gradient(#5aa94580,#59ab4e8f,#58ac569e,#57ad5dad,#57ae65bd,#57af6ccc);background-size:100%;"><img
                         src="../static/picture/jetbrains.svg"
                         style="position:absolute;left:30px;top:30px;width:256px;height:256px;">
                       <div class="post-item__content">
-                        <h3 title="JetBrains全系列软件激活教程激活码以及JetBrains系列软件汉化包">JetBrains全系列软件激活教程激活码以及JetBrains系列软件汉化包</h3>
+                        <h3 :title="MatterArticleFirst.title">{{MatterArticleFirst.title}}</h3>
                         <div class="post-meta">
                           <div class="category category--inspiring">
-                            软件教程
+                           {{MatterArticleFirst.className}}
                           </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2021-12-12</span>
+                          <div class="post-meta__avatars"><img :src="MatterArticleFirst.profile" class="avatar"></div>
+                          <div class="post-meta__info fw-600"><span>{{MatterArticleFirst.author}}</span> <span>•</span> 
+                          <span
+                                    v-if="MatterArticleFirst.createTime != null"
+                                    v-text="formatDate(MatterArticleFirst.createTime)"
+                                  >
+                                  </span>
+                                  <span
+                                    v-else
+                                    v-text="formatDate(MatterArticleFirst.addTime)"
+                                  >
+                                  </span> 
                           </div>
                         </div>
                       </div>
                       <div>
                         <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
                           <p class="CS-count">
-                            1326
+                            {{MatterArticleFirst.commentNum}}
                           </p> <button class="share"><i class="icon-share"></i></button>
                         </div>
                       </div>
                     </a></div>
-                  <div><a href="the-best-mac-uninstaller.html" target="_self" class="post-item post-item--featured"
+                  <div><a :href="MatterArticles[0].id" target="_self" class="post-item post-item--featured"
                       style="background:linear-gradient(#c956d880,#d94ec68f,#e547b49e,#ed43a1ad,#f2438fbd,#f3467ecc);">
                       <div class="post-item__content">
-                        <h3 title="mac系统最好的软件卸载工具 - 专治应用残留卸载不干净的问题">macOS 最好的软件卸载工具</h3>
+                        <h3 :title="MatterArticles[0].title">{{MatterArticles[0].title}}</h3>
                         <div class="post-meta">
                           <div class="category category--inspiring">
-                            软件教程
+                            {{MatterArticles[0].className}}
                           </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2021-05-12</span>
+                          <div class="post-meta__avatars"><img :src="MatterArticles[0].profile" class="avatar"></div>
+                          <div class="post-meta__info fw-600"><span>{{MatterArticles[0].author}}</span> <span>•</span> 
+                               <span
+                                    v-if="MatterArticles[0].createTime != null"
+                                    v-text="formatDate(MatterArticles[0].createTime)"
+                                  >
+                                  </span>
+                                  <span
+                                    v-else
+                                    v-text="formatDate(MatterArticles[0].addTime)"
+                                  >
+                                  </span> 
                           </div>
                         </div>
                       </div>
                       <div>
                         <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
                           <p class="CS-count">
-                            26
+                            {{MatterArticles[0].commentNum}}
                           </p> <button class="share"><i class="icon-share"></i></button>
                         </div>
                       </div>
-                    </a><a href="arm-macs-issue.html" target="_self" class="post-item post-item--featured"
+                    </a><a :href="MatterArticles[1].id" target="_self" class="post-item post-item--featured"
                       style="background:linear-gradient(#7470d180,#8368c78f,#8f60bd9e,#9858b1ad,#a051a5bd,#a64999cc);">
                       <div class="post-item__content">
-                        <h3 title="ARM M1 芯片的 Macs 常见问题的解决方法">M1 Macs 常见问题解决</h3>
+                        <h3 :title="MatterArticles[1].title">{{MatterArticles[1].title}}</h3>
                         <div class="post-meta">
                           <div class="category category--tools">
-                            新手入门
+                            {{MatterArticles[1].className}}
                           </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2021-05-11</span>
+                          <div class="post-meta__avatars"><img :src="MatterArticles[1].profile" class="avatar"></div>
+                          <div class="post-meta__info fw-600"><span>{{MatterArticles[1].author}}</span> <span>•</span> 
+                           <span
+                                    v-if="MatterArticles[1].createTime != null"
+                                    v-text="formatDate(MatterArticles[1].createTime)"
+                                  >
+                                  </span>
+                                  <span
+                                    v-else
+                                    v-text="formatDate(MatterArticles[1].addTime)"
+                                  >
+                                  </span> 
                           </div>
                         </div>
                       </div>
                       <div>
                         <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
                           <p class="CS-count">
-                            14
+                            {{MatterArticles[1].commentNum}}
                           </p> <button class="share"><i class="icon-share"></i></button>
                         </div>
                       </div>
-                    </a><a href="apple-id-tutorial.html" target="_self" class="post-item post-item--featured"
+                    </a><a :href="MatterArticles[2].id" target="_self" class="post-item post-item--featured"
                       style="background:linear-gradient(#8771e780,#c358c38f,#e144959e,#e84265ad,#dc5437bd,#c16a00cc);">
                       <div class="post-item__content">
-                        <h3 title="Apple ID 共享账号使用方法、登录异常以及常见问题的解决方法">AppleID 共享账号使用教程及常见问题解决</h3>
+                        <h3 :title="MatterArticles[2].title">{{MatterArticles[2].title}}</h3>
                         <div class="post-meta">
                           <div class="category category--tools">
-                            新手入门
+                            {{MatterArticles[2].className}}
                           </div>
-                          <div class="post-meta__avatars"><img src="../static/picture/g9sqh9gp.jpeg" class="avatar"></div>
-                          <div class="post-meta__info fw-600"><span>Pertim</span> <span>•</span> <span>2020-01-18</span>
+                          <div class="post-meta__avatars"><img :src="MatterArticles[2].profile" class="avatar"></div>
+                          <div class="post-meta__info fw-600"><span>{{MatterArticles[2].author}}</span> <span>•</span>
+                           <span
+                                    v-if="MatterArticles[2].createTime != null"
+                                    v-text="formatDate(MatterArticles[2].createTime)"
+                                  >
+                                  </span>
+                                  <span
+                                    v-else
+                                    v-text="formatDate(MatterArticles[2].addTime)"
+                                  >
+                                  </span> 
                           </div>
                         </div>
                       </div>
                       <div>
                         <div class="CS CS--lg"><button class="comment"><i class="icon-bubble"></i></button>
                           <p class="CS-count">
-                            19
+                            {{MatterArticles[2].commentNum}}
                           </p> <button class="share"><i class="icon-share"></i></button>
                         </div>
                       </div>
@@ -202,7 +243,7 @@
                               <h3 :title="item.title">{{ item.title }}</h3>
                               <div class="post-meta">
                                 <div class="category category--inspiring">
-                                  软件教程
+                                  {{item.className}}
                                 </div>
                                 <div class="post-meta__avatars">
                                   <img
@@ -443,136 +484,7 @@
               </div>
             </div>
           </div>
-          <div
-            class="macwk-footer white border-top pc-model"
-            data-v-ea53b530=""
-          >
-            <div class="container" data-v-ea53b530="">
-              <a href="index1.html" class="logo" data-v-ea53b530=""
-                ><svg
-                  id="macwk-svg-logo"
-                  width="32"
-                  height="32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  data-v-6dd0b122=""
-                  data-v-ea53b530=""
-                >
-                  <title data-v-6dd0b122="">MacWK</title>
-                  <defs data-v-6dd0b122="">
-                    <lineargradient
-                      x1="50%"
-                      y1="0%"
-                      x2="50%"
-                      y2="100%"
-                      id="a"
-                      data-v-6dd0b122=""
-                    >
-                      <stop
-                        offset="0%"
-                        class="stop-color-circle"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-circle"
-                        data-v-6dd0b122=""
-                      ></stop>
-                    </lineargradient>
-                    <lineargradient
-                      x1="100%"
-                      y1="86.198%"
-                      x2="-14.813%"
-                      y2="-4.357%"
-                      id="b"
-                      data-v-6dd0b122=""
-                    >
-                      <stop
-                        offset="0%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="40.927%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                    </lineargradient>
-                    <lineargradient
-                      x1="86.515%"
-                      y1="24.533%"
-                      x2="0%"
-                      y2="24.533%"
-                      id="c"
-                      data-v-6dd0b122=""
-                    >
-                      <stop
-                        stop-opacity="0"
-                        offset="0%"
-                        class="stop-color-default"
-                        data-v-6dd0b122=""
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-default-linearGradient"
-                        data-v-6dd0b122=""
-                      ></stop>
-                    </lineargradient>
-                  </defs>
-                  <g fill="none" fill-rule="evenodd" data-v-6dd0b122="">
-                    <path
-                      d="M29.952 16c0-1.933-1.562-3.5-3.488-3.5a3.494 3.494 0 0 0-3.488 3.5c0 1.933 1.561 3.5 3.488 3.5a3.494 3.494 0 0 0 3.488-3.5"
-                      fill="url(#a)"
-                      data-v-6dd0b122=""
-                    ></path>
-                    <path
-                      d="M25.865 25.9a13.932 13.932 0 0 1-6.377 3.66c-1.115.286-2.284.44-3.488.44a13.893 13.893 0 0 1-10.512-4.797A13.968 13.968 0 0 1 2.048 16c0-3.523 1.298-6.742 3.44-9.203A13.893 13.893 0 0 1 16 2c1.204 0 2.373.154 3.488.44a13.932 13.932 0 0 1 6.377 3.66l-4.933 4.95A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7l.002.18C9.122 19.964 12.208 23 16 23c1.926 0 3.67-.784 4.932-2.05l4.933 4.95z"
-                      fill="url(#b)"
-                      data-v-6dd0b122=""
-                    ></path>
-                    <path
-                      d="M20.932 11.05A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7a13.98 13.98 0 0 1 4.087-9.9 13.932 13.932 0 0 1 6.377-3.66l1.444 8.61z"
-                      fill="url(#c)"
-                      data-v-6dd0b122=""
-                    ></path>
-                  </g>
-                </svg>
-                <span class="ml-4" data-v-ea53b530="">MacWk</span></a
-              >
-              <div class="nav" data-v-ea53b530="">
-                <a href="index1.html" class="nav-link" data-v-ea53b530=""
-                  >首页</a
-                >
-                <a href="about.html" class="nav-link" data-v-ea53b530=""
-                  >关于 </a
-                ><a href="contact.html" class="nav-link" data-v-ea53b530=""
-                  >联系 </a
-                ><a href="privacy.html" class="nav-link" data-v-ea53b530=""
-                  >隐私 </a
-                ><a href="version.html" class="nav-link" data-v-ea53b530=""
-                  >版本检测 </a
-                ><a href="changelogs.html" class="nav-link" data-v-ea53b530=""
-                  >更新日志
-                </a>
-              </div>
-              <div class="copyright" data-v-ea53b530="">
-                <p class="mb-0" data-v-ea53b530="">
-                  <span class="mr-3" data-v-ea53b530=""
-                    ><a href="javascript:;" target="_blank" data-v-ea53b530=""
-                      >鲁ICP备19036164号</a
-                    ></span
-                  >
-                  <span data-v-ea53b530=""
-                    >Macwk.com © 2019. All rights reserved.</span
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
+        <foot/>
           <div infos="0">
             <div
               class="
@@ -591,7 +503,7 @@
 </template>
 
 <script>
-import { getAllArticle ,getAllArticleNumber} from '@/api/webarticle'
+import { getAllArticle, getAllArticleNumber, GetArticleBtmatte} from '@/api/webarticle'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 import { formatDate } from '@/utils/date.js'
 import { getArticleClasslist} from '@/api/webarticleclass'
@@ -615,6 +527,8 @@ export default {
   },
   data() {
     return {
+      MatterArticleFirst:"",
+      MatterArticles:"",
       Newarticlecomment: "",
       activeName: 'first',
       allIndex: true,
@@ -702,12 +616,17 @@ computed:{
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
     },
     getList() {
+      //获取重要文章
+      GetArticleBtmatte().then(resp => {
+        this.MatterArticleFirst = resp.data[0]
+        this.MatterArticles = resp.data
+        this.MatterArticles.shift();
+      })
       this.allIndex = true
       this.clickIndex = false
       this.listLoading = true
       getAllArticle(this.listQuery).then(resp => {
         //获取文章
-        console.log(resp)
         this.list = resp.data.data
         this.template = resp.data.data
         this.total = resp.data.total

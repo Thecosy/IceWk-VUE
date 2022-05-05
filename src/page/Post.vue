@@ -590,7 +590,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import "../static/mycss/comment.css";
-@import "../static/mycss/post_body.css";
+@import "../static/mycss/body.css";
  .myVEmojiPicker ::v-deep.category {
    background:none;
  }
@@ -695,7 +695,7 @@ p {
 .catalogleft {
   position: fixed;
   top: 30%;
-  left: 15%;
+  left: 12%;
   cursor: not-allowed;
   /* height: calc(100% - 100px); */
       -webkit-text-size-adjust: 100%;

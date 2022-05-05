@@ -11,7 +11,7 @@
     >
       <div class="box">
         <div class="login-logo">
-           <img height="40" width="40" src="../../static/image/logo.svg"/>
+          <img height="40" width="40" src="../../static/image/logo.svg" />
         </div>
         <div class="login-title">
           <span><b>快速登录</b></span>
@@ -74,18 +74,12 @@
             >登陆</el-button
           >
           <div data-v-11bb2e85="" class="ss-login_statement">
-            <span data-v-11bb2e85="">登陆注册即代表同意</span
-            ><a
-              data-v-11bb2e85=""
-              href="https://sspai.com/post/37739"
-              target="_blank"
-              >用户协议</a
-            ><span data-v-11bb2e85="">及</span
-            ><a
-              data-v-11bb2e85=""
-              href="https://sspai.com/page/privacy_policy"
-              target="_blank"
-              >隐私条款</a
+            <span data-v-11bb2e85="">登陆注册即代表同意</span>
+            <router-link to="/Protocol">
+              <a data-v-11bb2e85="" target="_blank">用户协议</a></router-link
+            ><span data-v-11bb2e85="">及</span>
+            <router-link to="/Privacy">
+              <a data-v-11bb2e85="" target="_blank">隐私条款</a></router-link
             >
           </div>
           <div data-v-11bb2e85="" class="line"></div>
@@ -122,12 +116,11 @@
           to="/"
         >
           <a
-           
             class="app-header-logo active"
             data-v-122eae44=""
             aria-current="page"
           >
-           <img src="../../static/image/logo.svg"/>
+            <img src="../../static/image/logo.svg" />
             <span data-v-122eae44="">IceCMS</span></a
           >
         </router-link>
@@ -219,7 +212,9 @@
                       :class="{ 'active search-active': codeshow }"
                       class="flex flex-grow-1 text-center py-3 fs-16"
                       ><span data-v-6d6103b4="" class="fw-400">资源</span>
-                      <span data-v-6d6103b4="" class="fs-12">({{ResourceNumber}})</span></a
+                      <span data-v-6d6103b4="" class="fs-12"
+                        >({{ ResourceNumber }})</span
+                      ></a
                     >
                     <a
                       @click="articleshows()"
@@ -227,7 +222,9 @@
                       :class="{ 'active search-active': articleshow }"
                       class="flex flex-grow-1 text-center py-3 fs-16"
                       ><span data-v-6d6103b4="" class="">文章</span>
-                      <span data-v-6d6103b4="" class="fs-12">({{articleCount}})</span></a
+                      <span data-v-6d6103b4="" class="fs-12"
+                        >({{ articleCount }})</span
+                      ></a
                     >
                   </div>
                 </div>
@@ -366,52 +363,46 @@
           </div>
         </div>
         <el-popover placement="top-start" width="280" trigger="hover">
-         
-          
-              <div class="top-user-info-box-names">
-                 <div class="topic-header-lefts">
-                              <div class="topic-avatars">
-                                <el-avatar
-                                  :src="user.profile"
-                                ></el-avatar>
-                              </div>
-                              <div class="topic-names">
-                                <div>
-                                  <div class="topic-name-datas">
-                                    <a
-                                     
-                                      target="_blank"
-                                      ><b>{{ user.name }}</b></a
-                                    >
-                                    <!---->
-                                    <!---->
-                                  </div>
-                                  <div class="topic-user-lvs">
-                                    <p>
-                                      <span class="user-vips"
-                                        ><i style="border-color: #ff8223"></i
-                                        ><b style="color: #ff8223"
-                                          >永久会员</b
-                                        ></span
-                                      >
-                                    </p>
-                                    <p>
-                                      <span class="user-lvs"
-                                        ><b>荣誉用户</b><i>lv5</i></span
-                                      >
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-             
-                <div data-title="退出登录" @click="loginout()" class="login-outs user-tips">
-                  <a href="javascript:void(0)"
-                    ><i class="el-icon-caret-left"></i
-                  ></a>
+          <div class="top-user-info-box-names">
+            <div class="topic-header-lefts">
+              <div class="topic-avatars">
+                <el-avatar :src="user.profile"></el-avatar>
+              </div>
+              <div class="topic-names">
+                <div>
+                  <div class="topic-name-datas">
+                    <a target="_blank"
+                      ><b>{{ user.name }}</b></a
+                    >
+                    <!---->
+                    <!---->
+                  </div>
+                  <div class="topic-user-lvs">
+                    <p>
+                      <span class="user-vips"
+                        ><i style="border-color: #ff8223"></i
+                        ><b style="color: #ff8223">永久会员</b></span
+                      >
+                    </p>
+                    <p>
+                      <span class="user-lvs"><b>荣誉用户</b><i>lv5</i></span>
+                    </p>
+                  </div>
                 </div>
               </div>
-              <!-- <div class="top-user-info-box-count">
+            </div>
+
+            <div
+              data-title="退出登录"
+              @click="loginout()"
+              class="login-outs user-tips"
+            >
+              <a href="javascript:void(0)"
+                ><i class="el-icon-caret-left"></i
+              ></a>
+            </div>
+          </div>
+          <!-- <div class="top-user-info-box-count">
                 <p><span>文章</span> <b>0</b></p>
                 <p><span>评论</span> <b>0</b></p>
                 <p><span>关注</span> <b>0</b></p>
@@ -443,8 +434,8 @@
                   ><span>您已完成今天任务的<b>0%</b></span></a
                 >
               </div> -->
-           
-            <!-- <ul>
+
+          <!-- <ul>
               <li>
                 <a href="https://www.zmki.cn/directmessage"
                   ><i class="b2font b2-mail-send-line"></i>
@@ -548,7 +539,7 @@ import { FindarticlesByNum } from '@/api/webarticle'
 import { FindresourceByNum } from '@/api/webresource'
 import { login } from '@/api/login'
 import { getAllResource, getAllResourceNumber } from '@/api/webresource'
-import { getAllArticle ,getAllArticleNumber} from '@/api/webarticle'
+import { getAllArticle, getAllArticleNumber } from '@/api/webarticle'
 
 export default ({
   name: 'Top',
@@ -563,29 +554,29 @@ export default ({
   },
 
   methods: {
-    fullnum(){
+    fullnum() {
       getAllResourceNumber().then(resp => {
         this.ResourceNumber = resp.data
       })
       getAllArticleNumber().then(resp => {
-          this.articleCount = resp.data
+        this.articleCount = resp.data
       })
     },
-    async loginout(){
+    async loginout() {
       //退出登陆
       //清除本地数据
-       window.localStorage.removeItem('access-admin')
-       //关闭用户头像
-        this.userJudje = false
-        //跳转刷新
-        this.$router.push('/')
-       //显示退出成功
-        this.$notify({
-                title: '成功',
-                message: '您已退出登陆',
-                type: 'success',
-                offset: 50
-              });
+      window.localStorage.removeItem('access-admin')
+      //关闭用户头像
+      this.userJudje = false
+      //跳转刷新
+      this.$router.push('/')
+      //显示退出成功
+      this.$notify({
+        title: '成功',
+        message: '您已退出登陆',
+        type: 'success',
+        offset: 50
+      });
     },
     getUserInfo() {
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
@@ -643,26 +634,26 @@ export default ({
       })
     },
     keyup() {
-       this.searchshow = true
+      this.searchshow = true
       this.search(this.seachcontent)
     },
-    Findresource(seachcontents, num){
-          FindresourceByNum(seachcontents, num).then(resp => {
-          this.tempdata = resp.data
-        })
+    Findresource(seachcontents, num) {
+      FindresourceByNum(seachcontents, num).then(resp => {
+        this.tempdata = resp.data
+      })
     },
-    Findarticles(seachcontents, num){
-         FindarticlesByNum(seachcontents, num).then(resp => {
-          this.tempdata = resp.data
-        })
+    Findarticles(seachcontents, num) {
+      FindarticlesByNum(seachcontents, num).then(resp => {
+        this.tempdata = resp.data
+      })
     },
     //临时查询
     search(seachcontents) {
       //限制查询五个数据
       if (!this.judgeNull(this.seachcontent)) {
-        if(this.fundByresource){ this.Findresource(seachcontents, 5)}
-        else{this.Findarticles(seachcontents, 5)}
-        
+        if (this.fundByresource) { this.Findresource(seachcontents, 5) }
+        else { this.Findarticles(seachcontents, 5) }
+
       }
     },
     //判空
@@ -681,11 +672,11 @@ export default ({
           message: '输入的数据不能为空',
           type: 'warning'
         });
-      }else{
- //   直接调用$router.push 实现携带参数的跳转
-      this.$router.push({
-        path: `/post/${this.seachcontent}/all`,
-      })
+      } else {
+        //   直接调用$router.push 实现携带参数的跳转
+        this.$router.push({
+          path: `/post/${this.seachcontent}/all`,
+        })
       }
     },
     articleshows() {
@@ -697,17 +688,17 @@ export default ({
       this.fundByresource = false
       this.Findarticles(this.seachcontent, 5)
       this.howto = '/post/'
-      
+
     },
     codeshows() {
       // setTimeout(() => { this.focus() }, 219)
       // this.searchshow = true
       this.codeshow = true
       this.articleshow = false
-       this.tempdata = ""
-       this.fundByresource = true
-       this.Findresource(this.seachcontent, 5)
-       this.howto = '/list/'
+      this.tempdata = ""
+      this.fundByresource = true
+      this.Findresource(this.seachcontent, 5)
+      this.howto = '/list/'
     },
     focus() {
       this.searchshow = true
@@ -727,10 +718,10 @@ export default ({
 
   data() {
     return {
-      articleCount:"",
-      ResourceNumber:"",
-      howto:'/list/',
-      fundByresource:true,
+      articleCount: "",
+      ResourceNumber: "",
+      howto: '/list/',
+      fundByresource: true,
       user: "",
       userJudje: true,
       loginForm: {
@@ -1116,7 +1107,7 @@ export default ({
   font-size: 27px;
 }
 .box {
-  image-rendering: -webkit-optimize-contrast;
+  /* image-rendering: -webkit-optimize-contrast;
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -1268,7 +1259,7 @@ export default ({
   position: relative;
   padding: 30px 24px 24px;
   background-repeat: no-repeat;
-  background: none;
+  background: none; */
 }
 .footer {
   display: flex;
@@ -1405,5 +1396,4 @@ export default ({
 .el-dialog--center {
   border-radius: 10px;
 }
-
 </style>

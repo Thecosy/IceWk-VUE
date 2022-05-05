@@ -8,7 +8,7 @@
         image="https://inews.gtimg.com/newsapp_bt/0/13392595208/1000"
         class="panThumb"
       />
-      <mallki class-name="mallki-text" text="vue-element-admin" />
+      <mallki class-name="mallki-text" text="IceCMS" />
       <div style="padding-top: 35px" class="progress-item">
         <span>Vue</span>
         <el-progress :percentage="70" />

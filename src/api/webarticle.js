@@ -62,3 +62,10 @@ export function viewarticle(id) {
     method: 'get',
   })
 }
+
+export function GetArticleBtmatte() {
+  return request({
+    url: '/WebArticle/GetArticleBtmatter',
+    method: 'get',
+  })
+}
