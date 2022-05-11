@@ -786,7 +786,7 @@ export default ({
 </style>
 
 
-<style>
+<style scoped>
 .white1 {
   background-color: rgb(255, 255, 255);
   z-index: -1;

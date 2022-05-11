@@ -823,6 +823,9 @@ export default ({
 })
 </script>
 <style scoped>
+@import "../../static/mycss/comment.css";
+</style>
+<style scoped>
 .myVEmojiPicker {
   z-index: 999;
   position: absolute;
