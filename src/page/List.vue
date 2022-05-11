@@ -726,7 +726,7 @@ export default ({
   padding: 13px 9px 5px;
 }
 .macwk-animation .delay-3 {
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
 }
 .listtitleimg {
   height: 155px;
@@ -738,14 +738,14 @@ export default ({
 .delay-3 {
   ::v-deep {
     .el-image__inner {
-      border-radius: 8px;
+      border-radius: 8px 8px 0px 0px;
     }
   }
 }
 .delayImg {
   height: 155px;
   width: 260.5px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
 }
 .app-content-main .app-content-bottom {
   border-radius: 15px;

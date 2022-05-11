@@ -90,6 +90,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/download/:id',
+    component: () => import('@/page/Download'),
+    hidden: true
+  },
+  {
     path: '/about',
     component: () => import('@/page/About'),
     hidden: true

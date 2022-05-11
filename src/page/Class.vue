@@ -210,7 +210,7 @@
 <script>
 import { getNewArticle } from '@/api/webarticle'
 import { formatDate } from '@/utils/date.js'
-import { getCarousel } from '@/api/sitting'
+import { getCarousel } from '@/api/setting'
 import { getResourceClasslist } from '@/api/webresourceclass'
 
 import top from './components/Top.vue'

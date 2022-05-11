@@ -121,7 +121,7 @@
             aria-current="page"
           >
             <img src="../../static/image/logo.svg" />
-            <span data-v-122eae44="">IceCMS</span></a
+            <span data-v-122eae44="">{{this.glabledata.glableSitTitle}}</span></a
           >
         </router-link>
         <div class="app-header-nav nav" data-v-122eae44="">
@@ -541,12 +541,17 @@ import { login } from '@/api/login'
 import { getAllResource, getAllResourceNumber } from '@/api/webresource'
 import { getAllArticle, getAllArticleNumber } from '@/api/webarticle'
 
+import {mapState,mapMutations} from 'vuex'
+
 export default ({
   name: 'Top',
   props: ['message1', 'message2', 'message3', 'message4', 'message5'],
   setup() {
 
   },
+  computed:{
+       ...mapState(['playlist','glabledata','count'])
+        },
   created() {
     this.getUserInfo()
     //检测token是否有效

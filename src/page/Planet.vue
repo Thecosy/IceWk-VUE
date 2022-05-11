@@ -318,7 +318,7 @@
                             </div>
                           </div>
                           <div class="topic-footer-right">
-                            <el-button type="success" plain>
+                            <el-button size="small" type="success" plain>
                               <span><b>1</b>条讨论</span></el-button
                             >
                           </div>
@@ -610,7 +610,7 @@
 <script>
 import { createSquare, getAllSquare } from '@/api/websquare'
 import { formatDate } from '@/utils/date.js'
-import { getCarousel } from '@/api/sitting'
+import { getCarousel } from '@/api/setting'
 
 import Tinymce from '@/components/Tinymce'
 

@@ -63,6 +63,13 @@ export function viewarticle(id) {
   })
 }
 
+export function lovearticle(id) {
+  return request({
+    url: '/WebArticle/articles/'+ id +'/love',
+    method: 'get',
+  })
+}
+
 export function GetArticleBtmatte() {
   return request({
     url: '/WebArticle/GetArticleBtmatter',

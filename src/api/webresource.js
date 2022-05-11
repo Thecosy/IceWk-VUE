@@ -34,3 +34,10 @@ export function FindresourceByNum(title,num) {
     method: 'get'
   })
 }
+
+export function loveresource(id) {
+  return request({
+    url: '/WebResource/resource/'+ id +'/love',
+    method: 'get',
+  })
+}

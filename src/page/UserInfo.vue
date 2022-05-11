@@ -137,6 +137,7 @@
             </div>
           </div>
           <!--路由占位符-->
+          
     <router-view class="author-page-left"></router-view>
         
         </div>

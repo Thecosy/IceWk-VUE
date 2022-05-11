@@ -182,89 +182,6 @@
         <div data-fetch-key="0" class="app light macwk-animation">
           <top :message2="acticve" />
           <div class="overflow-hidden pt-5">
-            <section
-              class="
-                fiexd-download-bar
-                white
-                d-flex
-                align-items-center
-                pc-model
-              "
-            >
-              <div class="container d-flex align-items-center">
-                <div class="flex-grow d-flex align-items-center">
-                  <img class="avatar avatar-sm mr-2 no-rounded" />
-                  <span class="h5 mb-0">Beyond Compare 4.4.2</span>
-                </div>
-                <section class="d-flex align-items-center">
-                  <nav class="scrollactive-nav nav mr-6">
-                    <a
-                      href="#step-read"
-                      class="scrollactive-item nav-link px-4 fs-16"
-                      >安装必读</a
-                    >
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                  </nav>
-                  <button
-                    type="button"
-                    class="btn btn-theme rounded-sm pull-right px-5 py-1 fs-16"
-                  >
-                    立即下载
-                  </button>
-                </section>
-              </div>
-            </section>
-            <section
-              class="
-                fiexd-comments-bar
-                d-flex
-                align-items-center
-                is-scroll
-                macwk-animation
-                slow
-                pc-model
-              "
-            >
-              <div
-                class="
-                  d-flex
-                  align-items-center
-                  fs-20
-                  fw-700
-                  cursor-pointer
-                  w-full
-                  pl-3
-                "
-              >
-                <div class="flex">
-                  共 <span class="fs-36 mx-1">121</span> 条评论
-                </div>
-                <svg
-                  color="inherit"
-                  viewBox="0 0 32 32"
-                  class="w-32"
-                  style="
-                    width: 1.5em;
-                    height: 1.5em;
-                    font-size: 2rem;
-                    vertical-align: -6px;
-                  "
-                >
-                  <path
-                    fill="#FFFFFF"
-                    d="M12.63,26.46H8.83a6.61,6.61,0,0,1-6.65-6.07,89.05,89.05,0,0,1,0-11.2A6.5,6.5,0,0,1,8.23,3.25a121.62,121.62,0,0,1,15.51,0A6.51,6.51,0,0,1,29.8,9.19a77.53,77.53,0,0,1,0,11.2,6.61,6.61,0,0,1-6.66,6.07H19.48L12.63,31V26.46"
-                  ></path>
-                  <path
-                    d="M19.57,21.68h3.67a2.08,2.08,0,0,0,2.11-1.81,89.86,89.86,0,0,0,0-10.38,1.9,1.9,0,0,0-1.84-1.74,113.15,113.15,0,0,0-15,0A1.9,1.9,0,0,0,6.71,9.49a74.92,74.92,0,0,0-.06,10.38,2,2,0,0,0,2.1,1.81h3.81V26.5Z"
-                    class="comment-icon-path"
-                  ></path>
-                </svg>
-              </div>
-            </section>
             <div class="layout-header pt-5 pb-5 position-relative pc-model">
               <!-- ../static/image/loding.gif -->
               <div>
@@ -327,13 +244,15 @@
                           <el-button
                             v-else
                             :disabled="payBtnDisabled"
-                            @click="Download()"
+                            @click="NowDownload()"
                             type="primary"
                             class="btn btn-theme btn-round w-200 cursor mr-4"
                             ><i class="el-icon-download"></i>
                             立即下载(已支付)</el-button
                           >
                           <button
+                          v-if="!lovecheck"
+                          @click="loveClick()"
                             class="
                               btn btn-outline-theme btn-round
                               px-5
@@ -341,8 +260,22 @@
                               position-relative
                             "
                           >
-                            <i class="icon-thumbs-up fs-20 v-m-1 mr-1"></i>
-                            赞 (372)
+                              <img class="dianzan" src="../static/image/dianzan.svg" />
+                            赞 ({{ loveNum }})
+                            <span class="likeanimation">+1</span>
+                          </button>
+                            <button
+                            v-else
+                            @click="loveClick()"
+                            class="
+                              btn btn-outline-theme btn-round
+                              px-5
+                              zanUp
+                              position-relative
+                            "
+                          >
+                              <img class="dianzan" src="../static/image/dianzanred.svg" />
+                            赞 ({{ loveNum }})
                             <span class="likeanimation">+1</span>
                           </button>
                         </div>
@@ -360,10 +293,26 @@
                         device device-macbook-pro device-silver device-silver
                       "
                     >
-                      <div class="device-frame">
+                      <div v-if="carouselNum === 0" class="device-frame">
                         <el-carousel height="350px">
-                          <el-carousel-item v-for="item in carousel" :key="item">
-                            <img style="height:349px;width:576px" :src="item.url" ><img>
+                          <el-carousel-item v-for="item in 1" :key="item">
+                            <img
+                              style="height: 349px; width: 576px"
+                              :src="thumb"
+                            /><img />
+                          </el-carousel-item>
+                        </el-carousel>
+                      </div>
+                      <div v-else class="device-frame">
+                        <el-carousel height="350px">
+                          <el-carousel-item
+                            v-for="item in carousel"
+                            :key="item"
+                          >
+                            <img
+                              style="height: 349px; width: 576px"
+                              :src="item.url"
+                            /><img />
                           </el-carousel-item>
                         </el-carousel>
                       </div>
@@ -417,7 +366,7 @@
                             opacity-70
                           "
                         >
-                          75481
+                          {{ hits }}
                         </p>
                         <p class="text-uppercase fs-10 ls-2 mb-0 opacity-70">
                           次
@@ -459,7 +408,7 @@
                             opacity-70
                           "
                         >
-                          {{price}}积分
+                          {{ price }}积分
                         </p>
                         <p class="fs-10 ls-2 mb-0 opacity-70">money</p>
                       </div>
@@ -675,134 +624,85 @@
             </div>
             <!---->
             <!---->
-            <!---->
-            <!---->
           </div>
-          <div class="macwk-footer white border-top pc-model" data-v-ea53b530>
-            <div class="container" data-v-ea53b530>
-              <a href="/" class="logo" data-v-ea53b530
-                ><svg
-                  id="macwk-svg-logo"
-                  width="32"
-                  height="32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  data-v-6dd0b122
-                  data-v-ea53b530
-                >
-                  <title data-v-6dd0b122>MacWK</title>
-                  <defs data-v-6dd0b122>
-                    <linearGradient
-                      x1="50%"
-                      y1="0%"
-                      x2="50%"
-                      y2="100%"
-                      id="a"
-                      data-v-6dd0b122
-                    >
-                      <stop
-                        offset="0%"
-                        class="stop-color-circle"
-                        data-v-6dd0b122
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-circle"
-                        data-v-6dd0b122
-                      ></stop>
-                    </linearGradient>
-                    <linearGradient
-                      x1="100%"
-                      y1="86.198%"
-                      x2="-14.813%"
-                      y2="-4.357%"
-                      id="b"
-                      data-v-6dd0b122
-                    >
-                      <stop
-                        offset="0%"
-                        class="stop-color-default"
-                        data-v-6dd0b122
-                      ></stop>
-                      <stop
-                        offset="40.927%"
-                        class="stop-color-default"
-                        data-v-6dd0b122
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-default"
-                        data-v-6dd0b122
-                      ></stop>
-                    </linearGradient>
-                    <linearGradient
-                      x1="86.515%"
-                      y1="24.533%"
-                      x2="0%"
-                      y2="24.533%"
-                      id="c"
-                      data-v-6dd0b122
-                    >
-                      <stop
-                        stop-opacity="0"
-                        offset="0%"
-                        class="stop-color-default"
-                        data-v-6dd0b122
-                      ></stop>
-                      <stop
-                        offset="100%"
-                        class="stop-color-default-linearGradient"
-                        data-v-6dd0b122
-                      ></stop>
-                    </linearGradient>
-                  </defs>
-                  <g fill="none" fill-rule="evenodd" data-v-6dd0b122>
-                    <path
-                      d="M29.952 16c0-1.933-1.562-3.5-3.488-3.5a3.494 3.494 0 0 0-3.488 3.5c0 1.933 1.561 3.5 3.488 3.5a3.494 3.494 0 0 0 3.488-3.5"
-                      fill="url(#a)"
-                      data-v-6dd0b122
-                    ></path>
-                    <path
-                      d="M25.865 25.9a13.932 13.932 0 0 1-6.377 3.66c-1.115.286-2.284.44-3.488.44a13.893 13.893 0 0 1-10.512-4.797A13.968 13.968 0 0 1 2.048 16c0-3.523 1.298-6.742 3.44-9.203A13.893 13.893 0 0 1 16 2c1.204 0 2.373.154 3.488.44a13.932 13.932 0 0 1 6.377 3.66l-4.933 4.95A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7l.002.18C9.122 19.964 12.208 23 16 23c1.926 0 3.67-.784 4.932-2.05l4.933 4.95z"
-                      fill="url(#b)"
-                      data-v-6dd0b122
-                    ></path>
-                    <path
-                      d="M20.932 11.05A6.942 6.942 0 0 0 16 9c-3.852 0-6.976 3.134-6.976 7a13.98 13.98 0 0 1 4.087-9.9 13.932 13.932 0 0 1 6.377-3.66l1.444 8.61z"
-                      fill="url(#c)"
-                      data-v-6dd0b122
-                    ></path>
-                  </g>
-                </svg>
-                <span class="ml-4" data-v-ea53b530>MacWk</span></a
+          <!-- v-on:click="show = !show"
+                v-if="!show" -->
+          <div class="myVEmojiPicker">
+            <VEmojiPicker
+              v-show="showDialog"
+              :style="{ width: '340px', height: '200' }"
+              labelSearch="Search"
+              lang="pt-BR"
+              @select="onSelectEmoji"
+            />
+          </div>
+          <!-- 后台控制是否显示评论 -->
+          <!-- <div v-if="!this.glabledata.glableCommentShow">
+            <div v-show="!judjeComment"> -->
+          <section
+            v-if="mycomment"
+            @click="sendMsg"
+            class="
+              fiexd-comments-bar
+              d-flex
+              align-items-center
+              is-scroll
+              macwk-animation
+              slow
+              pc-model
+              tinRightIn
+            "
+          >
+            <div
+              class="
+                d-flex
+                align-items-center
+                fs-20
+                fw-700
+                cursor-pointer
+                w-full
+                pl-3
+              "
+            >
+              <div class="flex">
+                共
+                <span class="fs-36 mx-1"> {{ this.commentnum }}</span>
+                条评论
+              </div>
+              <svg
+                color="inherit"
+                viewbox="0 0 32 32"
+                class="w-32"
+                style="
+                  width: 1.5em;
+                  height: 1.5em;
+                  font-size: 2rem;
+                  vertical-align: -6px;
+                "
               >
-              <div class="nav" data-v-ea53b530>
-                <a href="/" class="nav-link" data-v-ea53b530>首页</a>
-                <a href="/about" class="nav-link" data-v-ea53b530>关于 </a
-                ><a href="/contact" class="nav-link" data-v-ea53b530>联系 </a
-                ><a href="/privacy" class="nav-link" data-v-ea53b530>隐私 </a
-                ><a href="/version" class="nav-link" data-v-ea53b530
-                  >版本检测 </a
-                ><a href="/changelogs" class="nav-link" data-v-ea53b530
-                  >更新日志
-                </a>
-              </div>
-              <div class="copyright" data-v-ea53b530>
-                <p class="mb-0" data-v-ea53b530>
-                  <span class="mr-3" data-v-ea53b530
-                    ><a
-                      href="https://beian.miit.gov.cn/"
-                      target="_blank"
-                      data-v-ea53b530
-                      >鲁ICP备19036164号</a
-                    ></span
-                  >
-                  <span data-v-ea53b530
-                    >Macwk.com © 2019. All rights reserved.</span
-                  >
-                </p>
-              </div>
+                <path
+                  fill="#FFFFFF"
+                  d="M12.63,26.46H8.83a6.61,6.61,0,0,1-6.65-6.07,89.05,89.05,0,0,1,0-11.2A6.5,6.5,0,0,1,8.23,3.25a121.62,121.62,0,0,1,15.51,0A6.51,6.51,0,0,1,29.8,9.19a77.53,77.53,0,0,1,0,11.2,6.61,6.61,0,0,1-6.66,6.07H19.48L12.63,31V26.46"
+                ></path>
+                <path
+                  d="M19.57,21.68h3.67a2.08,2.08,0,0,0,2.11-1.81,89.86,89.86,0,0,0,0-10.38,1.9,1.9,0,0,0-1.84-1.74,113.15,113.15,0,0,0-15,0A1.9,1.9,0,0,0,6.71,9.49a74.92,74.92,0,0,0-.06,10.38,2,2,0,0,0,2.1,1.81h3.81V26.5Z"
+                  class="comment-icon-path"
+                ></path>
+              </svg>
             </div>
-          </div>
+          </section>
+          <!-- </div>
+          </div> -->
+          <comment
+            :articleId="this.$route.params.id"
+            :theEmoge="this.MyEmoge"
+            ref="child"
+            @closethecpmmentName="updateDate()"
+            @openthecpmmentName="showemoge()"
+          />
+          <!---->
+          <!---->
+          <foot />
           <div infos="0">
             <div
               class="
@@ -821,12 +721,14 @@
 </template>
 
 <script>
+import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
 import top from './components/Top.vue'
 import foot from './components/Foots.vue'
-import comment from './components/Comment.vue'
+import comment from './components/ResComment.vue'
 
-import { getResourceById } from '@/api/webresource'
+import { getResourceCommentnum } from '@/api/webresourceComment'
+import { getResourceById, loveresource } from '@/api/webresource'
 import { getResourceClassNameByid } from '@/api/webresourceclass'
 
 import { formatDate, GetWeekdate } from '@/utils/date.js'
@@ -838,7 +740,7 @@ export default {
 
   name: 'Resource',
   components: {
-    top, foot, comment
+    top, foot, comment, VEmojiPicker
 
   },
   created() {
@@ -853,13 +755,60 @@ export default {
     }
 
     //获取资源评论数量
-    getArticleCommentnum(this.$route.params.id).then(resp => {
+    getResourceCommentnum(this.$route.params.id).then(resp => {
       this.commentnum = resp.data
     })
   },
 
   methods: {
-
+    loveClick() {
+      if (!this.lovecheck) {
+        if (this.firstLoveFlag) {
+          loveresource(this.$route.params.id).then(resp => {
+          })
+          this.firstLoveFlag = false
+        }
+        this.$notify({
+          title: '点赞成功👍',
+          message: '您的赞我们已经收到🫡',
+          type: 'success',
+          offset: 50
+        });
+        this.loveNum += 1
+        this.lovecheck = true
+      }
+      else {
+        this.$notify({
+          title: '取消点赞',
+          message: '是什么让您不喜欢了吗，我道歉',
+          type: 'success',
+          offset: 50
+        });
+        this.loveNum -= 1
+        this.lovecheck = false
+      }
+    },
+    onSelectEmoji(emoji) {
+      this.MyEmoge = emoji.data;
+    },
+    showemoge() {
+      // console.log("show")
+      this.showDialog = !this.showDialog;
+    },
+    sendMsg() {
+      this.$refs.child.getMsg('true');
+      this.mycomment = false;
+    },
+    updateDate() {
+      //关闭表情
+      this.showDialog = false
+      // console.log(data.show)
+      this.mycomment = true;
+      // console.log("调用了父组件的方法")
+      // this.show1 = data.show;
+      //改变了父组件的值
+      // console.log('toCity:'+this.show1)
+    },
     formatDate(time) {
       let data = new Date(time)
       return formatDate(data, 'yyyy-MM-dd hh:mm ')
@@ -894,6 +843,10 @@ export default {
             type: 'success',
             offset: 50
           });
+          // 三秒后跳转到订单列表
+          setTimeout(() => {
+            this.$router.push({ path: '/download/' + this.$route.params.id })
+          }, 500)
         }
       })
     },
@@ -959,8 +912,6 @@ export default {
       this.PaymentDialogVisibleTemp = false
       this.PaymentDialogVisibleLogin = false
       //打开对应支付页面
-      console.log("123123")
-
       //支付宝支付
       if (this.payOrder.payType === 'alipay') {
         this.aliDialogVisible = true
@@ -998,6 +949,12 @@ export default {
 
       }
     },
+    NowDownload() {
+      setTimeout(() => {
+        this.$router.push({ path: '/download/' + this.$route.params.id })
+      }, 500)
+
+    },
     Download() {
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.userJudje = (user == null)
@@ -1007,7 +964,6 @@ export default {
         console.log("游客购买")
         //禁用按钮，防止重复提交
         this.payBtnDisabled = true
-
         //打开支付方式选择
         this.PaymentDialogVisibleTemp = true
 
@@ -1025,6 +981,11 @@ export default {
     fetchData(id) {
       getResourceById(id).then(resp => {
         console.log(resp)
+        this.hits = resp.data.hits
+        this.loveNum = resp.data.loveNum
+        if(this.loveNum == null){
+          this.loveNum = 0
+        }
         this.thumb = resp.data.thumb
         this.title = resp.data.title
         this.price = resp.data.price
@@ -1033,6 +994,7 @@ export default {
         this.intro = resp.data.intro
 
         var str = JSON.parse(resp.data.carousel)
+        this.carouselNum = str.length
         this.carousel = str
         console.log(this.carousel)
         var sortClasss = resp.data.sortClass
@@ -1072,7 +1034,16 @@ export default {
   },
   data() {
     return {
-      carousel:[],
+      lovecheck: false,
+      firstLoveFlag: true,
+      loveNum: "",
+      hits: "",
+      carouselNum: "",
+      commentnum: "",
+      MyEmoge: "",
+      showDialog: false,
+      mycomment: true,
+      carousel: [],
       className: "",
       sortClass: "",
       Theweeks: "",
@@ -1115,6 +1086,34 @@ export default {
 </style>
   
 <style scoped>
+.myVEmojiPicker ::v-deep.category {
+  background: none;
+}
+.myVEmojiPicker ::v-deep .border {
+  border: 0px solid hsla(210, 8%, 51%, 0.09) !important;
+}
+.myVEmojiPicker ::v-deep .myVEmojiPicker[data-v-3bfe90b7] .border {
+  border: 0px solid hsla(210, 8%, 51%, 0.09) !important;
+}
+
+.myVEmojiPicker ::v-deep .category.active[data-v-6d975e7c] {
+  border-bottom: 3px solid #50a1ff;
+}
+.myVEmojiPicker ::v-deep .grid-emojis[data-v-5c988bee] {
+  background: #ffffff;
+}
+.myVEmojiPicker ::v-deep .emoji-picker[data-v-f1d527bc] {
+  --ep-color-bg: #ffffff;
+  --ep-color-sbg: none;
+}
+.myVEmojiPicker {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 390px;
+  bottom: 20px;
+  z-index: 10;
+}
 .alipaybig_icon {
   display: inline-block;
   width: 120px;
@@ -1217,18 +1216,22 @@ export default {
   z-index: 1;
 }
 .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 150px;
-    margin: 0;
-  }
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
+}
 
-  .el-carousel__item:nth-child(2n) {
-     background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-     background-color: #d3dce6;
-  }
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+.dianzan{
+  weight:25px;
+  height:25px;
+}
 </style>

@@ -17,13 +17,13 @@
               <img src="../static/picture/movist.png" alt="" class="people">
               <div class="container">
                 <h1 class="fw-600 text-center">IceCMS - 为工作而生。</h1>
-                <p class="sub-title text-center fs-20">只提供精品Mac应用，站长款款测试，免费、安全、无广告、不限速。</p>
+                <p class="sub-title text-center fs-20">只提供精品资源，站长款款测试，免费、安全、无广告、不限速。</p>
                 <div class="inner-container">
                   <div class="main-content">
                     <div class="macwk-about-slider">
                       <div class="item">
                         <p>在 <span class="fw-600 text-primary fs-22">MacWk.com</span>，</p>
-                        <p>不但有众多业界所推崇的主流软件，</p>
+                        <p>立即下载</p>  <el-button type="success" plain>下载</el-button>
                         <p>还有许多你不曾了解的小众精品软件。</p>
                         <p>它们是工具，</p>
                         <p>可以帮助你轻松学习、高效工作；</p>
@@ -122,6 +122,10 @@ import foot from './components/Foots.vue'
 export default ({
   name: 'Home',
 components: {top, foot},
+  created() {
+    console.log( this.$route.params.id)
+   
+  },
   data() {
     return {
       acticve:'nav-link active',

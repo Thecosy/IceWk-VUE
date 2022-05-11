@@ -99,7 +99,7 @@
             ></path>
           </g>
         </svg>
-        <span class="ml-4" data-v-ea53b530="">MacWk</span></a
+        <span class="ml-4" data-v-ea53b530="">{{this.glabledata.glableSitTitle}}</span></a
       >
       <div class="nav" data-v-ea53b530="">
         <router-link to="/">
@@ -133,14 +133,28 @@
               href="https://beian.miit.gov.cn/"
               target="_blank"
               data-v-ea53b530=""
-              >鲁ICP备19036164号</a
+              >{{this.glabledata.glableBeian}}</a
             ></span
           >
           <span data-v-ea53b530=""
-            >Macwk.com &copy; 2019. All rights reserved.</span
+            >{{this.glabledata.glableBanquan}}</span
           >
         </p>
       </div>
     </div>
   </div>
 </template>
+<script>
+
+import {mapState,mapMutations} from 'vuex'
+
+export default ({
+  name: 'Foots',
+  setup() {
+    
+  },
+    computed:{
+       ...mapState(['playlist','glabledata','count'])
+        },
+})
+</script>

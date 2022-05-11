@@ -168,8 +168,28 @@
             </div>
           </el-col>
         </el-row>
-        <h4>设置价格</h4>
-        <el-input style="width: 220px" v-model="price" placeholder="请输入价格"></el-input>元
+         <el-row>
+        <el-col :span="24">
+          <div class="postInfo-container">
+            <el-row>
+              <el-col :span="8">
+               <h4>设置价格</h4>
+        <el-input style="width: 220px" v-model="postForm.price" placeholder="请输入价格"></el-input>元
+              </el-col>
+
+              <el-col :span="10">
+                <h4>资源链接</h4>
+        <el-input style="width: 320px" v-model="postForm.resAddress" placeholder="请输入链接"></el-input>
+              </el-col>
+
+              <el-col :span="6">
+                 <h4>资源密码</h4>
+        <el-input style="width: 120px" v-model="postForm.resPassword" placeholder="请输入密码"></el-input></el-col>
+            </el-row>
+          </div>
+        </el-col>
+      </el-row>
+        
         <h4>是否付费</h4>
         <el-switch
           v-model="isfree"
@@ -299,7 +319,6 @@ export default {
       }
     }
     return {
-      price:"",
       fileList: [],
       imageList: [],
       newFile:new FormData(), //   1. 定义一个newFile变量（FormData 对象） 
@@ -423,6 +442,7 @@ export default {
     async fetchData(id) {
       getResourceById(id).then(response => {
         this.postForm = response.data
+         this.postForm.price = response.data.price/100
         this.postForm.articleStatus = response.data.articleStatus
         //根据classId查询对应的名称
         getClassNameById(response.data.sortClass).then(response => {
@@ -455,10 +475,11 @@ export default {
           var image = JSON.stringify(this.imageList);
           that.postForm.carousel=image
           that.postForm.isFree = this.isfree
-          that.postForm.price = this.price*100
+          that.postForm.price = this.postForm.price*100
           createResource(that.postForm).then(resp => {
             //做一个简单的返回数据判断
             if (resp.status === 200) {
+              that.postForm.price = this.postForm.price/100
               this.$notify({
                 title: '成功',
                 message: '发布文章成功',
@@ -471,10 +492,12 @@ export default {
               this.postForm.status = 'published'
               this.loading = false
             } else {
+              that.postForm.price = this.postForm.price/100
               console.log("保存失败")
             }
           })
             .catch((e) => {
+              that.postForm.price = this.postForm.price/100
               console.log('error submit!!')
               this.postForm.status = 'draft'
               this.loading = false
@@ -490,6 +513,7 @@ export default {
           console.log('error submit!!')
           return false
         }
+        
       })
     },
     draftForm() {

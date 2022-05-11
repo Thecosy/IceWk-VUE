@@ -681,11 +681,9 @@
   </transition>
 </template>
 <script>
-import { getallArticleComment } from '@/api/webarticleComment'
-import { addArticleComment } from '@/api/webarticleComment'
- 
-import { validEmail } from '@/utils/validate.js'
+import { getallResourceComment,addResourceComment } from '@/api/webresourceComment'
 
+import { validEmail } from '@/utils/validate.js'
 import { formatDate } from '@/utils/date.js'
 import { VEmojiPicker, emojisDefault, categoriesDefault } from "v-emoji-picker";
 
@@ -704,7 +702,7 @@ export default ({
   },
   created() {
     //获取评论数据
-    getallArticleComment(this.articleId).then(resp => {
+    getallResourceComment(this.articleId).then(resp => {
       this.comment = resp.data
     })
     //判断是否登陆显示临时登录框
@@ -721,7 +719,7 @@ export default ({
       form: {
         content: "",
         useaname: "",
-        articleId: this.articleId,
+        resourceId: this.articleId,
         profile: "",
         userId: "",
       },
@@ -775,6 +773,7 @@ export default ({
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.form.content = this.contentarea
       if(user !== null){
+        console.log(user.data)
         this.form.username = user.data.name
         this.form.email = user.data.email
         this.form.userId = user.data.userid
@@ -783,11 +782,11 @@ export default ({
         this.form.email = temp.email
        
       }
-      addArticleComment(this.form).then(resp => {
+      addResourceComment(this.form).then(resp => {
       })
       //刷新
       setTimeout(() => {
-        getallArticleComment(this.articleId).then(resp => {
+        getallResourceComment(this.articleId).then(resp => {
           this.comment = resp.data
         })
       }, 200)
