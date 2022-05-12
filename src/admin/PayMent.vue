@@ -620,7 +620,7 @@ text-align:center;
 .el-dialog--center .el-dialog__body{
   border-radius:10px;
   text-align:initial;
-  background-color:#E0E0E0;
+  background-color:#FFF;
 }
 .el-dialog__header{
   display:none;

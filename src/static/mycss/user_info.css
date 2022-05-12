@@ -389,8 +389,7 @@ mark, ins {
 	color:green
 }
 .box,.side-fixed{
-	background-color: #fff;
-	box-shadow: 0px 0px 2px rgb(98 124 153 / 10%);
+	background-color: #fff!important;
 	position: relative;
 }
 .button.empty.box{
@@ -1749,7 +1748,6 @@ input:-webkit-autofill {
 /*闂傚倸鍊搁崐椋庣矆娓氣偓瀹曘儳鈧綆鍏橀崑鎾剁箔濞戞ɑ鍣归柛銊︾箞閹﹢鎮欓崹顐ｇ彧闂佸搫妫寸粻鎾诲蓟閵娾晜鍋嗛柛灞剧☉椤忥拷 menu-2*/
 .top-menu-ul .box{
     transition:initial;
-    box-shadow: 0 3px 3px rgba(26,26,26,.1);
     transform: translateY(10px);
     box-sizing: border-box;
 }

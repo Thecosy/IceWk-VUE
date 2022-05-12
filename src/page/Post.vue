@@ -543,6 +543,20 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import "../static/mycss/body.css";
+
+.chat-container {
+    z-index: 20!important;
+    border-radius: 10px!important;
+    -webkit-box-shadow: 0 5px 25px 0 rgb(0 0 0 / 13%)!important;
+    box-shadow: 0 5px 25px 0 rgb(0 0 0 / 13%)!important;
+    background-color: #fff!important;
+    width: 360px!important;
+    height: 80%!important;
+    left: auto!important;
+    right: 20px!important;
+    bottom: 20px!important;
+}
+
 .myVEmojiPicker ::v-deep.category {
   background: none;
 }

@@ -681,6 +681,7 @@ export default ({
 @import "../static/mycss/user_info.css";
 
 </style>
+
 <style scoped>
 .delayImg {
   height: 100px;

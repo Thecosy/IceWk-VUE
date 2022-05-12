@@ -88,6 +88,17 @@ import {
   Tabs,
   TabPane,
   Tag,
+  Switch,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
+  Rate,
+  Radio,
+  RadioGroup,
+  RadioButton,
  
   Breadcrumb,
   BreadcrumbItem,
@@ -147,6 +158,17 @@ Vue.use(Header);
 Vue.use(Aside);
 Vue.use(Main);
 Vue.use(Footer);
+Vue.use(Switch);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(Checkbox);
+Vue.use(CheckboxButton);
+Vue.use(CheckboxGroup);
+Vue.use(Rate);
+Vue.use(Radio);
+Vue.use(RadioGroup);
+Vue.use(RadioButton);
 Vue.prototype.$notify = Notification;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;
@@ -157,24 +179,13 @@ Vue.prototype.$loading = Loading.service;
 
 Vue.use(Pagination);
 Vue.use(Autocomplete);
-Vue.use(Dropdown);
-Vue.use(DropdownMenu);
-Vue.use(DropdownItem);
 Vue.use(InputNumber);
-Vue.use(Radio);
-Vue.use(RadioGroup);
-Vue.use(RadioButton);
-Vue.use(Checkbox);
-Vue.use(CheckboxButton);
-Vue.use(CheckboxGroup);
-Vue.use(Switch);
 Vue.use(Tooltip);
 Vue.use(Tree);
 Vue.use(Alert);
 Vue.use(Icon);
 Vue.use(Spinner);
 Vue.use(Badge);
-Vue.use(Rate);
 Vue.use(Steps);
 Vue.use(Step);
 Vue.use(Collapse);

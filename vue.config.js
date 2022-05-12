@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
-
+const CompressionPlugin = require('compression-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -48,15 +48,14 @@ module.exports = {
     }
     // before: require('./mock/mock-server.js')
   },
-  configureWebpack: {
-
-
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      return {
+        plugins: [new CompressionPlugin({
+          test: /\.js$|\.html$|\.css/, //匹配文件名
+          threshold: 10240, //对超过10K的数据进行压缩
+          deleteOriginalAssets: false //是否删除原文件
+        })]
       }
     }
   },
