@@ -38,6 +38,19 @@
                 src="../static/image/pay/weixinzhifu.svg"
               /><span>微信支付</span>
             </div>
+             <div
+              @click="selectPayTypeLogin('wxpay')"
+              class="pay-item"
+              id="weixinpay"
+              data-type="2"
+            >
+              <img
+                style="margin: 12px"
+                height="40"
+                width="40"
+                src="../static/image/pay/jifen.svg"
+              /><span>积分支付</span>
+            </div>
           </div>
           <p style="font-size: 13px; padding: 0; margin: 0"></p>
         </div>
@@ -236,8 +249,8 @@
                             v-if="payJudej"
                             :disabled="payBtnDisabled"
                             @click="Download()"
-                            type="primary"
                             class="btn btn-theme btn-round w-200 cursor mr-4"
+                            round
                             ><i class="el-icon-download"></i>
                             支付下载</el-button
                           >
@@ -245,14 +258,14 @@
                             v-else
                             :disabled="payBtnDisabled"
                             @click="NowDownload()"
-                            type="primary"
                             class="btn btn-theme btn-round w-200 cursor mr-4"
+                            round
                             ><i class="el-icon-download"></i>
                             立即下载(已支付)</el-button
                           >
                           <button
-                          v-if="!lovecheck"
-                          @click="loveClick()"
+                            v-if="!lovecheck"
+                            @click="loveClick()"
                             class="
                               btn btn-outline-theme btn-round
                               px-5
@@ -260,11 +273,14 @@
                               position-relative
                             "
                           >
-                              <img class="dianzan" src="../static/image/dianzan.svg" />
+                            <img
+                              class="dianzan"
+                              src="../static/image/dianzan.svg"
+                            />
                             赞 ({{ loveNum }})
                             <span class="likeanimation">+1</span>
                           </button>
-                            <button
+                          <button
                             v-else
                             @click="loveClick()"
                             class="
@@ -274,7 +290,10 @@
                               position-relative
                             "
                           >
-                              <img class="dianzan" src="../static/image/dianzanred.svg" />
+                            <img
+                              class="dianzan"
+                              src="../static/image/dianzanred.svg"
+                            />
                             赞 ({{ loveNum }})
                             <span class="likeanimation">+1</span>
                           </button>
@@ -358,6 +377,7 @@
                           下载
                         </p>
                         <p
+                        v-if="hits == null" 
                           class="
                             mb-0
                             fs-20
@@ -366,6 +386,20 @@
                             opacity-70
                           "
                         >
+                        
+                          0
+                        </p>
+                         <p
+                          v-else
+                          class="
+                            mb-0
+                            fs-20
+                            font-weight-bolder
+                            line-height-3
+                            opacity-70
+                          "
+                        >
+                        
                           {{ hits }}
                         </p>
                         <p class="text-uppercase fs-10 ls-2 mb-0 opacity-70">
@@ -428,10 +462,12 @@
                             hover-opacity-normal
                           "
                         >
-                          <a href="/soft/enhancement/p1">
+                        <router-link :to="'/classdetal/' + sortClasss">
+                          <a >
                             {{ className }}
                             <i class="icon-arrow-r text-muted"></i
                           ></a>
+                          </router-link>
                         </p>
                         <p class="fs-10 ls-2 mb-0 opacity-70">enhancement</p>
                       </div>
@@ -811,7 +847,7 @@ export default {
     },
     formatDate(time) {
       let data = new Date(time)
-      return formatDate(data, 'yyyy-MM-dd hh:mm ')
+      return formatDate(data, 'yyyy-MM-dd ')
     },
     queryOrderStatusBytrues(resourceid, userid) {
       orderInfoApi.queryOrderStatusBytrue(userid, resourceid).then(response => {
@@ -983,7 +1019,7 @@ export default {
         console.log(resp)
         this.hits = resp.data.hits
         this.loveNum = resp.data.loveNum
-        if(this.loveNum == null){
+        if (this.loveNum == null) {
           this.loveNum = 0
         }
         this.thumb = resp.data.thumb
@@ -996,8 +1032,8 @@ export default {
         var str = JSON.parse(resp.data.carousel)
         this.carouselNum = str.length
         this.carousel = str
-        console.log(this.carousel)
         var sortClasss = resp.data.sortClass
+         this.sortClasss = sortClasss
         //根据classid获取分类名称
         getResourceClassNameByid(sortClasss).then(resp => {
           this.className = resp.data;
@@ -1045,6 +1081,7 @@ export default {
       mycomment: true,
       carousel: [],
       className: "",
+      sortClasss: "",
       sortClass: "",
       Theweeks: "",
       weeks: {
@@ -1060,7 +1097,7 @@ export default {
       payJudej: true,
       payBtnDisabled: false,
       orderNo: "",
-      codeUrl: "",
+      codeUrl: "url",
       payOrder: { //订单信息
         productId: '', //商品id
         payType: 'wxpay' //支付方式
@@ -1083,16 +1120,16 @@ export default {
 <style scoped>
 @import "../static/mycss/body.css";
 .chat-container {
-    z-index: 20!important;
-    border-radius: 10px!important;
-    -webkit-box-shadow: 0 5px 25px 0 rgb(0 0 0 / 13%)!important;
-    box-shadow: 0 5px 25px 0 rgb(0 0 0 / 13%)!important;
-    background-color: #fff!important;
-    width: 360px!important;
-    height: 80%!important;
-    left: auto!important;
-    right: 20px!important;
-    bottom: 20px!important;
+  z-index: 20 !important;
+  border-radius: 10px !important;
+  -webkit-box-shadow: 0 5px 25px 0 rgb(0 0 0 / 13%) !important;
+  box-shadow: 0 5px 25px 0 rgb(0 0 0 / 13%) !important;
+  background-color: #fff !important;
+  width: 360px !important;
+  height: 80% !important;
+  left: auto !important;
+  right: 20px !important;
+  bottom: 20px !important;
 }
 </style>
   
@@ -1177,7 +1214,7 @@ export default {
 .el-dialog--center .el-dialog__body {
   border-radius: 10px;
   text-align: initial;
-  background-color: #FFF;
+  background-color: #fff;
 }
 .el-dialog__header {
   display: none;
@@ -1241,8 +1278,8 @@ export default {
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
-.dianzan{
-  weight:25px;
-  height:25px;
+.dianzan {
+  weight: 25px;
+  height: 25px;
 }
 </style>

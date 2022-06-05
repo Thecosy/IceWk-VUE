@@ -26,6 +26,14 @@ export default {
     })
   },
 
+    //Native下单(登陆)
+    nativePayVipIntegralLogin(price, userid) {
+      return request({
+        url: '/Pay-api/wx-pay/vipIntegral-native/' + price + '/' + userid,
+        method: 'post'
+      })
+    },
+  
   cancel(orderNo) {
     return request({
       url: '/Pay-api/wx-pay/cancel/' + orderNo,
@@ -40,3 +48,4 @@ export default {
     })
   }
 }
+

@@ -18,6 +18,7 @@
               <div class="container">
                 <div class="row">
                   <div v-for="item in classlist" :key="item.id" class="col-3 delay-0 list-animation-leftIn">
+                      <router-link :target="istarget" :to="'/classdetal/' + item.id">
                     <a  class="cursor-pointer"
                       ><div class="single-special-member">
                         <div class="wrapper">
@@ -44,6 +45,7 @@
                           </p>
                         </div></div
                     ></a>
+                     </router-link >
                   </div>
                 </div>
                 <div class="clearfix pt-8"></div>

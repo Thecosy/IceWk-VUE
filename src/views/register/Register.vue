@@ -12,7 +12,7 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">冰激凌CMS后台管理</h3>
+        <h3 class="title">注册</h3>
       </div>
 
       <el-form-item prop="username">
@@ -57,7 +57,7 @@
         type="primary"
         style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
-        >登陆</el-button
+        >注册</el-button
       >
 
       <div class="tips">
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { loginAdmin } from '@/api/login'
+import { register } from '@/api/register'
 
 export default {
   name: 'Login',
@@ -133,20 +133,20 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          loginAdmin(that.loginForm).then(resp => {
-            console.log(resp)
+          register(that.loginForm).then(resp => {
             if (resp.data.code == 402 || resp.data.code == 400) {
               that.$message({
-                message: '登陆失败',
+                message: '用户名已经存在',
                 type: 'warning'
               })
             } else if (resp.data.code == 200) {
-              localStorage.setItem('access-admin', JSON.stringify(resp.data))
-              that.$router.push({ path: '/admin' }) // 跳到账号管理
+              that.$router.push({ path: '/' }) // 跳到主页
               that.$message({
-                message: '登陆成功',
+                message: '注册成功',
                 type: 'success'
               })
+              //登陆
+               localStorage.setItem('access-admin', JSON.stringify(resp.data))
             }
           }).catch((e) => { })
           this.loading = false

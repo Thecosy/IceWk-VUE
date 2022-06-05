@@ -41,3 +41,10 @@ export function loveresource(id) {
     method: 'get',
   })
 }
+
+export function getResourceByClass(id) {
+  return request({
+    url: '/WebResource/getResourceByClassId/'+ id ,
+    method: 'get',
+  })
+}

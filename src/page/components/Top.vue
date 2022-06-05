@@ -84,7 +84,15 @@
           </div>
           <div data-v-11bb2e85="" class="line"></div>
           <div data-v-11bb2e85="" class="footer">
-            <p data-v-11bb2e85="" class="text-align-center">其他登录方式</p>
+            <p data-v-11bb2e85="" class="text-align-center">
+              其他登录方式
+              <a style="text-decoration: none">或</a>
+              <router-link to="/register">
+                <a data-v-11bb2e85="" class="text-align-center"
+                  >立即注册</a
+                ></router-link
+              >
+            </p>
             <div data-v-11bb2e85="" class="other-login">
               <button data-v-11bb2e85="" class="btn-login circle weixin">
                 <img class="qqloginsvg" src="../../static/image/qq.svg" />
@@ -121,7 +129,9 @@
             aria-current="page"
           >
             <img src="../../static/image/logo.svg" />
-            <span data-v-122eae44="">{{this.glabledata.glableSitTitle}}</span></a
+            <span data-v-122eae44="">{{
+              this.glabledata.glableSitTitle
+            }}</span></a
           >
         </router-link>
         <div class="app-header-nav nav" data-v-122eae44="">
@@ -541,7 +551,7 @@ import { login } from '@/api/login'
 import { getAllResource, getAllResourceNumber } from '@/api/webresource'
 import { getAllArticle, getAllArticleNumber } from '@/api/webarticle'
 
-import {mapState,mapMutations} from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default ({
   name: 'Top',
@@ -549,9 +559,9 @@ export default ({
   setup() {
 
   },
-  computed:{
-       ...mapState(['playlist','glabledata','count'])
-        },
+  computed: {
+    ...mapState(['playlist', 'glabledata', 'count'])
+  },
   created() {
     this.getUserInfo()
     //检测token是否有效
@@ -1400,5 +1410,12 @@ export default ({
 <style >
 .el-dialog--center {
   border-radius: 10px;
+}
+.other-login {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 </style>

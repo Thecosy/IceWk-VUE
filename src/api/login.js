@@ -7,3 +7,11 @@ export function login(data) {
     params: data
   })
 }
+
+export function loginAdmin(data) {
+  return request({
+    url: '/User/loginAdmin',
+    method: 'get',
+    params: data
+  })
+}

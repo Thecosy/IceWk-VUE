@@ -1,8 +1,7 @@
 <template>
   <div class="bg-fa of">
     <section id="index" class="container">
-
-      <el-table :data="list" border style="width: 100%">
+      <el-table :data="list"  style="width: 100%">
         <el-table-column type="index" width="50"></el-table-column>
         <el-table-column prop="orderNo" label="订单编号" width="230" ></el-table-column>
         <el-table-column prop="title" label="订单标题"></el-table-column>
@@ -137,6 +136,13 @@ export default {
 };
 </script>
 <style scoped>
+.homeContent {
+  margin-top: 40px;
+}
+.home {
+  background-color: #ffffff;
+  border-radius: 13px;
+}
 #header {
     background-color: #fff;
     box-shadow: 0 2px 3px rgb(7 0 2 / 4%);

@@ -23,6 +23,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/register',
+    component: () => import('@/views/register/Register'),
+    hidden: true
+  },
+  {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
@@ -65,6 +70,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/classdetal/:id(\\d+)',
+    component: () => import('@/page/ClassDetal'),
+    hidden: true
+  },
+  {
     path: '/planet',
     component: () => import('@/page/Planet'),
     hidden: true
@@ -73,15 +83,35 @@ export const constantRoutes = [
     path: '/userinfo',
     component: () => import('@/page/UserInfo'),
     hidden: true,
-    children:[
+    children: [
       {
-        path:'/userinfo/index',
+        path: '/userinfo/index',
         component: () => import('@/page/UserComponents/Info'),
       },
       {
-        path:'/userinfo/payInfo',
+        path: '/userinfo/post',
+        component: () => import('@/page/UserComponents/post'),
+      },
+      {
+        path: '/userinfo/payInfo',
         component: () => import('@/page/UserComponents/payInfo'),
-      } 
+      },
+      {
+        path: '/userinfo/charge',
+        component: () => import('@/page/UserComponents/charge'),
+      },
+      {
+        path: '/userinfo/vip',
+        component: () => import('@/page/UserComponents/vip'),
+      },
+      {
+        path: '/userinfo/changePw',
+        component: () => import('@/page/UserComponents/changePw'),
+      },
+      {
+        path: '/userinfo/star',
+        component: () => import('@/page/UserComponents/star'),
+      },
     ]
   },
   {
@@ -282,13 +312,13 @@ export const constantRoutes = [
         path: 'AdminInfo',
         component: () => import('@/admin/AdminInfo'),
         name: '管理员信息',
-        meta: { title: '管理员信息', icon:'el-icon-s-custom'}
+        meta: { title: '管理员信息', icon: 'el-icon-s-custom' }
       },
       {
         path: 'RoleEdit',
         component: () => import('@/admin/RoleEdit'),
         name: '角色管理',
-        meta: { title: '角色管理', icon:'el-icon-s-check' }
+        meta: { title: '角色管理', icon: 'el-icon-s-check' }
       },
       {
         path: 'avatar-upload',
@@ -314,19 +344,19 @@ export const constantRoutes = [
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: '商城总览',
-        meta: { title: '商城总览',icon:'el-icon-s-check' }
+        meta: { title: '商城总览', icon: 'el-icon-s-check' }
       },
       {
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: '会员管理',
-        meta: { title: '会员管理',icon:'el-icon-star-off' }
+        meta: { title: '会员管理', icon: 'el-icon-star-off' }
       },
       {
         path: 'OrderMent',
         component: () => import('@/admin/OrderMent'),
         name: '订单管理',
-        meta: { title: '订单管理',icon:'el-icon-s-shop' }
+        meta: { title: '订单管理', icon: 'el-icon-s-shop' }
       },
       {
         path: 'PayMent',
@@ -352,13 +382,13 @@ export const constantRoutes = [
         path: 'Webset',
         component: () => import('@/admin/WebSet'),
         name: '网站信息',
-        meta: { title: '网站信息',icon:'el-icon-info' }
+        meta: { title: '网站信息', icon: 'el-icon-info' }
       },
       {
         path: 'avatar-upload',
         component: () => import('@/admin/avatar-upload'),
         name: '友情链接',
-        meta: { title: '友情链接',icon:'el-icon-sugar' }
+        meta: { title: '友情链接', icon: 'el-icon-sugar' }
       }
     ]
   },
