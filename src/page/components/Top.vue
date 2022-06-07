@@ -391,7 +391,7 @@
                     <p>
                       <span class="user-vips"
                         ><i style="border-color: #ff8223"></i
-                        ><b style="color: #ff8223">永久会员</b></span
+                        ><b v-show="vipTrue" style="color: #ff8223">会员</b></span
                       >
                     </p>
                     <p>
@@ -551,6 +551,8 @@ import { login } from '@/api/login'
 import { getAllResource, getAllResourceNumber } from '@/api/webresource'
 import { getAllArticle, getAllArticleNumber } from '@/api/webarticle'
 
+import { CheckVip } from '@/api/user'
+
 import { mapState, mapMutations } from 'vuex'
 
 export default ({
@@ -597,6 +599,12 @@ export default ({
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
       this.user = user.data
       this.userJudje = (user == null)
+      //获取会员有效性
+      CheckVip(user.data.userid).then(resp => {
+        if(resp.data){ 
+          this.vipTrue = true
+        }
+      })
     },
     handleLogin() {
       var that = this
@@ -733,6 +741,7 @@ export default ({
 
   data() {
     return {
+      vipTrue: false,
       articleCount: "",
       ResourceNumber: "",
       howto: '/list/',

@@ -25,6 +25,22 @@ export default {
     })
   },
 
+  //ftof下单(VipIntegral)
+  ftofPayVipIntegralLogin(price, userid) {
+    return request({
+      url: '/Pay-api/ali-pay/vipIntegral-ftof/' + price + '/' + userid,
+      method: 'post'
+    })
+  },
+
+  //ftof下单(Vip)
+  ftofPayForVipLogin(price, userid, payid) {
+    return request({
+      url: '/Pay-api/ali-pay/vip-ftof/' + price + '/' + userid + '/' + payid,
+      method: 'post'
+    })
+  },
+
   cancel(orderNo) {
     return request({
       url: '/Pay-api/ali-pay/cancel/' + orderNo,

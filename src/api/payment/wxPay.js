@@ -26,14 +26,22 @@ export default {
     })
   },
 
-    //Native下单(登陆)
-    nativePayVipIntegralLogin(price, userid) {
-      return request({
-        url: '/Pay-api/wx-pay/vipIntegral-native/' + price + '/' + userid,
-        method: 'post'
-      })
-    },
-  
+  //Native下单(VipIntegral)
+  nativePayVipIntegralLogin(price, userid) {
+    return request({
+      url: '/Pay-api/wx-pay/vipIntegral-native/' + price + '/' + userid,
+      method: 'post'
+    })
+  },
+
+  //Native下单(Vip)
+  nativePayVipLogin(price, userid , payid) {
+    return request({
+      url: '/Pay-api/wx-pay/vip-native/' + price + '/' + userid + '/' + payid,
+      method: 'post'
+    })
+  },
+
   cancel(orderNo) {
     return request({
       url: '/Pay-api/wx-pay/cancel/' + orderNo,

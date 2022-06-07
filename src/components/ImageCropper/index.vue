@@ -947,7 +947,7 @@ export default {
   box-sizing: border-box;
   padding: 35px;
   height: 170px;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.247);
   text-align: center;
   border: 1px dashed rgba(0, 0, 0, 0.08);
   overflow: hidden;

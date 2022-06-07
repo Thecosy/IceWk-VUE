@@ -174,7 +174,7 @@
                           </router-link>
                         </div>
                         <div @click="hanceXiu()" class="user-sidebar">
-                          <router-link to="/userinfo/star">
+                          <router-link to="/userinfo/changePw">
                             <div :class="acticveChanceXiu">
                               <a class="link-block"></a>
                               <p>
@@ -193,7 +193,7 @@
                           </router-link>
                         </div>
                         <div @click="ChanceShou()" class="user-sidebar">
-                          <router-link to="/userinfo/changePw">
+                          <router-link to="/userinfo/star">
                             <div :class="acticveChanceShou">
                               <a class="link-block"></a>
                               <p>

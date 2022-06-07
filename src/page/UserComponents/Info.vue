@@ -21,7 +21,7 @@
                       style="width: 180px"
                       v-model="form.email"
                     ></el-input
-                    >@qq.com
+                    >
                   </el-form-item>
                 </el-col>
 

@@ -16,7 +16,9 @@
           />
         </h5>
         <h5 class="outh5">
-          <div class="bottom alipay">使用扫码支付 {{ this.form.integral / 100 }}元</div>
+          <div class="bottom alipay">
+            使用扫码支付 {{ this.form.integral  }}元
+          </div>
         </h5>
         <h5 class="outh5">
           <qriously :value="codeUrl" :size="190" />
@@ -45,7 +47,9 @@
           />
         </h5>
         <h5 class="outh5">
-          <div class="bottom alipay">使用扫码支付 {{ price / 100 }}元</div>
+          <div class="bottom alipay">
+            使用扫码支付 {{ this.form.integral  }}元
+          </div>
         </h5>
         <h5 class="outh5">
           <qriously :value="codeUrl" :size="190" />
@@ -162,6 +166,8 @@
 </template>
 <script>
 import wxPayApi from '../../api/payment/wxPay'
+import aliPayApi from '../../api/payment/aliPay'
+
 import { UpdateIntegral } from '../../api/user'
 export default {
   data() {
@@ -186,17 +192,16 @@ export default {
     // 查询订单状态
     queryOrderStatus() {
       const user = JSON.parse(window.localStorage.getItem('access-admin'))
-      console.log('查询' )
+      console.log('查询订单状态')
       UpdateIntegral(user.data.userid, this.form.integral, this.orderNo).then(resp => {
-        console.log('查询订单状态：' + response.data.code)
         console.log(resp)
         if (resp.data.code == 402 || resp.data.code == 400) {
-          this.$notify({
-            title: '失败',
-            message: '修改失败',
-            type: 'warning',
-            offset: 50
-          });
+          // this.$notify({
+          //   title: '失败',
+          //   message: '修改失败',
+          //   type: 'warning',
+          //   offset: 50
+          // });
         } else if (resp.data.code == 200) {
           //显示成功
           console.log('清除定时器')
@@ -232,10 +237,12 @@ export default {
 
       //支付宝支付
       if (this.payOrder.payType === 'alipay') {
+        //打开支付二维码
         this.aliDialogVisible = true
         //调用统一下单接口
-         const user = JSON.parse(window.localStorage.getItem('access-admin'))
-          wxPayApi.ftofPayForVipLogin(this.form.integral , user.data.userid).then(response => {
+        const user = JSON.parse(window.localStorage.getItem('access-admin'))
+        aliPayApi.ftofPayVipIntegralLogin(this.form.integral, user.data.userid).then(response => {
+          console.log(response.data.data.codeUrl)
           this.codeUrl = response.data.data.codeUrl
           this.orderNo = response.data.data.orderNo
 
@@ -252,8 +259,8 @@ export default {
         //打开支付二维码
         this.wxDialogVisible = true
         //调用统一下单接口
-         const user = JSON.parse(window.localStorage.getItem('access-admin'))
-        wxPayApi.nativePayVipIntegralLogin(this.form.integral , user.data.userid).then(response => {
+        const user = JSON.parse(window.localStorage.getItem('access-admin'))
+        wxPayApi.nativePayVipIntegralLogin(this.form.integral, user.data.userid).then(response => {
           console.log(response.data.data.codeUrl)
           this.codeUrl = response.data.data.codeUrl
           this.orderNo = response.data.data.orderNo
