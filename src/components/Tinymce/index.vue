@@ -133,6 +133,7 @@ export default {
         language: this.languageTypeList['zh'],
         height: this.height,
         body_class: 'panel-body ',
+        statusbar: false,
         object_resizing: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
         menubar: this.menubar,
