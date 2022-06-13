@@ -5,7 +5,6 @@
 </p>
 <p align="center">
 	<img src="https://img.shields.io/badge/JDK-1.8+-orange">
-	<img src="https://img.shields.io/badge/SpringBoot-2.2.7.RELEASE-brightgreen">
 	<img src="https://img.shields.io/badge/MyBatis-3.5.5-red">
 	<img src="https://img.shields.io/badge/Vue-2.6.11-brightgreen">
 	<img src="https://img.shields.io/badge/license-MIT-blue">
@@ -21,17 +20,6 @@
 [线上地址](http://panjiachen.github.io/vue-admin-template)
 
 [国内访问](https://panjiachen.gitee.io/vue-admin-template)
-
-目前版本为 `v4.0+` 基于 `vue-cli` 进行构建，若你想使用旧版本，可以切换分支到[tag/3.11.0](https://github.com/PanJiaChen/vue-admin-template/tree/tag/3.11.0)，它不依赖 `vue-cli`。
-
-<p align="center">
-  <b>SPONSORED BY</b>
-</p>
-<p align="center">
-   <a href="https://finclip.com?from=vue_element" title="FinClip" target="_blank">
-      <img height="200px" src="https://gitee.com/panjiachen/gitee-cdn/raw/master/vue%E8%B5%9E%E5%8A%A9.png" title="FinClip">
-   </a>
-</p>
 
 ## Extra
 
